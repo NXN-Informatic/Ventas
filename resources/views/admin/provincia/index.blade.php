@@ -30,6 +30,7 @@
                         <table id="datatables-basic" class="table table-striped" style="width:100%">
                             <thead>
                                 <tr>
+                                    <th>Id</th>
                                     <th>Name</th>
                                     <th>Region</th>
                                     <th>Pais</th>
@@ -39,6 +40,7 @@
                             <tbody>
                                 @foreach($provincias as $provincia)
                                 <tr>
+                                    <td>{{ $provincia->id }}</td>
                                     <td>{{ $provincia->nombre }}</td>
                                     <td>{{ $provincia->region->nombre }}</td>
                                     <td>{{ $provincia->region->pais->nombre }}</td>

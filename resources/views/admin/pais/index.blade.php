@@ -32,7 +32,8 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Name</th>
-                                    <th>Fecha Creada</th>
+                                    <th>Creada</th>
+                                    <th>Actualizada</th>
                                     <th>Operaciones</th>
                                 </tr>
                             </thead>
@@ -42,6 +43,7 @@
                                     <td>{{ $pais->id }}</td>
                                     <td>{{ $pais->nombre }}</td>
                                     <td>{{ $pais->created_at }}</td>
+                                    <td>{{ $pais->updated_at }}</td>
                                     <td class="table-action">
                                         <a href="{{ url('pais/'.$pais->id.'/edit') }}"><i class="align-middle fas fa-fw fa-pen"></i></a>
                                         <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>

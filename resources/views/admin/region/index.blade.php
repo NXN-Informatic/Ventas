@@ -33,6 +33,7 @@
                                     <th>Id</th>
                                     <th>Name</th>
                                     <th>Pais</th>
+                                    <th>Actualizada</th>
                                     <th>Operaciones</th>
                                 </tr>
                             </thead>
@@ -42,6 +43,7 @@
                                     <td>{{ $region->id }}</td>
                                     <td>{{ $region->nombre }}</td>
                                     <td>{{ $region->pais->nombre }}</td>
+                                    <td>{{ $region->updated_at }}</td>
                                     <td class="table-action">
                                         <a href="{{ url('region/'.$region->id.'/edit') }}"><i class="align-middle fas fa-fw fa-pen"></i></a>
                                         <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>

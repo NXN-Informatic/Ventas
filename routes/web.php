@@ -82,6 +82,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/provincia/store', 'Administrador\ProvinciaController@store');
     Route::get('/provincia/{provincia}/edit', 'Administrador\ProvinciaController@edit');
     Route::put('/provincia/{provincia}/update', 'Administrador\ProvinciaController@update');
+    // Api REST de Regiones
+    Route::get('/provincia/{region}/apiprovincias', 'Administrador\ProvinciaController@apiprovincias');
+
+     // Distrito 
+     Route::get('/distrito', 'Administrador\DistritoController@index');
+     Route::get('/distrito/create', 'Administrador\DistritoController@create');
+     Route::post('/distrito/store', 'Administrador\DistritoController@store');
+     Route::get('/distrito/{distrito}/edit', 'Administrador\DistritoController@edit');
+     Route::put('/distrito/{distrito}/update', 'Administrador\DistritoController@update');
 
     // Suscripciones
     Route::get('/price', 'Cliente\PrecioController@index');

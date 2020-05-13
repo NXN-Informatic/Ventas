@@ -29,12 +29,21 @@ class DocumentoController extends Controller
         ];
         $this->validate($request, $rules);
 
+        $file = $request->file('file');
+        if($file != null) {
+            $name = $file->getClientOriginalName();
+            $fileName = 'public/'.$request->input('puesto_id').'/document'.$name;
+            \Storage::disk('local')->put($fileName,  \File::get($file));
+        }else {
+            $name = null;
+        }
+
         Documento::create([
             'titulo'  => $request->input('titulo'),
             'description' => $request->input('description'),
             'puesto_id' => $request->input('puesto_id'),
             'tipodocumento_id' => $request->input('tipodocumento_id'),
-            'imagen' => $request->input('imagen')
+            'imagen' => $name
         ]);
 
         $notification = 'Se ha creado el Documento Correctamente';
@@ -42,7 +51,9 @@ class DocumentoController extends Controller
     }
 
     public function edit(Documento $documento) {
-        return view('admin.documento.edit', compact('documento'));
+        $puestos = Puesto::all();
+        $tipodocumentos = TipoDocumento::all();
+        return view('admin.documento.edit', compact('documento', 'puestos', 'tipodocumentos'));
     }
 
     public function update(Request $request, Documento $documento) {

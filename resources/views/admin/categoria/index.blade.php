@@ -33,6 +33,7 @@
                                     <th>Id</th>
                                     <th>Name</th>
                                     <th>Descripción</th>
+                                    <th>Actualizada</th>
                                     <th>Operaciones</th>
                                 </tr>
                             </thead>
@@ -42,8 +43,9 @@
                                     <td>{{ $categoria->id }}</td>
                                     <td>{{ $categoria->name }}</td>
                                     <td>
-                                        {{ $categoria->descripcion }}
+                                        {{  \Illuminate\Support\Str::limit($categoria->descripcion, 60) }}
                                     </td>
+                                    <td>{{ $categoria->updated_at }}</td>
                                     <td class="table-action">
                                         <a href="{{ url('categoria/'.$categoria->id.'/edit') }}"><i class="align-middle fas fa-fw fa-pen"></i></a>
                                         <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>

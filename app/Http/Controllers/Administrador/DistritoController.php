@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Distrito;
 use App\Provincia;
+use App\Region;
 
 class DistritoController extends Controller
 {
@@ -15,8 +16,9 @@ class DistritoController extends Controller
     }
 
     public function create() {
-        $regions = Provincia::all();
-        return view('admin.distrito.create', compact('regions'));
+        $regions = Region::all();
+        $provincias = collect();
+        return view('admin.distrito.create', compact('regions', 'provincias'));
     }
 
     public function store(Request $request) {
@@ -36,7 +38,8 @@ class DistritoController extends Controller
     }
 
     public function edit(Distrito $distrito) {
-        return view('admin.distrito.edit', compact('distrito'));
+        $provincias = Provincia::all();
+        return view('admin.distrito.edit', compact('distrito', 'provincias'));
     }
 
     public function update(Request $request, Distrito $distrito) {

@@ -42,7 +42,7 @@
                                     <td>{{ $subcategoria->name }}</td>
                                     <td>{{ $subcategoria->categoria->name }}</td>
                                     <td>
-                                        {!! $subcategoria->descripcion !!}
+                                        {{  \Illuminate\Support\Str::limit($subcategoria->descripcion, 60) }}
                                     </td>
                                     <td class="table-action">
                                         <a href="{{ url('subcategoria/'.$subcategoria->id.'/edit') }}"><i class="align-middle fas fa-fw fa-pen"></i></a>

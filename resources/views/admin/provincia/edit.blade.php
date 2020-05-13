@@ -80,4 +80,18 @@
 @include('layouts.partials.footer')
 @endsection
 
+@section('scripts')
+<script>
+    $(function() {
+        $(".select2").each(function() {
+            $(this)
+                .wrap("<div class=\"position-relative\"></div>")
+                .select2({
+                    placeholder: "Select value",
+                    dropdownParent: $(this).parent()
+                });
+        })
+    });
+</script>
+@endsection
 

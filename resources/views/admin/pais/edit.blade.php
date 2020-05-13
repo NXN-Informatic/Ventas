@@ -66,4 +66,3 @@
 
 @include('layouts.partials.footer')
 @endsection
-

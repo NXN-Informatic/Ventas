@@ -56,4 +56,11 @@ class ProvinciaController extends Controller
         $notification = 'Se ha actualizado la Provincia Correctamente';
         return redirect('/provincia/'.$provincia->id.'/edit')->with(compact('notification'));
     }
+    // API REST Provincias
+    public function apiprovincias(Region $region) {
+        return $region->provincias()->get([
+            'provincias.id',
+            'provincias.nombre',
+        ]);
+    }
 }

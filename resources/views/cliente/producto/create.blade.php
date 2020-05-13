@@ -14,7 +14,7 @@
 
         <div class="header">
             <h1 class="header-title">
-                {{ __('Panel de Administración') }}
+                {{ __('Panel de Usuario') }}
             </h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
