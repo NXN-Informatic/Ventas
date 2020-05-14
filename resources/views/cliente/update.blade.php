@@ -126,7 +126,7 @@
                                 </tr>
                                 <tr>
                                     <th>Estado</th>
-                                    @if(auth()->user()->status)
+                                    @if(auth()->user()->status == 'activo')
                                         <td><span class="badge badge-success">Activado</span></td>
                                     @else
                                         <td><span class="badge badge-danger">Desactivado</span></td>

@@ -27,9 +27,31 @@
                         <h6 class="card-subtitle text-muted">Lista de Usuarios Disponibles.</h6>
                     </div>
                     <div class="card-body">
+                        @if($errors->any())
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <div class="alert-message">
+                                <strong>{{ $errors->first() }}</strong>
+                            </div>
+                        </div>
+                        @endif
+                        @if (session('notification'))
+                        <div class="alert alert-primary alert-dismissible" role="alert">
+                            <div class="alert-icon">
+                                <i class="far fa-fw fa-bell"></i>
+                            </div>
+                            <div class="alert-message">
+                                <strong>{{ session('notification') }}</strong>
+                            </div>
+
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        @endif
                         <table id="datatables-basic" class="table table-striped" style="width:100%">
                             <thead>
                                 <tr>
+                                    <th>Id</th>
                                     <th>Name</th>
                                     <th>Identificación</th>
                                     <th>Nº Puestos</th>
@@ -40,22 +62,22 @@
                             <tbody>
                                 @foreach($usuarios as $user)
                                 <tr>
+                                    <td>{{ $user->id }}</td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->identidad->name }} : {{ $user->ndocumento }}</td>
                                     <td class="text-center">{{ $user->maxpuestos }}</td>
                                     <td>
-                                        @if($user->status)
+                                        @if($user->status == 'activo')
                                             <span class="badge badge-primary">Activado</span>
                                         @else
                                             <span class="badge badge-danger">Desactivado</span>
                                         @endif
                                     </td>
                                     <td class="table-action">
-                                        <a href="#"><i class="align-middle mr-2 fas fa-fw fa-user-check"></i></a>
-                                        <a href="#"><i class="align-middle mr-2 fas fa-fw fa-check-circle"></i></a>
-                                        <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
+                                        <a href="{{ url('/usuarios/'.$user->id.'/info') }}"><i class="align-middle mr-2 fas fa-fw fa-user-check"></i></a>
+                                        <a href="{{ url('/usuarios/'.$user->id.'/active') }}"><i class="align-middle mr-2 fas fa-fw fa-check-circle"></i></a>
+                                        <a href="{{ url('/usuarios/'.$user->id.'/desactivado') }}"><i class="align-middle fas fa-fw fa-trash"></i></a>
                                         <a href="#"><i class="align-middle fas fa-fw fa-pen"></i></a>
-                                        <a href="#"><i class="align-middle mr-2 fas fa-fw fa-eye"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach

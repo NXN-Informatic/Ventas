@@ -57,7 +57,9 @@ Route::group(['middleware' => 'auth'], function () {
      // Usuarios
     Route::get('/usuarios', 'Administrador\UsuarioController@index');
     Route::get('/usuarios/create', 'Administrador\UsuarioController@create');
-      
+    Route::get('/usuarios/{usuario}/info', 'Administrador\UsuarioController@info');
+    Route::Get('/usuarios/{usuario}/active', 'Administrador\UsuarioController@updateActive');
+    Route::Get('/usuarios/{usuario}/desactivado', 'Administrador\UsuarioController@updateDelete');
 
     // Categorias
     Route::get('/categoria', 'Administrador\CategoriaController@index');

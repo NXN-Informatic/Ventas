@@ -40,5 +40,8 @@ class User extends Authenticatable
     public function identidad(){
         return $this->belongsTo(Identidad::class);
     }
-
+    
+    public function distrito(){
+        return $this->belongsTo(Distrito::class);
+    }
 }
