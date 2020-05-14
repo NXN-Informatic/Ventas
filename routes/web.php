@@ -11,6 +11,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
+    /** 
+     * CLIENTE
+     */
+
     // Rutas de Cliente => Perfil de Usuario
     Route::get('/user', 'Cliente\UserController@edit');
     Route::put('/user/update/{usuario}', 'Cliente\UserController@update');
@@ -45,6 +49,15 @@ Route::group(['middleware' => 'auth'], function () {
     // Grupos de Cliente
     Route::get('/producto/{usuarioPuesto}/grupo', 'Cliente\ProductoController@create_grupo');
     Route::post('/producto/grupo', 'Cliente\ProductoController@grupo');
+
+    /** 
+     * ADMINISTRADOR
+     */
+
+     // Usuarios
+    Route::get('/usuarios', 'Administrador\UsuarioController@index');
+    Route::get('/usuarios/create', 'Administrador\UsuarioController@create');
+      
 
     // Categorias
     Route::get('/categoria', 'Administrador\CategoriaController@index');

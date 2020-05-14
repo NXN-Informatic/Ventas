@@ -15,8 +15,8 @@
             <i class="align-middle mr-2 fas fa-fw fa-user-cog"></i> <span class="align-middle">{{ __('Usuarios') }}</span>
         </a>
         <ul id="usuario" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-            <li class="sidebar-item"><a class="sidebar-link" href="#">{{ __('Lista de Usuarios') }}</a></li>
-            <li class="sidebar-item"><a class="sidebar-link" href="#">{{ __('Crear Usuario') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('usuarios') }}">{{ __('Lista de Usuarios') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('usuarios/create') }}">{{ __('Crear Usuario') }}</a></li>
         </ul>
     </li>
     <li class="sidebar-item">

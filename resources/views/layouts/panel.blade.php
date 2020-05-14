@@ -2,696 +2,100 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <!-- Google font -->
-	<link href="https://fonts.googleapis.com/css?family=Hind:400,700" rel="stylesheet">
-    
-    <!-- Bootstrap -->
-	<link type="text/css" rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
-
-    <!-- Slick -->
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/slick.css') }}" />
-	<link type="text/css" rel="stylesheet" href="{{ asset('css/slick-theme.css') }}" />
-
-    <!-- nouislider -->
-	<link type="text/css" rel="stylesheet" href="{{ asset('css/nouislider.min.css') }}" />
-
-    <!-- Custom stlylesheet -->
-	<link type="text/css" rel="stylesheet" href="{{ asset('css/style.css') }}" />
-
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
 
     @yield('styles')
-    <!-- Fonts -->
-    <script src="https://kit.fontawesome.com/882059baa9.js" crossorigin="anonymous"></script>
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="{{ asset('css/fonts/fontawesome/css/all.min.css') }}">
+    <!--Icon Font-->
+    <link rel="stylesheet" href="{{ asset('css/fonts/icofont/icofont.min.css') }}">
+
 </head>
 <body>
     
 <body>
-    <!-- HEADER -->
-	<header>
-		<!-- top Header -->
-		<div id="top-header">
-			<div class="container">
-				<div class="pull-left">
-					<span>Welcome to E-shop!</span>
-				</div>
-				<div class="pull-right">
-					<ul class="header-top-links">
-						<li><a href="#">Store</a></li>
-						<li><a href="#">Newsletter</a></li>
-						<li><a href="#">FAQ</a></li>
-						<li class="dropdown default-dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">ENG <i class="fa fa-caret-down"></i></a>
-							<ul class="custom-menu">
-								<li><a href="#">English (ENG)</a></li>
-								<li><a href="#">Russian (Ru)</a></li>
-								<li><a href="#">French (FR)</a></li>
-								<li><a href="#">Spanish (Es)</a></li>
-							</ul>
-						</li>
-						<li class="dropdown default-dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">USD <i class="fa fa-caret-down"></i></a>
-							<ul class="custom-menu">
-								<li><a href="#">USD ($)</a></li>
-								<li><a href="#">EUR (€)</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<!-- /top Header -->
+  <div id="onTop"></div>
 
-		<!-- header -->
-		<div id="header">
-			<div class="container">
-				<div class="pull-left">
-					<!-- Logo -->
-					<div class="header-logo">
-						<a class="logo" href="#">
-							<img src="{{ asset('img/template/img/logo.png') }}" alt="">
-						</a>
-					</div>
-					<!-- /Logo -->
+  <!--Start Page Loader-->
+  <div class="loader dflex"><img src="{{ asset('img/images/logo/wood-logo-dark.svg') }}" alt="">
+    <div class="dflex"><span></span><span></span><span></span></div>
+  </div>
+  <!--End Page Loader-->
 
-					<!-- Search -->
-					<div class="header-search">
-						<form>
-							<input class="input search-input" type="text" placeholder="Enter your keyword">
-							<select class="input search-categories">
-								<option value="0">All Categories</option>
-								<option value="1">Category 01</option>
-								<option value="1">Category 02</option>
-							</select>
-							<button class="search-btn"><i class="fa fa-search"></i></button>
-						</form>
-					</div>
-					<!-- /Search -->
-				</div>
-				<div class="pull-right">
-					<ul class="header-btns">
-						<!-- Account -->
-						<li class="header-account dropdown default-dropdown">
-							<div class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="true">
-								<div class="header-btns-icon">
-									<i class="fa fa-user-o"></i>
-								</div>
-								<strong class="text-uppercase">My Account <i class="fa fa-caret-down"></i></strong>
-							</div>
-							<a href="#" class="text-uppercase">Login</a> / <a href="#" class="text-uppercase">Join</a>
-							<ul class="custom-menu">
-								<li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
-								<li><a href="#"><i class="fa fa-heart-o"></i> My Wishlist</a></li>
-								<li><a href="#"><i class="fa fa-exchange"></i> Compare</a></li>
-								<li><a href="#"><i class="fa fa-check"></i> Checkout</a></li>
-								<li><a href="{{ url('login') }}"><i class="fa fa-unlock-alt"></i> Login</a></li>
-								<li><a href="{{ url('register') }}"><i class="fa fa-user-plus"></i> Create An Account</a></li>
-							</ul>
-						</li>
-						<!-- /Account -->
+  <!--Start Elements Page-->
+  <a class="onTop dflex" href="#onTop"><i class="fas fa-angle-up"></i></a>
+  <div class="buy dflex"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 415.441 415.441" fill="#81b441" xml:space="preserve"> <path d="M324.63,22.533C135.173,226.428,80.309,371.638,80.309,371.638c41.149,47.743,111.28,43.72,111.28,43.72 			c73.921,2.31,119.192-43.522,119.192-43.522c91.861-92.516,80.549-355.302,80.549-355.302 			C372.769-23.891,324.63,22.533,324.63,22.533z"></path> <path d="M32.369,181.983c0,0-28.983,57.964,18.859,155.495L178.367,58.01C176.916,58.538,63.691,98.037,32.369,181.983z"></path> </svg><span>Buy<strong>WoodMart</strong></span></div>
+  <!--End Elements Page-->
 
-						<!-- Cart -->
-						<li class="header-cart dropdown default-dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-								<div class="header-btns-icon">
-									<i class="fa fa-shopping-cart"></i>
-									<span class="qty">3</span>
-								</div>
-								<strong class="text-uppercase">My Cart:</strong>
-								<br>
-								<span>35.20$</span>
-							</a>
-							<div class="custom-menu">
-								<div id="shopping-cart">
-									<div class="shopping-cart-list">
-										<div class="product product-widget">
-											<div class="product-thumb">
-												<img src="{{ asset('img/template/img/thumb-product01.jpg') }}" alt="">
-											</div>
-											<div class="product-body">
-												<h3 class="product-price">$32.50 <span class="qty">x3</span></h3>
-												<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-											</div>
-											<button class="cancel-btn"><i class="fa fa-trash"></i></button>
-										</div>
-										<div class="product product-widget">
-											<div class="product-thumb">
-												<img src="{{ asset('img/template/img/thumb-product01.jpg') }}" alt="">
-											</div>
-											<div class="product-body">
-												<h3 class="product-price">$32.50 <span class="qty">x3</span></h3>
-												<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-											</div>
-											<button class="cancel-btn"><i class="fa fa-trash"></i></button>
-										</div>
-									</div>
-									<div class="shopping-cart-btns">
-										<button class="main-btn">View Cart</button>
-										<button class="primary-btn">Checkout <i class="fa fa-arrow-circle-right"></i></button>
-									</div>
-								</div>
-							</div>
-						</li>
-						<!-- /Cart -->
-
-						<!-- Mobile nav toggle-->
-						<li class="nav-toggle">
-							<button class="nav-toggle-btn main-btn icon-btn"><i class="fa fa-bars"></i></button>
-						</li>
-						<!-- / Mobile nav toggle -->
-					</ul>
-				</div>
-			</div>
-			<!-- header -->
-		</div>
-		<!-- container -->
-	</header>
-	<!-- /HEADER -->
-
-    <!-- NAVIGATION -->
-	<div id="navigation">
-		<!-- container -->
-		<div class="container">
-			<div id="responsive-nav">
-				<!-- category nav -->
-				<div class="category-nav">
-					<span class="category-header">Categories <i class="fa fa-list"></i></span>
-					<ul class="category-list">
-						<li class="dropdown side-dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Women’s Clothing <i class="fa fa-angle-right"></i></a>
-							<div class="custom-menu">
-								<div class="row">
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-										<hr class="hidden-md hidden-lg">
-									</div>
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-										<hr class="hidden-md hidden-lg">
-									</div>
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="row hidden-sm hidden-xs">
-									<div class="col-md-12">
-										<hr>
-										<a class="banner banner-1" href="#">
-											<img src="{{ asset('img/template/img/banner05.jpg') }}" alt="">
-											<div class="banner-caption text-center">
-												<h2 class="white-color">NEW COLLECTION</h2>
-												<h3 class="white-color font-weak">HOT DEAL</h3>
-											</div>
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li><a href="#">Men’s Clothing</a></li>
-						<li class="dropdown side-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Phones & Accessories <i class="fa fa-angle-right"></i></a>
-							<div class="custom-menu">
-								<div class="row">
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-										<hr>
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-										<hr class="hidden-md hidden-lg">
-									</div>
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-										<hr>
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-									</div>
-									<div class="col-md-4 hidden-sm hidden-xs">
-										<a class="banner banner-2" href="#">
-											<img src="{{ asset('img/template/img/banner04.jpg') }}" alt="">
-											<div class="banner-caption">
-												<h3 class="white-color">NEW<br>COLLECTION</h3>
-											</div>
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li><a href="#">Computer & Office</a></li>
-						<li><a href="#">Consumer Electronics</a></li>
-						<li class="dropdown side-dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Jewelry & Watches <i class="fa fa-angle-right"></i></a>
-							<div class="custom-menu">
-								<div class="row">
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-										<hr>
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-										<hr class="hidden-md hidden-lg">
-									</div>
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-										<hr>
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-										<hr class="hidden-md hidden-lg">
-									</div>
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-										<hr>
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li><a href="#">Bags & Shoes</a></li>
-						<li><a href="#">View All</a></li>
-					</ul>
-				</div>
-				<!-- /category nav -->
-
-				<!-- menu nav -->
-				<div class="menu-nav">
-					<span class="menu-header">Menu <i class="fa fa-bars"></i></span>
-					<ul class="menu-list">
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Shop</a></li>
-						<li class="dropdown mega-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Women <i class="fa fa-caret-down"></i></a>
-							<div class="custom-menu">
-								<div class="row">
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-										<hr class="hidden-md hidden-lg">
-									</div>
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-										<hr class="hidden-md hidden-lg">
-									</div>
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="row hidden-sm hidden-xs">
-									<div class="col-md-12">
-										<hr>
-										<a class="banner banner-1" href="#">
-											<img src="{{ asset('img/template/img/banner05.jpg') }}" alt="">
-											<div class="banner-caption text-center">
-												<h2 class="white-color">NEW COLLECTION</h2>
-												<h3 class="white-color font-weak">HOT DEAL</h3>
-											</div>
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="dropdown mega-dropdown full-width"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Men <i class="fa fa-caret-down"></i></a>
-							<div class="custom-menu">
-								<div class="row">
-									<div class="col-md-3">
-										<div class="hidden-sm hidden-xs">
-											<a class="banner banner-1" href="#">
-												<img src="{{ asset('img/template/img/banner06.jpg') }}" alt="">
-												<div class="banner-caption text-center">
-													<h3 class="white-color text-uppercase">Women’s</h3>
-												</div>
-											</a>
-											<hr>
-										</div>
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-									</div>
-									<div class="col-md-3">
-										<div class="hidden-sm hidden-xs">
-											<a class="banner banner-1" href="#">
-												<img src="{{ asset('img/template/img/banner07.jpg') }}" alt="">
-												<div class="banner-caption text-center">
-													<h3 class="white-color text-uppercase">Men’s</h3>
-												</div>
-											</a>
-										</div>
-										<hr>
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-									</div>
-									<div class="col-md-3">
-										<div class="hidden-sm hidden-xs">
-											<a class="banner banner-1" href="#">
-												<img src="{{ asset('img/template/img/banner08.jpg') }}" alt="">
-												<div class="banner-caption text-center">
-													<h3 class="white-color text-uppercase">Accessories</h3>
-												</div>
-											</a>
-										</div>
-										<hr>
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-									</div>
-									<div class="col-md-3">
-										<div class="hidden-sm hidden-xs">
-											<a class="banner banner-1" href="#">
-												<img src="{{ asset('img/template/img/banner09.jpg') }}" alt="">
-												<div class="banner-caption text-center">
-													<h3 class="white-color text-uppercase">Bags</h3>
-												</div>
-											</a>
-										</div>
-										<hr>
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li><a href="#">Sales</a></li>
-						<li class="dropdown default-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Pages <i class="fa fa-caret-down"></i></a>
-							<ul class="custom-menu">
-								<li><a href="index.html">Home</a></li>
-								<li><a href="products.html">Products</a></li>
-								<li><a href="product-page.html">Product Details</a></li>
-								<li><a href="checkout.html">Checkout</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-				<!-- menu nav -->
-			</div>
-		</div>
-		<!-- /container -->
-	</div>
-	<!-- /NAVIGATION -->
-
-    <!-- HOME -->
-	<div id="home">
-		<!-- container -->
-		<div class="container">
-			<!-- home wrap -->
-			<div class="home-wrap">
-				<!-- home slick -->
-				<div id="home-slick">
-					<!-- banner -->
-					<div class="banner banner-1">
-						<img src="{{ asset('img/template/img/banner01.jpg') }}" alt="">
-						<div class="banner-caption text-center">
-							<h1>Bags sale</h1>
-							<h3 class="white-color font-weak">Up to 50% Discount</h3>
-							<button class="primary-btn">Shop Now</button>
-						</div>
-					</div>
-					<!-- /banner -->
-
-					<!-- banner -->
-					<div class="banner banner-1">
-						<img src="{{ asset('img/template/img/banner02.jpg') }}" alt="">
-						<div class="banner-caption">
-							<h1 class="primary-color">HOT DEAL<br><span class="white-color font-weak">Up to 50% OFF</span></h1>
-							<button class="primary-btn">Shop Now</button>
-						</div>
-					</div>
-					<!-- /banner -->
-
-					<!-- banner -->
-					<div class="banner banner-1">
-						<img src="{{ asset('img/template/img/banner03.jpg') }}" alt="">
-						<div class="banner-caption">
-							<h1 class="white-color">New Product <span>Collection</span></h1>
-							<button class="primary-btn">Shop Now</button>
-						</div>
-					</div>
-					<!-- /banner -->
-				</div>
-				<!-- /home slick -->
-			</div>
-			<!-- /home wrap -->
-		</div>
-		<!-- /container -->
-	</div>
-	<!-- /HOME -->
-
-    @yield('content')
-
-	<!-- FOOTER -->
-	<footer id="footer" class="section section-grey">
-		<!-- container -->
-		<div class="container">
-			<!-- row -->
-			<div class="row">
-				<!-- footer widget -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="footer">
-						<!-- footer logo -->
-						<div class="footer-logo">
-							<a class="logo" href="#">
-		            <img src="{{ asset('img/template/img/logo.png') }}" alt="">
-		          </a>
-						</div>
-						<!-- /footer logo -->
-
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
-
-						<!-- footer social -->
-						<ul class="footer-social">
-							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fa fa-instagram"></i></a></li>
-							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-							<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-						</ul>
-						<!-- /footer social -->
-					</div>
-				</div>
-				<!-- /footer widget -->
-
-				<!-- footer widget -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="footer">
-						<h3 class="footer-header">My Account</h3>
-						<ul class="list-links">
-							<li><a href="#">My Account</a></li>
-							<li><a href="#">My Wishlist</a></li>
-							<li><a href="#">Compare</a></li>
-							<li><a href="#">Checkout</a></li>
-							<li><a href="#">Login</a></li>
-						</ul>
-					</div>
-				</div>
-				<!-- /footer widget -->
-
-				<div class="clearfix visible-sm visible-xs"></div>
-
-				<!-- footer widget -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="footer">
-						<h3 class="footer-header">Customer Service</h3>
-						<ul class="list-links">
-							<li><a href="#">About Us</a></li>
-							<li><a href="#">Shiping & Return</a></li>
-							<li><a href="#">Shiping Guide</a></li>
-							<li><a href="#">FAQ</a></li>
-						</ul>
-					</div>
-				</div>
-				<!-- /footer widget -->
-
-				<!-- footer subscribe -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="footer">
-						<h3 class="footer-header">Stay Connected</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-						<form>
-							<div class="form-group">
-								<input class="input" placeholder="Enter Email Address">
-							</div>
-							<button class="primary-btn">Join Newslatter</button>
-						</form>
-					</div>
-				</div>
-				<!-- /footer subscribe -->
-			</div>
-			<!-- /row -->
-			<hr>
-			<!-- row -->
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center">
-					<!-- footer copyright -->
-					<div class="footer-copyright">
-						<!-- Link back to Colorlib can't be removed. img/Template is licensed under CC BY 3.0. -->
-						Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This img/template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-						<!-- Link back to Colorlib can't be removed. img/Template is licensed under CC BY 3.0. -->
-					</div>
-					<!-- /footer copyright -->
-				</div>
-			</div>
-			<!-- /row -->
-		</div>
-		<!-- /container -->
-	</footer>
-	<!-- /FOOTER -->
-
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
-	<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/slick.min.js') }}"></script>
-	<script src="{{ asset('js/nouislider.min.js') }}"></script>
-	<script src="{{ asset('js/jquery.zoom.min.js') }}"></script>
-	<script src="{{ asset('js/main.js') }}"></script>
-    @yield('scripts')
+  <!--Start Header-->
+  <header>
+    <div class="header__wrap container dflex">
+        <ul class="header__item dflex left">
+            <li class="header__list"><span>English</span><i class="fas fa-angle-down"></i>
+                <ul class="sub">
+                    <li><span>Deutsch</span></li>
+                    <li><span>French</span></li>
+                    <li><span>Requires WPML plugin</span></li>
+                </ul>
+            </li>
+            <li class="header__list"><span>Country</span><i class="fas fa-angle-down"></i>
+                <ul class="sub">
+                    <li><span>United States (USD)</span></li>
+                    <li><span>Deutschland (EUR)</span></li>
+                    <li><span>Japan (JPY)</span></li>
+                </ul>
+            </li>
+            <li class="header__list"><span>Free Shipping For All Order Of $150</span></li>
+        </ul>
+        <ul class="header__item dflex right">
+            <li class="header__list social dflex"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fas fa-envelope"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+            </li>
+            <li class="header__list"><i class="far fa-envelope"></i><span>Newsletter</span></li>
+            <li class="header__list"><span>Contact Us</span></li>
+            <li class="header__list"><span>Faqs</span></li>
+        </ul>
+    </div>
+  </header>
+  <div class="nav">
+      <div class="nav__wrap container dflex">
+          <div class="nav__button"><i class="fas fa-bars"></i>MENU</div>
+          <a class="nav__logo" href="index.html"><img src="{{ asset('img/images/logo/wood-logo-dark.svg') }}" alt=""></a>
+          <div class="nav__search dflex">
+              <input type="text" placeholder="Search for Products">
+              <select name="search">
+          <option value="Select Category">Select Category</option>
+          <option value="Accessories">Accessories</option>
+          <option value="Clocks">Clocks</option>
+          <option value="Cooking">Cooking</option>
+          <option value="Furniture">Furniture</option>
+          <option value="Lighting">Lighting</option>
+          <option value="Toys">Toys</option>
+          <option value="Uncategorized">Uncategorized</option>
+        </select><a href="#"><i class="fas fa-search"></i></a>
+          </div>
+          <div class="nav__notify dflex">
+              <a class="link" href="{{ url('login') }}">Login</a>
+              <a class="link" href="{{ url('register') }}">Register</a>
+              <div class="icon"><i class="far fa-heart"></i></div>
+              <div class="icon" data-notify="0"><i class="fas fa-random"></i></div>
+              <div class="icon reponsive" data-notify="0"><i class="fas fa-shopping-bag"></i></div><span>$0.00</span>
+          </div>
+      </div>
+  </div>
+	@yield('content')
+	<!--Isotope-->
+	<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+  <!--JavaScript-->
+  <script src="{{ asset('js/main.js') }}"></script>
+  @yield('scripts')
 </body>
 </html>
