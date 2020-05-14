@@ -25,18 +25,14 @@
                     </div>
                     @endif
                         <div class="text-center mt-3">    
-                            <a href="" class="btn btn-facebook btn-lg">
+                            <a href="" class="btn btn-facebook btn-lg mt-2">
                                 {{ __("Facebook") }} <i class="align-middle mr-2 fab fa-fw fa-facebook"></i>
                             </a>
-                            <a href="" class="btn btn-google btn-lg">
+                            <a href="" class="btn btn-google btn-lg mt-2">
                                 {{ __("Google") }} <i class="fa fa-google"></i>
                             </a>
-                            <a href="" class="btn btn-twitter btn-lg">
+                            <a href="" class="btn btn-twitter btn-lg mt-2">
                                 {{ __("Twitter") }} <i class="fa fa-twitter"></i>
-                            </a>
-                            <a href=""
-                                class="btn btn-github btn-lg">
-                                {{ __("Github") }} <i class="fa fa-github" ></i>
                             </a>
                         </div>
                         <hr>
