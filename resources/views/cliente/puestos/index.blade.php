@@ -58,5 +58,6 @@
         </div>
     </div>
 </main>
+<hr>
 @include('layouts.partials.footer')
 @endsection
