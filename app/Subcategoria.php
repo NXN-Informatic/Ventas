@@ -10,8 +10,10 @@ class Subcategoria extends Model
         'name', 'id', 'description', 'categoria_id'
     ];
 
-    public function categoria()
-    {
+    public function categoria(){
         return $this->belongsTo(Categoria::class);
+    }
+    public function puestosubcategorias(){
+        return $this->hasMany(PuestoSubcategoria::class);
     }
 }

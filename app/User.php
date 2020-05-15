@@ -37,10 +37,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function usuario_puestos() {
+        return $this->hasMany(UsuarioPuesto::class,'usuario_id');
+    }
     public function identidad(){
         return $this->belongsTo(Identidad::class);
     }
-    
+    public function user_social_accounts() {
+        return $this->hasMany(UserSocialAccount::class,'user_id');
+    }
     public function distrito(){
         return $this->belongsTo(Distrito::class);
     }

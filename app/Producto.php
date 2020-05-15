@@ -14,7 +14,11 @@ class Producto extends Model
         return $this->hasMany(ImagenProducto::class);
     }
 
-    public function grupos() {
-        return $this->belongsTo(Grupo::class, 'grupo_id');
+    public function grupo() {
+        return $this->belongsTo(Grupo::class);
+    }
+
+    public function favoritos() {
+        return $this->hasMany(Favorito::class);
     }
 }
