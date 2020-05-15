@@ -10,13 +10,13 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <meta property="og:title" content="@yield('ogTitle', 'Título general de mi sitio.')"/>
+    <meta property="og:title" content="@yield('ogTitle', 'PUESTO NAIN 2020.')"/>
     <meta property="og:site_name" content="Mi sitio web"/>
     <meta property="og:url" content="@yield('ogUrl', 'http://feriatacna.com/')"/>
-    <meta property="og:description" content="@yield('ogDesc', 'La descripción de mi sitio web.')"/>
+    <meta property="og:description" content="@yield('ogDesc', 'Puesto de Ventas de Artefactos Electrónicos.')"/>
     <meta property="og:type" content="@yield('ogType', 'website')"/>
     <meta property="og:locale" content="es"/>
-    <meta property="og:image" content="@yield('ogImage', 'http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg')"/>
+    <meta property="og:image" content="@yield('ogImage', 'http://localhost:8000/storage/4/banner/banner.jpg')"/>
     <meta property="og:image:width" content="400" />
     <meta property="og:image:height" content="400" />
     <meta property="fb:app_id" content="xxxxxxxxx"/>
