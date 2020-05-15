@@ -99,6 +99,21 @@ class PuestoController extends Controller
         $puesto->phone2 = $request->input('phone2');
         $puesto->phone = $request->input('phone');
         $puesto->precio_min = $request->input('precio_min');
+
+        $file = $request->file('logo');
+        $banner = $request->file('banner');
+        if($file != null) {
+            $name = $file->getClientOriginalName();
+            $fileName = 'public/'.$puesto->id.'/logo/'.$name;
+            \Storage::disk('local')->put($fileName,  \File::get($file));
+            $puesto->perfil = $name;
+        }
+        if($banner != null) {
+            $name = $banner->getClientOriginalName();
+            $fileName = 'public/'.$puesto->id.'/banner/'.$name;
+            \Storage::disk('local')->put($fileName,  \File::get($banner));
+            $puesto->banner = $name;
+        }
         $puesto->save();
 
         $subcategorias = $request->input('subcategoria_id');
@@ -114,8 +129,12 @@ class PuestoController extends Controller
                 ]);
             }
         }
-        
+
         $notification = 'Se ha actualizado los datos de su puesto Correctamente';
         return redirect('/puesto/'.$puesto->id.'/edit')->with(compact('notification'));
+    }
+
+    public function compartir(Puesto $puesto) {
+        return view('/publicas/puestos', compact('puesto'));
     }
 }

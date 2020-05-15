@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@section('styles')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css">
+@endsection
+
 @section('content')
 @include('layouts.partials.menu')
 @include('layouts.partials.navbar')

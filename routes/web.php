@@ -25,6 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/puesto/update/{puesto}', 'Cliente\PuestoController@update');
     Route::get('/puesto/create', 'Cliente\PuestoController@create');
     Route::post('/puesto/store', 'Cliente\PuestoController@store');
+    Route::get('/puesto/{puesto}/detail', 'Cliente\PuestoController@compartir');
     
     // Api REST de Subcategorias
     Route::get('/categorias/{categoria}/subcategorias', 'Cliente\CategoriaController@apiSubcategoria');
@@ -58,8 +59,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/usuarios', 'Administrador\UsuarioController@index');
     Route::get('/usuarios/create', 'Administrador\UsuarioController@create');
     Route::get('/usuarios/{usuario}/info', 'Administrador\UsuarioController@info');
-    Route::Get('/usuarios/{usuario}/active', 'Administrador\UsuarioController@updateActive');
-    Route::Get('/usuarios/{usuario}/desactivado', 'Administrador\UsuarioController@updateDelete');
+    Route::get('/usuarios/{usuario}/active', 'Administrador\UsuarioController@updateActive');
+    Route::get('/usuarios/{usuario}/desactivado', 'Administrador\UsuarioController@updateDelete');
+    Route::get('/usuarios/{usuario}/edit', 'Administrador\UsuarioController@edit');
+    Route::put('/usuarios/{usuario}/update', 'Administrador\UsuarioController@update');
+    Route::post('/usuarios/store', 'Administrador\UsuarioController@store');
 
     // Categorias
     Route::get('/categoria', 'Administrador\CategoriaController@index');

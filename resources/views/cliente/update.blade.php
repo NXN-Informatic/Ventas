@@ -19,7 +19,7 @@
         </div>
         <div class="row">
             <!-- Formulario de Usuario -->
-            <div class="col-xxl-9">
+            <div class="col-xxl-8">
                 <div class="card">
                     <div class="card-header">
                         <h5 class="card-title mb-0">{{ __('MI PERFIL DE USUARIO') }}</h5>
@@ -61,7 +61,7 @@
                             <div class="form-group">
                                 <label class="form-label" for="dni">Tipo de Documento</label>
                                 <div class="mb-3">
-								<select class="form-control select2" id="identidad_id" name="identidad_id" data-toggle="select2">
+								<select class="form-control" id="identidad_id" name="identidad_id" required>
                                     <optgroup label="Documentos Disponibles">
                                     @foreach($tipoDocuments as $document)
                                         <option value="{{ $document->id }}" 
@@ -82,6 +82,25 @@
                                 <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
                             </div>
                             <div class="form-group">
+                                <label class="form-label" for="password">Actualizar Contraseña de Usuario</label>
+                                <input type="text" class="form-control" name="password" value="{{ old('address') }}">
+                                <small class="form-text text-muted">{{ __('Si no quiere actualizarla no escriba nada.') }}</small>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="distrito_id">Seleecione su distrito</label>
+                                <div class="mb-3">
+								<select class="form-control select2" id="distrito_id" name="distrito_id" data-toggle="select2">
+                                    <optgroup label="Filtre por Nombre de País , Ciudad , Provincia , Distrito">
+                                    <option value=""></option>
+                                    @foreach($distritos as $distrito)
+                                        <option value="{{ $distrito->id }}" 
+                                            @if(auth()->user()->distrito_id == $distrito->id ) selected @endif >{{ $distrito->nombre }} - {{ $distrito->provincia->region->nombre }} - {{ $distrito->provincia->region->pais->nombre }}</option>
+                                    @endforeach
+                                    </optgroup>
+                                </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="form-label" for="address">Dirección de Usuario</label>
                                 <input type="text" class="form-control" name="address" value="{{ old('address', auth()->user()->address) }}">
                             </div>
@@ -93,7 +112,7 @@
             <!-- End Formulario de Usuario -->
             
             <!-- Vista de Usuario -->
-            <div class="col-xxl-3">
+            <div class="col-xxl-4">
                 <div class="card">
                     <div class="card-body">
                         <div class="row no-gutters">
@@ -142,4 +161,19 @@
     </div>
 </main>
 @include('layouts.partials.footer')
+@endsection
+
+@section('scripts')
+<script>
+    $(function() {
+        $(".select2").each(function() {
+            $(this)
+                .wrap("<div class=\"position-relative\"></div>")
+                .select2({
+                    placeholder: "Select value",
+                    dropdownParent: $(this).parent()
+                });
+        })
+    });
+</script>
 @endsection

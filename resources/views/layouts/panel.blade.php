@@ -24,11 +24,7 @@
 <body>
   <div id="onTop"></div>
 
-  <!--Start Page Loader-->
-  <div class="loader dflex"><img src="{{ asset('img/images/logo/wood-logo-dark.svg') }}" alt="">
-    <div class="dflex"><span></span><span></span><span></span></div>
-  </div>
-  <!--End Page Loader-->
+  @yield('load')
 
   <!--Start Elements Page-->
   <a class="onTop dflex" href="#onTop"><i class="fas fa-angle-up"></i></a>

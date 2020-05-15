@@ -77,7 +77,7 @@
                                         <a href="{{ url('/usuarios/'.$user->id.'/info') }}"><i class="align-middle mr-2 fas fa-fw fa-user-check"></i></a>
                                         <a href="{{ url('/usuarios/'.$user->id.'/active') }}"><i class="align-middle mr-2 fas fa-fw fa-check-circle"></i></a>
                                         <a href="{{ url('/usuarios/'.$user->id.'/desactivado') }}"><i class="align-middle fas fa-fw fa-trash"></i></a>
-                                        <a href="#"><i class="align-middle fas fa-fw fa-pen"></i></a>
+                                        <a href="{{ url('/usuarios/'.$user->id.'/edit') }}"><i class="align-middle fas fa-fw fa-pen"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach

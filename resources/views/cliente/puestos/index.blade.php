@@ -45,6 +45,7 @@
                                         <div class="col-sm-10 ml-sm-auto text-right mt-2">
                                             <a href="{{ url('puesto/'.$usuarios_puesto->puesto->id.'/edit') }}"><button type="submit" class="btn btn-primary">{{ __('Editar') }}</button></a>
                                             <button type="submit" class="btn btn-danger">{{ __('Eliminar') }}</button>
+                                            <a href="{{ url('puesto/'.$usuarios_puesto->puesto->id.'/detail') }}"><button class="btn btn-secondary"><i class="fas fa-globe-americas"></i> Compartir</button></a>
                                         </div>
                                     </div>
                                 </div>
