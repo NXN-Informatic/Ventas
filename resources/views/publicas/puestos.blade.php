@@ -3,29 +3,15 @@
   <title>{{ $puesto->name }}</title>
     <!-- You can use Open Graph tags to customize link previews.
     Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
-  <meta property="og:url"           content="http://feriatacna.com/" />
-  <meta property="og:type"          content="website" />
-  <meta property="og:title"         content="{{ $puesto->name }}" />
-  <meta property="og:description"   content="FERIA TACNA" />
-  <meta property="og:image"         content="http://feriatacna.com/storage/{{ $puesto->id }}/banner/{{ $puesto->banner }}" />
-</head>
+ 
+    <meta property="og:url"                content="http://www.nytimes.com/2015/02/19/arts/international/when-great-minds-dont-think-alike.html" />
+    <meta property="og:type"               content="article" />
+    <meta property="og:title"              content="When Great Minds Don’t Think Alike" />
+    <meta property="og:description"        content="How much does culture influence creative thinking?" />
+    <meta property="og:image"              content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
+ </head>
 <body>
 
-  <!-- Load Facebook SDK for JavaScript -->
-  <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
-
-  <!-- Your share button code -->
-  <div class="fb-share-button" 
-    data-href="https://www.your-domain.com/your-page.html" 
-    data-layout="button_count">
-  </div>
 
 </body>
 </html>
