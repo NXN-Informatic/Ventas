@@ -16,9 +16,7 @@
     <meta property="og:description" content="@yield('ogDesc', 'Puesto de Ventas de Artefactos Electrónicos.')"/>
     <meta property="og:type" content="@yield('ogType', 'website')"/>
     <meta property="og:locale" content="es"/>
-    <meta property="og:image" content="@yield('ogImage', 'http://feriatacna.com/storage/1/logo/nain.jpg')"/>
-    <meta property="og:image:width" content="400" />
-    <meta property="og:image:height" content="400" />
+    <meta property="og:image" content="@yield('ogImage', 'http://feriatacna.com/storage/1/banner/banner.jpg')"/>
     <meta property="fb:app_id" content="xxxxxxxxx"/>
 	
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
