@@ -9,6 +9,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/puesto/{puesto}/detail', 'Cliente\PuestoController@compartir');
 
 Route::group(['middleware' => 'auth'], function () {
     /** 
@@ -25,7 +26,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/puesto/update/{puesto}', 'Cliente\PuestoController@update');
     Route::get('/puesto/create', 'Cliente\PuestoController@create');
     Route::post('/puesto/store', 'Cliente\PuestoController@store');
-    Route::get('/puesto/{puesto}/detail', 'Cliente\PuestoController@compartir');
     
     // Api REST de Subcategorias
     Route::get('/categorias/{categoria}/subcategorias', 'Cliente\CategoriaController@apiSubcategoria');
