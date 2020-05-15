@@ -51,7 +51,7 @@
                             </button>
 						</div>
                         @endif
-                        <form action="{{ url('puesto/store/') }}" method="post">
+                        <form action="{{ url('puesto/store/') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label class="form-label" for="name">Nombre del Puesto</label>
@@ -95,6 +95,16 @@
                                 <label class="form-label" for="phone2">Celular opcional del Puesto</label>
                                 <input type="text" class="form-control" name="phone2" value="{{ old('phone2') }}">
                             </div>
+                            <div class="form-group">
+                                <label class="form-label" for="logo">Suba el logo de su puesto</label>
+                                <input type="file" class="form-control-file" name="logo">
+                            </div>
+                            <hr>
+                            <div class="form-group">
+                                <label class="form-label" for="banner">Suba el Banner de su puesto</label>
+                                <input type="file" class="form-control-file" name="banner">
+                            </div>
+                            <hr>
                             <div class="form-group">
                                 <label class="form-label" for="description">Descripción del Puesto</label>
                                 <textarea name="description" data-provide="markdown" rows="14">{{ old('description') }}</textarea>

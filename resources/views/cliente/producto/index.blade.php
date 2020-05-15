@@ -27,7 +27,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col mt-0">
-                                    <h5 class="card-title">Categoria {{ $puestoSubcategoria->subcategorias->name }} </h5>
+                                    <h5 class="card-title">Categoria {{ $puestoSubcategoria->subcategoria->name }} </h5>
                                 </div>
                                 <div class="col-auto">
                                     <div class="avatar">

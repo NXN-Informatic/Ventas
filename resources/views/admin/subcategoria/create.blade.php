@@ -46,7 +46,7 @@
                             </button>
 						</div>
                         @endif
-                        <form action="{{ url('subcategoria/store/') }}" method="post">
+                        <form action="{{ url('subcategoria/store/') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label class="form-label" for="name">Nombre de la Subcategoria</label>
@@ -68,6 +68,10 @@
                             <div class="form-group">
                                 <label class="form-label" for="description">Descripción de la Subcategoria</label>
                                 <textarea name="description" class="form-control" rows="4">{{ old('description') }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="logo">Suba la imagen de la Subcategoria</label>
+                                <input type="file" class="form-control-file" name="file">
                             </div> 
                             <button type="submit" class="btn btn-primary">Guardar</button>
                         </form>

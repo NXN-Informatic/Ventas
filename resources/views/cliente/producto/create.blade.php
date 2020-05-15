@@ -125,7 +125,7 @@
                                     <optgroup label="Subcategorias Disponibles">
                                     <option value=""></option>
                                     @foreach($puestoSubcategorias as $puestosub)
-                                        <option value="{{ $puestosub->id }}">{{ $puestosub->subcategorias->name }}</option>
+                                        <option value="{{ $puestosub->id }}">{{ $puestosub->subcategoria->name }}</option>
                                     @endforeach
                                     </optgroup>
                                 </select>

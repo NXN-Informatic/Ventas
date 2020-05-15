@@ -42,6 +42,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/productos/{grupo}/all/{usuarioPuesto}', 'Cliente\ProductoController@productos');
     Route::get('/producto/{usuarioPuesto}/editar/{producto}' , 'Cliente\ProductoController@editar');
     Route::put('/producto/update/{producto}', 'Cliente\ProductoController@update');
+    Route::put('/producto/{producto}/delete', 'Cliente\ProductoController@delete');
 
     // Subida de Imagenes
     Route::post('/producto/dropzoneFrom', 'Cliente\ProductoController@dropzoneFrom');

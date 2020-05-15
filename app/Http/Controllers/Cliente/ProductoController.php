@@ -144,4 +144,15 @@ class ProductoController extends Controller
     public function getProducto(Producto $producto) {
         return $producto;
     }
+
+    public function delete(Request $request,Producto $producto) {
+        $imagenes = $producto->imagen_productos;
+        foreach($imagenes as $imagen) {
+            $fileName = 'public/'.$request->input('puesto_id').'/'.$producto->id.'/'.$imagen->imagen;
+            \Storage::delete($fileName);
+            ImagenProducto::destroy($imagen->id);
+        }
+        Producto::destroy($producto->id);
+        return back();
+    }
 }

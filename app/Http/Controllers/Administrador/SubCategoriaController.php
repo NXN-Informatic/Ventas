@@ -27,11 +27,20 @@ class SubCategoriaController extends Controller
         ];
         $this->validate($request, $rules);
 
-        Subcategoria::create([
+        $subcategoria = Subcategoria::create([
             'name'  => $request->input('name'),
             'descripcion' => $request->input('description'),
             'categoria_id' => $request->input('categoria_id')
         ]);
+
+        $file = $request->file('file');
+        if($file != null) {
+            $name = $file->getClientOriginalName();
+            $fileName = 'public/subcategorias/'.$subcategoria->categoria_id.'/'.$subcategoria->id.'/'.$name;
+            \Storage::disk('local')->put($fileName,  \File::get($file));
+            $subcategoria->imagen = $name;
+        }
+        $subcategoria->save();
 
         $notification = 'Se ha creado la SubCategoria Correctamente';
         return redirect('/subcategoria/create')->with(compact('notification'));

@@ -83,11 +83,17 @@
                                 </button></a>
                             </div>
                             <div class="col-md-6 text-center mt-2">
-                                <a href="#"><button type="button" class="btn btn-danger btn-block">
+                                <a  href="javascript:void" onclick="$('#delete-form').submit();"><button type="button" class="btn btn-danger btn-block">
                                     Eliminar
                                 </button></a>
                             </div>
                         </div>
+                        
+                        <form id="delete-form" action="{{ url('/producto/'.$producto->id.'/delete') }}" method="POST" style="display: none;">
+                            @csrf
+                            @method('PUT')
+                            <input type="hidden" name="puesto_id" value="{{ $usuarioPuesto->puesto_id }}">
+                        </form>
                     </div>
                 </div>
             </div>

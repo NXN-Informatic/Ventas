@@ -12,10 +12,9 @@ class PuestoSubcategoria extends Model
 
     public function subcategoria() {
         return $this->belongsTo(Subcategoria::class, 'subcategoria_id'); 
-        //era necesario definir el nombre del id?? creo q no
     }
     public function puesto() {
-        return $this->belongsTo(Puesto::class); //comprobando el comentario anterior xD
+        return $this->belongsTo(Puesto::class);
     }
 
     public function grupos() {

@@ -58,6 +58,22 @@ class PuestoController extends Controller
                 'precio_min' => $request->input('precio_min'),
                 'maxsubcategorias' => 2
             ]);
+
+            $file = $request->file('logo');
+            $banner = $request->file('banner');
+            if($file != null) {
+                $name = $file->getClientOriginalName();
+                $fileName = 'public/'.$puesto->id.'/logo/'.$name;
+                \Storage::disk('local')->put($fileName,  \File::get($file));
+                $puesto->perfil = $name;
+            }
+            if($banner != null) {
+                $name = $banner->getClientOriginalName();
+                $fileName = 'public/'.$puesto->id.'/banner/'.$name;
+                \Storage::disk('local')->put($fileName,  \File::get($banner));
+                $puesto->banner = $name;
+            }
+            $puesto->save();
     
             $subcategorias = $request->input('subcategoria_id');
             if($subcategorias != null) {

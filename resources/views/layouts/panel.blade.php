@@ -8,12 +8,12 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Feria Tacna') }}</title>
 
     <meta property="og:title" content="@yield('ogTitle', 'PUESTO NAIN 2020.')"/>
-    <meta property="og:site_name" content="Mi sitio web"/>
+    <meta property="og:site_name" content="FERIA TACNA"/>
     <meta property="og:url" content="@yield('ogUrl', 'http://feriatacna.com/')"/>
-    <meta property="og:description" content="@yield('ogDesc', 'Puesto de Ventas de Artefactos Electrónicos.')"/>
+    <meta property="og:description" content="@yield('ogDesc', 'La única feria Oblay en Tacna 2020 , encuentre sus productos que usted requiera.')"/>
     <meta property="og:type" content="@yield('ogType', 'website')"/>
     <meta property="og:locale" content="es"/>
     <meta property="og:image" content="@yield('ogImage', 'http://feriatacna.com/storage/1/banner/banner.jpg')"/>
