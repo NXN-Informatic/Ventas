@@ -10,5 +10,12 @@ class Grupo extends Model
         'puestosubcategoria_id', 'name', 'descripcion'
     ];
 
+    public function puestosubcategoria() {
+        return $this->belongsTo(PuestoSubcategoria::class);
+    }
+    public function productos() {
+        return $this->hasMany(Productos::class);
+    }
+
     
 }

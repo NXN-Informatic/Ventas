@@ -10,8 +10,11 @@ class UsuarioPuesto extends Model
         'usuario_id', 'puesto_id', 'id'
     ];
 
-    public function puesto()
-    {
+    public function puesto(){
         return $this->belongsTo(Puesto::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class,'usuario_id');
     }
 }

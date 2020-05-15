@@ -13,4 +13,7 @@ class Distrito extends Model
     public function provincia(){
         return $this->belongsTo(Provincia::class);
     }
+    public function users(){
+        return $this->hasMany(User::class);
+    }
 }
