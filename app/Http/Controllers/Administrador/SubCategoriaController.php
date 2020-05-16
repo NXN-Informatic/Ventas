@@ -62,6 +62,14 @@ class SubCategoriaController extends Controller
         $subcategoria->name = $request->input('name');
         $subcategoria->descripcion = $request->input('descripcion');
         $subcategoria->categoria_id = $request->input('categoria_id');
+        
+        $file = $request->file('file');
+        if($file != null) {
+            $name = $file->getClientOriginalName();
+            $fileName = 'public/subcategorias/'.$subcategoria->categoria_id.'/'.$subcategoria->id.'/'.$name;
+            \Storage::disk('local')->put($fileName,  \File::get($file));
+            $subcategoria->imagen = $name;
+        }
         $subcategoria->save();
 
         $notification = 'Se ha actualizado la SubCategoria Correctamente';

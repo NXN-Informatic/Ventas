@@ -30,6 +30,7 @@
                         <table id="datatables-basic" class="table table-striped" style="width:100%">
                             <thead>
                                 <tr>
+                                    <th>#</th>  
                                     <th>Name</th>
                                     <th>Categoria</th>
                                     <th>Descripción</th>
@@ -39,6 +40,11 @@
                             <tbody>
                                 @foreach($subcategorias as $subcategoria)
                                 <tr>
+                                    <td style="width:50px;background:#CCCCCA">
+                                        @if($subcategoria->imagen != null)
+                                        <img src="{{ asset('storage/subcategorias/'.$subcategoria->categoria_id.'/'.$subcategoria->id.'/'.$subcategoria->imagen) }}" width="48" height="48" class="rounded-circle mr-2" alt="Avatar">
+                                        @endif
+                                    </td>
                                     <td>{{ $subcategoria->name }}</td>
                                     <td>{{ $subcategoria->categoria->name }}</td>
                                     <td>

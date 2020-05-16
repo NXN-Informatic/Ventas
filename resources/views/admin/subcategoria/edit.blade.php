@@ -46,7 +46,7 @@
                             </button>
 						</div>
                         @endif
-                        <form action="{{ url('subcategoria/'.$subcategoria->id.'/update') }}" method="post">
+                        <form action="{{ url('subcategoria/'.$subcategoria->id.'/update') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="form-group">
@@ -67,6 +67,10 @@
                                 </select>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="form-label" for="logo">Suba la imagen de la Subcategoria</label>
+                                <input type="file" class="form-control-file" name="file">
+                            </div> 
                             <div class="form-group">
                                 <label class="form-label" for="description">Descripción de la Subcategoria</label>
                                 <textarea name="description" class="form-control" rows="4">{{ old('description', $subcategoria->description) }}</textarea>

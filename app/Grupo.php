@@ -14,8 +14,7 @@ class Grupo extends Model
         return $this->belongsTo(PuestoSubcategoria::class);
     }
     public function productos() {
-        return $this->hasMany(Productos::class);
+        return $this->hasMany(Producto::class);
     }
-
     
 }
