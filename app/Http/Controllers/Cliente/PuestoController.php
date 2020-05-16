@@ -151,6 +151,13 @@ class PuestoController extends Controller
     }
 
     public function compartir(Puesto $puesto) {
-        return view('/publicas/puestos', compact('puesto'));
+        $categorias = [];
+        foreach($puesto->puestosubcatergorias as $subcategorias){
+            $name = $subcategorias->subcategoria->categoria->name;
+            if(!in_array($name, $categorias)) {
+                $categorias[] = $name;
+            }
+        }
+        return view('/publicas/puestos', compact('puesto', 'categorias'));
     }
 }

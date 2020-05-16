@@ -47,8 +47,28 @@
  <div class="closeFilter"></div>
     <div class="shopProduct">
         <div class="shopProduct__wrap dflex container">
-            <ul class="product__item col-3 filter" style="background: #000">
-
+            <ul class="product__item col-3 filter text-center">
+                <li class="filterOptions" style="text-align:center;">
+                    <img src="{{ asset('storage/'.$puesto->id.'/logo/'.$puesto->perfil) }}" width="140" style="margin:auto;display:block;" height="140" class="rounded-circle" alt="">
+                            
+                    <h5 class="footerTitle" style="text-align:center; margin-top:5%">{{ $puesto->name }}</h5>
+                    <label style="font-size:20px; color:#F0C908">
+                        @for ($i = 0; $i < $puesto->calification; $i++)   
+                            <i class="fas fa-star"></i>
+                        @endfor
+                        @for ($i = 0; $i < (5 - $puesto->calification); $i++)
+                            <i class="far fa-star text-dark"></i> 
+                        @endfor
+                    </label>
+                    @foreach($categorias as $categoria)
+                        <h5 class="footerTitle" style="text-align:center; margin-top:5%;color:#83b735">{{ $categoria }}</h5>
+                    @endforeach
+                </li>
+                <li class="filterOptions">
+                    <h5 class="footerTitle">Contactos</h5>
+                    <h2 style="text-align:center; margin-top:5%;color:#1f4173"><i class="align-middle mr-2 fas fa-fw fa-phone-volume"></i> {{ $puesto->phone }}</h2>
+                    <h2 style="text-align:center; margin-top:5%;color:#1f4173"><i class="align-middle mr-2 fas fa-fw fa-phone-volume"></i> {{ $puesto->phone2 }}</h2>
+                </li>
             </ul>
             <div class="product__item col-lg-9 col-12">
                 <div class="filter__control dflex">
