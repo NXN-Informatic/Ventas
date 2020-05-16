@@ -22,7 +22,7 @@
 @section('content')
 @include('layouts.components.navbarHide')
 <!--Start Banner Header-->
-<div style="background-color: rgba(0,0,0,0.6);background:url(../../storage/4/banner/banner.jpg); 
+<div style="background-color: rgba(0,0,0,0.6);background:url(../../storage/{{$puesto->id}}/banner/{{$puesto->banner}}); 
             background-size:cover;  background-position:center; text-align:center;
             filter: brightness(90%);height:400px"
     class="bannerHeader">

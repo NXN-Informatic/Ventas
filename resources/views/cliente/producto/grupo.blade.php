@@ -52,7 +52,7 @@
 								<select class="form-control select2" name="subcategoria_id" data-toggle="select2">
                                 <optgroup label="Subcategorias Disponibles">
                                     @foreach($puestoSubcategorias as $subcategorias)
-                                        <option value="{{ $subcategorias->id }}">{{ $subcategorias->subcategorias->name }}</option>
+                                        <option value="{{ $subcategorias->id }}">{{ $subcategorias->subcategoria->name }}</option>
                                     @endforeach
                                 </optgroup>
                                 </select>
