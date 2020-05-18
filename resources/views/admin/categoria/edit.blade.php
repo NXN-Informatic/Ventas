@@ -55,8 +55,8 @@
                                 <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
                             </div>
                             <div class="form-group">
-                                <label class="form-label" for="description">Descripción de la Categoria</label>
-                                <textarea name="description" class="form-control" rows="4">{{ old('description', $categoria->descripcion) }}</textarea>
+                                <label class="form-label" for="descripcion">Descripción de la Categoria</label>
+                                <textarea name="descripcion" class="form-control" rows="4">{{ old('descripcion', $categoria->descripcion) }}</textarea>
                             </div> 
                             <button type="submit" class="btn btn-primary">Guardar</button>
                         </form>

@@ -15,7 +15,6 @@ class CreateEntregasTable extends Migration
     {
         Schema::create('entregas', function (Blueprint $table) {
             $table->increments('id');
-            
             $table->string('name', 40);
             $table->string('description', 120)->nullable();
             $table->string('icono', 80)->nullable();

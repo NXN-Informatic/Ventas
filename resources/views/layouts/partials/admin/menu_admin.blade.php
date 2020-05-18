@@ -42,8 +42,8 @@
             <i class="align-middle mr-2 fas fa-fw fa-align-justify"></i> <span class="align-middle">{{ __('Grupos') }}</span>
         </a>
         <ul id="grupo" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-            <li class="sidebar-item"><a class="sidebar-link" href="#">{{ __('Lista de Grupos') }}</a></li>
-            <li class="sidebar-item"><a class="sidebar-link" href="#">{{ __('Crear Grupo') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('grupo') }}">{{ __('Lista de Grupos') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('grupo/create') }}">{{ __('Crear Grupo') }}</a></li>
         </ul>
     </li>
     <li class="sidebar-item">
@@ -51,8 +51,8 @@
             <i class="align-middle mr-2 fas fa-fw fa-clipboard-list"></i> <span class="align-middle">{{ __('Categorias') }}</span>
         </a>
         <ul id="categoria" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('categoria') }}"">{{ __('Lista de Categorias') }}</a></li>
-            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('categoria/create') }}"">{{ __('Crear Categorias') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('categoria') }}">{{ __('Lista de Categorias') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('categoria/create') }}">{{ __('Crear Categorias') }}</a></li>
         </ul>
     </li>
     <li class="sidebar-item">
@@ -60,8 +60,17 @@
             <i class="align-middle mr-2 fas fa-fw fa-tshirt"></i> <span class="align-middle">{{ __('SubCategoria') }}</span>
         </a>
         <ul id="subcategoria" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('subcategoria') }}"">{{ __('Lista de SubCategoria') }}</a></li>
-            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('subcategoria/create') }}"">{{ __('Crear SubCategoria') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('subcategoria') }}">{{ __('Lista de SubCategoria') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('subcategoria/create') }}">{{ __('Crear SubCategoria') }}</a></li>
+        </ul>
+    </li>
+    <li class="sidebar-item">
+        <a href="#identidad" data-toggle="collapse" class="sidebar-link collapsed">
+            <i class="align-middle mr-2 fas fa-fw fa-user"></i> <span class="align-middle">{{ __('Identidades') }}</span>
+        </a>
+        <ul id="identidad" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('identidad') }}">{{ __('Lista de Identidades') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('identidad/create') }}">{{ __('Crear Identidade') }}</a></li>
         </ul>
     </li>
     <li class="sidebar-item">
@@ -69,8 +78,8 @@
             <i class="align-middle mr-2 far fa-fw fa-newspaper"></i> <span class="align-middle">{{ __('Tipo Documentos') }}</span>
         </a>
         <ul id="type_document" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-            <li class="sidebar-item"><a class="sidebar-link" href="#">{{ __('Lista de Tipos de Documentos') }}</a></li>
-            <li class="sidebar-item"><a class="sidebar-link" href="#">{{ __('Crear Tipo de Documento') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('tipoDoc') }}">{{ __('Lista de Tipos de Documentos') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('tipoDoc/create') }}">{{ __('Crear Tipo de Documento') }}</a></li>
         </ul>
     </li>
     <li class="sidebar-item">
@@ -87,8 +96,8 @@
             <i class="align-middle mr-2 fas fa-fw fa-money-bill-alt"></i> <span class="align-middle">{{ __('Planes') }}</span>
         </a>
         <ul id="planes" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-            <li class="sidebar-item"><a class="sidebar-link" href="#">{{ __('Lista de Planes') }}</a></li>
-            <li class="sidebar-item"><a class="sidebar-link" href="#">{{ __('Crear Plane') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('plan') }}">{{ __('Lista de Planes') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('plan/create') }}">{{ __('Crear Plane') }}</a></li>
         </ul>
     </li>
     <li class="sidebar-item">
@@ -132,8 +141,8 @@
             <i class="align-middle mr-2 fas fa-fw fa-clipboard-list"></i> <span class="align-middle">{{ __('Pagos') }}</span>
         </a>
         <ul id="pago" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-            <li class="sidebar-item"><a class="sidebar-link" href="#">{{ __('Lista de Pagos') }}</a></li>
-            <li class="sidebar-item"><a class="sidebar-link" href="#">{{ __('Crear Pago') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('pago') }}">{{ __('Lista de Pagos') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('pago/create') }}">{{ __('Crear Pago') }}</a></li>
         </ul>
     </li>
     <li class="sidebar-item">
@@ -141,8 +150,8 @@
             <i class="align-middle mr-2 fas fa-fw fa-clipboard-list"></i> <span class="align-middle">{{ __('Visitantes') }}</span>
         </a>
         <ul id="visitantes" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-            <li class="sidebar-item"><a class="sidebar-link" href="#">{{ __('Lista de Visitantes') }}</a></li>
-            <li class="sidebar-item"><a class="sidebar-link" href="#">{{ __('Crear Visitante') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('visitante') }}">{{ __('Lista de Visitantes') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('visitante/create') }}">{{ __('Crear Visitante') }}</a></li>
         </ul>
     </li>
     <li class="sidebar-item">

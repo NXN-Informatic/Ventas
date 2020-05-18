@@ -64,7 +64,11 @@
                                 <tr>
                                     <td>{{ $user->id }}</td>
                                     <td>{{ $user->name }}</td>
-                                    <td>{{ $user->identidad->name }} : {{ $user->ndocumento }}</td>
+                                    <td>
+                                        @if($user->identidad)
+                                        {{ $user->identidad->name }} : {{ $user->ndocumento }}
+                                        @endif
+                                    </td>
                                     <td class="text-center">{{ $user->maxpuestos }}</td>
                                     <td>
                                         @if($user->status == 'activo')

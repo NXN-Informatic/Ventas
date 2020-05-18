@@ -6,8 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Producto extends Model
 {
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
-        'name' , 'description' , 'precio' , 'grupo_id' , 'stock'
+        'name',
+        'codigo',
+        'description',
+        'precio',
+        'grupo_id',
+        'stock',
+        'activo'
     ];
 
     public function imagen_productos() {

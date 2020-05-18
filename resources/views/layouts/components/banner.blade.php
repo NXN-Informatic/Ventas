@@ -7,7 +7,7 @@
         </div>
         <ul class="slider dflex">
             <li class="slider__item col-12 dflex firstSlide active">
-                <div class="content col-lg-4 col-6">
+                <div class="content col-lg-6 col-6">
                     <h2>Simple - Rock Chairs</h2>
                     <p>Semper vulputate aliquam curae condimentum<br>quisque gravida fusce convallis arcu cum at.</p>
                     <div class="smallImage dflex"><img class="changeImage" src="{{ asset('img/images/bannerSlide/swatch-main-demo-1.jpg') }}" alt="" data-image="./images/bannerSlide/slider-main-demo-1.jpg"><img class="changeImage" src="./images/bannerSlide/swatch-main-demo-1-2.jpg" alt="" data-image="./images/bannerSlide/slider-main-demo-1-2.jpg">
@@ -18,7 +18,7 @@
                 <div class="image col-lg-6 col-6"><img class="switchImage" src="{{ asset('img/images/bannerSlide/slider-main-demo-1.jpg') }}" alt=""></div>
             </li>
             <li class="slider__item col-12 dflex secondSlide">
-                <div class="content col-lg-4 col-6">
+                <div class="content col-lg-6 col-6">
                     <h2>Eanes - Side Chairs.</h2>
                     <div class="colors dflex">
                         <p>Color:</p>
@@ -32,7 +32,7 @@
                 <div class="image col-lg-6 col-6"><img class="switchImage" src="{{ asset('img/images/bannerSlide/slider-main-demo-2.jpg') }}" alt=""></div>
             </li>
             <li class="slider__item col-12 dflex wooden">
-                <div class="content col-lg-4 col-6">
+                <div class="content col-lg-6 col-6">
                     <h3>Cappellini</h3>
                     <h2>Wooden Lounge Chairs</h2>
                     <p>Semper vulputate aliquam curae condimentum<br>quisque gravida fusce convallis arcu cum at.</p>

@@ -6,13 +6,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subcategoria extends Model
 {
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
-        'name', 'id', 'description', 'categoria_id'
+        'name',
+        'descripcion',
+        'imagen',
+        'categoria_id'
     ];
 
     public function categoria(){
         return $this->belongsTo(Categoria::class);
     }
+
     public function puestosubcategorias(){
         return $this->hasMany(PuestoSubcategoria::class);
     }

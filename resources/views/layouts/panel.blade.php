@@ -41,7 +41,7 @@
   <!--End Elements Page-->
 
   <!--Start Header-->
-  <header>
+  <header style="background:#153d77">
     <div class="header__wrap container dflex">
         <ul class="header__item dflex left">
             <li class="header__list"><span>English</span><i class="fas fa-angle-down"></i>
@@ -92,7 +92,7 @@
               <a class="link" href="{{ url('register') }}">Register</a>
               <div class="icon"><i class="far fa-heart"></i></div>
               <div class="icon" data-notify="0"><i class="fas fa-random"></i></div>
-              <div class="icon reponsive" data-notify="0"><i class="fas fa-shopping-bag"></i></div><span>$0.00</span>
+              <div class="icon reponsive" data-notify="0"><i class="fas fa-shopping-bag" ></i></div><span>$0.00</span>
           </div>
       </div>
   </div>

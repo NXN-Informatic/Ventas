@@ -21,6 +21,7 @@ class CreateGruposTable extends Migration
             
             $table->unsignedInteger('puestosubcategoria_id');
             $table->foreign('puestosubcategoria_id')->references('id')->on('puesto_subcategorias');
+            
             $table->boolean('activo')->default(true);
             $table->timestamps();
         });

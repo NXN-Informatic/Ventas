@@ -16,7 +16,20 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'ruc', 'dni', 'ndocumento', 'doc_identidad_id'
+        'name',
+        'sur_name',
+        'ndocumento',
+        'address',
+        'imagen',        
+        'email',
+        'role',
+        'status',
+        'maxpuestos',
+        'longitud',
+        'useragent',
+        'completado',
+        'distrito_id',
+        'identidad_id'
     ];
 
     /**
@@ -40,12 +53,15 @@ class User extends Authenticatable
     public function usuario_puestos() {
         return $this->hasMany(UsuarioPuesto::class,'usuario_id');
     }
+
     public function identidad(){
         return $this->belongsTo(Identidad::class);
     }
+
     public function user_social_accounts() {
         return $this->hasMany(UserSocialAccount::class,'user_id');
     }
+
     public function distrito(){
         return $this->belongsTo(Distrito::class);
     }

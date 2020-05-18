@@ -26,13 +26,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/puesto/update/{puesto}', 'Cliente\PuestoController@update');
     Route::get('/puesto/create', 'Cliente\PuestoController@create');
     Route::post('/puesto/store', 'Cliente\PuestoController@store');
-    
-    // Api REST de Subcategorias
-    Route::get('/categorias/{categoria}/subcategorias', 'Cliente\CategoriaController@apiSubcategoria');
-    // Api REST de Grupos
-    Route::get('/grupos/{id}/subcategorias', 'Cliente\ProductoController@apiSubcategoriaGrupo');
-    // Api REST Producto
-    Route::get('/producto/{producto}/getProducto', 'Cliente\ProductoController@getProducto');
 
     // Productos Cliente
     Route::get('/producto/{usuarioPuesto}/lista', 'Cliente\ProductoController@index');
@@ -52,9 +45,117 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/producto/{usuarioPuesto}/grupo', 'Cliente\ProductoController@create_grupo');
     Route::post('/producto/grupo', 'Cliente\ProductoController@grupo');
 
+    // Suscripciones
+    Route::get('/price', 'Cliente\PrecioController@index');
+
     /** 
      * ADMINISTRADOR
      */
+
+    // Categorias
+    Route::get('/categoria', 'Administrador\CategoriaController@index');
+    Route::get('/categoria/create', 'Administrador\CategoriaController@create');
+    Route::post('/categoria/store', 'Administrador\CategoriaController@store');
+    Route::get('/categoria/{categoria}/edit', 'Administrador\CategoriaController@edit');
+    Route::put('/categoria/{categoria}/update', 'Administrador\CategoriaController@update');
+
+    // Codificación
+    Route::get('/codificacion', 'Administrador\CodificacionController@index');
+    Route::get('/codificacion/create', 'Administrador\CodificacionController@create');
+    Route::post('/codificacion/store', 'Administrador\CodificacionController@store');
+    Route::get('/codificacion/{codificacion}/edit', 'Administrador\CodificacionController@edit');
+    Route::put('/codificacion/{codificacion}/update', 'Administrador\CodificacionController@update');
+
+    // Distrito 
+    Route::get('/distrito', 'Administrador\DistritoController@index');
+    Route::get('/distrito/create', 'Administrador\DistritoController@create');
+    Route::post('/distrito/store', 'Administrador\DistritoController@store');
+    Route::get('/distrito/{distrito}/edit', 'Administrador\DistritoController@edit');
+    Route::put('/distrito/{distrito}/update', 'Administrador\DistritoController@update');
+
+    // Documento
+    Route::get('/documento', 'Administrador\DocumentoController@index');
+    Route::get('/documento/create', 'Administrador\DocumentoController@create');
+    Route::post('/documento/store', 'Administrador\DocumentoController@store');
+    Route::get('/documento/{documento}/edit', 'Administrador\DocumentoController@edit');
+    Route::put('/documento/{documento}/update', 'Administrador\DocumentoController@update');
+
+    // Entrega
+    Route::get('/entrega', 'Administrador\EntregaController@index');
+    Route::get('/entrega/create', 'Administrador\EntregaController@create');
+    Route::post('/entrega/store', 'Administrador\EntregaController@store');
+    Route::get('/entrega/{entrega}/edit', 'Administrador\EntregaController@edit');
+    Route::put('/entrega/{entrega}/update', 'Administrador\EntregaController@update');
+
+    // Favorito
+    Route::get('/favorito', 'Administrador\FavoritoController@index');
+    Route::get('/favorito/create', 'Administrador\FavoritoController@create');
+    Route::post('/favorito/store', 'Administrador\FavoritoController@store');
+    Route::get('/favorito/{favorito}/edit', 'Administrador\FavoritoController@edit');
+    Route::put('/favorito/{favorito}/update', 'Administrador\FavoritoController@update');
+
+    // Grupo
+    Route::get('/grupo', 'Administrador\GrupoController@index');
+    Route::get('/grupo/create', 'Administrador\GrupoController@create');
+    Route::post('/grupo/store', 'Administrador\GrupoController@store');
+    Route::get('/grupo/{grupo}/edit', 'Administrador\GrupoController@edit');
+    Route::put('/grupo/{grupo}/update', 'Administrador\GrupoController@update');
+
+    // Identidad
+    Route::get('/identidad', 'Administrador\IdentidadController@index');
+    Route::get('/identidad/create', 'Administrador\IdentidadController@create');
+    Route::post('/identidad/store', 'Administrador\IdentidadController@store');
+    Route::get('/identidad/{identidad}/edit', 'Administrador\IdentidadController@edit');
+    Route::put('/identidad/{identidad}/update', 'Administrador\IdentidadController@update');
+
+    // Pago
+    Route::get('/pago', 'Administrador\PagoController@index');
+    Route::get('/pago/create', 'Administrador\PagoController@create');
+    Route::post('/pago/store', 'Administrador\PagoController@store');
+    Route::get('/pago/{pago}/edit', 'Administrador\PagoController@edit');
+    Route::put('/pago/{pago}/update', 'Administrador\PagoController@update');
+
+    // Paises
+    Route::get('/pais', 'Administrador\PaisController@index');
+    Route::get('/pais/create', 'Administrador\PaisController@create');
+    Route::post('/pais/store', 'Administrador\PaisController@store');
+    Route::get('/pais/{pais}/edit', 'Administrador\PaisController@edit');
+    Route::put('/pais/{pais}/update', 'Administrador\PaisController@update');
+
+    // Plan
+    Route::get('/plan', 'Administrador\PlanController@index');
+    Route::get('/plan/create', 'Administrador\PlanController@create');
+    Route::post('/plan/store', 'Administrador\PlanController@store');
+    Route::get('/plan/{plan}/edit', 'Administrador\PlanController@edit');
+    Route::put('/plan/{plan}/update', 'Administrador\PlanController@update');
+
+    // Provincias 
+    Route::get('/provincia', 'Administrador\ProvinciaController@index');
+    Route::get('/provincia/create', 'Administrador\ProvinciaController@create');
+    Route::post('/provincia/store', 'Administrador\ProvinciaController@store');
+    Route::get('/provincia/{provincia}/edit', 'Administrador\ProvinciaController@edit');
+    Route::put('/provincia/{provincia}/update', 'Administrador\ProvinciaController@update');
+
+    // Regiones
+    Route::get('/region', 'Administrador\RegionController@index');
+    Route::get('/region/create', 'Administrador\RegionController@create');
+    Route::post('/region/store', 'Administrador\RegionController@store');
+    Route::get('/region/{region}/edit', 'Administrador\RegionController@edit');
+    Route::put('/region/{region}/update', 'Administrador\RegionController@update');    
+
+    // Subcategorias
+    Route::get('/subcategoria', 'Administrador\SubCategoriaController@index');
+    Route::get('/subcategoria/create', 'Administrador\SubCategoriaController@create');
+    Route::post('/subcategoria/store', 'Administrador\SubCategoriaController@store');
+    Route::get('/subcategoria/{subcategoria}/edit', 'Administrador\SubCategoriaController@edit');
+    Route::put('/subcategoria/{subcategoria}/update', 'Administrador\SubCategoriaController@update');
+
+    // Tipo de Documento
+    Route::get('/tipoDoc', 'Administrador\TipoDocController@index');
+    Route::get('/tipoDoc/create', 'Administrador\TipoDocController@create');
+    Route::post('/tipoDoc/store', 'Administrador\TipoDocController@store');
+    Route::get('/tipoDoc/{tipoDoc}/edit', 'Administrador\TipoDocController@edit');
+    Route::put('/tipoDoc/{tipoDoc}/update', 'Administrador\TipoDocController@update');
 
      // Usuarios
     Route::get('/usuarios', 'Administrador\UsuarioController@index');
@@ -66,52 +167,24 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/usuarios/{usuario}/update', 'Administrador\UsuarioController@update');
     Route::post('/usuarios/store', 'Administrador\UsuarioController@store');
 
-    // Categorias
-    Route::get('/categoria', 'Administrador\CategoriaController@index');
-    Route::get('/categoria/create', 'Administrador\CategoriaController@create');
-    Route::post('/categoria/store', 'Administrador\CategoriaController@store');
-    Route::get('/categoria/{categoria}/edit', 'Administrador\CategoriaController@edit');
-    Route::put('/categoria/{categoria}/update', 'Administrador\CategoriaController@update');
+    // Visitantes
+    Route::get('/visitante', 'Administrador\VisitanteController@index');
+    Route::get('/visitante/create', 'Administrador\VisitanteController@create');
+    Route::post('/visitante/store', 'Administrador\VisitanteController@store');
+    Route::get('/visitante/{visitante}/edit', 'Administrador\VisitanteController@edit');
+    Route::put('/visitante/{visitante}/update', 'Administrador\VisitanteController@update');
 
+    /** 
+     * API REST
+     */
     // Subcategorias
-    Route::get('/subcategoria', 'Administrador\SubCategoriaController@index');
-    Route::get('/subcategoria/create', 'Administrador\SubCategoriaController@create');
-    Route::post('/subcategoria/store', 'Administrador\SubCategoriaController@store');
-    Route::get('/subcategoria/{subcategoria}/edit', 'Administrador\SubCategoriaController@edit');
-    Route::put('/subcategoria/{subcategoria}/update', 'Administrador\SubCategoriaController@update');
-
-    // Paises
-    Route::get('/pais', 'Administrador\PaisController@index');
-    Route::get('/pais/create', 'Administrador\PaisController@create');
-    Route::post('/pais/store', 'Administrador\PaisController@store');
-    Route::get('/pais/{pais}/edit', 'Administrador\PaisController@edit');
-    Route::put('/pais/{pais}/update', 'Administrador\PaisController@update');
-
-    // Regiones
-    Route::get('/region', 'Administrador\RegionController@index');
-    Route::get('/region/create', 'Administrador\RegionController@create');
-    Route::post('/region/store', 'Administrador\RegionController@store');
-    Route::get('/region/{region}/edit', 'Administrador\RegionController@edit');
-    Route::put('/region/{region}/update', 'Administrador\RegionController@update');    
-    // Api REST de Regiones
-    Route::get('/region/{pais}/regiones', 'Administrador\RegionController@apiregiones');
-
-    // Provincias 
-    Route::get('/provincia', 'Administrador\ProvinciaController@index');
-    Route::get('/provincia/create', 'Administrador\ProvinciaController@create');
-    Route::post('/provincia/store', 'Administrador\ProvinciaController@store');
-    Route::get('/provincia/{provincia}/edit', 'Administrador\ProvinciaController@edit');
-    Route::put('/provincia/{provincia}/update', 'Administrador\ProvinciaController@update');
-    // Api REST de Regiones
+    Route::get('/categorias/{categoria}/subcategorias', 'Cliente\CategoriaController@apiSubcategoria');
+    // Grupos
+    Route::get('/grupos/{id}/subcategorias', 'Cliente\ProductoController@apiSubcategoriaGrupo');
+    // Producto
+    Route::get('/producto/{producto}/getProducto', 'Cliente\ProductoController@getProducto');
+    // Provincia
     Route::get('/provincia/{region}/apiprovincias', 'Administrador\ProvinciaController@apiprovincias');
-
-     // Distrito 
-     Route::get('/distrito', 'Administrador\DistritoController@index');
-     Route::get('/distrito/create', 'Administrador\DistritoController@create');
-     Route::post('/distrito/store', 'Administrador\DistritoController@store');
-     Route::get('/distrito/{distrito}/edit', 'Administrador\DistritoController@edit');
-     Route::put('/distrito/{distrito}/update', 'Administrador\DistritoController@update');
-
-    // Suscripciones
-    Route::get('/price', 'Cliente\PrecioController@index');
+    // Regiones
+    Route::get('/region/{pais}/regiones', 'Administrador\RegionController@apiregiones');
 });

@@ -73,7 +73,7 @@
                             </div> 
                             <div class="form-group">
                                 <label class="form-label" for="description">Descripción de la Subcategoria</label>
-                                <textarea name="description" class="form-control" rows="4">{{ old('description', $subcategoria->description) }}</textarea>
+                                <textarea name="descripcion" class="form-control" rows="4">{{ old('descripcion', $subcategoria->descripcion) }}</textarea>
                             </div> 
                             <button type="submit" class="btn btn-primary">Guardar</button>
                         </form>

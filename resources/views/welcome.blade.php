@@ -2,7 +2,7 @@
 
 @section('load')
   <!--Start Page Loader-->
-  <div class="loader dflex"><img src="{{ asset('img/images/logo/wood-logo-dark.svg') }}" alt="">
+  <div class="loader dflex"><img src="{{ asset('img/images/logo/wood-logo-dark.svg') }}" alt="" >
     <div class="dflex"><span></span><span></span><span></span></div>
   </div>
   <!--End Page Loader-->

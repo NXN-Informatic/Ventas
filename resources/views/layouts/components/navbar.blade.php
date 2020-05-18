@@ -1,6 +1,6 @@
 <div class="menu">
     <div class="menu__wrap container dflex">
-        <div class="sideBar dflex"><i class="fas fa-bars"></i><span>Browse Categories</span><i class="fas fa-angle-down"></i>
+        <div class="sideBar dflex hide" style="background:#153d77"><i class="fas fa-bars"></i><span>CATEGORIAS</span><i class="fas fa-angle-down"></i>
             <ul class="sideBar__list">
                 <li class="sideBar">
                     <div class="dflex"><img src="{{ asset('img/images/category/chair-1.svg') }}" alt=""><span>Furniture</span><i class="fas fa-angle-right"></i></div>
@@ -473,7 +473,7 @@
             </ul>
         </div>
         <ul class="menu__menu dflex">
-            <li class="menu__item"><a class="link active" href="#">Home<i class="fas fa-angle-down"></i>
+            <li class="menu__item" style="a:"><a class="link active" href="#">Home<i class="fas fa-angle-down"></i>
             <ul class="submenu">
             <li><a href="#"><img src="{{ asset('img/images/menu/default.jpg') }}" alt="">
                 <p>Demo Default</p></a></li>

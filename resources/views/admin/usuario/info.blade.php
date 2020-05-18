@@ -58,8 +58,10 @@
                                 <td>{{ $usuario->id }}</td>
                             </tr>
                             <tr>
+                            @if($usuario->identidad)
                                 <th>Tipo de Documento : </th>
                                 <td id="type">{{ $usuario->identidad->name }}</td>
+                            @endif
                             </tr>
                             <tr>
                                 <th>Número de Documento</th>
@@ -83,19 +85,27 @@
                             </tr>
                             <tr>
                                 <th>Distrito</th>
+                                @if($usuario->distrito)
                                 <td>{{ $usuario->distrito->nombre }}</td>
+                                @endif
                             </tr>
                             <tr>
                                 <th>Provincia</th>
+                                @if($usuario->distrito)
                                 <td>{{ $usuario->distrito->provincia->nombre }}</td>
+                                @endif
                             </tr>
                             <tr>
                                 <th>Ciudad</th>
+                                @if($usuario->distrito)
                                 <td>{{ $usuario->distrito->provincia->region->nombre }}</td>
+                                @endif
                             </tr>
                             <tr>
                                 <th>País</th>
+                                @if($usuario->distrito)
                                 <td>{{ $usuario->distrito->provincia->region->pais->nombre }}</td>
+                                @endif
                             </tr>
                             <tr>
                                 <th>Completado</th>
@@ -124,10 +134,9 @@
 @section('scripts')
 <script>
     $(function() {
-        $type = "<?php echo $usuario->identidad->name; ?>";
+        $type = "<?php echo ($usuario->identidad != null)? $usuario->identidad->name: ''; ?>";
         $num = "<?php echo $usuario->ndocumento; ?>";
         $data = $('#data');
-
         if($type === 'DNI'){
             const url = `https://dniruc.apisperu.com/api/v1/dni/${ $num }?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFfbmFjZXJvbUB1bmpiZy5lZHUucGUifQ.NcV9aUSUuJ0Wul85yvonhMfhzfBcvw7zuXdXZCD6P0A`;
             $.getJSON(url, ondatosUserdni);

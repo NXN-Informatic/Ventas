@@ -20,6 +20,7 @@ class CreateFavoritosTable extends Migration
             $table->foreign('visitante_id')->references('id')->on('visitantes');
             $table->unsignedInteger('producto_id');
             $table->foreign('producto_id')->references('id')->on('productos');
+            
             $table->boolean('activo')->default(true);
             $table->timestamps();
         });

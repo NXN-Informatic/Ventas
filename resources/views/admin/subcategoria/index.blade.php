@@ -14,7 +14,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="dashboard-default.html">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="#">Categorias - Subcategorias</a></li>
+                    <li class="breadcrumb-item"><a href="#">Subcategorias</a></li>
                 </ol>
             </nav>
         </div>
@@ -24,35 +24,37 @@
                 <div class="card">
                     <div class="card-header">
                         <h5 class="card-title">Categoria</h5>
-                        <h6 class="card-subtitle text-muted">Lista de Categorias Disponibles.</h6>
+                        <h6 class="card-subtitle text-muted">Lista de Subcategorias Disponibles.</h6>
                     </div>
                     <div class="card-body">
                         <table id="datatables-basic" class="table table-striped" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>#</th>  
+                                    <th>Id</th>
                                     <th>Name</th>
                                     <th>Categoria</th>
                                     <th>Descripción</th>
                                     <th>Operaciones</th>
+                                    <th>#</th>  
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($subcategorias as $subcategoria)
                                 <tr>
-                                    <td style="width:50px;background:#CCCCCA">
-                                        @if($subcategoria->imagen != null)
-                                        <img src="{{ asset('storage/subcategorias/'.$subcategoria->categoria_id.'/'.$subcategoria->id.'/'.$subcategoria->imagen) }}" width="48" height="48" class="rounded-circle mr-2" alt="Avatar">
-                                        @endif
-                                    </td>
+                                    <td>{{ $subcategoria->id }}</td>
                                     <td>{{ $subcategoria->name }}</td>
                                     <td>{{ $subcategoria->categoria->name }}</td>
                                     <td>
-                                        {{  \Illuminate\Support\Str::limit($subcategoria->descripcion, 60) }}
+                                        {{  \Illuminate\Support\Str::limit($subcategoria->descripcion, 50) }}
                                     </td>
                                     <td class="table-action">
                                         <a href="{{ url('subcategoria/'.$subcategoria->id.'/edit') }}"><i class="align-middle fas fa-fw fa-pen"></i></a>
                                         <a href="#"><i class="align-middle fas fa-fw fa-trash"></i></a>
+                                    </td>
+                                    <td style="width:50px;background:#153d77">
+                                        @if($subcategoria->imagen != null)
+                                        <img src="{{ asset('storage/subcategorias/'.$subcategoria->categoria_id.'/'.$subcategoria->id.'/'.$subcategoria->imagen) }}" width="48" height="48" class="rounded-circle mr-2" alt="Avatar">
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach

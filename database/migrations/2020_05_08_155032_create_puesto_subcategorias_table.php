@@ -20,6 +20,7 @@ class CreatePuestoSubcategoriasTable extends Migration
             $table->foreign('puesto_id')->references('id')->on('puestos');
             $table->unsignedInteger('subcategoria_id');
             $table->foreign('subcategoria_id')->references('id')->on('subcategorias');
+            
             $table->boolean('activo')->default(true);
             $table->timestamps();
         });

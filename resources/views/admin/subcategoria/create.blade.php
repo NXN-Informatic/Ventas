@@ -67,7 +67,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="description">Descripción de la Subcategoria</label>
-                                <textarea name="description" class="form-control" rows="4">{{ old('description') }}</textarea>
+                                <textarea name="descripcion" class="form-control" rows="4">{{ old('descripcion') }}</textarea>
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="logo">Suba la imagen de la Subcategoria</label>
