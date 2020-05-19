@@ -473,59 +473,7 @@
             </ul>
         </div>
         <ul class="menu__menu dflex">
-            <li class="menu__item" style="a:"><a class="link active" href="#">Home<i class="fas fa-angle-down"></i>
-            <ul class="submenu">
-            <li><a href="#"><img src="{{ asset('img/images/menu/default.jpg') }}" alt="">
-                <p>Demo Default</p></a></li>
-            <li>
-                <a href="##"><img src="{{ asset('img/images/menu/preview-fashion-minimalism-1.jpg') }}" alt="">
-                    <p>Demo Fashion Minimalism</p>
-                </a>
-            </li>
-            <li>
-                <a href="#"><img src="{{ asset('img/images/menu/peview-demo.jpg') }}" alt="">
-                    <p>Demo Bakery</p>
-                </a>
-            </li>
-            <li>
-                <a href="#"><img src="{{ asset('img/images/menu/preview-decor.jpg') }}" alt="">
-                    <p>Demo Decor</p>
-                </a>
-            </li>
-            <li>
-                <a href="#"><img src="{{ asset('img/images/menu/preview-retail.jpg') }}" alt="">
-                    <p>Demo Retail</p>
-                </a>
-            </li>
-            <li>
-                <a href="#"><img src="{{ asset('img/images/menu/Electronics1.jpg') }}" alt="">
-                    <p>Demo Electronics</p>
-                </a>
-            </li>
-            <li>
-                <a href="#"><img src="{{ asset('img/images/menu/Fashion-Colored1.jpg') }}" alt="">
-                    <p>Demo Fashion Color</p>
-                </a>
-            </li>
-            <li>
-                <a href="#"><img src="{{ asset('img/images/menu/handmade.jpg') }}" alt="">
-                    <p>Demo Handmade</p>
-                </a>
-            </li>
-            <li>
-                <a href="#"><img src="{{ asset('img/images/menu/peview-demo-drinks.jpg') }}" alt="">
-                    <p>Demo Drinks</p>
-                </a>
-            </li>
-            <li>
-                <a href="#"><img src="{{ asset('img/images/menu/Fashion1.jpg') }}" alt="">
-                    <p>Demo Fashion</p>
-                </a>
-            </li>
-        </ul>
-        </a>
-        </li>
-        <li class="menu__item"><a class="link" href="shop.html">Shop<i class="fas fa-angle-down"></i>
+        <li class="menu__item"><a class="link"  onmouseover="this.style.color='#153d77';"  href="shop.html">Shop<i class="fas fa-angle-down"></i>
             <ul class="submenu megamenu dflex">
             <li class="megamenu__item"><a class="link-title" href="#">Shop Pages</a>
             <ul>
@@ -620,7 +568,7 @@
         </ul>
         </a>
         </li>
-        <li class="menu__item"><a class="link" href="blog.html">Blog<i class="fas fa-angle-down"></i>
+        <li class="menu__item"><a class="link" onmouseover="this.style.color='#153d77';" href="blog.html">Blog<i class="fas fa-angle-down"></i>
             <ul class="submenu megamenu dflex" style="align-items: center;">
             <li class="megamenu__item"><a class="link-title" href="#">Blog Types</a>
             <ul>
@@ -667,7 +615,7 @@
         </ul>
         </a>
         </li>
-        <li class="menu__item"><a class="link" href="aboutus.html">Page<i class="fas fa-angle-down"></i>
+        <li class="menu__item"><a class="link" onmouseover="this.style.color='#153d77';" href="aboutus.html">Page<i class="fas fa-angle-down"></i>
             <ul class="submenu megamenu dflex">
             <li class="megamenu__item"><a class="link-title" href="#">Demo Layouts</a>
             <ul>
@@ -728,7 +676,7 @@
         </ul>
         </a>
         </li>
-        <li class="menu__item"><a class="link" href="#">Elements<i class="fas fa-angle-down"></i>
+        <li class="menu__item"><a class="link" onmouseover="this.style.color='#153d77';" href="#">Elements<i class="fas fa-angle-down"></i>
             <ul class="submenu megamenu dflex">
             <li class="megamenu__item"><a class="link-title" href="#">Theme Elements</a>
             <ul>
@@ -789,11 +737,11 @@
         </ul>
         </a>
         </li>
-        <li class="menu__item"><a class="link" href="productTab.html">Buy</a></li>
+        <li class="menu__item"><a class="link" onmouseover="this.style.color='#153d77';" href="productTab.html">Buy</a></li>
         </ul>
         <ul class="menu__offer dflex">
-            <li><a class="link active" href="#">Special Offer</a></li>
-            <li><a class="link" href="#">Purchase Theme</a></li>
+            <li><a class="link active" href="#" style="color:#153d77">Special Offer</a></li>
+            <li><a class="link" href="#" onmouseover="this.style.color='#153d77';">Purchase Theme</a></li>
         </ul>
     </div>
 </div>

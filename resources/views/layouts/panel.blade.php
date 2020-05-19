@@ -51,14 +51,13 @@
                     <li><span>Requires WPML plugin</span></li>
                 </ul>
             </li>
-            <li class="header__list"><span>Country</span><i class="fas fa-angle-down"></i>
+            <li class="header__list"><span>Ciudad</span><i class="fas fa-angle-down"></i>
                 <ul class="sub">
-                    <li><span>United States (USD)</span></li>
-                    <li><span>Deutschland (EUR)</span></li>
-                    <li><span>Japan (JPY)</span></li>
+                    <li><span>Tacna</span></li>
+                    <li><span>Puno</span></li>
+                    <li><span>Arequipa</span></li>
                 </ul>
             </li>
-            <li class="header__list"><span>Free Shipping For All Order Of $150</span></li>
         </ul>
         <ul class="header__item dflex right">
             <li class="header__list social dflex"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fas fa-envelope"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-youtube"></i></a>
