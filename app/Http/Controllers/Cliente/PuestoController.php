@@ -42,9 +42,9 @@ class PuestoController extends Controller
     public function store(Request $request) {
         $rules = [
             'name'          =>  'required|min:3|max:100|unique:puestos',
-            'description'   =>  'max:200',
-            'phone2'        =>  'max:14',
-            'phone'         =>  'max:14',
+            'description'   =>  'max:500',
+            'phone2'        =>  'min:9|max:12',
+            'phone'         =>  'min:9|max:12',
             'subcategoria_id' => 'required'
         ];
         $this->validate($request, $rules);

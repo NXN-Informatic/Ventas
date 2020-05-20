@@ -42,7 +42,7 @@ class ProductoController extends Controller
     public function store(Request $request) {
         $rules = [
             'name'          =>  'required|min:3|max:100|regex:/^[\pL\s\-]+$/u',
-            'description'   =>  'max:200',
+            'description'   =>  'max:1000',
             'precio'        =>  'required',
             'grupo'         =>  'required',
         ];
@@ -67,7 +67,7 @@ class ProductoController extends Controller
     public function update(Request $request, Producto $producto) {
         $rules = [
             'name'          =>  'required|min:3|max:100|regex:/^[\pL\s\-]+$/u',
-            'description'   =>  'max:200',
+            'description'   =>  'max:1000',
             'precio'        =>  'required'
         ];
         $this->validate($request, $rules);
