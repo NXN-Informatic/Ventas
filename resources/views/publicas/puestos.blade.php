@@ -1,4 +1,5 @@
 @extends('layouts.panel')
+@section('title','Puestos')
 @section('ogTitle'){{ $puesto->name }}@endsection
 @section('ogUrl'){{ 'http://feriatacna.com/puesto/'.$puesto->id.'/detail' }}@endsection
 @section('ogDesc'){{ $puesto->description }}@endsection

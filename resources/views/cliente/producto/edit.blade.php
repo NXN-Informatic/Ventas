@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title','Editar Producto')
 @section('styles')
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
     <style>
