@@ -27,6 +27,8 @@
     <!--Icon Font-->
     <link rel="stylesheet" href="{{ asset('css/fonts/icofont/icofont.min.css') }}">
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
 </head>
 <body>
     
@@ -59,24 +61,25 @@
                 </ul>
             </li>
         </ul>
+        <input type="text" id="buscar" name="buscar" style="width:400px;background:#fff" placeholder="Busque su Producto...">
         <ul class="header__item dflex right">
             <li class="header__list social dflex"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fas fa-envelope"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-youtube"></i></a>
                 <a href="#"><i class="fab fa-pinterest"></i></a>
             </li>
-            <li class="header__list"><i class="far fa-envelope"></i><span>Newsletter</span></li>
-            <li class="header__list"><span>Contact Us</span></li>
-            <li class="header__list"><span>Faqs</span></li>
+            <li class="header__list"><span><a href="{{ url('login') }}" style="color:#fff">LOGIN</a></span></li>
+            <li class="header__list"><span><a href="{{ url('register') }}" style="color:#fff">REGISTRAR TIENDA</a></span></li>
         </ul>
     </div>
   </header>
-  <div class="nav">
+  @if(!isset($puesto))
+  <div class="nav" id="ocultarBanner">
       <div class="nav__wrap container dflex">
           <div class="nav__button"><i class="fas fa-bars"></i>MENU</div>
           <a class="nav__logo" href="index.html"><img src="{{ asset('img/images/logo/wood-logo-dark.svg') }}" alt=""></a>
           <div class="nav__search dflex">
-              <input type="text" placeholder="Search for Products">
+              <input type="text" placeholder="Buscar Tiendas">
               <select name="search">
-          <option value="Select Category">Select Category</option>
+          <option value="Select Category">Seleccione su Categoria</option>
           <option value="Accessories">Accessories</option>
           <option value="Clocks">Clocks</option>
           <option value="Cooking">Cooking</option>
@@ -87,14 +90,11 @@
         </select><a href="#"><i class="fas fa-search"></i></a>
           </div>
           <div class="nav__notify dflex">
-              <a class="link" href="{{ url('login') }}">Login</a>
-              <a class="link" href="{{ url('register') }}">Register</a>
               <div class="icon"><i class="far fa-heart"></i></div>
-              <div class="icon" data-notify="0"><i class="fas fa-random"></i></div>
-              <div class="icon reponsive" data-notify="0"><i class="fas fa-shopping-bag" ></i></div><span>$0.00</span>
-          </div>
+            </div>
       </div>
   </div>
+  @endif
 	@yield('content')
 	<!--Isotope-->
 	<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>

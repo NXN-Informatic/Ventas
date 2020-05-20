@@ -20,29 +20,52 @@
 @endsection
 
 @section('content')
-@include('layouts.components.navbarHide')
-<!--Start Banner Header-->
-<div style="background-color: rgba(0,0,0,0.6);background:url(../../storage/{{$puesto->id}}/banner/{{$puesto->banner}}); 
-            background-size:cover;  background-position:center; text-align:center;
-            filter: brightness(90%);height:400px"
-    class="bannerHeader">
-    <h1 class="title">{{ $puesto->name }}</h1><a class="des link" href="#">CATEGORIES<i class="fas fa-angle-down"></i></a>
-    <div class="banner__list dflex">
-        @foreach($puesto->puestosubcatergorias as $puestosub)
-        <a class="item dflex" href="#" style="margin-top:5%">
-            @if($puestosub->subcategoria->imagen != null)
-            <img src="{{ asset('storage/subcategorias/'.$puestosub->subcategoria->categoria_id.'/'.$puestosub->subcategoria->id.'/'.$puestosub->subcategoria->imagen) }}" 
-            alt="" >
-            @endif
-            <div class="content"><span class="name" style="font-size:20px">{{ $puestosub->subcategoria->name }}</span></div>
-        </a>
-        @endforeach
-    </div>
-    <br>
-    <h1 class="name" style="font-size:20px"><i class="align-middle mr-2 fas fa-fw fa-phone-volume"></i> {{ $puesto->phone }}</h1>
-</div>
-<!--End Banner Header-->
 
+<!--Start Banner Slide-->
+<div class="banner">
+        <div class="banner__control">
+            <div class="circle dflex"><span class="active" data-slide="0"></span><span data-slide="1"></span><span data-slide="2"></span></div>
+            <div class="button buttonLeft dflex"><i class="fas fa-angle-left"></i></div>
+            <div class="button buttonRight dflex"><i class="fas fa-angle-right"></i></div>
+        </div>
+        <ul class="slider dflex">
+            <li class="slider__item col-12 dflex firstSlide active">
+                <div class="content col-lg-6 col-6">
+                    <h2>Simple - Rock Chairs</h2>
+                    <p>Semper vulputate aliquam curae condimentum<br>quisque gravida fusce convallis arcu cum at.</p>
+                    <div class="smallImage dflex"><img class="changeImage" src="{{ asset('img/images/bannerSlide/swatch-main-demo-1.jpg') }}" alt="" data-image="./images/bannerSlide/slider-main-demo-1.jpg"><img class="changeImage" src="./images/bannerSlide/swatch-main-demo-1-2.jpg" alt="" data-image="./images/bannerSlide/slider-main-demo-1-2.jpg">
+                        <img class="changeImage" src="{{ asset('img/images/bannerSlide/swatch-main-demo-1-3.jpg') }}" alt="" data-image="./images/bannerSlide/slider-main-demo-1-3.jpg"><img class="changeImage" src="./images/bannerSlide/swatch-main-demo-1-4.jpg" alt=""
+                            data-image="./images/bannerSlide/slider-main-demo-1-4.jpg"></div>
+                    <div class="price">$199.00</div>
+                </div>
+                <div class="image col-lg-6 col-6"><img class="switchImage" src="{{ asset('storage/'.$puesto->id.'/banner/'.$puesto->banner)}}" alt=""></div>
+            </li>
+            <li class="slider__item col-12 dflex secondSlide">
+                <div class="content col-lg-6 col-6">
+                    <h2>Eanes - Side Chairs.</h2>
+                    <div class="colors dflex">
+                        <p>Color:</p>
+                        <div class="blue color changeImage" data-image="./images/bannerSlide/slider-main-demo-2.jpg"></div>
+                        <div class="red color changeImage" data-image="./images/bannerSlide/slider-main-demo-2-1.jpg"></div>
+                        <div class="orange color changeImage" data-image="./images/bannerSlide/slider-main-demo-2-2.jpg"></div>
+                    </div>
+                    <p>Semper vulputate aliquam curae condimentum<br>quisque gravida fusce convallis arcu cum at.</p>
+                    <div class="price">$99.00</div>
+                </div>
+                <div class="image col-lg-6 col-6"><img class="switchImage" src="{{ asset('img/images/bannerSlide/slider-main-demo-2.jpg') }}" alt=""></div>
+            </li>
+            <li class="slider__item col-12 dflex wooden">
+                <div class="content col-lg-6 col-6">
+                    <h3>Cappellini</h3>
+                    <h2>Wooden Lounge Chairs</h2>
+                    <p>Semper vulputate aliquam curae condimentum<br>quisque gravida fusce convallis arcu cum at.</p>
+                    <div class="price">$999.00</div>
+                </div>
+                <div class="image col-lg-6 col-6"><img class="switchImage" src="{{ asset('img/images/bannerSlide/slider-main-demo-3.jpg') }}" alt=""></div>
+            </li>
+        </ul>
+    </div>
+    <!--End Banner Slide-->
  <!--Start Shop Product-->
  <div class="closeFilter"></div>
     <div class="shopProduct">
@@ -71,68 +94,6 @@
                 </li>
             </ul>
             <div class="product__item col-lg-9 col-12">
-                <div class="filter__control dflex">
-                    <div class="control__item">
-                        <div class="buttonSidebar"><i class="fas fa-bars"></i>SHOW SIDEBAR</div><a href="#">Home</a><span>/</span><a href="#"><strong>Shop</strong></a>
-                    </div>
-                    <div class="control__item dflex">
-                        <div class="filterNumber">
-                            <p><strong>Show:</strong><span class="number">9</span><span>/</span><span class="number active">12</span><span>/</span><span class="number">18</span><span>/</span><span class="number">24</span></p>
-                        </div>
-                        <div class="filterGrid dflex"><svg data-grid="gridRow" class="active" version="1.1" id="list-view" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18" height="18" viewBox="0 0 18 18" enable-background="new 0 0 18 18"
-                                xml:space="preserve">
-                            <rect width="18" height="2"></rect>
-                            <rect y="16" width="18" height="2"></rect>
-                            <rect y="8" width="18" height="2"></rect>
-                            </svg>
-                                                        <svg data-grid="fourGrid" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="19px" height="19px" viewBox="0 0 19 19" enable-background="new 0 0 19 19" xml:space="preserve">
-                            <path d="M7,2v5H2V2H7 M9,0H0v9h9V0L9,0z"></path>
-                            <path d="M17,2v5h-5V2H17 M19,0h-9v9h9V0L19,0z"></path>
-                            <path d="M7,12v5H2v-5H7 M9,10H0v9h9V10L9,10z"></path>
-                            <path d="M17,12v5h-5v-5H17 M19,10h-9v9h9V10L19,10z"></path>
-                            </svg>
-                                                        <svg data-grid="nineGrid" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="19px" height="19px" viewBox="0 0 19 19" enable-background="new 0 0 19 19" xml:space="preserve">
-                            <rect width="5" height="5"></rect>
-                            <rect x="7" width="5" height="5"></rect>
-                            <rect x="14" width="5" height="5"></rect>
-                            <rect y="7" width="5" height="5"></rect>
-                            <rect x="7" y="7" width="5" height="5"></rect>
-                            <rect x="14" y="7" width="5" height="5"></rect>
-                            <rect y="14" width="5" height="5"></rect>
-                            <rect x="7" y="14" width="5" height="5"></rect>
-                            <rect x="14" y="14" width="5" height="5"></rect>
-                            </svg>
-                                                        <svg data-grid="sixteenGrid" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="19px" height="19px" viewBox="0 0 19 19" enable-background="new 0 0 19 19" xml:space="preserve">
-                            <rect width="4" height="4"></rect>
-                            <rect x="5" width="4" height="4"></rect>
-                            <rect x="10" width="4" height="4"></rect>
-                            <rect x="15" width="4" height="4"></rect>
-                            <rect y="5" width="4" height="4"></rect>
-                            <rect x="5" y="5" width="4" height="4"></rect>
-                            <rect x="10" y="5" width="4" height="4"></rect>
-                            <rect x="15" y="5" width="4" height="4"></rect>
-                            <rect y="15" width="4" height="4"></rect>
-                            <rect x="5" y="15" width="4" height="4"></rect>
-                            <rect x="10" y="15" width="4" height="4"></rect>
-                            <rect x="15" y="15" width="4" height="4"></rect>
-                            <rect y="10" width="4" height="4"></rect>
-                            <rect x="5" y="10" width="4" height="4"></rect>
-                            <rect x="10" y="10" width="4" height="4"></rect>
-                            <rect x="15" y="10" width="4" height="4"></rect>
-                            </svg>
-                        </div>
-                        <div class="filterInput">
-                            <select>
-                  <option value="Default Sorting">Default Sorting</option>
-                  <option value="Sort by popularity">Sort by popularity</option>
-                  <option value="Sort by average rating">Sort by average rating</option>
-                  <option value="Sort by latest">Sort by latest</option>
-                  <option value="Sort by price: low to high">Sort by price: low to high</option>
-                  <option value="Sort by price: high to low">Sort by price: high to low</option>
-                </select>
-                        </div>
-                    </div>
-                </div>
                 <ul class="filterProduct gridRow">
                     @foreach($puesto->puestosubcatergorias as $puesto_subcategoria)
                         @foreach($puesto_subcategoria->grupos as $grupo)
@@ -170,6 +131,7 @@
             </div>
         </div>
     </div>
+    
     <!--End Shop Product-->
 @endsection
 

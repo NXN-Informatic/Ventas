@@ -155,4 +155,13 @@ class ProductoController extends Controller
         Producto::destroy($producto->id);
         return back();
     }
+
+    public function apiProductos($name) {
+        if($name == "feriaTacna") {
+            $productos = Producto::orderBy('id', 'desc')->limit(8)->get();
+        }else{
+            $productos = Producto::where('name', 'like', '%'.$name.'%')->get();
+        }
+        return $productos;
+    }
 }

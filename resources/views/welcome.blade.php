@@ -10,13 +10,33 @@
 
 @section('content')
 @include('layouts.components.navbar')
-@include('layouts.components.bannercovid')
 @include('layouts.components.banner')
+
+<!--Start Featured Products-->
+<div class="featureProduct">
+    <div class="firstTitle" id="ocultarBanner4">Actualmente tenemos 315 Productos</div>
+    <h4 class="title">Productos Disponibles</h4>
+    <div class="feature__filter">
+        <div class="button-group filters-button-group feature__buttons">
+        </div>
+        <ul class="featureSlider">
+            <li class="grid features__grid" id="prod">
+            
+            </li>
+
+            <li class="grid features__grid" id="mostrar">
+            
+            </li>
+        </ul>
+    </div>
+    <button type="submit" style="background:#153d77"">VER MAS PRODUCTOS</button>
+</div>
+<!--End Featured Products-->
 
 <!--Start Feature Product-->
 <div class="featureProduct singleProduct">
     <div class="feature__wrap container">
-    <h4 class="title">TIENDAS NUEVAS</h4>
+    <h4 class="title">TIENDAS DISPONIBLES</h4>
     <div class="feature__filter">
         <div class="featureSlider">
         <div class="sliderButton left"><i class="fas fa-angle-left"></i></div>
@@ -144,187 +164,113 @@
         </div>
     </div>
     </div>
+    <button type="submit" style="background:#153d77"">VER MAS TIENDAS</button>
 </div>
 <!--End Feature Product-->
 
-<!--Start Featured Products-->
-<div class="featureProduct">
-        <div class="firstTitle">Actualmente tenemos 315 Productos</div>
-        <h4 class="title">Productos Disponibles</h4>
-        <div class="lastTitle">####</div>
-        <div class="feature__filter">
-            <div class="button-group filters-button-group feature__buttons">
-                <button class="button is-checked" data-filter="*">CATEGORIA 1</button>
-                <button class="button" data-filter=".featured">CATEGORIA 2</button>
-                <button class="button" data-filter=".sale">CATEGORIA 3</button>
-            </div>
-            <ul class="featureSlider">
-                <li class="grid features__grid">
-                    <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">
-                        <div class="features__image desk sale"><img src="{{ asset('img/images/home/product/product-furniture-4-2-430x491.jpg') }}" alt="">
-                            <div class="image__overlay">
-                                <div class="color">
-                                    <div class="image" data-image="{{ asset('img/images/home/product/product-furniture-4-3-430x491.jpg') }}"></div>
-                                </div><a class="share" href="#"><i class="fas fa-random"></i></a>
-                            </div>
-                        </div>
-                        <div class="features__content"><a class="link" href="#">Wooden single drawer</a><a class="sub-link" href="#">Furniture</a>
-                            <p class="price">$249.00 - $399,00</p>
-                            <div class="content__overlay">
-                                <p>Placerat tempor dolor eu leo ullamcorper et magnis habitant ultrices consectetur arcu nulla mattis</p>
-                                <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="#">View Porducts</a><a href="#"><i class="fas fa-search"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="element-item features__item col-lg-3 col-sm-6 col-12 featured">
-                        <div class="features__image clocks"><img src="{{ asset('img/images/home/product/product-accessories-8-1-430x490.jpg') }}" alt="">
-                            <div class="image__overlay dflex">
-                                <div class="color"><span style="background: #f0deba" data-image="{{ asset('img/images/home/product/product-accessories-8-430x490.jpg') }}"></span><span style="background: #000" data-image="{{ asset('img/images/home/product/product-accessories-8-1-430x490.jpg') }}"></span></div>
-                                <a class="share" href="#"><i class="fas fa-random"></i></a>
-                            </div>
-                        </div>
-                        <div class="features__content"><a class="link" href="#">Smart Watches Wood Edition</a><a class="sub-link" href="#">Accessories, Clocks</a>
-                            <p class="price">$599.00</p>
-                            <div class="content__overlay">
-                                <p>Himenaeos parturient nam a justo placerat lorem erat pretium a fusce pharetra pretium enim sagittis ut nunc neque torquent sem a leo. Dictumst himenaeos primis torquent ridiculus.</p>
-                                <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="#">View Porducts</a><a href="#"><i class="fas fa-search"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">
-                        <div class="features__image chair new"><img src="{{ asset('img/images/home/product/product-furniture-19-3-430x490.jpg') }}" alt="">
-                            <div class="image__overlay dflex">
-                                <div class="color"><span style="background: #000" data-image="{{ asset('img/images/home/product/product-furniture-19-2-430x490.jpg') }}"></span><span style="background: #19a8e3" data-image="{{ asset('img/images/home/product/product-furniture-19-430x490.jpg') }}"></span>
-                                    <span style="background: #bfbfbf" data-image="{{ asset('img/images/home/product/product-furniture-19-4-430x490.jpg') }}"></span><span style="background: #50b948" data-image="{{ asset('img/images/home/product/product-furniture-19-3-430x490.jpg') }}"></span></div>
-                                <a class="share" href="#"><i class="fas fa-random"></i></a>
-                            </div>
-                        </div>
-                        <div class="features__content"><a class="link" href="#">Panton Tunior Chair</a><a class="sub-link" href="#">Furniture</a>
-                            <p class="price">$199.00</p>
-                            <div class="content__overlay">
-                                <p> Placerat tempor dolor eu leo ullamcorper et magnis habitant ultrices consectetur arcu nulla mattis fermentum adipiscing a et bibendum sed platea malesuada eget vestibulum.</p>
-                                <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="#">View Porducts</a><a href="#"><i class="fas fa-search"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="element-item features__item col-lg-3 col-sm-6 col-12 featured">
-                        <div class="features__image tree"><img src="{{ asset('img/images/home/product/product-accessories-10-430x490.jpg') }}" alt="">
-                            <div class="image__overlay dflex">
-                                <div class="color">
-                                    <div class="image" data-image="{{ asset('img/images/home/product/product-accessories-10-2-430x490.jpg') }}"></div>
-                                </div><a class="share" href="#"><i class="fas fa-random"></i></a>
-                            </div>
-                        </div>
-                        <div class="features__content"><a class="link" href="#">Decoration Wooden Present</a><a class="sub-link" href="#">Accessories</a>
-                            <p class="price">$89.00</p>
-                            <div class="content__overlay">
-                                <p>Nam gravida vulputate est venenatis eu at ullamcorper consectetur parturient suspendisse a elit lobortis ut convallis vestibulum vulputate nunc praesent mattis sem faucibus risus sociosqu.Dapibus curae a ac vestibulum a
-                                    magnis ullamcorper orci.</p>
-                                <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="#">View Porducts</a><a href="#"><i class="fas fa-search"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="element-item features__item col-lg-3 col-sm-6 col-12 featured">
-                        <div class="features__image drink"><img src="{{ asset('img/images/home/product/product-furniture-11-430x490.jpg') }}" alt="">
-                            <div class="image__overlay dflex">
-                                <div class="color">
-                                    <div class="image" data-image="{{ asset('img/images/home/product/product-furniture-11-3-430x490.jpg') }}"></div>
-                                </div><a class="share" href="#"><i class="fas fa-random"></i></a>
-                            </div>
-                        </div>
-                        <div class="features__content"><a class="link" href="#">Wine Bottle Lantern</a><a class="sub-link" href="#">Accessories</a>
-                            <div class="dflex star"><i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="price">$399.00</p>
-                            <div class="content__overlay">
-                                <p> Consequat a scelerisque suspendisse vel et eget eu vitae adipiscing nibh scelerisque semper cum adipiscing facilisis adipiscing est accumsan lorem vestibulum. Aliquet mus a aptent ullam corper metus accumsan.</p>
-                                <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="#">View Porducts</a><a href="#"><i class="fas fa-search"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="element-item features__item col-lg-3 col-sm-6 col-12 featured">
-                        <div class="features__image dock"><img src="{{ asset('img/images/home/product/dock-black-walnut-ip6-grid-A4_7-430x490.jpg') }}" alt="">
-                            <div class="image__overlay dflex">
-                                <div class="color"><span style="background:#0a0a0a;" data-image="{{ asset('img/images/home/product/dock-black-walnut-ip6-grid-A4_7-430x490.jpg') }}"> </span><span style="background:#bfbfbf;" data-image="{{ asset('img/images/home/product/dock-black-walnut-ip6-grid-B1_1-430x491.jpg') }}"> </span></div>
-                                <a class="share" href="#"><i class="fas fa-random"></i></a>
-                            </div>
-                        </div>
-                        <div class="features__content"><a class="link" href="#">iPhone Dock</a><a class="sub-link" href="#">Accessories</a>
-                            <div class="dflex star"><i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="price">$399.00</p>
-                            <div class="content__overlay">
-                                <p>Consequat a scelerisque suspendisse vel et eget eu vitae adipiscing nibh scelerisque semper cum adipiscing facilisis adipiscing est accumsan lorem vestibulum.</p>
-                                <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="#">View Porducts</a><a href="#"><i class="fas fa-search"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="element-item features__item col-lg-3 col-sm-6 col-12 featured">
-                        <div class="features__image pen"><img src="{{ asset('img/images/home/product/product-furniture-14-430x491.jpg') }}" alt="">
-                            <div class="image__overlay dflex">
-                                <div class="color"><span style="background:#f0deba;" data-image="{{ asset('img/images/home/product/product-furniture-14-430x491.jpg') }}"> </span><span style="background:#49271d;" data-image="{{ asset('img/images/home/product/product-furniture-14-2-430x491.jpg') }}"> </span></div>
-                                <a class="share" href="#"><i class="fas fa-random"></i></a>
-                            </div>
-                        </div>
-                        <div class="features__content"><a class="link" href="#">Decoration For Table Pen</a><a class="sub-link" href="#">Accessories</a>
-                            <div class="dflex star"><i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="price">$359.00</p>
-                            <div class="content__overlay">
-                                <p> Adipiscing neque a a montes parturient scelerisque molestie magnis adipiscing mus porta parturient est a blandit fusce adipiscing augue per magnis venenatis ullamcorper.</p>
-                                <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="#">View Porducts</a><a href="#"><i class="fas fa-search"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">
-                        <div class="features__image loungeChair fiftyPercent hot"><img src="{{ asset('img/images/home/product/product-furniture-8-430x490.jpg') }}" alt="">
-                            <div class="image__overlay dflex">
-                                <div class="color"><span style="background:#0a0a0a;" data-image="{{ asset('img/images/home/product/product-furniture-8-2-430x490.jpg') }}"> </span><span style="background:#bfbfbf;" data-image="{{ asset('img/images/home/product/product-furniture-8-3-430x490.jpg') }}"> </span></div>
-                                <a class="share" href="#"><i class="fas fa-random"></i></a>
-                            </div>
-                        </div>
-                        <div class="features__content"><a class="link" href="#">Eames Lounge Chair</a><a class="sub-link" href="#">Furniture</a>
-                            <div class="dflex star"><i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="price">
-                                <del style="color: #777">$799.00</del>$359.00
-                            </p>
-                            <div class="content__overlay">
-                                <p>Placerat tempor dolor eu leo ullamcorper et magnis habitant ultrices consectetur arcu nulla mattis fermentum adipiscing a et bibendum sed platea malesuada eget vestibulum.</p>
-                                <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="#">View Porducts</a><a href="#"><i class="fas fa-search"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <!--End Featured Products-->
-    <!--Start Join-->
-    <div class="join dflex">
-        <h4 class="title">DEJANOS TU CORREO PARA RECIBIR MAS DETALLES</h4>
-        <form class="dflex" action="#">
-            <input type="text" placeholder="Your email address">
-            <button type="submit">ENVIAR</button>
-        </form>
-        <p>Will be used in accordance with our <a href="#"><strong>Privacy Policy</strong></a></p>
-    </div>
-    <!--End Join-->
+<!--Start Join-->
+<div class="join dflex">
+    <h4 class="title">DEJANOS TU CORREO</h4>
+    <form class="dflex" action="#">
+        <input type="text" placeholder="Ingrese su correo electrónico">
+        <button type="submit" style="background:#153d77"">ENVIAR</button>
+    </form>
+</div>
+<!--End Join-->
 @include('layouts.components.footer')
+
 @endsection
+
+@section('scripts')
+
+<script>
+    $(function() {
+        $producto_id = $('#prod');
+        $mostrar = $('#mostrar');
+        onload('feriaTacna');
+        $('#mostrar').hide();
+        $("#buscar").on("keyup", function() {
+            valor=$(this).val();
+            if(valor.length === 0) {
+                $('#ocultarBanner').show();
+                $('#ocultarBanner2').show();
+                $('#ocultarBanner3').show();
+                $('#ocultarBanner4').show();
+                $('#mostrar').hide();
+                $('#prod').show();
+            }else {
+                mostrarload(valor);
+                $('#ocultarBanner').hide();
+                $('#ocultarBanner2').hide();
+                $('#ocultarBanner3').hide();
+                $('#ocultarBanner4').hide();
+                $('#prod').hide();
+                $('#mostrar').show();
+            }
+        });
+
+        function onload(name) {
+            const url = `/productos/${name}/all`;
+            $.getJSON(url, onProductos);
+        }
+
+        function mostrarload(name){
+            const url = `/productos/${name}/all`;
+            $.getJSON(url, onMostrar);
+        }
+
+        function onMostrar(data) {
+            console.log(data);
+            let htmlOptions = '';
+            data.forEach(productos => {
+                htmlOptions += 
+                `<div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">`+
+                    `<div class="features__image desk"><img src="{{ asset('img/images/home/product/product-furniture-4-2-430x491.jpg') }}" alt="">`+
+                        `<div class="image__overlay">`+
+                            `<div class="color">`+
+                                `<div class="image" data-image="{{ asset('img/images/home/product/product-furniture-4-3-430x491.jpg') }}"></div>`+
+                            `</div><a class="share" href="#"><i class="fas fa-random"></i></a>`+
+                        `</div>`+
+                    `</div>`+
+                    `<div class="features__content"><a class="link" href="#">${productos.name}</a>`+
+                        `<p class="price">$${productos.precio}</p>`+
+                        `<div class="content__overlay">`+
+                            `<p>${ productos.description }</p>`+
+                            `<div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="#">Ver Producto</a><a href="#"><i class="fas fa-search"></i></a></div>`+
+                        `</div>`+
+                    `</div>`+
+                `</div>`;
+            });
+            $mostrar.html(htmlOptions);
+        }
+
+        function onProductos(data) {
+            console.log(data);
+            let htmlOptions = '';
+            $("prod").remove();
+            data.forEach(productos => {
+                htmlOptions += 
+                `<div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">`+
+                    `<div class="features__image desk"><img src="{{ asset('img/images/home/product/product-furniture-4-2-430x491.jpg') }}" alt="">`+
+                        `<div class="image__overlay">`+
+                            `<div class="color">`+
+                                `<div class="image" data-image="{{ asset('img/images/home/product/product-furniture-4-3-430x491.jpg') }}"></div>`+
+                            `</div><a class="share" href="#"><i class="fas fa-random"></i></a>`+
+                        `</div>`+
+                    `</div>`+
+                    `<div class="features__content"><a class="link" href="#">${productos.name}</a>`+
+                        `<p class="price">$${productos.precio}</p>`+
+                        `<div class="content__overlay">`+
+                            `<p>${ productos.description }</p>`+
+                            `<div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="#">Ver Producto</a><a href="#"><i class="fas fa-search"></i></a></div>`+
+                        `</div>`+
+                    `</div>`+
+                `</div>`;
+            });
+            $producto_id.html(htmlOptions);
+        }
+    });
+</script>
+@endsection
+
+

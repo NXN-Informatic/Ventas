@@ -1,5 +1,5 @@
 <!--Start Banner Slide-->
-<div class="banner">
+<div class="banner" id="ocultarBanner3">
         <div class="banner__control">
             <div class="circle dflex"><span class="active" data-slide="0"></span><span data-slide="1"></span><span data-slide="2"></span></div>
             <div class="button buttonLeft dflex"><i class="fas fa-angle-left"></i></div>

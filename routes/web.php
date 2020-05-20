@@ -3,13 +3,17 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    $puestos = collect();
+    $productos = collect();
+    return view('welcome', compact('puestos', 'productos'));
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/puesto/{puesto}/detail', 'Cliente\PuestoController@compartir');
+Route::get('/puesto/{puesto}/detail', 'Cliente\PuestoController@compartir');    
+// Productos
+Route::get('/productos/{name}/all', 'Cliente\ProductoController@apiProductos');
 
 Route::group(['middleware' => 'auth'], function () {
     /** 
@@ -187,4 +191,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/provincia/{region}/apiprovincias', 'Administrador\ProvinciaController@apiprovincias');
     // Regiones
     Route::get('/region/{pais}/regiones', 'Administrador\RegionController@apiregiones');
+
 });
