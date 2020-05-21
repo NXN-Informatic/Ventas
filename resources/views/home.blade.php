@@ -3,6 +3,7 @@
 @section('content')
 @include('layouts.partials.menu')
 @include('layouts.partials.navbar')
+@section('title','Panel de Administración')
     
 <main class="content">
     <div class="container-fluid">

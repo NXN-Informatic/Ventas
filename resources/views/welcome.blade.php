@@ -9,6 +9,7 @@
 @endsection
 
 @section('content')
+@section('title','Bienvenido')
 @include('layouts.components.navbar')
 @include('layouts.components.banner')
 

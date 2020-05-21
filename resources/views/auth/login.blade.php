@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title','Ingresar')
 @section('content')
 <main class="main h-100 w-100">
     <div class="container h-100">
