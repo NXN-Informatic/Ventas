@@ -12,6 +12,7 @@ class Puesto extends Model
      * @var array
      */
     protected $fillable = [
+        'id',
         'name',
         'description', 
         'phone2',

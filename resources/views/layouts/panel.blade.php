@@ -39,25 +39,19 @@
 
   <!--Start Elements Page-->
   <a class="onTop dflex" href="#onTop"><i class="fas fa-angle-up"></i></a>
-  <div class="buy dflex"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 415.441 415.441" fill="#81b441" xml:space="preserve"> <path d="M324.63,22.533C135.173,226.428,80.309,371.638,80.309,371.638c41.149,47.743,111.28,43.72,111.28,43.72 			c73.921,2.31,119.192-43.522,119.192-43.522c91.861-92.516,80.549-355.302,80.549-355.302 			C372.769-23.891,324.63,22.533,324.63,22.533z"></path> <path d="M32.369,181.983c0,0-28.983,57.964,18.859,155.495L178.367,58.01C176.916,58.538,63.691,98.037,32.369,181.983z"></path> </svg><span>Buy<strong>WoodMart</strong></span></div>
+  <div class="buy dflex"><span>FERIA<strong>TACNA</strong></span></div>
   <!--End Elements Page-->
 
   <!--Start Header-->
   <header style="background:#153d77">
     <div class="header__wrap container dflex">
         <ul class="header__item dflex left">
-            <li class="header__list"><span>English</span><i class="fas fa-angle-down"></i>
-                <ul class="sub">
-                    <li><span>Deutsch</span></li>
-                    <li><span>French</span></li>
-                    <li><span>Requires WPML plugin</span></li>
-                </ul>
-            </li>
-            <li class="header__list"><span>Ciudad</span><i class="fas fa-angle-down"></i>
-                <ul class="sub">
-                    <li><span>Tacna</span></li>
-                    <li><span>Puno</span></li>
-                    <li><span>Arequipa</span></li>
+            <li class="header__list"><span>CATEGORIAS</span><i class="fas fa-angle-down"></i>
+                <ul class="sub" id="tags">
+                    <li value="0"><span>TODOS</span></li>
+                    @foreach($categorias as $categoria)
+                    <li value="{{ $categoria->id }}"><span>{{ $categoria->name }}</span></li>
+                    @endforeach
                 </ul>
             </li>
         </ul>
@@ -71,27 +65,13 @@
         </ul>
     </div>
   </header>
-  @if(!isset($puesto))
   <div class="nav" id="ocultarBanner">
       <div class="nav__wrap container dflex">
           <div class="nav__button"><i class="fas fa-bars"></i>MENU</div>
-          <a class="nav__logo" href="index.html"><img src="{{ asset('img/images/logo/wood-logo-dark.svg') }}" alt=""></a>
-          <div class="nav__search dflex">
-              <input type="text" placeholder="Buscar Tiendas">
-              <select name="search" id="search">
-                <option value="">Seleccione su Categoria</option>
-                @foreach($categorias as $categoria)
-                    <option value="{{ $categoria->id }}">{{ $categoria->name }}</option>
-                @endforeach
-            </select>
-            <a href="#"><i class="fas fa-search"></i></a>
-          </div>
-          <div class="nav__notify dflex">
-              <div class="icon"><i class="far fa-heart"></i></div>
-            </div>
+          <a class="nav__logo" href="index.html"></a>
+          
       </div>
   </div>
-  @endif
 	@yield('content')
 	<!--Isotope-->
 	<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>

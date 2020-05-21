@@ -160,4 +160,14 @@ class PuestoController extends Controller
         }
         return view('/publicas/puestos', compact('puesto', 'categorias'));
     }
+
+    public function apiTiendas($name) {
+        if($name == "feriaTacna") {
+            $puestos = Puesto::orderBy('id', 'desc')->limit(8)->get();
+            
+        }else{
+            $puestos = Puesto::where('name', 'like', '%'.$name.'%')->get();
+        }
+        return $puestos;
+    }
 }
