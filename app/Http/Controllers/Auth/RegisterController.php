@@ -66,7 +66,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        dd($data);
         $puesto = Puesto::create([
             'name' => $data['name']
         ]);
@@ -75,6 +74,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        dd($user);
         UsuarioPuesto::create([
             'usuario_id' => $user->id,
             'puesto_id'  => $puesto->id
