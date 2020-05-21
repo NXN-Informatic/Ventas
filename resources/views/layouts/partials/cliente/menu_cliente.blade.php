@@ -22,7 +22,7 @@
         </a>
         <ul id="puestos" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
             <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto') }}"">{{ __('Lista de Puestos') }}</a></li>
-            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto/create') }}"">{{ __('Crear de Puesto') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto/create') }}"">{{ __('Crear Puesto') }}</a></li>
         </ul>
     </li>
     <li class="sidebar-item">
@@ -33,7 +33,7 @@
     </li>
     <li class="sidebar-item">
         <a class="sidebar-link" href="{{ url('price') }}">
-            <i class="align-middle mr-2 fas fa-fw fa-dollar-sign"></i> <span class="align-middle">{{ __('Subsripciones') }}</span>
+            <i class="align-middle mr-2 fas fa-fw fa-dollar-sign"></i> <span class="align-middle">{{ __('Mi Plan') }}</span>
             <span class="sidebar-badge badge badge-pill badge-primary">{{ __('Ir') }}</span>
         </a>
     </li>
