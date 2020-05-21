@@ -1,11 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Categoria;
 
 Route::get('/', function () {
     $puestos = collect();
     $productos = collect();
-    return view('welcome', compact('puestos', 'productos'));
+    $categorias = Categoria::all();
+    return view('welcome', compact('puestos', 'productos', 'categorias'));
 });
 
 Auth::routes();
@@ -14,6 +16,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/puesto/{puesto}/detail', 'Cliente\PuestoController@compartir');    
 // Productos
 Route::get('/productos/{name}/all', 'Cliente\ProductoController@apiProductos');
+// Productos Categoria
+Route::get('/categoria/{cateogiraId}/apiProductosCategoria', 'Cliente\ProductoController@apiProductosCategoria');
 
 Route::group(['middleware' => 'auth'], function () {
     /** 

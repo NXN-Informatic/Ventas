@@ -13,8 +13,8 @@
 @include('layouts.components.banner')
 
 <!--Start Featured Products-->
-<div class="featureProduct">
-    <div class="firstTitle" id="ocultarBanner4">Actualmente tenemos 315 Productos</div>
+<div class="featureProduct" id="ocultarBanner4">
+    <div class="firstTitle">Actualmente tenemos 315 Productos</div>
     <h4 class="title">Productos Disponibles</h4>
     <div class="feature__filter">
         <div class="button-group filters-button-group feature__buttons">
@@ -23,15 +23,32 @@
             <li class="grid features__grid" id="prod">
             
             </li>
-
-            <li class="grid features__grid" id="mostrar">
-            
-            </li>
         </ul>
     </div>
     <button type="submit" style="background:#153d77"">VER MAS PRODUCTOS</button>
 </div>
-<!--End Featured Products-->
+
+<div class="shopProduct">
+    <div class="shopProduct__wrap dflex container">
+        <div class="product__item col-lg-12 col-12">
+
+            <ul class="filterProduct gridRow" id="mostrar">
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="shopProduct">
+    <div class="shopProduct__wrap dflex container">
+        <div class="product__item col-lg-12 col-12">
+
+            <ul class="filterProduct gridRow" id="categoria">
+                
+            </ul>
+        </div>
+    </div>
+</div>
 
 <!--Start Feature Product-->
 <div class="featureProduct singleProduct">
@@ -187,6 +204,8 @@
     $(function() {
         $producto_id = $('#prod');
         $mostrar = $('#mostrar');
+        $categoria = $('#search');
+        $mostrarcategoria = $('#categoria');
         onload('feriaTacna');
         $('#mostrar').hide();
         $("#buscar").on("keyup", function() {
@@ -196,6 +215,7 @@
                 $('#ocultarBanner2').show();
                 $('#ocultarBanner3').show();
                 $('#ocultarBanner4').show();
+                $('#categoria').hide();
                 $('#mostrar').hide();
                 $('#prod').show();
             }else {
@@ -204,10 +224,41 @@
                 $('#ocultarBanner2').hide();
                 $('#ocultarBanner3').hide();
                 $('#ocultarBanner4').hide();
+                $('#categoria').hide();
                 $('#prod').hide();
                 $('#mostrar').show();
             }
         });
+        $categoria.change(() => {
+            $('#categoria').show();
+            $('#ocultarBanner2').hide();
+            $('#ocultarBanner3').hide();
+            $('#ocultarBanner4').hide();
+            const cateogiraId = $categoria.val();
+            const url = `/categoria/${cateogiraId}/apiProductosCategoria`;
+            $.getJSON(url, onProducCateg);
+        });
+
+        function onProducCateg(data) {
+            let htmlOptions = '';
+            data.forEach(productos => {
+                htmlOptions += 
+                `<li class="product__item">`+
+                    `<div class="product__image"><img src="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}" alt="">`+
+                        `<div class="image__tools"><i class="fas fa-search"></i>`+
+                            `<i class="fas fa-random"></i>`+
+                            `<i class="far fa-heart"></i>`+
+                        `</div>`+
+                    `</div>`+
+                    `<div class="product__content"><a class="link-title" href="#">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
+                        `<p class="price">$${productos.precio}</p>`+
+                        `<div class="color"><span style="background: #f0deba" data-image="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"></span><span style="background: #000" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
+                        `<p>${ productos.description }</p><a class="btn active" href="singleProduct.html">Ver Producto</a>`+
+                    `</div>`+
+                `</li>`;
+            });
+            $mostrarcategoria.html(htmlOptions);
+        }
 
         function onload(name) {
             const url = `/productos/${name}/all`;
@@ -218,28 +269,24 @@
             const url = `/productos/${name}/all`;
             $.getJSON(url, onMostrar);
         }
-
         function onMostrar(data) {
             console.log(data);
             let htmlOptions = '';
             data.forEach(productos => {
                 htmlOptions += 
-                `<div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">`+
-                    `<div class="features__image desk"><img src="{{ asset('img/images/home/product/product-furniture-4-2-430x491.jpg') }}" alt="">`+
-                        `<div class="image__overlay">`+
-                            `<div class="color">`+
-                                `<div class="image" data-image="{{ asset('img/images/home/product/product-furniture-4-3-430x491.jpg') }}"></div>`+
-                            `</div><a class="share" href="#"><i class="fas fa-random"></i></a>`+
+                `<li class="product__item">`+
+                    `<div class="product__image"><img src="{{ asset('img/images/home/product/product-furniture-4-3-430x491.jpg') }}" alt="">`+
+                        `<div class="image__tools"><i class="fas fa-search"></i>`+
+                            `<i class="fas fa-random"></i>`+
+                            `<i class="far fa-heart"></i>`+
                         `</div>`+
                     `</div>`+
-                    `<div class="features__content"><a class="link" href="#">${productos.name}</a>`+
+                    `<div class="product__content"><a class="link-title" href="#">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
                         `<p class="price">$${productos.precio}</p>`+
-                        `<div class="content__overlay">`+
-                            `<p>${ productos.description }</p>`+
-                            `<div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="#">Ver Producto</a><a href="#"><i class="fas fa-search"></i></a></div>`+
-                        `</div>`+
+                        `<div class="color"><span style="background: #f0deba" data-image="{{ asset('img/images/home/product/product-furniture-4-3-430x491.jpg') }}"></span><span style="background: #000" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
+                        `<p>${ productos.description }</p><a class="btn active" href="singleProduct.html">Ver Producto</a>`+
                     `</div>`+
-                `</div>`;
+                `</li>`;
             });
             $mostrar.html(htmlOptions);
         }

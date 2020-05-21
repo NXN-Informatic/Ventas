@@ -78,16 +78,13 @@
           <a class="nav__logo" href="index.html"><img src="{{ asset('img/images/logo/wood-logo-dark.svg') }}" alt=""></a>
           <div class="nav__search dflex">
               <input type="text" placeholder="Buscar Tiendas">
-              <select name="search">
-          <option value="Select Category">Seleccione su Categoria</option>
-          <option value="Accessories">Accessories</option>
-          <option value="Clocks">Clocks</option>
-          <option value="Cooking">Cooking</option>
-          <option value="Furniture">Furniture</option>
-          <option value="Lighting">Lighting</option>
-          <option value="Toys">Toys</option>
-          <option value="Uncategorized">Uncategorized</option>
-        </select><a href="#"><i class="fas fa-search"></i></a>
+              <select name="search" id="search">
+                <option value="">Seleccione su Categoria</option>
+                @foreach($categorias as $categoria)
+                    <option value="{{ $categoria->id }}">{{ $categoria->name }}</option>
+                @endforeach
+            </select>
+            <a href="#"><i class="fas fa-search"></i></a>
           </div>
           <div class="nav__notify dflex">
               <div class="icon"><i class="far fa-heart"></i></div>

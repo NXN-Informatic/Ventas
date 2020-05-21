@@ -9,6 +9,7 @@ use App\UsuarioPuesto;
 use App\Producto;
 use App\PuestoSubcategoria;
 use App\ImagenProducto;
+use App\Categoria;
 
 class ProductoController extends Controller
 {
@@ -163,5 +164,34 @@ class ProductoController extends Controller
             $productos = Producto::where('name', 'like', '%'.$name.'%')->get();
         }
         return $productos;
+    }
+
+    public function apiProductosCategoria(Categoria $cateogiraId) {
+        $data = array();
+        foreach($cateogiraId->subcategorias as $subcategorias) {
+            if($subcategorias->puestosubcategorias != null) {
+                foreach($subcategorias->puestosubcategorias as $puestoSubcategorias) {
+                    if($puestoSubcategorias->grupos != null){
+                        foreach($puestoSubcategorias->grupos as $grupos) {
+                            if($grupos->productos != null) {
+                                foreach($grupos->productos as $productos) {
+                                    $image = ImagenProducto::where('producto_id', $productos->id)->first();
+                                    $data[] = array(
+                                        "name" => $productos->name,
+                                        "image" => $image->imagen,
+                                        "precio" => $productos->precio,
+                                        "puesto" => $puestoSubcategorias->puesto_id,
+                                        "id" => $productos->id,
+                                        "description" => $productos->description,
+                                        "stock" => $productos->stock
+                                    );
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return $data;
     }
 }
