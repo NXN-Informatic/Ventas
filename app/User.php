@@ -29,7 +29,8 @@ class User extends Authenticatable
         'useragent',
         'completado',
         'distrito_id',
-        'identidad_id'
+        'identidad_id',
+        'password'
     ];
 
     /**
