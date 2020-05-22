@@ -161,12 +161,37 @@ class ProductoController extends Controller
     }
 
     public function apiProductos($name) {
+        $data = array();
         if($name == "feriaTacna") {
             $productos = Producto::orderBy('id', 'desc')->limit(8)->get();
+            foreach($productos as $producto) {
+                $image = ImagenProducto::where('producto_id', $producto->id)->first();
+                $data[] = array(
+                    "name" => $producto->name,
+                    "image" => $image->imagen,
+                    "precio" => $producto->precio,
+                    "puesto" => $producto->grupo->puestosubcategoria->puesto->id,
+                    "id" => $producto->id,
+                    "description" => $producto->description,
+                    "stock" => $producto->stock
+                );
+            }
         }else{
             $productos = Producto::where('name', 'like', '%'.$name.'%')->get();
+            foreach($productos as $producto) {
+                $image = ImagenProducto::where('producto_id', $producto->id)->first();
+                $data[] = array(
+                    "name" => $producto->name,
+                    "image" => $image->imagen,
+                    "precio" => $producto->precio,
+                    "puesto" => $producto->grupo->puestosubcategoria->puesto->id,
+                    "id" => $producto->id,
+                    "description" => $producto->description,
+                    "stock" => $producto->stock
+                );
+            }
         }
-        return $productos;
+        return $data;
     }
 
     public function apiProductosCategoria(Categoria $cateogiraId) {

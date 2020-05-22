@@ -6,8 +6,9 @@ use App\Categoria;
 Route::get('/', function () {
     $puestos = collect();
     $productos = collect();
+    $tiendas = collect();
     $categorias = Categoria::all();
-    return view('welcome', compact('puestos', 'productos', 'categorias'));
+    return view('welcome', compact('puestos', 'productos', 'categorias', 'tiendas'));
 });
 
 Auth::routes();
@@ -18,6 +19,8 @@ Route::get('/puesto/{puesto}/detail', 'Cliente\PuestoController@compartir');
 Route::get('/productos/{name}/all', 'Cliente\ProductoController@apiProductos');
 // Productos Categoria
 Route::get('/categoria/{cateogiraId}/apiProductosCategoria', 'Cliente\ProductoController@apiProductosCategoria');
+// Tiendas
+Route::get('/tiendas/{name}/apiTiendas', 'Cliente\PuestoController@apiTiendas');
 
 Route::group(['middleware' => 'auth'], function () {
     /** 
