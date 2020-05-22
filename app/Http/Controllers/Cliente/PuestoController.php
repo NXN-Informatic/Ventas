@@ -160,4 +160,8 @@ class PuestoController extends Controller
         }
         return view('/publicas/puestos', compact('puesto', 'categorias'));
     }
+
+    public function storeExcel(){ 
+        return Excel::store(new CatalogsExport, 'catalog.csv');
+    }
 }

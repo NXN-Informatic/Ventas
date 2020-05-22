@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Cliente;
 
 use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use App\Grupo;
 use App\UsuarioPuesto;
@@ -10,6 +11,7 @@ use App\Producto;
 use App\PuestoSubcategoria;
 use App\ImagenProducto;
 use App\Categoria;
+use App\Exports\CatalogsExport;
 
 class ProductoController extends Controller
 {
@@ -58,6 +60,7 @@ class ProductoController extends Controller
         ]);
         
         $notification = 'El producto se creo '.$producto->name.' correctamente con id: '.$producto->id;
+        $this->storeExcel($request);
         return redirect('/producto/'.$request->input('puesto_id').'/add')->with(compact('notification'));
     }
 
@@ -193,5 +196,10 @@ class ProductoController extends Controller
             }
         }
         return $data;
+    }
+
+    public function storeExcel(Request $request){ 
+        $puestoid=$request->input('puesto_id');
+        Excel::store(new CatalogsExport($puestoid), 'catalog1.csv');
     }
 }
