@@ -161,11 +161,8 @@ class PuestoController extends Controller
         return view('/publicas/puestos', compact('puesto', 'categorias'));
     }
 
-<<<<<<< HEAD
-    public function storeExcel(){ 
-        return Excel::store(new CatalogsExport, 'catalog.csv');
-=======
-    public function apiTiendas($name) {
+    public function apiTiendas($name) 
+    {
         if($name == "feriaTacna") {
             $puestos = Puesto::orderBy('id', 'desc')->limit(8)->get();
             
@@ -173,6 +170,5 @@ class PuestoController extends Controller
             $puestos = Puesto::where('name', 'like', '%'.$name.'%')->get();
         }
         return $puestos;
->>>>>>> c832b8fcece75b1cbc1abb2935b274af3429090c
     }
 }

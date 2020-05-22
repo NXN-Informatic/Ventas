@@ -20,10 +20,10 @@ class CatalogsExport implements FromQuery, WithMapping, WithHeadings
 
     public function query()
     {
-        $this->idpuesto = 12;
         $ret = Producto::query()->join('grupos', 'grupos.id', '=', 'productos.grupo_id')->join('puesto_subcategorias', 'puesto_subcategorias.id', '=', 'grupos.puestosubcategoria_id')->join('puestos', 'puestos.id', '=', 'puesto_subcategorias.puesto_id')->join('imagen_productos', 'productos.id', '=', 'imagen_productos.producto_id')->where('puestos.id',$this->idpuesto);       
         return $ret;
     }
+
     public function map($row): array
     {
         return [
@@ -39,7 +39,8 @@ class CatalogsExport implements FromQuery, WithMapping, WithHeadings
             $row->marca,
             $row->preciooferta
         ];
-    }
+    }  
+
     public function headings(): array
     {
         return [

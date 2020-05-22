@@ -13,7 +13,8 @@ class ImagenProducto extends Model
      */
     protected $fillable = [
         'producto_id' ,
-        'imagen'
+        'imagen',
+        'imagen_url'
     ];
 
     public function producto() {

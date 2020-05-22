@@ -60,7 +60,6 @@ class ProductoController extends Controller
         ]);
         
         $notification = 'El producto se creo '.$producto->name.' correctamente con id: '.$producto->id;
-        $this->storeExcel($request);
         return redirect('/producto/'.$request->input('puesto_id').'/add')->with(compact('notification'));
     }
 
@@ -114,16 +113,19 @@ class ProductoController extends Controller
         foreach($files as $file){
             $name = $file->getClientOriginalName();
             $fileName = 'public/'.$puesto.'/'.$producto.'/'.$name;
+            $imagenurl = 'https://feriatacna.com/'.$fileName;
             //indicamos que queremos guardar un nuevo archivo en el disco local
             \Storage::disk('local')->put($fileName,  \File::get($file));
 
             ImagenProducto::create(
                 [
                     'producto_id'    => $producto,
-                    'imagen'   => $name 
+                    'imagen'   => $name,
+                    'imagen_url'    => $imagenurl
                 ]
             );
         }
+        $this->storeExcel($puesto);
     }
 
     public function dropzonedelete(Request $request) {
@@ -223,8 +225,8 @@ class ProductoController extends Controller
         return $data;
     }
 
-    public function storeExcel(Request $request){ 
-        $puestoid=$request->input('puesto_id');
-        Excel::store(new CatalogsExport($puestoid), 'catalog1.csv');
+    public function storeExcel(Producto $puestito){ 
+        $filePath = 'public/'.$puestito.'/fb_catalog.csv';
+        Excel::store(new CatalogsExport($puestito), $filePath);
     }
 }
