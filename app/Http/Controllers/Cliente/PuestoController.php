@@ -9,6 +9,8 @@ use App\Puesto;
 use App\Categoria;
 use App\Subcategoria;
 use App\PuestoSubcategoria;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\CatalogsExport;
 
 class PuestoController extends Controller
 {
@@ -37,6 +39,10 @@ class PuestoController extends Controller
             $subcategorias = $categoria->subcategorias;
         } else $subcategorias = collect();
         return view('cliente.puestos.edit', compact('puesto', 'categorias', 'subcategorias'));
+    }
+    public function catalog($puesto) {
+        $catalog_url = $this->storeExcel($puesto);
+        return view('cliente.puestos.catalog', compact('catalog_url'));
     }
 
     public function store(Request $request) {
@@ -170,5 +176,10 @@ class PuestoController extends Controller
             $puestos = Puesto::where('name', 'like', '%'.$name.'%')->get();
         }
         return $puestos;
+    }
+    public function storeExcel($puestito){ 
+        $filePath = 'public/'.$puestito.'/fb_catalog.csv';
+        Excel::store(new CatalogsExport($puestito), $filePath);
+        return 'https://www.feriatacna.com/'.$filePath;
     }
 }

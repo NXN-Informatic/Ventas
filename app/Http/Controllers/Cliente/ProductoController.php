@@ -224,9 +224,4 @@ class ProductoController extends Controller
         }
         return $data;
     }
-
-    public function storeExcel(Producto $puestito){ 
-        $filePath = 'public/'.$puestito.'/fb_catalog.csv';
-        Excel::store(new CatalogsExport($puestito), $filePath);
-    }
 }
