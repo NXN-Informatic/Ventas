@@ -139,10 +139,6 @@
                                     <td>{{ $puesto->calification }} / 5</td>
                                 </tr>
                                 <tr>
-                                    <th>Mínimo</th>
-                                    <td>{{ $puesto->precio_min }}</td>
-                                </tr>
-                                <tr>
                                     <th>Celular 1</th>
                                     <td>{{ $puesto->phone }}</td>
                                 </tr>
