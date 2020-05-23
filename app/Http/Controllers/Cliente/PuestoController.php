@@ -41,6 +41,7 @@ class PuestoController extends Controller
         return view('cliente.puestos.edit', compact('puesto', 'categorias', 'subcategorias'));
     }
     public function catalog($puesto) {
+        
         $catalog_url = $this->storeExcel($puesto);
         return view('cliente.puestos.catalog', compact('catalog_url'));
     }
@@ -179,7 +180,10 @@ class PuestoController extends Controller
     }
     public function storeExcel($puestito){ 
         $filePath = 'public/'.$puestito.'/fb_catalog.csv';
-        Excel::store(new CatalogsExport($puestito), $filePath);
+        $catalogo = new CatalogsExport();
+        $catalogo->idpuesto=$puestito;
+        Excel::store($catalogo, $filePath);
+
         return 'https://www.feriatacna.com/'.$filePath;
     }
 }

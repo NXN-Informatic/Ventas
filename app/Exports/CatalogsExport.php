@@ -10,12 +10,11 @@ use Maatwebsite\Excel\Concerns\WithHeadings;
 
 class CatalogsExport implements FromQuery, WithMapping, WithHeadings
 {
-    use Exportable;
-    private $idpuesto;
+    public $idpuesto;
 
-    public function __constructor($puestoid)
+    public function __constructor()
     {
-        $this->idpuesto = $puestoid;
+        
     }
 
     public function query()
