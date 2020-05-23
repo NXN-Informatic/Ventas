@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Cliente;
 
 use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use App\Grupo;
 use App\UsuarioPuesto;
@@ -10,6 +11,7 @@ use App\Producto;
 use App\PuestoSubcategoria;
 use App\ImagenProducto;
 use App\Categoria;
+use App\Exports\CatalogsExport;
 
 class ProductoController extends Controller
 {
@@ -111,16 +113,19 @@ class ProductoController extends Controller
         foreach($files as $file){
             $name = $file->getClientOriginalName();
             $fileName = 'public/'.$puesto.'/'.$producto.'/'.$name;
+            $imagenurl = 'https://feriatacna.com/'.$fileName;
             //indicamos que queremos guardar un nuevo archivo en el disco local
             \Storage::disk('local')->put($fileName,  \File::get($file));
 
             ImagenProducto::create(
                 [
                     'producto_id'    => $producto,
-                    'imagen'   => $name 
+                    'imagen'   => $name,
+                    'imagen_url'    => $imagenurl
                 ]
             );
         }
+        $this->storeExcel($puesto);
     }
 
     public function dropzonedelete(Request $request) {

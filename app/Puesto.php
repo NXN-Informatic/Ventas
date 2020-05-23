@@ -26,7 +26,7 @@ class Puesto extends Model
         'plan_id'
     ];
 
-    public function puestosubcatergorias() {
+    public function puestosubcategorias() {
         return $this->HasMany(PuestoSubcategoria::class);
     }
 

@@ -40,6 +40,7 @@ Route::group(['middleware' => 'auth'], function () {
     // Rutas de Cliente => Puesto
     Route::get('/puesto', 'Cliente\PuestoController@index');
     Route::get('/puesto/{puesto}/edit', 'Cliente\PuestoController@edit');
+    Route::get('/puesto/{puesto}/fbcatalog', 'Cliente\PuestoController@catalog');
     Route::put('/puesto/update/{puesto}', 'Cliente\PuestoController@update');
     Route::get('/puesto/create', 'Cliente\PuestoController@create');
     Route::post('/puesto/store', 'Cliente\PuestoController@store');
