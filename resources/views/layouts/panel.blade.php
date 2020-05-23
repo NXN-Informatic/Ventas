@@ -39,7 +39,7 @@
 
   <!--Start Elements Page-->
   <a class="onTop dflex" href="#onTop"><i class="fas fa-angle-up"></i></a>
-  <div class="buy dflex"><span>FERIA<strong>TACNA</strong></span></div>
+  <a class="onTop dflex" href="/"><div class="buy dflex"><span>FERIA<strong>TACNA</strong></span></div></a> 
   <!--End Elements Page-->
 
   <!--Start Header-->

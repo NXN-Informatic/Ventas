@@ -10,8 +10,8 @@
                 <div class="content col-lg-6 col-6">
                     <h2>Simple - Rock Chairs</h2>
                     <p>Semper vulputate aliquam curae condimentum<br>quisque gravida fusce convallis arcu cum at.</p>
-                    <div class="smallImage dflex"><img class="changeImage" src="{{ asset('img/images/bannerSlide/swatch-main-demo-1.jpg') }}" alt="" data-image="./images/bannerSlide/slider-main-demo-1.jpg"><img class="changeImage" src="./images/bannerSlide/swatch-main-demo-1-2.jpg" alt="" data-image="./images/bannerSlide/slider-main-demo-1-2.jpg">
-                        <img class="changeImage" src="{{ asset('img/images/bannerSlide/swatch-main-demo-1-3.jpg') }}" alt="" data-image="./images/bannerSlide/slider-main-demo-1-3.jpg"><img class="changeImage" src="./images/bannerSlide/swatch-main-demo-1-4.jpg" alt=""
+                    <div class="smallImage dflex"><img class="changeImage" src="{{ asset('img/images/bannerSlide/swatch-main-demo-1.jpg') }}" alt="" data-image="{{ asset('img/images/bannerSlide/swatch-main-demo-1-3.jpg') }}"><img class="changeImage" src="{{ asset('img/images/bannerSlide/swatch-main-demo-1-3.jpg') }}" alt="" data-image="{{ asset('img/images/bannerSlide/swatch-main-demo-1-3.jpg') }}">
+                        <img class="changeImage" src="{{ asset('img/images/bannerSlide/swatch-main-demo-1-3.jpg') }}" alt="" data-image="{{ asset('img/images/bannerSlide/swatch-main-demo-1-3.jpg') }}"><img class="changeImage" src="{{ asset('img/images/bannerSlide/swatch-main-demo-1-3.jpg') }}" alt=""
                             data-image="./images/bannerSlide/slider-main-demo-1-4.jpg"></div>
                     <div class="price">$199.00</div>
                 </div>

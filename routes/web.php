@@ -12,14 +12,20 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+/**
+ * Rutas Publicas
+ */
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/puesto/{puesto}/detail', 'Cliente\PuestoController@compartir');    
-// Productos
+Route::get('/all/productos', 'PublicController@productos');
+Route::get('/producto/{producto}/detailProd', 'PublicController@detailProducto');
+
+/**
+ * api rest Publicas
+ */ 
 Route::get('/productos/{name}/all', 'Cliente\ProductoController@apiProductos');
-// Productos Categoria
 Route::get('/categoria/{cateogiraId}/apiProductosCategoria', 'Cliente\ProductoController@apiProductosCategoria');
-// Tiendas
 Route::get('/tiendas/{name}/apiTiendas', 'Cliente\PuestoController@apiTiendas');
 
 Route::group(['middleware' => 'auth'], function () {

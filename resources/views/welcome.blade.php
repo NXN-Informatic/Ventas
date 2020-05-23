@@ -27,7 +27,7 @@
         </div>
     </div>
     </div>
-    <button type="submit" style="background:#153d77"">VER MAS TIENDAS</button>
+    <button type="submit" style="background:#153d77">VER MAS TIENDAS</button>
 </div>
 <!--End Feature Product-->
 
@@ -43,7 +43,9 @@
             </li>
         </ul>
     </div>
-    <button type="submit" style="background:#153d77"">VER MAS PRODUCTOS</button>
+    <a href="{{ url('all/productos') }}">
+        <button type="submit" style="background:#153d77"">VER MAS PRODUCTOS</button>
+    </a>
 </div>
 
 <div class="shopProduct">
@@ -174,7 +176,7 @@
                     `<div class="product__content"><a class="link-title" href="#">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
                         `<p class="price">$${productos.precio}</p>`+
                         `<div class="color"><span style="background: #f0deba" data-image="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"></span><span style="background: #000" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
-                        `<p>${ productos.description }</p><a class="btn active" href="singleProduct.html">Ver Producto</a>`+
+                        `<p>${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}">Ver Producto</a>`+
                     `</div>`+
                 `</li>`;
             });
@@ -247,7 +249,7 @@
                     `<div class="product__content"><a class="link-title" href="#">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
                         `<p class="price">$${productos.precio}</p>`+
                         `<div class="color"><span style="background: #f0deba" data-image="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"></span><span style="background: #000" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
-                        `<p>${ productos.description }</p><a class="btn active" href="singleProduct.html">Ver Producto</a>`+
+                        `<p>${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}">Ver Producto</a>`+
                     `</div>`+
                 `</li>`;
             });
@@ -269,14 +271,14 @@
                         `<div class="image__overlay">`+
                             `<div class="color">`+
                                 `<div class="image" data-image="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"></div>`+
-                            `</div><a class="share" href="#"><i class="fas fa-random"></i></a>`+
+                            `</div>`+
                         `</div>`+
                     `</div>`+
                     `<div class="features__content"><a class="link" href="#">${productos.name}</a>`+
                         `<p class="price">$${productos.precio}</p>`+
                         `<div class="content__overlay">`+
                             `<p>${ productos.description }</p>`+
-                            `<div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="#">Ver Producto</a><a href="#"><i class="fas fa-search"></i></a></div>`+
+                            `<div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}">Ver Producto</a><a href="{{ url('/producto/${ productos.id }/detailProd') }}"><i class="fas fa-search"></i></a></div>`+
                         `</div>`+
                     `</div>`+
                 `</div>`;
