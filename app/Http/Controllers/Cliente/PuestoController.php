@@ -32,7 +32,6 @@ class PuestoController extends Controller
 
     public function edit(Puesto $puesto) {
         $categorias = Categoria::all();
-
         $categoria_id = old('categoria_id');
         if ($categoria_id) {
             $categoria = Categoria::find($categoria_id);
@@ -62,7 +61,6 @@ class PuestoController extends Controller
                 'description' => $request->input('description'),
                 'phone' => $request->input('phone'),
                 'phone2' => $request->input('phone2'),
-                'precio_min' => $request->input('precio_min'),
                 'maxsubcategorias' => 2
             ]);
 
@@ -102,7 +100,7 @@ class PuestoController extends Controller
     
             $notification = 'Se ha creado su Puesto Correctamente.';
         }else {
-            $notification = 'No se ha codigo crear.Usted no Tiene acceso para crear más Productos.';
+            $notification = 'Usted no Tiene acceso para crear más Productos.';
         }
 
         return redirect('/puesto/create')->with(compact('notification'));
@@ -121,7 +119,7 @@ class PuestoController extends Controller
         $puesto->description = $request->input('description');
         $puesto->phone2 = $request->input('phone2');
         $puesto->phone = $request->input('phone');
-        $puesto->precio_min = $request->input('precio_min');
+        //$puesto->precio_min = $request->input('precio_min');
 
         $file = $request->file('logo');
         $banner = $request->file('banner');
