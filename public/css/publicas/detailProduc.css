@@ -1,0 +1,27 @@
+.swiper-button-prev,
+.swiper-button-next {
+    display: none !important;
+}
+
+.swiper-container:hover .swiper-button-prev,
+.swiper-container:hover .swiper-button-next {
+    display: flex !important;
+}
+.precio{
+    text-align:left;
+    margin-left:5px; 
+    font-size:40px; 
+    color:#153d77;
+}
+.text-left{
+  text-align:left;
+  color:#919191;
+  padding:5px;
+}
+#mapid { 
+  height: 180px;
+}
+.color{
+  color:#153d77;
+  font-weight: bold;
+}
