@@ -3,9 +3,6 @@
 @section('styles')
     <!-- Swiper -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
-    <!-- Leflet -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js" ></script>
     <link rel="stylesheet" href="{{ asset('css/publicas/detailProduc.css') }}">
 @endsection
 
@@ -29,6 +26,14 @@
                     </a>
                 </div>
               @endforeach
+              @if(count($producto->imagen_productos) < 1)
+                  <div class="swiper-slide">
+                    <a href="#">
+                        <img src="{{ asset('/img/defaultProducto.jpg') }}" 
+                        class="card-img-top" alt="" height="400px" width="400px">
+                    </a>
+                </div>
+              @endif 
               </div>
                   <div class="swiper-pagination"></div>
                   <div class="swiper-button-prev"></div>
@@ -60,12 +65,16 @@
               <img src="{{ asset('/img/user.png') }}" style="float: left;margin-right: 10px" width="50px"><br>
               <!-- Nombre Vendedor -->
               <h3 style="text-align: left;font-size: 20px; font-weight: bold">{{ $usuario_puestos->user->sur_name }} , {{ $usuario_puestos->user->name }}</h3>
+              <input type="hidden" id="latitud" name="latitud" value="{{ $usuario_puestos->user->latitud }}">
+              <input type="hidden" id="longitud" name="longitud" value="{{ $usuario_puestos->user->longitud }}">
               <!-- Email Vendedor -->
               <p style="text-align: left;"><i class="far fa-envelope" style="margin-right: 10px"></i> {{ $usuario_puestos->user->email }}</p>
               <!-- Fecha Vendedor -->
               <p style="text-align: right;"><span style="font-size: 15px; color:#000">{{ __('Miembro desde:') }} </span> {{ $usuario_puestos->user->created_at }}</p>
               <!-- Chatea con el  Vendedor -->
-              <button class="btn btn-primary" style="background:#000">{{ __('Chatea con el Vendedor') }}</button><br><br>
+              <a href="{{ url('/puesto/'.$usuario_puestos->puesto->id.'/detail') }}" target="black">
+                <button class="btn btn-primary" style="background:#000">{{ __('Chatea con el Vendedor') }}</button>
+              </a><br><br>
               @if($usuario_puestos->puesto->phone)
                 <!-- Phone Vendedor -->
                 <h2 style="font-size: 20px"><i class="fas fa-phone-volume"></i> Llamar {{ $usuario_puestos->puesto->phone }}</h2>
@@ -84,12 +93,13 @@
             <h2 style="text-align: left;font-size: 20px" class="color">{{ __('Publicado en...') }}</h2>
             <br>
               <!-- Mapa -->
-             <div id="map" style="height: 200px;"></div>
+             <div id="map" style="height: 300px;"></div>
              <br>
              <!-- Visitar Tiendas -->
              <div style="background:#000">
                 <br>
-                <a href="" style="color: #fff; font-size: 20px;">{{ __('Visitar Tienda') }}</a>
+                <a href="{{ url('/puesto/'.$usuario_puestos->puesto->id.'/detail') }}" 
+                    target="black" style="color: #fff; font-size: 20px;">{{ __('Visitar Tienda') }}</a>
                 <br><br>
              </div>
           </div>
@@ -125,8 +135,13 @@
                 <li class="features__item col-lg-3 col-sm-6 col-12">
                     <div class="features__image wood light5">
                     @foreach($productos->imagen_productos as $imagen) @endforeach
+                    @if(count($productos->imagen_productos) > 0)
                     <img src="{{ asset('/storage/'.$puestosubcategoria->puesto->id.'/'.$productos->id.'/'.$imagen->imagen) }}"
-                      width="200px" height="200px"> 
+                      width="200px" height="200px">
+                    @else
+                    <img src="{{ asset('/img/defaultProducto.jpg') }}"
+                      width="200px" height="200px">
+                    @endif 
                         <div class="image__tools"><i class="far fa-heart"></i>
                             <i class="fas fa-cart-plus"></i>
                             <i class="fas fa-search"></i>
@@ -188,6 +203,21 @@
   <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
   <script src="{{ asset('js/publicas/detailProduc.js') }}"></script>
   <script>
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 17,
+            center: new google.maps.LatLng(<?php echo $latitud; ?>, <?php echo $longitud; ?>),
+        });
+
+        marker = new google.maps.Marker({
+          map: map,
+          position: new google.maps.LatLng(<?php echo $latitud; ?>, <?php echo $longitud; ?>)
+        });
+    }
+    //initMap(); Esto es innecesario porque en el callback de la URL lo estás llamando.
+  </script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK7XD3i3cgtPV9SKcDff2IJc0O-WpNoNY&callback=initMap" async defer></script> 
+  <script>
     $(function() {
       // Variables Define
       $mostrarcategoria = $('#categoria');
@@ -197,7 +227,24 @@
       $mostrar = $('#mostrar');
 
       $resultado.hide();
-      $mostrar.hide();
+      $mostrar.hide();function initMap() {
+        var myLatLng = {
+            lat: 19.053430,
+            lng: -98.223228
+        };
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 10,
+            center: myLatLng
+        });
+
+        var markerx = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: response[i].sucursal
+        });
+    }
+    //initMap(); Esto es innecesario porque en el callback de la URL lo estás llamando.
       $mostrarcategoria.hide();
       
       $('ul#tags li').click( function() {

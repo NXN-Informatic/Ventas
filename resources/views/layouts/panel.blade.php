@@ -13,10 +13,10 @@
     <meta property="og:title" content="@yield('ogTitle', 'PUESTO NAIN 2020.')"/>
     <meta property="og:site_name" content="FERIA TACNA"/>
     <meta property="og:url" content="@yield('ogUrl', 'http://feriatacna.com/')"/>
-    <meta property="og:description" content="@yield('ogDesc', 'La única feria Oblay en Tacna 2020 , encuentre sus productos que usted requiera.')"/>
+    <meta property="og:description" content="@yield('ogDesc', 'La única feria Onlay en Tacna 2020 , encuentre sus productos que usted requiera.')"/>
     <meta property="og:type" content="@yield('ogType', 'website')"/>
     <meta property="og:locale" content="es"/>
-    <meta property="og:image" content="@yield('ogImage', 'http://feriatacna.com/storage/1/banner/banner.jpg')"/>
+    <meta property="og:image" content="@yield('ogImage', 'http://feriatacna.com/img/banner/banner 33.jpg')"/>
     <meta property="fb:app_id" content="xxxxxxxxx"/>
 	
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">

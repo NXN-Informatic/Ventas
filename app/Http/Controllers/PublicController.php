@@ -18,7 +18,9 @@ class PublicController extends Controller
 
     public function detailProducto(Producto $producto) {
         $categorias = Categoria::all();
-        return view('publicas.detailProducto', compact('producto', 'categorias'));
+        $latitud = -18.0146503;
+        $longitud = -70.2536163;
+        return view('publicas.detailProducto', compact('producto', 'categorias', 'latitud', 'longitud'));
     }
 
     public function puestoAll() {
