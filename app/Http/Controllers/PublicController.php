@@ -18,8 +18,11 @@ class PublicController extends Controller
 
     public function detailProducto(Producto $producto) {
         $categorias = Categoria::all();
-        $latitud = -18.0146503;
-        $longitud = -70.2536163;
+        foreach($producto->grupo->puestosubcategoria->puesto->usuario_puestos as $usuario_puestos){
+
+        }
+        $latitud = $usuario_puestos->user->latitud;
+        $longitud = $usuario_puestos->user->longitud;
         return view('publicas.detailProducto', compact('producto', 'categorias', 'latitud', 'longitud'));
     }
 

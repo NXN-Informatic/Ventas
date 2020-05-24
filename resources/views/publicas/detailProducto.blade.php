@@ -228,18 +228,13 @@
 
       $resultado.hide();
       $mostrar.hide();function initMap() {
-        var myLatLng = {
-            lat: 19.053430,
-            lng: -98.223228
-        };
-
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 10,
-            center: myLatLng
+            position: new google.maps.LatLng(<?php echo $latitud; ?>, <?php echo $longitud; ?>)
         });
 
         var markerx = new google.maps.Marker({
-            position: myLatLng,
+            position: new google.maps.LatLng(<?php echo $latitud; ?>, <?php echo $longitud; ?>),
             map: map,
             title: response[i].sucursal
         });

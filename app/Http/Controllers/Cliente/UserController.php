@@ -36,6 +36,8 @@ class UserController extends Controller
         $usuario->address = $request->input('address');
         $usuario->email = $request->input('email');
         $usuario->distrito_id = $request->input('distrito_id');
+        $usuario->latitud = $request->input('latitud');
+        $usuario->longitud = $request->input('longitud');
         $password = $request->input('password');
         if(strlen($password) > 0) {
             $usuario->password = bcrypt($password);

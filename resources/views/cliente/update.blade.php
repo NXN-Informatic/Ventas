@@ -1,6 +1,4 @@
 @extends('layouts.app')
-@section('title','Datos Personales')
-@endsection
 @section('content')
 @include('layouts.partials.menu')
 @include('layouts.partials.navbar')
@@ -102,10 +100,20 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="form-label" for="latitud">Latitud</label>
+                                <input type="text" class="form-control" id="latitud" name="latitud" value="{{ old('latitud', auth()->user()->latitud) }}" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="longitud">Longitud</label>
+                                <input type="text" class="form-control" id="longitud" name="longitud" value="{{ old('longitud', auth()->user()->longitud) }}" required>
+                            </div>
+                            <div class="form-group">
                                 <label class="form-label" for="address">Dirección de Usuario</label>
                                 <input type="text" class="form-control" name="address" value="{{ old('address', auth()->user()->address) }}">
                             </div>
                             <button type="submit" class="btn btn-primary">Guardar</button>
+                            <a id="find_btn" class="btn btn-dark" style="color:#fff">Mi ubicación</a>
+                            
                         </form>
                     </div>
                 </div>
@@ -175,6 +183,20 @@
                     dropdownParent: $(this).parent()
                 });
         })
+
+        $("#find_btn").click(function () { //user clicks button
+            if ("geolocation" in navigator){ //check geolocation available 
+                //try to get user current location using getCurrentPosition() method
+                navigator.geolocation.getCurrentPosition(function(position){ 
+                    $("#latitud").val(position.coords.latitude);
+                    $("#longitud").val(position.coords.longitude);
+                    
+                    });
+            }else{
+                console.log("Browser doesn't support geolocation!");
+            }
+        });
     });
+
 </script>
 @endsection
