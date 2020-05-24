@@ -170,7 +170,7 @@ class ProductoController extends Controller
                 $image = ImagenProducto::where('producto_id', $producto->id)->first();
                 $data[] = array(
                     "name" => $producto->name,
-                    "image" => $image->imagen,
+                    "image" => ($image)? $image->imagen : null,
                     "precio" => $producto->precio,
                     "puesto" => $producto->grupo->puestosubcategoria->puesto->id,
                     "id" => $producto->id,
@@ -184,7 +184,7 @@ class ProductoController extends Controller
                 $image = ImagenProducto::where('producto_id', $producto->id)->first();
                 $data[] = array(
                     "name" => $producto->name,
-                    "image" => $image->imagen,
+                    "image" => ($image)? $image->imagen : null,
                     "precio" => $producto->precio,
                     "puesto" => $producto->grupo->puestosubcategoria->puesto->id,
                     "id" => $producto->id,
@@ -208,7 +208,7 @@ class ProductoController extends Controller
                                     $image = ImagenProducto::where('producto_id', $productos->id)->first();
                                     $data[] = array(
                                         "name" => $productos->name,
-                                        "image" => $image->imagen,
+                                        "image" => ($image)? $image->imagen : null,
                                         "precio" => $productos->precio,
                                         "puesto" => $puestoSubcategorias->puesto_id,
                                         "id" => $productos->id,
