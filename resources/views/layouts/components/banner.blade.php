@@ -3,17 +3,17 @@
         <!-- Imagen Productos -->
         <div class="swiper-slide">
             <a href="#">
-                <img  src="{{ asset('img/banner/banner 22.jpg') }}"  height="20%" width="100%">
+                <img  src="{{ asset('img/banner/banner 22.jpg') }}"  height="20%" width="80%" style="margin:auto; display: flex;">
             </a>
         </div>
         <div class="swiper-slide">
             <a href="#">
-                <img  src="{{ asset('img/banner/banner 11.jpg') }}"  height="20%" width="100%">
+                <img  src="{{ asset('img/banner/banner 11.jpg') }}"  height="20%" width="80%" style="margin:auto; display: flex;">
             </a>
         </div>
         <div class="swiper-slide">
             <a href="#">
-                <a href="/register"><img  src="{{ asset('img/banner/banner 33.jpg') }}"  height="20%" width="100%"></a>
+                <a href="/register"><img  src="{{ asset('img/banner/banner 33.jpg') }}"  height="20%" width="80%" style="margin:auto; display: flex;"></a>
             </a>
         </div>
     </div>

@@ -33,17 +33,19 @@
         </div>
     </div>
     </div>
-    <button type="submit" style="background:#153d77">VER MAS TIENDAS</button>
+    <a href="{{ url('puestos/all') }}">
+        <button type="submit" style="background:#153d77">VER MAS TIENDAS</button>
+    </a>
 </div>
 <!--End Feature Product-->
 
 <!--Start Featured Products-->
-<div class="featureProduct" id="ocultarBanner4">
+<div class="featureProduct">
     <h4 class="title">Productos Disponibles</h4>
     <div class="feature__filter">
         <div class="button-group filters-button-group feature__buttons">
         </div>
-        <ul class="featureSlider">
+        <ul class="featureSlider container">
             <li class="grid features__grid" id="prod">
             
             </li>

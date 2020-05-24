@@ -20,6 +20,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/puesto/{puesto}/detail', 'Cliente\PuestoController@compartir');    
 Route::get('/all/productos', 'PublicController@productos');
 Route::get('/producto/{producto}/detailProd', 'PublicController@detailProducto');
+Route::get('/puestos/all', 'PublicController@puestoAll');
+Route::get('/produc/{puesto}/all', 'PublicController@apiproductos');
 
 /**
  * api rest Publicas

@@ -1,7 +1,7 @@
 /* FORMULARIO =================================== */
 
 .form_wrap{
-    width: 1050px;
+    width: 80%;
     height: 530px;
     margin: 50px auto;
     display: flex;
@@ -212,4 +212,22 @@ form.form_contact input[type="button"]:hover{
     cursor: pointer;
 
     float: right;
+}
+
+@media (max-width: 600px) {
+  .cantact_info {
+    width: 0%;
+  }
+  .info_title{
+    width: 0px;
+  }
+  .cantact_info{
+    display: none;
+  }
+  form.form_contact{
+    width: 100%;
+  }
+  .form_wrap{
+    width: 95%;
+  }
 }
