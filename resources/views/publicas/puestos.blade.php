@@ -5,7 +5,7 @@
 @section('ogUrl'){{ 'http://feriatacna.com/puesto/'.$puesto->id.'/detail' }}@endsection
 @section('ogDesc'){{ $puesto->description }}@endsection
 <!-- @section('ogImage'){{ 'http://feriatacna.com/storage/'.$puesto->id.'/banner/'.$puesto->banner }}@endsection -->
-@section('ogImage')http://feriatacna.com/img/banner/banner.jpg@endsection
+@section('ogImage'){{ 'http://feriatacna.com/img/banner/banner.jpg' }}@endsection
 
 @section('styles')
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
