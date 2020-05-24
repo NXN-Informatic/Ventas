@@ -39,11 +39,6 @@
                         <form role="form" method="POST" action="{{ route('register') }}">
                         @csrf
                             <div class="form-group">
-                                <label>{{ __('¿Cuál es el nombre de su tienda?') }}</label>
-                                <input class="form-control form-control-lg" type="text" name="name" value="{{ old('name') }}" required />
-                                <small class="form-text text-muted">{{ __('Introduzca el nombre de la tienda como quiere que aparezca para sus clientes.') }}</small>
-                            </div>
-                            <div class="form-group">
                                 <label>{{ __('Correo Electrónico') }}</label>
                                 <input class="form-control form-control-lg" type="email" name="email" value="{{ old('email') }}" required />
                                 <small class="form-text text-muted">{{ __('Con este correo podrá iniciar sesión.') }}</small>

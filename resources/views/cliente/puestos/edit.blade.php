@@ -82,10 +82,6 @@
                             </div>
                             @endif
                             <div class="form-group">
-                                <label class="form-label" for="precio_min">Precio mínimo para Entregas</label>
-                                <input type="number" class="form-control" name="precio_min" value="{{ old('precio_min', $puesto->precio_min) }}">
-                            </div>
-                            <div class="form-group">
                                 <label class="form-label" for="phone">Celular del Puesto</label>
                                 <input type="text" class="form-control" name="phone" value="{{ old('phone', $puesto->phone) }}">
                             </div>
@@ -141,10 +137,6 @@
                                 <tr>
                                     <th>Calificación</th>
                                     <td>{{ $puesto->calification }} / 5</td>
-                                </tr>
-                                <tr>
-                                    <th>Mínimo</th>
-                                    <td>{{ $puesto->precio_min }}</td>
                                 </tr>
                                 <tr>
                                     <th>Celular 1</th>
