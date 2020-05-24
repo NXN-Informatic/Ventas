@@ -68,7 +68,7 @@
   <div class="nav" id="ocultarBanner">
       <div class="nav__wrap container dflex">
           <div class="nav__button"><i class="fas fa-bars"></i>MENU</div>
-          <a class="nav__logo" href="index.html"></a>
+          <a class="nav__logo" href=""></a>
           
       </div>
   </div>

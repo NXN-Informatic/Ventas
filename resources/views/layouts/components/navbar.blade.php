@@ -1,13 +1,3 @@
-<div class="menu" id="ocultarBanner2">
-    <div class="menu__wrap container dflex">
-        <div class="sideBar dflex hide" style="background:#fff">
-        </div>
-        <ul class="menu__offer dflex">
-            <li><a class="link active" href="#" style="color:#153d77">VER TIENDAS</a></li>
-            <li><a class="link" href="#" onmouseover="this.style.color='#153d77';">VER PRODUCTOS</a></li>
-        </ul>
-    </div>
-</div>
 
 <!--Start Menu Moblie-->
 <div class="closeMenu"></div>

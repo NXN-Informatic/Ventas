@@ -8,6 +8,12 @@
   <!--End Page Loader-->
 @endsection
 
+@section('styles')
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <link rel="stylesheet" href="{{ asset('css/publicas/welcome.css') }}">
+@endsection
+
 @section('content')
 @section('title','Bienvenido')
 @include('layouts.components.navbar')
@@ -44,10 +50,11 @@
         </ul>
     </div>
     <a href="{{ url('all/productos') }}">
-        <button type="submit" style="background:#153d77"">VER MAS PRODUCTOS</button>
+        <button type="submit" style="background:#153d77">VER MAS PRODUCTOS</button>
     </a>
 </div>
 
+<!--Start Product-->
 <div class="shopProduct">
     <div class="shopProduct__wrap dflex container">
         <div class="product__item col-lg-12 col-12">
@@ -59,6 +66,7 @@
     </div>
 </div>
 
+<!-- Sin Resultados -->
 <div class="shopProduct" id="resultado">
     <div class="shopProduct__wrap dflex container">
         <div class="product__item col-lg-12 col-12">
@@ -69,6 +77,7 @@
     </div>
 </div>
 
+<!--Start Categorias-->
 <div class="shopProduct">
     <div class="shopProduct__wrap dflex container">
         <div class="product__item col-lg-12 col-12">
@@ -80,16 +89,40 @@
     </div>
 </div>
 
+<!--Start Contáctanos-->
 <div class="featureProduct" style="margin-top:-6%">
     <h4 class="title">CONTÁCTANOS</h4>
-    <div class="feature__filter">
-        <div class="container" style="text-align: center">
-            <img src="{{ asset('img/user.png') }}" alt="" width="250px">
-            <h2 style="font-size:20px; margin-top:10px">Deja que tus clientes te conozcan, Cuéntales un poco de ti y porque creaste 
-                este negocio. Demuestrales a tus clientes que hay personales reales y confiables con
-                 interesantes historias trabajando detrás de escena. </h2>
+    <section class="form_wrap">
+    <section class="cantact_info">
+        <section class="info_title">
+            <span class="fa fa-user-circle"></span>
+            <h2>INFORMACIÓN<br>DE CONTACTO</h2>
+        </section>
+        <section class="info_items">
+            <p style="color: #fff"><span class="fa fa-envelope"></span> feriaTacna@gmail.com</p>
+            <p style="color: #fff"><span class="fa fa-mobile"></span> (+51) 931-375941</p>
+        </section>
+    </section>
+
+    <form action="" class="form_contact">
+        <h2>Envianos un mensaje</h2>
+        <div class="user_info">
+            <label for="names" style="font-size: 15px; text-align: left;">Nombres *</label>
+            <input type="text" id="names">
+
+            <label for="phone" style="font-size: 15px; text-align: left;">Telefono / Celular</label>
+            <input type="text" id="phone">
+
+            <label for="email" style="font-size: 15px; text-align: left;">Correo electronico *</label>
+            <input type="text" id="email">
+
+            <label for="mensaje" style="font-size: 15px; text-align: left;">Mensaje *</label>
+            <textarea id="mensaje"></textarea>
+
+            <input type="button" value="Enviar Mensaje" id="btnSend">
         </div>
-    </div>
+    </form>
+</section>
 </div>
 
 @include('layouts.components.footer')
@@ -97,8 +130,24 @@
 @endsection
 
 @section('scripts')
-
+<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 <script>
+    var mySwiper = new Swiper ('.swiper-container', {
+      slidesPerView: 1,
+      centeredSlides: true,
+      spaceBetween: 0,
+      loop: true,
+      loopFillGroupWithBlank: true,
+
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
     $(function() {
         $producto_id = $('#prod');
         $mostrar = $('#mostrar');
@@ -200,7 +249,7 @@
                 if(puestos.perfil != null) {
                     htmlOptions += 
                     `<li class="features__item col-lg-3 col-sm-6 col-12">`+
-                        `<div class="features__image wood light5"><img src="{{ url('storage/${puestos.id}/logo/${puestos.perfil}') }}" alt="">`+
+                        `<div class="features__image wood light5"><img src="{{ url('storage/${puestos.id}/logo/${puestos.perfil}') }}" width="200px" height="200px">`+
                             `<div class="image__tools"><i class="far fa-heart"></i>`+
                                 `<i class="fas fa-cart-plus"></i>`+
                                 `<i class="fas fa-search"></i>`+
@@ -212,7 +261,7 @@
                 }else {
                     htmlOptions += 
                     `<li class="features__item col-lg-3 col-sm-6 col-12">`+
-                        `<div class="features__image wood light5"><img src="{{ url('img/default.png') }}" alt="">`+
+                        `<div class="features__image wood light5"><img src="{{ url('img/default.png') }}" width="200px" height="200px">`+
                             `<div class="image__tools"><i class="far fa-heart"></i>`+
                                 `<i class="fas fa-cart-plus"></i>`+
                                 `<i class="fas fa-search"></i>`+
@@ -267,10 +316,10 @@
             data.forEach(productos => {
                 htmlOptions += 
                 `<div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">`+
-                    `<div class="features__image desk"><img src="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}" alt="">`+
+                    `<div class="features__image desk"><img src="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"  width="200px" height="300px" alt="">`+
                         `<div class="image__overlay">`+
                             `<div class="color">`+
-                                `<div class="image" data-image="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"></div>`+
+                                `<div class="image" data-image="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"  width="200px" height="300px"></div>`+
                             `</div>`+
                         `</div>`+
                     `</div>`+

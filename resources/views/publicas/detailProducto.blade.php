@@ -1,115 +1,300 @@
 @extends('layouts.panel')
 
 @section('styles')
+    <!-- Swiper -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
-    <style>
-    .swiper-button-prev,
-    .swiper-button-next {
-        display: none !important;
-    }
-    
-    .swiper-container:hover .swiper-button-prev,
-    .swiper-container:hover .swiper-button-next {
-        display: flex !important;
-    }
-    </style>
+    <!-- Leflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js" ></script>
+    <link rel="stylesheet" href="{{ asset('css/publicas/detailProduc.css') }}">
 @endsection
 
 @section('content')
-
 @section('title','Bienvenido')
 
 <!--Start Single Product-->
-<div class="singleProduct">
-      <div class="singleProduct__wrap container">
-        <div class="firstTitle">{{ $producto->grupo->puestosubcategoria->puesto->description }}</div>
-        <h4 class="title">{{ $producto->grupo->puestosubcategoria->puesto->name }}</h4>
-        <div class="signleProduct__content">
-          <div class="info dflex">
-            <div class="info__content"><a href="#">Productos</a><span>/</span><a href="#">{{ $producto->name }}</a>
-            </div>
-            <div class="control dflex"><i class="fas fa-angle-left"></i><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="19px" height="19px" viewBox="0 0 19 19" enable-background="new 0 0 19 19" xml:space="preserve">
-              <path d="M7,2v5H2V2H7 M9,0H0v9h9V0L9,0z"></path>
-              <path d="M17,2v5h-5V2H17 M19,0h-9v9h9V0L19,0z"></path>
-              <path d="M7,12v5H2v-5H7 M9,10H0v9h9V10L9,10z"></path>
-              <path d="M17,12v5h-5v-5H17 M19,10h-9v9h9V10L19,10z"></path>
-              </svg><i class="fas fa-angle-right"></i>
-            </div>
-          </div>
-          <div class="product dflex">
-            @foreach($producto->imagen_productos as $imagen_producto) @endforeach
-            <div class="col-lg-8 col-12">
-            
-                  <div class="swiper-container">
-                    <div class="swiper-wrapper">
-                    @foreach($producto->imagen_productos as $imagenes)
-                        <div class="swiper-slide">
-                            <a href="#">
-                                <img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagenes->imagen) }}" 
-                                class="card-img-top" alt="" height="400px">
-                            </a>
-                        </div>
-                    @endforeach
-                    </div>
-                        <div class="swiper-pagination"></div>
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-button-next"></div>
-                    </div>
-            </div>
-            <div class="content col-lg-4 col-12">
-              <h1>{{ $producto->name }}</h1>
-              <div class="price">${{ $producto->precio }}</div>
-              <p>{{ $producto->description }}</p>
-              <hr>
-              <a class="tag" href="#"><strong>Celular: </strong>{{ $producto->grupo->puestosubcategoria->puesto->phone }}</a>
-              <a class="tag" href="#"><strong>Celular2: </strong>{{ $producto->grupo->puestosubcategoria->puesto->phone2 }}</a>
-              <a class="tag" href="#"><strong>Subcategoria: </strong>{{ $producto->grupo->puestosubcategoria->subcategoria->name }}</a>
-              <div class="share dflex"><strong>Redes Sociales:</strong><i class="fab fa-facebook-f"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-pinterest"></i>
-                <i class="fab fa-linkedin-in"></i>
-                <i class="fas fa-paper-plane"></i>
+<div class="singleProduct" id="ocultar1">
+  <div class="singleProduct__wrap container">
+    <div class="signleProduct__content">
+      <div class="product dflex">
+          <div class="col-lg-7 col-12">
+            <div class="swiper-container" style="box-shadow: 6px 6px 6px #ccc;">
+              <div class="swiper-wrapper">
+              <!-- Imagen Productos -->
+              @foreach($producto->imagen_productos as $imagenes)
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagenes->imagen) }}" 
+                        class="card-img-top" alt="" height="400px" width="400px">
+                    </a>
+                </div>
+              @endforeach
               </div>
-            </div>
+                  <div class="swiper-pagination"></div>
+                  <div class="swiper-button-prev"></div>
+                  <div class="swiper-button-next"></div>
+              </div>
+              <br>
+              <!-- Productos Descripción -->
+              <div style="box-shadow: 6px 6px 6px #ccc;padding: 10px">
+                <h2 style="text-align: left;font-size: 20px" class="color">{{ __('Descripción') }}</h2><br>
+                <h2>{{ $producto->description }}</h2>
+              </div>
+        </div>
+        <div class="content col-lg-5 col-12">
+          <div style="box-shadow: 6px 6px 6px #ccc;padding:5px">
+            <!-- Productos Precio -->
+            <div class="precio color">S/.{{ $producto->precio }}</div>
+            <!-- Productos Name -->
+            <h1 class="text-left">{{ $producto->name }}</h1>  
+            <!-- Productos Creación -->
+            <p style="text-align:right">{{ $producto->created_at }}</p>
+          </div>
+          <br>
+          <div style="box-shadow: 6px 6px 6px #ccc;padding:5px">
+            <!-- Descripción Vendedor -->
+            <h2 class="precio color" style="font-size:18px">{{ __('Descripción del Vendedor') }}</h2>
+            <br>
+            @foreach($producto->grupo->puestosubcategoria->puesto->usuario_puestos as $usuario_puestos)
+              <!-- Imagen Vendedor -->
+              <img src="{{ asset('/img/user.png') }}" style="float: left;margin-right: 10px" width="50px"><br>
+              <!-- Nombre Vendedor -->
+              <h3 style="text-align: left;font-size: 20px; font-weight: bold">{{ $usuario_puestos->user->sur_name }} , {{ $usuario_puestos->user->name }}</h3>
+              <!-- Email Vendedor -->
+              <p style="text-align: left;"><i class="far fa-envelope" style="margin-right: 10px"></i> {{ $usuario_puestos->user->email }}</p>
+              <!-- Fecha Vendedor -->
+              <p style="text-align: right;"><span style="font-size: 15px; color:#000">{{ __('Miembro desde:') }} </span> {{ $usuario_puestos->user->created_at }}</p>
+              <!-- Chatea con el  Vendedor -->
+              <button class="btn btn-primary" style="background:#000">{{ __('Chatea con el Vendedor') }}</button><br><br>
+              @if($usuario_puestos->puesto->phone)
+                <!-- Phone Vendedor -->
+                <h2 style="font-size: 20px"><i class="fas fa-phone-volume"></i> Llamar {{ $usuario_puestos->puesto->phone }}</h2>
+              @endif
+              <br>
+              @if($usuario_puestos->puesto->phone2)
+                <!-- Phone 2 Vendedor -->
+                <h2 style="font-size: 20px"><i class="fas fa-phone-volume"></i> Llamar {{ $usuario_puestos->puesto->phone2 }}</h2>
+              @endif
+              <br>
+            @endforeach
+          </div>
+          <br>
+          <div style="box-shadow: 6px 6px 6px #ccc;padding:5px">
+            <!-- Lugar de Publicación -->
+            <h2 style="text-align: left;font-size: 20px" class="color">{{ __('Publicado en...') }}</h2>
+            <br>
+              <!-- Mapa -->
+             <div id="map" style="height: 200px;"></div>
+             <br>
+             <!-- Visitar Tiendas -->
+             <div style="background:#000">
+                <br>
+                <a href="" style="color: #fff; font-size: 20px;">{{ __('Visitar Tienda') }}</a>
+                <br><br>
+             </div>
+          </div>
+          <br>
+          <br>
+          <!-- Redes Sociales -->
+          <div class="share dflex">
+            <i class="fab fa-facebook-f" style="font-size: 25px"></i>
+            <i class="fab fa-twitter" style="font-size: 25px"></i>
+            <i class="fab fa-pinterest" style="font-size: 25px"></i>
+            <i class="fab fa-linkedin-in" style="font-size: 25px"></i>
+            <i class="fas fa-paper-plane" style="font-size: 25px"></i>
           </div>
         </div>
       </div>
     </div>
-    <!--End Single Product-->
+  </div>
+</div>
+
+<!--Productos de la Tienda-->
+<div class="featureProduct singleProduct" id="tiendas">
+    <div class="feature__wrap container">
+    <!--Title-->
+    <h4 class="title">Otros Productos de esta tienda<a href="" style="margin-left:10px">{{ __('Mostrar Más') }}</a></h4>
+    <div class="feature__filter">
+        <div class="featureSlider">
+        <div class="sliderButton left"><i class="fas fa-angle-left"></i></div>
+        <div class="sliderButton right"><i class="fas fa-angle-right"></i></div>
+        <ul class="features__grid" id="wrap">
+          @foreach($producto->grupo->puestosubcategoria->puesto->puestosubcategorias as $puestosubcategoria)
+            @foreach($puestosubcategoria->grupos as $grupo)
+              @foreach($grupo->productos as $productos)
+                <li class="features__item col-lg-3 col-sm-6 col-12">
+                    <div class="features__image wood light5">
+                    @foreach($productos->imagen_productos as $imagen) @endforeach
+                    <img src="{{ asset('/storage/'.$puestosubcategoria->puesto->id.'/'.$productos->id.'/'.$imagen->imagen) }}"
+                      width="200px" height="200px"> 
+                        <div class="image__tools"><i class="far fa-heart"></i>
+                            <i class="fas fa-cart-plus"></i>
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                    <div class="features__content">
+                        <a class="link" href="#"></a>
+                        <a class="sub-link" href="{{ url('/producto/'.$productos->id.'/detailProd') }}">{{ $productos->name }}</a>
+                    </div>
+                </li>
+              @endforeach
+            @endforeach
+          @endforeach
+        </ul>
+        </div>
+    </div>
+    </div>
+    <!-- btn Mostrar Tienda -->
+    <button type="submit" style="background:#153d77">{{ __('VER TIENDA') }}</button>
+</div>
+
+<!-- Mostrar Productos -->
+<div class="shopProduct">
+    <div class="shopProduct__wrap dflex container">
+        <div class="product__item col-lg-12 col-12">
+
+            <ul class="filterProduct gridRow" id="categoria">
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- No se Encontraron Productos -->
+<div class="shopProduct" id="resultado">
+    <div class="shopProduct__wrap dflex container">
+        <div class="product__item col-lg-12 col-12">
+            <div class="conatiner" style="background:#FF1643;text-align: center;padding:5px">
+                <h1 style="color:#fff; text-align: center;">{{ __('No se encontraron resultados') }}</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Mostrar Productos -->
+<div class="shopProduct">
+    <div class="shopProduct__wrap dflex container">
+        <div class="product__item col-lg-12 col-12">
+            <ul class="filterProduct gridRow" id="mostrar">     
+            </ul>
+        </div>
+    </div>
+</div>
     
-    @include('layouts.components.footer')
+@include('layouts.components.footer')
 @endsection
 
-
 @section('scripts')
-    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
-    <script>
-        var mySwiper = new Swiper ('.swiper-container', {
-            // Optional parameters
-            slidesPerView: 1,
-            centeredSlides: true,
-            spaceBetween: 100,
-            loop: true,
-            loopFillGroupWithBlank: true,
+  <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+  <script src="{{ asset('js/publicas/detailProduc.js') }}"></script>
+  <script>
+    $(function() {
+      // Variables Define
+      $mostrarcategoria = $('#categoria');
+      $ocultar1 = $('#ocultar1');
+      $ocultar2 = $('#tiendas');
+      $resultado = $('#resultado');
+      $mostrar = $('#mostrar');
 
-            autoplay: {
-            delay: 4000,
-            disableOnInteraction: false,
-            },
+      $resultado.hide();
+      $mostrar.hide();
+      $mostrarcategoria.hide();
+      
+      $('ul#tags li').click( function() {
+        const cateogiraId = $(this).attr('value');
+        if(cateogiraId == 0) {
 
-            // Si se desea agregar la paginacion 
-            // pagination: {
-            // el: '.swiper-pagination',
-            // clickable: true,
-            // },
+          $mostrarcategoria.hide();
+          $ocultar1.show();
+          $ocultar2.show();
+        }else {
 
-            // Navigation arrows
-            navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-            },
+          $mostrarcategoria.show();
+          $ocultar1.hide();
+          $ocultar2.hide();
+          const url = `/categoria/${cateogiraId}/apiProductosCategoria`;
+          $.getJSON(url, onProducCateg);
+        }
+      });
+
+      $("#buscar").on("keyup", function() {
+
+        valor = $(this).val();
+        if(valor.length === 0) {
+
+          $mostrarcategoria.hide();
+          $ocultar1.show();
+          $ocultar2.show();
+          $mostrar.hide();
+        }else {
+
+          $ocultar1.hide();
+          $ocultar2.hide();
+          $mostrar.show();
+          const url = `/productos/${valor}/all`;
+          $.getJSON(url, onMostrar);
+        }
+      });
+
+      function onMostrar(data) {
+          let htmlOptions = '';
+
+          if(data.length === 0) {
+            $resultado.show();
+          }
+          else {
+            $resultado.hide();
+          }
+
+          data.forEach(productos => {
+            htmlOptions += 
+            `<li class="product__item">`+
+                `<div class="product__image"><img src="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}" alt="">`+
+                    `<div class="image__tools"><i class="fas fa-search"></i>`+
+                        `<i class="fas fa-random"></i>`+
+                        `<i class="far fa-heart"></i>`+
+                    `</div>`+
+                `</div>`+
+                `<div class="product__content"><a class="link-title" href="#">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
+                    `<p class="price">$${productos.precio}</p>`+
+                    `<div class="color"><span style="background: #f0deba" data-image="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"></span><span style="background: #000" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
+                    `<p>${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}">Ver Producto</a>`+
+                `</div>`+
+            `</li>`;
         });
-    </script>
+        $mostrar.html(htmlOptions);
+      }
+
+      function onProducCateg(data) {
+        let htmlOptions = '';
+        
+        if(data.length === 0) {
+          $resultado.show();
+        }
+        else {
+          $resultado.hide();
+        }
+
+        data.forEach(productos => {
+          htmlOptions += 
+          `<li class="product__item">`+
+              `<div class="product__image"><img src="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}" alt="">`+
+                  `<div class="image__tools"><i class="fas fa-search"></i>`+
+                      `<i class="fas fa-random"></i>`+
+                      `<i class="far fa-heart"></i>`+
+                  `</div>`+
+              `</div>`+
+              `<div class="product__content"><a class="link-title" href="#">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
+                  `<p class="price">$${productos.precio}</p>`+
+                  `<div class="color"><span style="background: #f0deba" data-image="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"></span><span style="background: #000" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
+                  `<p>${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}">Ver Producto</a>`+
+              `</div>`+
+          `</li>`;
+        });
+        $mostrarcategoria.html(htmlOptions);
+      }
+    });
+  </script>
 @endsection
 
 
