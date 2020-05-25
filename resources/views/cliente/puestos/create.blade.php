@@ -153,7 +153,7 @@
                                                                             </li>
                                                                         </ul>
                                                                         <div class="mt-auto">
-                                                                            <a href="#" class="btn btn-lg btn-outline-primary">Elegir</a>
+                                                                        <button type="button" class="btn btn-lg btn-outline-primary" name="p1" id="p1">Elegir</button>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -185,7 +185,7 @@
                                                                             </li>
                                                                         </ul>
                                                                         <div class="mt-auto">
-                                                                            <a href="#" class="btn btn-lg btn-primary">50% 1er Mes</a>
+                                                                            <button type="button" class="btn btn-lg btn-primary" name="p2" id="p2">50% 1er Mes</button>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -226,7 +226,48 @@
                                                                             </li>
                                                                         </ul>
                                                                         <div class="mt-auto">
-                                                                            <a href="#" class="btn btn-lg btn-outline-primary">50% 1er mes</a>
+                                                                            <button type="button" class="btn btn-lg btn-outline-primary" name="p3" id="p3">50% 1er mes</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 mb-3 mb-md-0">
+                                                                <div class="card text-center h-100">
+                                                                    <div class="card-body d-flex flex-column">
+                                                                        <div class="mb-4">
+                                                                            <h5>Premium</h5>
+                                                                            <span class="display-4">S/.49</span>
+                                                                            <span>/mes</span>
+                                                                        </div>
+                                                                        <h6>Incluye:</h6>
+                                                                        <ul class="list-unstyled">
+                                                                            <li class="mb-2">
+                                                                                productos ilimitados
+                                                                            </li>
+                                                                            <li class="mb-2">
+                                                                                5 puestos
+                                                                            </li>
+                                                                            <li class="mb-2">
+                                                                                1 oferta/día
+                                                                            </li>
+                                                                            <li class="mb-2">
+                                                                                Posicionamiento
+                                                                            </li>
+                                                                            <li class="mb-2">
+                                                                                Enlace Tienda FB
+                                                                            </li>
+                                                                            <li class="mb-2">
+                                                                                Ventas 100% online
+                                                                            </li>
+                                                                            <li class="mb-2">
+                                                                                Asesoria Comercial
+                                                                            </li>
+                                                                            <li class="mb-2">
+                                                                                Google Analytics
+                                                                            </li>
+                                                                        </ul>
+                                                                        <div class="mt-auto">
+                                                                            <button type="button" class="btn btn-lg btn-outline-primary" name="p4" id="p4">50% 1er mes</button>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -255,7 +296,7 @@
                                                                             </li>
                                                                         </ul>
                                                                         <div class="mt-auto">
-                                                                            <a href="#" class="btn btn-lg btn-outline-primary">Elegir</a>
+                                                                            <button type="button" class="btn btn-lg btn-outline-primary" name="p5" id="p5">Elegir</button>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -287,7 +328,7 @@
                                                                             </li>
                                                                         </ul>
                                                                         <div class="mt-auto">
-                                                                            <a href="#" class="btn btn-lg btn-primary">10% dscto</a>
+                                                                            <button type="button" class="btn btn-lg btn-outline-primary" name="p6" id="p6">10% dscto</button>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -328,7 +369,48 @@
                                                                             </li>
                                                                         </ul>
                                                                         <div class="mt-auto">
-                                                                            <a href="#" class="btn btn-lg btn-outline-primary">20% dscto</a>
+                                                                            <button type="button" class="btn btn-lg btn-outline-primary" name="p7" id="p7">20% dscto</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-4 mb-3 mb-md-0">
+                                                                <div class="card text-center h-100">
+                                                                    <div class="card-body d-flex flex-column">
+                                                                        <div class="mb-4">
+                                                                            <h5>Premium</h5>
+                                                                            <span class="display-4">S/.649</span>
+                                                                            <span>/año</span>
+                                                                        </div>
+                                                                        <h6>Incluye:</h6>
+                                                                        <ul class="list-unstyled">
+                                                                            <li class="mb-2">
+                                                                                productos ilimitados
+                                                                            </li>
+                                                                            <li class="mb-2">
+                                                                                5 puestos
+                                                                            </li>
+                                                                            <li class="mb-2">
+                                                                                1 oferta/día
+                                                                            </li>
+                                                                            <li class="mb-2">
+                                                                                Posicionamiento
+                                                                            </li>
+                                                                            <li class="mb-2">
+                                                                                Enlace Tienda FB
+                                                                            </li>
+                                                                            <li class="mb-2">
+                                                                                Ventas 100% online
+                                                                            </li>
+                                                                            <li class="mb-2">
+                                                                                Asesoria Comercial
+                                                                            </li>
+                                                                            <li class="mb-2">
+                                                                                Google Analytics
+                                                                            </li>
+                                                                        </ul>
+                                                                        <div class="mt-auto">
+                                                                            <button type="button" class="btn btn-lg btn-outline-primary" name="p8" id="p8">30% dscto</button>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -341,7 +423,7 @@
                                     </div>
                                    </div>
                                    <div class="modal-footer">
-                                        <input type="text" name="puesto_id" value="{{ $idplan }}">
+                                        <input type="text" name="planid" id="planid" value="">
                                        <button type="submit" class="btn btn-primary">Guardar</button>
                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                                    </div>
@@ -360,6 +442,62 @@
 @endsection
 
 @section('scripts')
+<script>
+    $(function() {
+   $("#p1,#p5").on('click', function() {
+        $('#planid').val('1');
+    });
+});
+</script>
+<script>
+    $(function() {
+   $("#p2").on('click', function() {
+        $('#planid').val('2');
+    });
+});
+</script>
+<script>
+    $(function() {
+   $("#p3").on('click', function() {
+        $('#planid').val('3');
+    });
+});
+</script>
+<script>
+    $(function() {
+   $("#p4").on('click', function() {
+        $('#planid').val('4');
+    });
+});
+</script>
+<script>
+    $(function() {
+   $("#p5").on('click', function() {
+        $('#planid').val('1');
+    });
+});
+</script>
+<script>
+    $(function() {
+   $("#p6").on('click', function() {
+        $('#planid').val('5');
+    });
+});
+</script>
+<script>
+    $(function() {
+   $("#p7").on('click', function() {
+        $('#planid').val('6');
+    });
+});
+</script>
+<script>
+    $(function() {
+   $("#p8").on('click', function() {
+        $('#planid').val('7');
+    });
+});
+</script>
 <script>
     $(function() {
         $(".select2").each(function() {
