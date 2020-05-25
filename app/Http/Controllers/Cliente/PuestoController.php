@@ -51,7 +51,8 @@ class PuestoController extends Controller
             'description'   =>  'max:500',
             'phone2'        =>  'min:9|max:12',
             'phone'         =>  'min:9|max:12',
-            'subcategoria_id' => 'required'
+            'subcategoria_id' => 'required',
+            'planid'        => 'required'
         ];
         $this->validate($request, $rules);
 
@@ -61,7 +62,8 @@ class PuestoController extends Controller
                 'description' => $request->input('description'),
                 'phone' => $request->input('phone'),
                 'phone2' => $request->input('phone2'),
-                'maxsubcategorias' => 2
+                'maxsubcategorias' => 2,
+                'plan_id' => $request->input('planid')
             ]);
 
             $file = $request->file('logo');
