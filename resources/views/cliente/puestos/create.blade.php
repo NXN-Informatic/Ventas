@@ -134,7 +134,7 @@
                                                 <div class="tab-content">
                                                     <div class="tab-pane fade show active" id="monthly">
                                                         <div class="row py-5">
-                                                            <div class="col-md-4 mb-3 mb-md-0">
+                                                            <div class="col-md-3 mb-3 mb-md-0">
                                                                 <div class="card text-center h-100">
                                                                     <div class="card-body d-flex flex-column">
                                                                         <div class="mb-4">
@@ -159,7 +159,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4 mb-3 mb-md-0">
+                                                            <div class="col-md-3 mb-3 mb-md-0">
                                                                 <div class="card text-center h-100">
                                                                     <div class="card-body d-flex flex-column">
                                                                         <div class="mb-4">
@@ -232,7 +232,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4 mb-3 mb-md-0">
+                                                            <div class="col-md-3 mb-3 mb-md-0">
                                                                 <div class="card text-center h-100">
                                                                     <div class="card-body d-flex flex-column">
                                                                         <div class="mb-4">
@@ -277,7 +277,7 @@
                                                     </div>
                                                     <div class="tab-pane fade" id="annual">
                                                         <div class="row py-4">
-                                                            <div class="col-sm-4 mb-3 mb-md-0">
+                                                            <div class="col-sm-3 mb-3 mb-md-0">
                                                                 <div class="card text-center h-100">
                                                                     <div class="card-body d-flex flex-column">
                                                                         <div class="mb-4">
@@ -302,7 +302,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-sm-4 mb-3 mb-md-0">
+                                                            <div class="col-sm-3 mb-3 mb-md-0">
                                                                 <div class="card text-center h-100">
                                                                     <div class="card-body d-flex flex-column">
                                                                         <div class="mb-4">
@@ -334,7 +334,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-sm-4 mb-3 mb-md-0">
+                                                            <div class="col-sm-3 mb-3 mb-md-0">
                                                                 <div class="card text-center h-100">
                                                                     <div class="card-body d-flex flex-column">
                                                                         <div class="mb-4">
@@ -375,7 +375,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-sm-4 mb-3 mb-md-0">
+                                                            <div class="col-sm-3 mb-3 mb-md-0">
                                                                 <div class="card text-center h-100">
                                                                     <div class="card-body d-flex flex-column">
                                                                         <div class="mb-4">
