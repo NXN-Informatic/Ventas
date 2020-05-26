@@ -26,12 +26,6 @@
         </ul>
     </li>
     <li class="sidebar-item">
-        <a class="sidebar-link" href="{{ url('producto/create') }}">
-            <i class="align-middle mr-2 fas fa-fw fa-list"></i> <span class="align-middle">{{ __('Lista de Productos') }}</span>
-            <span class="sidebar-badge badge badge-pill badge-primary">{{ __('Ir') }}</span>
-        </a>
-    </li>
-    <li class="sidebar-item">
         <a class="sidebar-link" href="{{ url('price') }}">
             <i class="align-middle mr-2 fas fa-fw fa-dollar-sign"></i> <span class="align-middle">{{ __('Mi Plan') }}</span>
             <span class="sidebar-badge badge badge-pill badge-primary">{{ __('Ir') }}</span>

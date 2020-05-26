@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Mi puesto')
 @section('content')
 @include('layouts.partials.menu')
 @include('layouts.partials.navbar')
