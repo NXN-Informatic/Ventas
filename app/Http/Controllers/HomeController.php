@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\User;
 use App\UsuarioPuesto;
 use App\Producto;
+use App\PuestoSubcategoria;
 use App\Puesto;
+use App\Grupo;
 class HomeController extends Controller
 {
     /**
@@ -28,11 +30,27 @@ class HomeController extends Controller
     {
         
         $usercompletado = User::find(auth()->user()->id);
-        
+        $up = UsuarioPuesto::where('usuario_id', $usercompletado->id)->get();
+        if ($up->isNotEmpty()) {
+            $puestocompletado = Puesto::find($up->first()->puesto_id)->completado;
+        } else {
+            $puestocompletado = 0;
+        }
+        if ($puestocompletado) {
+            $prods = Puesto::find($up->first()->puesto_id)->puestosubcategorias()->get();
+            $grupos = Grupo::where('puestosubcategoria_id',$prods->first()->id)->get();
+            if($grupos->isNotEmpty()) {
+                $productocompletado = Producto::where('grupo_id',$grupos->first()->id)->get();
+            } else {
+                $productocompletado = collect();
+            }
+        } else {
+            $productocompletado = collect();
+        }
         //$pc = new Puesto;
         //$puestocompletado = $pc->usuario_puestos()->where('usuario_id',auth()->user()->id)->get();
         //dd($puestocompletado);
         //$puestocompletado = Producto::find(1)->grupo->puestosubcategoria->puesto->usuario_puestos->where('user_id',auth()->user()->id)->first()->get();
-        return view('home', compact('usercompletado'));
+        return view('home', compact('usercompletado','puestocompletado','productocompletado'));
     }
 }

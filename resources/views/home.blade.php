@@ -54,7 +54,17 @@
                                         
                                     </li>
 									<li class="list-group-item">
-                                        <div class="alert alert-primary alert-outline-coloured alert-dismissible" role="alert">
+										@if ($puestocompletado)
+										<div class="alert alert-success alert-outline-coloured alert-dismissible" role="alert">
+											<div class="alert-icon">
+												<i class="far fa-fw fa-heart"></i>
+											</div>
+											<div class="alert-message">
+												<strong>Crea tu puesto:</strong> Ve a "Mis Puestos > Crear Puesto" registra tu tienda y escoge el plan a tu medida.
+											</div>
+										</div>
+										@else
+										<div class="alert alert-primary alert-outline-coloured alert-dismissible" role="alert">
 											<div class="alert-icon">
 												<i class="far fa-fw fa-hourglass"></i>
 											</div>
@@ -62,9 +72,21 @@
 												<strong>Crea tu puesto:</strong> Ve a "Mis Puestos > Crear Puesto" registra tu tienda y escoge el plan a tu medida.
 											</div>
 										</div>
+										@endif
+                                        
                                     </li>
 									<li class="list-group-item">
-                                        <div class="alert alert-primary alert-outline-coloured alert-dismissible" role="alert">
+										@if ($productocompletado->isNotEmpty())
+										<div class="alert alert-success alert-outline-coloured alert-dismissible" role="alert">
+											<div class="alert-icon">
+												<i class="far fa-fw fa-heart"></i>
+											</div>
+											<div class="alert-message">
+												<strong>Sube tus productos:</strong> Ve a "Mis Puestos > Lista de Puestos" y añade productos a tu puesto virtual. 
+											</div>
+										</div>
+										@else
+										<div class="alert alert-primary alert-outline-coloured alert-dismissible" role="alert">
 											<div class="alert-icon">
 												<i class="far fa-fw fa-hourglass"></i>
 											</div>
@@ -72,6 +94,7 @@
 												<strong>Sube tus productos:</strong> Ve a "Mis Puestos > Lista de Puestos" y añade productos a tu puesto virtual. 
 											</div>
 										</div>
+										@endif
                                     </li>
                                     <li class="list-group-item">
                                         <div class="alert alert-info alert-outline-coloured alert-dismissible" role="alert">
