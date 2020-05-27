@@ -2,10 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Categoria;
+use App\Producto;
 
 Route::get('/', function () {
     $puestos = collect();
-    $productos = collect();
+    $productos = Producto::limit(8)->get();
     $tiendas = collect();
     $categorias = Categoria::all();
     return view('welcome', compact('puestos', 'productos', 'categorias', 'tiendas'));
