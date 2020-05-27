@@ -14,9 +14,9 @@ class UpdateColumnsToProductosTable extends Migration
     public function up()
     {
         Schema::table('productos', function (Blueprint $table) {
-            $table->string('disponible')->default('in stock')->nullable();
-            $table->string('condicion',20)->default('new')->nullable();
-            $table->string('marca',30)->default('Propia')->nullable();
+            $table->string('disponible')->default('in stock')->nullable()->change();
+            $table->string('condicion',20)->default('new')->nullable()->change();
+            $table->string('marca',30)->default('Propia')->nullable()->change();
         });
     }
 
