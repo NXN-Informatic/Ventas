@@ -57,8 +57,25 @@
         <div class="button-group filters-button-group feature__buttons">
         </div>
         <ul class="featureSlider container">
-            <li class="grid features__grid" id="prod">
+            <li class="grid features__grid">
+                @foreach($puesto->puestosubcategorias as $puestosubcategorias)
+                    @foreach($puestosubcategorias->grupos as $grupos)
+                        @foreach($grupos->productos as $productos)
+                            
+                        <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">
+                            
+                            <div class="features__content"><a class="link" href="#">{{$productos->name}}</a>
+                                <p class="price">S./ ${{$productos->precio}}</p>
+                                <div class="content__overlay">
+                                    <p>{{ $productos->description }}</p>
+                                    <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="black">Ver Producto</a><a href="{{ url('/producto/'. $productos->id.'/detailProd') }}"><i class="fas fa-search"></i></a></div>
+                                </div>
+                            </div>
+                        </div>
 
+                        @endforeach
+                    @endforeach
+                @endforeach
             </li>
         </ul>
     </div>
