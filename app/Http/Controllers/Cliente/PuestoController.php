@@ -180,11 +180,12 @@ class PuestoController extends Controller
         return $puestos;
     }
     public function storeExcel($puestito){ 
+        $filepathh = 'storage/'.$puestito.'/fb_catalog.csv';
         $filePath = 'public/'.$puestito.'/fb_catalog.csv';
         $catalogo = new CatalogsExport();
         $catalogo->idpuesto=$puestito;
         Excel::store($catalogo, $filePath);
 
-        return 'https://www.feriatacna.com/'.$filePath;
+        return 'https://www.feriatacna.com/'.$filepathh;
     }
 }

@@ -113,7 +113,7 @@ class ProductoController extends Controller
         foreach($files as $file){
             $name = $file->getClientOriginalName();
             $fileName = 'public/'.$puesto.'/'.$producto.'/'.$name;
-            $imagenurl = 'https://feriatacna.com/'.$fileName;
+            $imagenurl = 'https://feriatacna.com/storage/'.$puesto.'/'.$producto.'/'.$name;
             //indicamos que queremos guardar un nuevo archivo en el disco local
             \Storage::disk('local')->put($fileName,  \File::get($file));
 
