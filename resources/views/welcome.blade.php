@@ -1,13 +1,5 @@
 @extends('layouts.panel')
 
-@section('load')
-  <!--Start Page Loader-->
-  <div class="loader dflex"><img src="{{ asset('img/images/logo/wood-logo-dark.svg') }}" alt="" >
-    <div class="dflex"><span></span><span></span><span></span></div>
-  </div>
-  <!--End Page Loader-->
-@endsection
-
 @section('styles')
     <!-- Swiper -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">

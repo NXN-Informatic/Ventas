@@ -42,9 +42,11 @@
             </li>
             @endforeach
             </ul>
+            
         </div>
     </div>
 </div>
+
 
 @include('layouts.components.footer')
 

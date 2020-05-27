@@ -7,6 +7,7 @@
 @endsection
 
 @section('content')
+@include('layouts.components.navbar')
 @section('title','Bienvenido')
 
 <!--Start Single Product-->
@@ -119,48 +120,67 @@
   </div>
 </div>
 
-<!--Productos de la Tienda-->
-<div class="featureProduct singleProduct" id="tiendas">
-    <div class="feature__wrap container">
-    <!--Title-->
+<!--Start Featured Products-->
+<div class="featureProduct">
     <h4 class="title">Otros Productos de esta tienda<a href="" style="margin-left:10px">{{ __('Mostrar Más') }}</a></h4>
     <div class="feature__filter">
-        <div class="featureSlider">
-        <div class="sliderButton left"><i class="fas fa-angle-left"></i></div>
-        <div class="sliderButton right"><i class="fas fa-angle-right"></i></div>
-        <ul class="features__grid" id="wrap">
-          @foreach($producto->grupo->puestosubcategoria->puesto->puestosubcategorias as $puestosubcategoria)
-            @foreach($puestosubcategoria->grupos as $grupo)
-              @foreach($grupo->productos as $productos)
-                <li class="features__item col-lg-3 col-sm-6 col-12">
-                    <div class="features__image wood light5">
-                    @foreach($productos->imagen_productos as $imagen) @endforeach
-                    @if(count($productos->imagen_productos) > 0)
-                    <img src="{{ asset('/storage/'.$puestosubcategoria->puesto->id.'/'.$productos->id.'/'.$imagen->imagen) }}"
-                      width="200px" height="200px">
-                    @else
-                    <img src="{{ asset('/img/defaultProducto.jpg') }}"
-                      width="200px" height="200px">
-                    @endif 
-                        <div class="image__tools"><i class="far fa-heart"></i>
-                            <i class="fas fa-cart-plus"></i>
-                            <i class="fas fa-search"></i>
+        <div class="button-group filters-button-group feature__buttons">
+        </div>
+        <ul class="featureSlider container">
+            <li class="grid features__grid" id="prod">
+            @foreach($producto->grupo->puestosubcategoria->puesto->puestosubcategorias as $puestosubcategoria)
+              @foreach($puestosubcategoria->grupos as $grupo)
+                @foreach($grupo->productos as $productos)
+                  @foreach($productos->imagen_productos as $imagen) @endforeach
+
+                  @if($imagen)
+                    <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">
+                        <div class="features__image desk">
+                        <img src="{{ asset('/storage/'.$puestosubcategoria->puesto->id.'/'.$productos->id.'/'.$imagen->imagen) }}"
+                            width="200px" height="200px">
+                            <div class="image__overlay">
+                                <div class="color">
+                                    <div class="image" data-image="{{ asset('/storage/'.$puestosubcategoria->puesto->id.'/'.$productos->id.'/'.$imagen->imagen) }}"  width="200px" height="300px"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="features__content"><a class="link" href="#">{{$productos->name}}</a>
+                            <p class="price">{{$productos->precio}}</p>
+                            <div class="content__overlay">
+                                <p>{{ $productos->description }}</p>
+                                <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="black">Ver Producto</a><a href="{{ url('/producto/${ productos.id }/detailProd') }}"><i class="fas fa-search"></i></a></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="features__content">
-                        <a class="link" href="#"></a>
-                        <a class="sub-link" href="{{ url('/producto/'.$productos->id.'/detailProd') }}">{{ $productos->name }}</a>
+                @else
+                    <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">
+                        <div class="features__image desk"><img src="{{ asset('img/defaultProducto.jpg') }}"  width="200px" height="300px" alt="">
+                            <div class="image__overlay">
+                                <div class="color">
+                                    <div class="image" data-image="{{ asset('img/defaultProducto.jpg') }}"  width="200px" height="300px"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="features__content"><a class="link" href="#">{{$productos->name}}</a>
+                            <p class="price">{{$productos->precio}}</p>
+                            <div class="content__overlay">
+                                <p>{{ $productos->description }}</p>
+                                <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="black">Ver Producto</a><a href="{{ url('/producto/${ productos.id }/detailProd') }}"><i class="fas fa-search"></i></a></div>
+                            </div>
+                        </div>
                     </div>
-                </li>
+                @endif
+
+                @endforeach
               @endforeach
             @endforeach
-          @endforeach
+            </li>
         </ul>
-        </div>
-    </div>
     </div>
     <!-- btn Mostrar Tienda -->
-    <button type="submit" style="background:#153d77">{{ __('VER TIENDA') }}</button>
+    <a href="{{ url('/all/productos') }}">
+      <button type="submit" style="background:#153d77">{{ __('VER PRODUCTOS') }}</button>
+    </a> 
 </div>
 
 <!-- Mostrar Productos -->

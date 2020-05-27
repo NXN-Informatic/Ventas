@@ -27,7 +27,7 @@ class PublicController extends Controller
     }
 
     public function puestoAll() {
-    	$puestos = Puesto::paginate(10);
+    	$puestos = Puesto::all();
     	$categorias = Categoria::all();
     	return view('publicas.puestoAll' , compact('puestos', 'categorias')); 
     }
