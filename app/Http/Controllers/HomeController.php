@@ -8,6 +8,7 @@ use App\UsuarioPuesto;
 use App\Producto;
 use App\PuestoSubcategoria;
 use App\Puesto;
+use App\Categoria;
 use App\Grupo;
 class HomeController extends Controller
 {
@@ -28,7 +29,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        
+        $verificar = UsuarioPuesto::where('usuario_id', auth()->user()->id)->first();
+        if($verificar == null) {
+            $categorias = Categoria::all();
+
+            $categoria_id = old('categoria_id');
+            if ($categoria_id) {
+                $categoria = Categoria::find($categoria_id);
+                $subcategorias = $categoria->subcategorias;
+            } else $subcategorias = collect();
+            return view('publicas.tienda', compact('categorias','subcategorias'));
+        }
         $usercompletado = User::find(auth()->user()->id);
         $up = UsuarioPuesto::where('usuario_id', $usercompletado->id)->get();
         if ($up->isNotEmpty()) {

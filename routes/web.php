@@ -23,6 +23,7 @@ Route::get('/all/productos', 'PublicController@productos');
 Route::get('/producto/{producto}/detailProd', 'PublicController@detailProducto');
 Route::get('/puestos/all', 'PublicController@puestoAll');
 Route::get('/produc/{puesto}/all', 'PublicController@apiproductos');
+Route::post('/tienda/create', 'PublicController@create');
 
 /**
  * api rest Publicas

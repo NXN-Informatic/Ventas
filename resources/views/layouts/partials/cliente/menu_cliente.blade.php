@@ -3,12 +3,10 @@
         Main
     </li>
     <li class="sidebar-item">
-        <a href="#dashboards" data-toggle="collapse" class="sidebar-link collapsed">
-            <i class="align-middle mr-2 fas fa-fw fa-home"></i> <span class="align-middle">Dashboards</span>
+        <a class="sidebar-link" href="{{ url('home') }}">
+            <i class="align-middle mr-2 fas fa-fw fa-home"></i> <span class="align-middle">{{ __('Dashboards') }}</span>
+            <span class="sidebar-badge badge badge-pill badge-primary">{{ __('Ir') }}</span>
         </a>
-        <ul id="dashboards" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-            <li class="sidebar-item active"><a class="sidebar-link" href="{{ url('home') }}">{{ __('Inicio') }}</a></li>
-        </ul>
     </li>
     <li class="sidebar-item">
         <a class="sidebar-link" href="{{ url('user') }}">

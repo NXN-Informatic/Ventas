@@ -24,18 +24,7 @@
                         </div>
                     </div>
                     @endif
-                        <div class="text-center mt-3">    
-                            <a href="" class="btn btn-facebook btn-lg mt-2">
-                                {{ __("Facebook") }} <i class="align-middle mr-2 fab fa-fw fa-facebook"></i>
-                            </a>
-                            <a href="" class="btn btn-google btn-lg mt-2">
-                                {{ __("Google") }} <i class="fa fa-google"></i>
-                            </a>
-                            <a href="" class="btn btn-twitter btn-lg mt-2">
-                                {{ __("Twitter") }} <i class="fa fa-twitter"></i>
-                            </a>
-                        </div>
-                        <hr>
+                        
                         <div class="text-center">
                             <img src="{{ asset('img/user.png') }}" alt="Linda Miller" class="img-fluid rounded-circle" width="132" height="132" />
                         </div>
@@ -56,6 +45,33 @@
                                 <button type="submit" class="btn btn-lg btn-primary">{{ __('INICIAR') }}</button>
                             </div>
                         </form>
+                        <hr>
+                        <label>
+                            <a href="{{ route('register') }}">
+                            <h4 style="text-align:right">
+                                {{ __('Aún no te tienes cuentas ? ') }}
+                            </h4>
+                            </a>
+                        </label>
+                    
+                        <hr>
+                        
+                        <label>
+                            {{ __('O Inicia Sesión con Redes sociales') }}
+                        </label>
+                        <hr>
+                        <div class="text-center mt-3">    
+                            <a href="" class="btn btn-facebook btn-lg mt-2">
+                                {{ __("Facebook") }} <i class="align-middle mr-2 fab fa-fw fa-facebook"></i>
+                            </a>
+                            <a href="" class="btn btn-google btn-lg mt-2">
+                                {{ __("Google") }} <i class="fa fa-google"></i>
+                            </a>
+                            <a href="" class="btn btn-twitter btn-lg mt-2">
+                                {{ __("Twitter") }} <i class="fa fa-twitter"></i>
+                            </a>
+                        </div>
+                        <hr>
                     </div>
                 </div>
             </div>

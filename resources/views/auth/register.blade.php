@@ -8,7 +8,7 @@
             <div class="d-table-cell align-middle">
 
             <div class="text-center mt-4">
-                <h1 class="h2">{{ __('REGISTRE SU TIENDA') }}</h1>
+                <h1 class="h2">{{ __('REGISTRE SU USUARIO') }}</h1>
                 <p class="lead">
                 {{ __('Su tienda en linea ya está casi lista') }}
                 </p>
@@ -24,18 +24,6 @@
                         </div>
                     </div>
                     @endif
-                        <div class="text-center mt-3">    
-                            <a href="" class="btn btn-facebook btn-lg mt-2">
-                                {{ __("Facebook") }} <i class="align-middle mr-2 fab fa-fw fa-facebook"></i>
-                            </a>
-                            <a href="" class="btn btn-google btn-lg mt-2">
-                                {{ __("Google") }} <i class="fa fa-google"></i>
-                            </a>
-                            <a href="" class="btn btn-twitter btn-lg mt-2">
-                                {{ __("Twitter") }} <i class="fa fa-twitter"></i>
-                            </a>
-                        </div>
-                        <hr>
                         <form role="form" method="POST" action="{{ route('register') }}">
                         @csrf
                             <div class="form-group">
@@ -52,6 +40,32 @@
                                 <button type="submit" class="btn btn-lg btn-primary">{{ __('Registrarse') }}</button>
                             </div>
                         </form>
+                        <hr>
+                        <label>
+                            <a href="{{ route('login') }}">
+                            <h4 style="text-align:right">
+                                {{ __('Ya tienes una cuenta ? ') }}
+                            </h4>
+                            </a>
+                        </label>
+                    
+                        <hr>
+                        <label>
+                            {{ __('O Registrese con su Redes sociales') }}
+                        </label>
+                        <hr>
+                        <div class="text-center mt-3">    
+                            <a href="" class="btn btn-facebook btn-lg mt-2">
+                                {{ __("Facebook") }} <i class="align-middle mr-2 fab fa-fw fa-facebook"></i>
+                            </a>
+                            <a href="" class="btn btn-google btn-lg mt-2">
+                                {{ __("Google") }} <i class="fa fa-google"></i>
+                            </a>
+                            <a href="" class="btn btn-twitter btn-lg mt-2">
+                                {{ __("Twitter") }} <i class="fa fa-twitter"></i>
+                            </a>
+                        </div>
+                        <hr>
                     </div>
                 </div>
             </div>

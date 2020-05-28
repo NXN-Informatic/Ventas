@@ -7,6 +7,8 @@ use App\Producto;
 use App\Categoria;
 use App\Puesto;
 use App\ImagenProducto;
+use App\UsuarioPuesto;
+use App\PuestoSubcategoria;
 
 class PublicController extends Controller
 {
@@ -51,5 +53,48 @@ class PublicController extends Controller
         	}
         }
         return $data;
+    }
+
+    public function create(Request $request) {
+        // dd($request->only('name','categoria_id', 'phone'));
+        $rules = [
+            'name'          =>  'required|min:3|max:100|unique:puestos',
+            'phone'         =>  'min:9|max:12',
+            'subcategoria_id' => 'required'
+        ];
+        $this->validate($request, $rules);
+
+        if(auth()->user()->maxpuestos > 0) {
+            $puesto = Puesto::create([
+                'name' => $request->input('name'),
+                'phone' => $request->input('phone'),
+                'maxsubcategorias' => 2,
+                'plan_id' => 1
+            ]);
+            $subcategorias = $request->input('subcategoria_id');
+
+            if($subcategorias != null) {
+                $total =  ($puesto->maxsubcategorias >= count($subcategorias))? count($subcategorias) : $puesto->maxsubcategorias;
+                $puesto->maxsubcategorias = $puesto->maxsubcategorias - $total;
+                $puesto->save();
+                
+                for($i=0 ; $i < $total; ++$i) {
+                    PuestoSubcategoria::create([
+                        "puesto_id"         =>  $puesto->id,
+                        "subcategoria_id"   =>  $subcategorias[$i]
+                    ]);
+                }
+                UsuarioPuesto::create([
+                    'usuario_id' => auth()->user()->id,
+                    'puesto_id'  => $puesto->id
+                ]);
+            }
+    
+            $notification = 'Se ha creado su Puesto Correctamente.';
+        }else {
+            $notification = 'Usted no Tiene acceso para crear más Productos.';
+        }
+
+        return redirect('/home')->with(compact('notification'));
     }
 }
