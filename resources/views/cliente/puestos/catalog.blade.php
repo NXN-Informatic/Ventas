@@ -29,35 +29,11 @@
                         <h5 class="card-title mb-0">{{ __('Conecta tu Puesto con tu Página de Facebook!') }}</h5>
                     </div>
                     <div class="card-body">
-                        @if($errors->any())
-                        <div class="alert alert-danger alert-dismissible" role="alert">
-                            <div class="alert-message">
-                                <strong>{{ $errors->first() }}</strong>
-                            </div>
+                        <div class="form-group">
+                            <label class="form-label" for="name">Enlace de tu Catalogo:</label>
+                            <input type="text" class="form-control" id="enlace" name="enlace" value="{{ $catalog_url }}" required>
+                            <button class="btn mb-1 btn-success" name="btnenlace" id="btnenlace" onclick="copyToClipboard('enlace')"><i class="fas fa-copy"></i> Copiar</button>
                         </div>
-                        @endif
-                        @if (session('notification'))
-                        <div class="alert alert-primary alert-dismissible" role="alert">
-                            <div class="alert-icon">
-                                <i class="far fa-fw fa-bell"></i>
-                            </div>
-                            <div class="alert-message">
-                                <strong>{{ session('notification') }}</strong>
-                            </div>
-
-							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                            </button>
-						</div>
-                        @endif
-                        <form action="{{ url('puesto/store/') }}" method="post" enctype="multipart/form-data">
-                            @csrf
-                            <div class="form-group">
-                                <label class="form-label" for="name">Link de Enlace:</label>
-                                <input type="text" class="form-control" name="name" value="{{ $catalog_url }}" required>
-                                <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
-                            </div>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -69,6 +45,30 @@
 @endsection
 
 @section('scripts')
+<script>
+    function copyToClipboard(id) {
+        document.getElementById(id).select();
+        document.execCommand('copy');
+    }
+</script>
+<script>
+    // Toastr
+    $(function() {
+        $("#btnenlace").click(function() {
+            var message = "Copiado en Portapapeles";
+            var title = "FeriaTacna:";
+            var type = "success";
+            toastr[type](message, title, {
+                positionClass: toast-top-right,
+                closeButton: false,
+                progressBar: false,
+                newestOnTop: true,
+                rtl: $("body").attr("dir") === "rtl" || $("html").attr("dir") === "rtl",
+                timeOut: 5
+            });
+        });
+    });
+</script>
 <script>
     $(function() {
         $(".select2").each(function() {
