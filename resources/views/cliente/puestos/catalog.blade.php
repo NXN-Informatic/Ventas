@@ -53,9 +53,9 @@
                         <form action="{{ url('puesto/store/') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
-                                <label class="form-label" for="name">Link de Enlace:</label>
-                                <input type="text" class="form-control" name="name" value="{{ $catalog_url }}" required>
-                                <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
+                                <label class="form-label" for="name">Enlace de tu Catalogo:</label>
+                                <input type="text" class="form-control" id="enlace" name="enlace" value="{{ $catalog_url }}" required>
+                                <button class="btn mb-1 btn-success" onclick="copyToClipboard('enlace')"><i class="fas fa-copy"></i> Copiar</button>
                             </div>
                         </form>
                     </div>
@@ -69,6 +69,12 @@
 @endsection
 
 @section('scripts')
+<script>
+    function copyToClipboard(id) {
+        document.getElementById(id).select();
+        document.execCommand('copy');
+    }
+</script>
 <script>
     $(function() {
         $(".select2").each(function() {
