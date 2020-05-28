@@ -45,6 +45,7 @@
 @endsection
 
 @section('scripts')
+<script src="js/settings.js"></script>
 <script>
     function copyToClipboard(id) {
         document.getElementById(id).select();
