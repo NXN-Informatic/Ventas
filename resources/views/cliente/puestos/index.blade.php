@@ -30,12 +30,13 @@
                                             <h5 class="card-title">Puesto Nº {{ $usuarios_puesto->puesto_id }}</h5>
                                         </div>
                                         <div class="col-sm-10 ml-sm-auto text-right mt-2">
-                                            <a href="{{ url('puesto/'.$usuarios_puesto->puesto->id.'/detail') }}">
+                                            <a href="{{ url('puesto/'.$usuarios_puesto->puesto->id.'/edit') }}">
                                                 <button class="btn btn-primary"><i class="fas fa-edit" title="Editar"></i></button>
                                             </a>
                                             <a href="{{ url('puesto/'.$usuarios_puesto->puesto->id.'/detail') }}">
                                                 <button class="btn btn-secondary"><i class="fas fa-globe-americas" title="Compartir"></i></button>
                                             </a>
+                                            <button type="submit" class="btn btn-danger"><i class="fas fa-times" title="Eliminar"></i></button>
                                         </div>
                                         
                                     </div>
@@ -46,8 +47,6 @@
                                         <div class="col-sm-10 ml-sm-auto text-right mt-2">
                                             <a href="{{ url('producto/'.$usuarios_puesto->id.'/add') }}"><button type="submit" class="btn btn-primary">{{ __('Añadir Productos') }}</button></a>
                                             <a href="{{ url('producto/'.$usuarios_puesto->id.'/lista') }}"><button type="submit" class="btn btn-success">{{ __('Ver Productos') }}</button></a>
-                                            <a href="{{ url('puesto/'.$usuarios_puesto->puesto->id.'/edit') }}"><button type="submit" class="btn btn-primary">{{ __('Editar Tienda') }}</button></a>
-                                            <button type="submit" class="btn btn-danger">{{ __('Eliminar') }}</button>
                                             <a href="{{ url('puesto/'.$usuarios_puesto->puesto->id.'/fbcatalog') }}"><button type="submit" class="btn btn-success">{{ __('Enlazar con Facebook') }}</button></a>
                                         </div>
                                     </div>
