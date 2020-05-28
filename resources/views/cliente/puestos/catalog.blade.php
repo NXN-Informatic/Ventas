@@ -55,7 +55,7 @@
                             <div class="form-group">
                                 <label class="form-label" for="name">Enlace de tu Catalogo:</label>
                                 <input type="text" class="form-control" id="enlace" name="enlace" value="{{ $catalog_url }}" required>
-                                <button class="btn mb-1 btn-success" onclick="copyToClipboard('enlace')"><i class="fas fa-copy"></i> Copiar</button>
+                                <button class="btn mb-1 btn-success" name="btnenlace" id="btnenlace" onclick="copyToClipboard('enlace')"><i class="fas fa-copy"></i> Copiar</button>
                             </div>
                         </form>
                     </div>
@@ -74,6 +74,24 @@
         document.getElementById(id).select();
         document.execCommand('copy');
     }
+</script>
+<script>
+    // Toastr
+    $(function() {
+        $("#btnenlace").click(function() {
+            var message = "Copiado en Portapapeles";
+            var title = "FeriaTacna:";
+            var type = "success";
+            toastr[type](message, title, {
+                positionClass: toast-top-right,
+                closeButton: false,
+                progressBar: false,
+                newestOnTop: true,
+                rtl: $("body").attr("dir") === "rtl" || $("html").attr("dir") === "rtl",
+                timeOut: 5
+            });
+        });
+    });
 </script>
 <script>
     $(function() {
