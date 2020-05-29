@@ -17,7 +17,7 @@
                 </ol>
             </nav>
         </div>
-        <div class="row">
+        <div class="row" >
             <!-- Formulario de Usuario -->
             <div class="col-xxl-8">
                 <div class="card">
@@ -46,73 +46,89 @@
                             </button>
 						</div>
                         @endif
+                        
                         <form action="{{ url('user/update/'.auth()->user()->id) }}" method="post">
                             @csrf
                             @method('PUT')
-                            <div class="form-group">
-                                <label class="form-label" for="name">Nombre de Usuario</label>
-                                <input type="text" class="form-control" name="name" value="{{ old('name', auth()->user()->name) }}" required>
-                                <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" for="sur_name">Apellido de Usuario</label>
-                                <input type="text" class="form-control" name="sur_name" value="{{ old('sur_name', auth()->user()->sur_name) }}">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" for="dni">Tipo de Documento</label>
-                                <div class="mb-3">
-								<select class="form-control" id="identidad_id" name="identidad_id" required>
-                                    <optgroup label="Documentos Disponibles">
-                                    @foreach($tipoDocuments as $document)
-                                        <option value="{{ $document->id }}" 
-                                            @if(auth()->user()->identidad_id == $document->id ) selected @endif >{{ $document->name }}</option>
-                                    @endforeach
-                                    </optgroup>
-                                </select>
+                            <div class="col-12 col-lg-12">
+                                <div id="smartwizard-arrows-primary" class="wizard wizard-primary mb-4 sw-main sw-theme-arrows">
+                                    <ul class="nav nav-tabs step-anchor">
+                                        <li class="nav-item done"><a href="#arrows-primary-step-1" class="nav-link">Mis datos Personales<br></a></li>
+                                        <li class="nav-item done"><a href="#arrows-primary-step-2" class="nav-link">Editar más Datos<br></a></li>
+                                    </ul>
+
+                                    <div class="sw-container tab-content" style="min-height: 62.4px;">
+                                        <div id="arrows-primary-step-1" class="tab-pane step-content" style="display: none;">
+                                        <div class="form-group">
+                                            <label class="form-label" for="name">Nombre de Usuario</label>
+                                            <input type="text" class="form-control" name="name" value="{{ old('name', auth()->user()->name) }}" required>
+                                            <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label" for="sur_name">Apellido de Usuario</label>
+                                            <input type="text" class="form-control" name="sur_name" value="{{ old('sur_name', auth()->user()->sur_name) }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label" for="dni">Tipo de Documento</label>
+                                            <div class="mb-3">
+                                            <select class="form-control" id="identidad_id" name="identidad_id" required>
+                                                <optgroup label="Documentos Disponibles">
+                                                @foreach($tipoDocuments as $document)
+                                                    <option value="{{ $document->id }}" 
+                                                        @if(auth()->user()->identidad_id == $document->id ) selected @endif >{{ $document->name }}</option>
+                                                @endforeach
+                                                </optgroup>
+                                            </select>
+                                            </div>
+                                            <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label" for="ndocumento">Número de Documento</label>
+                                            <input type="text" class="form-control" name="ndocumento" value="{{ old('ndocumento', auth()->user()->ndocumento) }}" required>
+                                        </div>
+                                        </div>
+                                        <div id="arrows-primary-step-2" class="tab-pane step-content" style="display: none;">
+                                        <div class="form-group">
+                                            <label class="form-label" for="email">Email de Usuario</label>
+                                            <input type="email" class="form-control" name="email" value="{{ old('email', auth()->user()->email) }}" required>
+                                            <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label" for="password">Actualizar Contraseña de Usuario</label>
+                                            <input type="text" class="form-control" name="password" value="{{ old('address') }}">
+                                            <small class="form-text text-muted">{{ __('Si no quiere actualizarla no escriba nada.') }}</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label" for="distrito_id">Seleecione su distrito</label>
+                                            <div class="mb-3">
+                                            <select class="form-control select2" id="distrito_id" name="distrito_id" data-toggle="select2">
+                                                <optgroup label="Filtre por Nombre de País , Ciudad , Provincia , Distrito">
+                                                <option value=""></option>
+                                                @foreach($distritos as $distrito)
+                                                    <option value="{{ $distrito->id }}" 
+                                                        @if(auth()->user()->distrito_id == $distrito->id ) selected @endif >{{ $distrito->nombre }} - {{ $distrito->provincia->region->nombre }} - {{ $distrito->provincia->region->pais->nombre }}</option>
+                                                @endforeach
+                                                </optgroup>
+                                            </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="hidden" class="form-control" id="latitud" name="latitud" value="{{ old('latitud', auth()->user()->latitud) }}" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="hidden" class="form-control" id="longitud" name="longitud" value="{{ old('longitud', auth()->user()->longitud) }}" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label" for="address">Dirección de Usuario</label>
+                                            <input type="text" class="form-control" name="address" value="{{ old('address', auth()->user()->address) }}">
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                    <a id="find_btn" class="btn btn-dark" style="color:#fff">Guardar mi ubicación</a>
+                                    <hr>
                                 </div>
-                                <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
                             </div>
-                            <div class="form-group">
-                                <label class="form-label" for="ndocumento">Número de Documento</label>
-                                <input type="text" class="form-control" name="ndocumento" value="{{ old('ndocumento', auth()->user()->ndocumento) }}" required>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" for="email">Email de Usuario</label>
-                                <input type="email" class="form-control" name="email" value="{{ old('email', auth()->user()->email) }}" required>
-                                <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" for="password">Actualizar Contraseña de Usuario</label>
-                                <input type="text" class="form-control" name="password" value="{{ old('address') }}">
-                                <small class="form-text text-muted">{{ __('Si no quiere actualizarla no escriba nada.') }}</small>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" for="distrito_id">Seleecione su distrito</label>
-                                <div class="mb-3">
-								<select class="form-control select2" id="distrito_id" name="distrito_id" data-toggle="select2">
-                                    <optgroup label="Filtre por Nombre de País , Ciudad , Provincia , Distrito">
-                                    <option value=""></option>
-                                    @foreach($distritos as $distrito)
-                                        <option value="{{ $distrito->id }}" 
-                                            @if(auth()->user()->distrito_id == $distrito->id ) selected @endif >{{ $distrito->nombre }} - {{ $distrito->provincia->region->nombre }} - {{ $distrito->provincia->region->pais->nombre }}</option>
-                                    @endforeach
-                                    </optgroup>
-                                </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <input type="hidden" class="form-control" id="latitud" name="latitud" value="{{ old('latitud', auth()->user()->latitud) }}" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="hidden" class="form-control" id="longitud" name="longitud" value="{{ old('longitud', auth()->user()->longitud) }}" required>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" for="address">Dirección de Usuario</label>
-                                <input type="text" class="form-control" name="address" value="{{ old('address', auth()->user()->address) }}">
-                            </div>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                            <a id="find_btn" class="btn btn-dark" style="color:#fff">Guardar mi ubicación</a>
-                            
                         </form>
                     </div>
                 </div>
@@ -172,6 +188,86 @@
 @endsection
 
 @section('scripts')
+<script>
+    $(function() {
+        $("#smartwizard-default-primary").smartWizard({
+            theme: "default",
+            showStepURLhash: false
+        });
+        $("#smartwizard-default-success").smartWizard({
+            theme: "default",
+            showStepURLhash: false
+        });
+        $("#smartwizard-default-danger").smartWizard({
+            theme: "default",
+            showStepURLhash: false
+        });
+        $("#smartwizard-default-warning").smartWizard({
+            theme: "default",
+            showStepURLhash: false
+        });
+        $("#smartwizard-arrows-primary").smartWizard({
+            theme: "arrows",
+            showStepURLhash: false
+        });
+        $("#smartwizard-arrows-success").smartWizard({
+            theme: "arrows",
+            showStepURLhash: false
+        });
+        $("#smartwizard-arrows-danger").smartWizard({
+            theme: "arrows",
+            showStepURLhash: false
+        });
+        $("#smartwizard-arrows-warning").smartWizard({
+            theme: "arrows",
+            showStepURLhash: false
+        });
+        // Validation
+        var $validationForm = $("#smartwizard-validation");
+        $validationForm.validate({
+            errorPlacement: function errorPlacement(error, element) {
+                $(element).parents(".form-group").append(
+                    error.addClass("invalid-feedback small d-block")
+                )
+            },
+            highlight: function(element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function(element) {
+                $(element).removeClass("is-invalid");
+            },
+            rules: {
+                "wizard-confirm": {
+                    equalTo: "input[name=\"wizard-password\"]"
+                }
+            }
+        });
+        $validationForm
+            .smartWizard({
+                autoAdjustHeight: false,
+                backButtonSupport: false,
+                useURLhash: false,
+                showStepURLhash: false,
+                toolbarSettings: {
+                    toolbarExtraButtons: [$("<button class=\"btn btn-submit btn-primary\" type=\"button\">Finish</button>")]
+                }
+            })
+            .on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
+                if (stepDirection === "forward") {
+                    return $validationForm.valid();
+                }
+                return true;
+            });
+        $validationForm.find(".btn-submit").on("click", function() {
+            if (!$validationForm.valid()) {
+                return;
+            }
+            alert("Great! The form is valid and ready to submit.");
+            return false;
+        });
+    });
+</script>
+
 <script>
     $(function() {
         $(".select2").each(function() {

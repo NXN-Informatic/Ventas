@@ -19,8 +19,8 @@
             <i class="align-middle mr-2 fas fa-fw fa-home"></i> <span class="align-middle">{{ __('Mis Puestos') }}</span>
         </a>
         <ul id="puestos" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto') }}"">{{ __('Lista de Puestos') }}</a></li>
-            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto/create') }}"">{{ __('Crear Puesto') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto') }}">{{ __('Lista de Puestos') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto/create') }}">{{ __('Crear Puesto') }}</a></li>
         </ul>
     </li>
     <li class="sidebar-item">

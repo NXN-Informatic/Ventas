@@ -7,15 +7,9 @@
 <main class="content">
     <div class="container-fluid">
         <div class="header">
-            <h1 class="header-title">
-                {{ __('Panel de Usuario') }}
-            </h1>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">{{ __('Feria_Tacna') }}</a></li>
-                <li class="breadcrumb-item active" aria-current="page">{{ __('Mis Puestos') }}</li>
-                </ol>
-            </nav>
+            <a href="{{ url('') }}">
+                <button class="btn btn-light">{{ __('Crear Puesto') }}</button>
+            </a>
         </div>
         <div class="row">
             <div class="col-xl-12 col-xxl-10 d-flex">
@@ -30,13 +24,6 @@
                                             <h5 class="card-title">Puesto Nº {{ $usuarios_puesto->puesto_id }}</h5>
                                         </div>
 
-                                        <div class="col-auto">
-                                            <div class="avatar">
-                                                <div class="avatar-title rounded-circle bg-primary-dark">
-                                                    <i class="align-middle" data-feather="users"></i>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                     <h1 class="display-5 mt-2 mb-4">{{ $usuarios_puesto->puesto->name }}</h1>
                                     <div class="mb-0">
