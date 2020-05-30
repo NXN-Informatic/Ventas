@@ -45,6 +45,12 @@ class PuestoController extends Controller
         return view('cliente.puestos.catalog', compact('catalog_url'));
     }
 
+    public function editar(){
+        $usuariopuesto = UsuarioPuesto::where('usuario_id', auth()->user()->id)->first();
+        $puesto = $usuariopuesto->puesto;
+        return view('cliente.puestos.editar', compact('puesto'));
+    }
+
     public function store(Request $request) {
         $rules = [
             'name'          =>  'required|min:3|max:100|unique:puestos',

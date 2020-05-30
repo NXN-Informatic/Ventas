@@ -4,24 +4,28 @@
     </li>
     <li class="sidebar-item">
         <a class="sidebar-link" href="{{ url('home') }}">
-            <i class="align-middle mr-2 fas fa-fw fa-home"></i> <span class="align-middle">{{ __('Dashboards') }}</span>
+            <i class="align-middle mr-2 fas fa-fw fa-home"></i> <span class="align-middle">{{ __('Inicio') }}</span>
             <span class="sidebar-badge badge badge-pill badge-primary">{{ __('Ir') }}</span>
         </a>
     </li>
     <li class="sidebar-item">
         <a class="sidebar-link" href="{{ url('user') }}">
-            <i class="align-middle mr-2 fas fa-fw fa-user-check"></i> <span class="align-middle">{{ __('Mis Datos') }}</span>
-            <span class="sidebar-badge badge badge-pill badge-primary">{{ __('Perfil') }}</span>
+            <i class="align-middle mr-2 fas fa-fw fa-user-tie"></i> <span class="align-middle">{{ __('Mis Datos') }}</span>
+            <span class="sidebar-badge badge badge-pill badge-primary">{{ __('Ir') }}</span>
         </a>
     </li>
     <li class="sidebar-item">
-        <a href="#puestos" data-toggle="collapse" class="sidebar-link collapsed">
-            <i class="align-middle mr-2 fas fa-fw fa-home"></i> <span class="align-middle">{{ __('Mis Puestos') }}</span>
+        <a href="{{ url('puesto') }}" class="sidebar-link collapsed">
+            <i class="align-middle mr-2 fas fa-fw fa-store-alt"></i> <span class="align-middle">{{ __('Mis Puestos') }}</span>
+            <span class="sidebar-badge badge badge-pill badge-primary">{{ __('Ir') }}</span>
         </a>
+<<<<<<< HEAD
         <ul id="puestos" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
             <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto') }}">{{ __('Lista de Puestos') }}</a></li>
             <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto/create') }}">{{ __('Crear Puesto') }}</a></li>
         </ul>
+=======
+>>>>>>> 4f28714634254e643b751ad7df7eaa351bdb184e
     </li>
     <li class="sidebar-item">
         <a class="sidebar-link" href="{{ url('price') }}">

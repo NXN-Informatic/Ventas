@@ -48,6 +48,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/puesto/update/{puesto}', 'Cliente\PuestoController@update');
     Route::get('/puesto/create', 'Cliente\PuestoController@create');
     Route::post('/puesto/store', 'Cliente\PuestoController@store');
+    Route::post('/puesto/editar', 'Cliente\PuestoController@editar');
 
     // Productos Cliente
     Route::get('/producto/{usuarioPuesto}/lista', 'Cliente\ProductoController@index');

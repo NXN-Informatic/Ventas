@@ -37,9 +37,11 @@ class ProductoController extends Controller
 
     public function create(UsuarioPuesto $usuarioPuesto) {
         $puestoSubcategorias = PuestoSubcategoria::where('puesto_id', $usuarioPuesto->puesto_id)->get();
+        $id = Producto::orderBy('id', 'desc')->first();
+        $id = $id->id + 1;
         $grupos = collect();
         $producto = collect();
-        return view('cliente.producto.create', compact('puestoSubcategorias', 'usuarioPuesto', 'grupos', 'producto'));  
+        return view('cliente.producto.create', compact('id', 'puestoSubcategorias', 'usuarioPuesto', 'grupos', 'producto'));  
     }
 
     public function store(Request $request) {
@@ -58,8 +60,29 @@ class ProductoController extends Controller
             'grupo_id' => $request->input('grupo'),
             'stock' => $request->input('stock')
         ]);
+
+        $files = $request->file('attachment');
+        $puesto = $request->input('puesto');
+        $producto = $producto->id;
+        foreach($files as $file){
+            $name = $file->getClientOriginalName();
+            $fileName = 'public/'.$puesto.'/'.$producto.'/'.$name;
+            $imagenurl = 'https://feriatacna.com/storage/'.$puesto.'/'.$producto.'/'.$name;
+            //indicamos que queremos guardar un nuevo archivo en el disco local
+            \Storage::disk('local')->put($fileName,  \File::get($file));
+
+            ImagenProducto::create(
+                [
+                    'producto_id'    => $producto,
+                    'imagen'   => $name,
+                    'imagen_url'    => $imagenurl
+                ]
+            );
+        }
         
-        $notification = 'El producto se creo '.$producto->name.' correctamente con id: '.$producto->id;
+        
+        
+        $notification = 'El producto se creo correctamente';
         return redirect('/producto/'.$request->input('puesto_id').'/add')->with(compact('notification'));
     }
 

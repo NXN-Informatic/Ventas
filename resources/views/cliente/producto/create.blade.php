@@ -23,48 +23,6 @@
                 </ol>
             </nav>
         </div>
-        @php
-            $number = 0;
-        @endphp
-         <!-- Modal Subir Foto -->
-         <div class="modal fade" id="SubirFoto" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Sube Imagenes de tus Productos Automáticamente</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                    </div>
-                    <div class="modal-body m-3">
-                    @if(session('notification'))
-                        @php
-                            $number = intval(preg_replace('/[^0-9]+/', '', session('notification')), 10); 
-                        @endphp
-                        <form id="dropzoneFrom" method="post" action="{{ url('producto/dropzoneFrom')}}" 
-                            class="dropzone" accept-charset="UTF-8" enctype="multipart/form-data">
-                            @csrf
-                            <input type="hidden" name="puesto" value="{{ $usuarioPuesto->puesto_id }}">
-                            <input type="hidden" name="producto" value="{{ $number }}">   
-                        </form>
-                    @else
-                    <div class="alert alert-danger alert-dismissible" role="alert">
-                        <div class="alert-message">
-                            <strong>Primero Registre su Producto!</strong>
-                        </div>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    @endif
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-         <!-- End Modal Subir Foto -->
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -75,9 +33,6 @@
                             </div>
                             <div class="col text-right">
                                 <a href="{{ url('/producto/'.$usuarioPuesto->id.'/grupo') }}" class="btn btn-secondary mt-2">Registrar Grupo</a>
-                                <a href="#"><button type="button" class="btn btn-primary mt-2" data-toggle="modal" data-target="#SubirFoto">
-                                    Subir Foto Producto
-                                </button></a>
                                 <a href="{{ url('producto/create') }}"><button type="button" class="btn btn-info mt-2" >
                                     Ver Producto
                                 </button></a>
@@ -106,7 +61,7 @@
                             </button>
 						</div>
                         @endif
-                        <form action="{{ url('producto/store/') }}" method="post">
+                        <form action="{{ url('producto/store/') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label class="form-label" for="name">Nombre del Producto</label>
@@ -153,8 +108,13 @@
                                 <label class="form-label" for="description">Descripción del Producto</label>
                                 <textarea name="description" rows="14" >{{ old('description') }}</textarea>
                             </div> 
+                            <input type="hidden" name="puesto" value="{{ $usuarioPuesto->puesto->id }}">
+                            <input type="file" name="attachment[]" multiple>
+                            <br>
+                            <hr>
                             <input type="hidden" name="puesto_id" value={{ $usuarioPuesto->id }}>
                             <button type="submit" class="btn btn-primary">Guardar</button>
+                            <br>
                         </form>
                     </div>
                 </div>
@@ -220,7 +180,6 @@
                     data: {
                         "_token": $("meta[name='csrf-token']").attr("content"),
                         "name": file.name,
-                        "producto": "<?php echo $number; ?>",
                         "puesto": "<?php echo $usuarioPuesto->puesto_id; ?>"
                     },
                     dataType: "json",
