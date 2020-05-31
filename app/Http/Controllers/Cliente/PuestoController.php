@@ -147,11 +147,17 @@ class PuestoController extends Controller
             \Storage::disk('local')->put($fileName,  \File::get($file));
             $puesto->perfil = $name;
         }
-        if($banner != null) {
-            $name = $banner->getClientOriginalName();
-            $fileName = 'public/'.$puesto->id.'/banner/'.$name;
-            \Storage::disk('local')->put($fileName,  \File::get($banner));
-            $puesto->banner = $name;
+
+        if($request->input('bannerPrueba') != null) {
+            $puesto->banner = $request->input('bannerPrueba');
+        }else {
+            
+            if($banner != null) {
+                $name = $banner->getClientOriginalName();
+                $fileName = 'public/'.$puesto->id.'/banner/'.$name;
+                \Storage::disk('local')->put($fileName,  \File::get($banner));
+                $puesto->banner = $name;
+            }
         }
         $puesto->save();
 
