@@ -16,7 +16,7 @@
     <div class="signleProduct__content">
       <div class="product dflex">
           <div class="col-lg-7 col-12">
-            <div class="swiper-container" style="box-shadow: 6px 6px 6px #ccc;">
+            <div class="swiper-container" style="border-style: ridge;">
               <div class="swiper-wrapper">
               <!-- Imagen Productos -->
               @foreach($producto->imagen_productos as $imagenes)
@@ -42,13 +42,14 @@
               </div>
               <br>
               <!-- Productos Descripción -->
-              <div style="box-shadow: 6px 6px 6px #ccc;padding: 10px">
+              <div style="border-style: ridge;padding: 10px">
                 <h2 style="text-align: left;font-size: 20px" class="color">{{ __('Descripción') }}</h2><br>
                 <h2>{!! $producto->description !!}</h2>
               </div>
         </div>
+        
         <div class="content col-lg-5 col-12">
-          <div style="box-shadow: 6px 6px 6px #ccc;padding:5px">
+          <div style="border-style: ridge;padding:5px">
             <!-- Productos Precio -->
             <div class="precio color">S/.{{ $producto->precio }}</div>
             <!-- Productos Name -->
@@ -57,19 +58,27 @@
             <p style="text-align:right">{{ $producto->created_at }}</p>
           </div>
           <br>
-          <div style="box-shadow: 6px 6px 6px #ccc;padding:5px">
+          <div style="border-style: ridge;padding:5px">
             <!-- Descripción Vendedor -->
-            <h2 class="precio color" style="font-size:18px">{{ __('Descripción del Vendedor') }}</h2>
+            <h2 class="precio color" style="font-size:18px">{{ __('Descripción del Puesto') }}</h2>
             <br>
             @foreach($producto->grupo->puestosubcategoria->puesto->usuario_puestos as $usuario_puestos)
               <!-- Imagen Vendedor -->
               <img src="{{ asset('/img/user.png') }}" style="float: left;margin-right: 10px" width="50px"><br>
               <!-- Nombre Vendedor -->
-              <h3 style="text-align: left;font-size: 20px; font-weight: bold">{{ $usuario_puestos->user->sur_name }} , {{ $usuario_puestos->user->name }}</h3>
+              <h3 style="text-align: left;font-size: 20px; font-weight: bold">{{ $usuario_puestos->puesto->name }}</h3>
               <input type="hidden" id="latitud" name="latitud" value="{{ $usuario_puestos->user->latitud }}">
               <input type="hidden" id="longitud" name="longitud" value="{{ $usuario_puestos->user->longitud }}">
               <!-- Email Vendedor -->
               <p style="text-align: left;"><i class="far fa-envelope" style="margin-right: 10px"></i> {{ $usuario_puestos->user->email }}</p>
+              <label style="font-size:20px; color:#F0C908">
+                  @for ($i = 0; $i < $usuario_puestos->puesto->calification; $i++)   
+                      <i class="fas fa-star"></i>
+                  @endfor
+                  @for ($i = 0; $i < (5 - $usuario_puestos->puesto->calification); $i++)
+                      <i class="far fa-star text-dark"></i> 
+                  @endfor
+              </label><br><br>
               <!-- Fecha Vendedor -->
               <p style="text-align: right;"><span style="font-size: 15px; color:#000">{{ __('Miembro desde:') }} </span> {{ $usuario_puestos->user->created_at }}</p>
               <!-- Chatea con el  Vendedor -->
@@ -89,7 +98,7 @@
             @endforeach
           </div>
           <br>
-          <div style="box-shadow: 6px 6px 6px #ccc;padding:5px">
+          <div style="border-style: ridge;padding:5px">
             <!-- Lugar de Publicación -->
             <h2 style="text-align: left;font-size: 20px" class="color">{{ __('Publicado en...') }}</h2>
             <br>
@@ -121,7 +130,7 @@
 </div>
 
 <!--Start Featured Products-->
-<div class="featureProduct">
+<div class="featureProduct" id="ocultarProd">
     <h4 class="title">Otros Productos de esta tienda<a href="" style="margin-left:10px">{{ __('Mostrar Más') }}</a></h4>
     <div class="feature__filter">
         <div class="button-group filters-button-group feature__buttons">
@@ -243,6 +252,7 @@
       $mostrarcategoria = $('#categoria');
       $ocultar1 = $('#ocultar1');
       $ocultar2 = $('#tiendas');
+      $ocultarProd = $('#ocultarProd');
       $resultado = $('#resultado');
       $mostrar = $('#mostrar');
 
@@ -269,8 +279,9 @@
           $mostrarcategoria.hide();
           $ocultar1.show();
           $ocultar2.show();
+          $ocultarProd.show();
         }else {
-
+          $ocultarProd.hide();
           $mostrarcategoria.show();
           $ocultar1.hide();
           $ocultar2.hide();
@@ -283,13 +294,15 @@
 
         valor = $(this).val();
         if(valor.length === 0) {
-
+          
+          $ocultarProd.show();
           $mostrarcategoria.hide();
+          $ocultarProd.show();
           $ocultar1.show();
           $ocultar2.show();
           $mostrar.hide();
         }else {
-
+          $ocultarProd.hide();
           $ocultar1.hide();
           $ocultar2.hide();
           $mostrar.show();
@@ -309,20 +322,37 @@
           }
 
           data.forEach(productos => {
-            htmlOptions += 
-            `<li class="product__item">`+
-                `<div class="product__image"><img src="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}" alt="">`+
-                    `<div class="image__tools"><i class="fas fa-search"></i>`+
-                        `<i class="fas fa-random"></i>`+
-                        `<i class="far fa-heart"></i>`+
-                    `</div>`+
-                `</div>`+
-                `<div class="product__content"><a class="link-title" href="#">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
-                    `<p class="price">$${productos.precio}</p>`+
-                    `<div class="color"><span style="background: #f0deba" data-image="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"></span><span style="background: #000" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
-                    `<p>${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}">Ver Producto</a>`+
-                `</div>`+
-            `</li>`;
+            if(productos.image != null) {
+              htmlOptions += 
+              `<li class="product__item">`+
+                  `<div class="product__image"><img src="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}" alt="">`+
+                      `<div class="image__tools"><i class="fas fa-search"></i>`+
+                          `<i class="fas fa-random"></i>`+
+                          `<i class="far fa-heart"></i>`+
+                      `</div>`+
+                  `</div>`+
+                  `<div class="product__content" style="width:100%"><a class="link-title" href="#">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
+                      `<p class="price">$${productos.precio}</p>`+
+                      `<div class="color"><span style="background: #f0deba" data-image="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"></span><span style="background: #000" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
+                      `<p>${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}">Ver Producto</a>`+
+                  `</div>`+
+              `</li>`;
+            }else{
+              htmlOptions += 
+              `<li class="product__item">`+
+                  `<div class="product__image"><img src="{{ asset('img/defaultProducto.jpg') }}" alt="">`+
+                      `<div class="image__tools"><i class="fas fa-search"></i>`+
+                          `<i class="fas fa-random"></i>`+
+                          `<i class="far fa-heart"></i>`+
+                      `</div>`+
+                  `</div>`+
+                  `<div class="product__content" style="width:100%"><a class="link-title" href="#">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
+                      `<p class="price">$${productos.precio}</p>`+
+                      `<div class="color"><span style="background: #f0deba" data-image="{{ asset('img/defaultProducto.jpg') }}"></span><span style="background: #000" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
+                      `<p>${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}">Ver Producto</a>`+
+                  `</div>`+
+              `</li>`;
+            }
         });
         $mostrar.html(htmlOptions);
       }
@@ -338,20 +368,37 @@
         }
 
         data.forEach(productos => {
-          htmlOptions += 
-          `<li class="product__item">`+
-              `<div class="product__image"><img src="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}" alt="">`+
-                  `<div class="image__tools"><i class="fas fa-search"></i>`+
-                      `<i class="fas fa-random"></i>`+
-                      `<i class="far fa-heart"></i>`+
-                  `</div>`+
-              `</div>`+
-              `<div class="product__content"><a class="link-title" href="#">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
-                  `<p class="price">$${productos.precio}</p>`+
-                  `<div class="color"><span style="background: #f0deba" data-image="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"></span><span style="background: #000" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
-                  `<p>${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}">Ver Producto</a>`+
-              `</div>`+
-          `</li>`;
+          if(productos.image != null) {
+            htmlOptions += 
+            `<li class="product__item">`+
+                `<div class="product__image"><img src="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}" alt="">`+
+                    `<div class="image__tools"><i class="fas fa-search"></i>`+
+                        `<i class="fas fa-random"></i>`+
+                        `<i class="far fa-heart"></i>`+
+                    `</div>`+
+                `</div>`+
+                `<div class="product__content" style="width:100%"><a class="link-title" href="#">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
+                    `<p class="price">$${productos.precio}</p>`+
+                    `<div class="color"><span style="background: #f0deba" data-image="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"></span><span style="background: #000" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
+                    `<p>${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}">Ver Producto</a>`+
+                `</div>`+
+            `</li>`;
+          }else{
+            htmlOptions += 
+            `<li class="product__item">`+
+                `<div class="product__image"><img src="img/defaultProducto.jpg" alt="">`+
+                    `<div class="image__tools"><i class="fas fa-search"></i>`+
+                        `<i class="fas fa-random"></i>`+
+                        `<i class="far fa-heart"></i>`+
+                    `</div>`+
+                `</div>`+
+                `<div class="product__content" style="width:100%"><a class="link-title" href="#">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
+                    `<p class="price">$${productos.precio}</p>`+
+                    `<div class="color"><span style="background: #f0deba" data-image="{{ asset('img/defaultProducto.jpg') }}"></span><span style="background: #000" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
+                    `<p>${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}">Ver Producto</a>`+
+                `</div>`+
+            `</li>`;
+          }
         });
         $mostrarcategoria.html(htmlOptions);
       }

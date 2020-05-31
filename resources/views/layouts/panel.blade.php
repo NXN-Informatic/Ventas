@@ -57,9 +57,6 @@
         </ul>
         <input type="text" id="buscar" name="buscar" style="width:400px;background:#fff" placeholder="Busque su Producto...">
         <ul class="header__item dflex right">
-            <li class="header__list social dflex"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fas fa-envelope"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-pinterest"></i></a>
-            </li>
             <li class="header__list"><span><a href="{{ url('login') }}" style="color:#fff">LOGIN</a></span></li>
             <li class="header__list"><span><a href="{{ url('register') }}" style="color:#fff">REGISTRAR TIENDA</a></span></li>
         </ul>
