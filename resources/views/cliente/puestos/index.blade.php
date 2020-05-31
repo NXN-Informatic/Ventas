@@ -8,7 +8,7 @@
     <div class="container-fluid">
         <div class="header">
             <a href="{{ url('') }}">
-                <button class="btn btn-light">{{ __('Crear Puesto') }}</button>
+                <button class="btn btn-light">{{ __('Nuevo Puesto') }}</button>
             </a>
         </div>
         <div class="row">
@@ -20,9 +20,6 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col mt-0">
-                                            <h5 class="card-title">Puesto Nº {{ $usuarios_puesto->puesto_id }}</h5>
-                                        </div>
                                             <div class="col-sm-10 ml-sm-auto text-right mt-2">
                                                 <a href="{{ url('puesto/'.$usuarios_puesto->puesto->id.'/edit') }}">
                                                     <button class="btn btn-primary"><i class="fas fa-edit" title="Editar"></i></button>
@@ -46,6 +43,45 @@
                                 </div>
                             </div>
                             @endforeach
+                            <!-- Vista de Usuario -->
+            
+            
+                        <div class="card">
+                            <div class="card-body">
+                                <table class="table table-sm my-2">
+                                    <tbody>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <td>{{ $puesto->name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Productos Disponibles</th>
+                                            <td>{{ $puesto->maxproductos }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Calificación</th>
+                                            <td>{{ $puesto->calification }} / 5</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Celular 1</th>
+                                            <td>{{ $puesto->phone }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Celular 2</th>
+                                            <td>{{ $puesto->phone2 }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Estado</th>
+                                            @if(auth()->user()->status)
+                                                <td><span class="badge badge-success">Activado</span></td>
+                                            @else
+                                                <td><span class="badge badge-danger">Desactivado</span></td>
+                                            @endif
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>

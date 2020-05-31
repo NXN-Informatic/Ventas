@@ -20,7 +20,9 @@ class PuestoController extends Controller
 {
     public function index() {
         $usuarios_puestos = UsuarioPuesto::where('usuario_id', auth()->user()->id)->get();
-        return view('cliente.puestos.index', compact('usuarios_puestos'));
+        $usupuesto = $usuarios_puestos->first();
+        $puesto = Puesto::find($usupuesto->puesto_id);
+        return view('cliente.puestos.index', compact('usuarios_puestos', 'puesto'));
     }
 
     public function create() {

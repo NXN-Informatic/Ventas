@@ -109,8 +109,12 @@
                                 <textarea name="description" rows="14" >{{ old('description') }}</textarea>
                             </div> 
                             <input type="hidden" name="puesto" value="{{ $usuarioPuesto->puesto->id }}">
-                            <input type="file" name="attachment[]" multiple>
+                            <input type="file" id="attachment" name="attachment[]" multiple>
                             <br>
+                            <hr>
+                            <div class="row" id="preview_img">
+          
+                            </div>
                             <hr>
                             <input type="hidden" name="puesto_id" value={{ $usuarioPuesto->id }}>
                             <button type="submit" class="btn btn-primary">Guardar</button>
@@ -127,6 +131,7 @@
 @endsection
 
 @section('scripts')
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
     <script src="https://cdn.tiny.cloud/1/z3fq59r5g34njc4c1xr6o53d6go75rgc5p8wojlzgqkc3n8j/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>tinymce.init({selector:'textarea'});</script>
@@ -194,6 +199,34 @@
             });
         }}
     </script>
+    <script>
+ 
+        $(document).ready(function(){
+         $('#attachment').on('change', function(){ //on file input change
+            if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
+            {
+                $('#preview_img').empty();
+                var data = $(this)[0].files; //this file data
+                $.each(data, function(index, file){ //loop though each file
+                    if(/(\.|\/)(gif|jpe?g|png)$/i.test(file.type)){ //check supported file type
+                        var fRead = new FileReader(); //new filereader
+                        fRead.onload = (function(file){ //trigger function on successful read
+                        return function(e) {
+                            var img = $('<img/>').addClass('thumb').attr('src', e.target.result).attr('height', '200px').attr('width', '200px'); //create image element 
+                            $('#preview_img').append(img); //append image to output element
+                        };
+                        })(file);
+                        fRead.readAsDataURL(file); //URL representing the file's data.
+                    }
+                });
+                 
+            }else{
+                alert("Your browser doesn't support File API!"); //if File API is absent
+            }
+         });
+        });
+         
+        </script>
     
 @endsection
 

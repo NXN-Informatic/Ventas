@@ -159,58 +159,6 @@
                 </div>
             </div>
             <!-- End Formulario de Usuario -->
-            
-            <!-- Vista de Usuario -->
-            
-            <div class="col-xxl-3">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row no-gutters">
-                            <div class="col-sm-12 col-xl-12 col-xxl-12 text-center">
-                                <img src="{{ asset('img/store.jpg') }}" width="140" height="140" class="rounded-circle mt-2" alt="Angelica Ramos">
-                            </div>
-                        </div>
-                        <br>
-                        <table class="table table-sm my-2">
-                            <tbody>
-                                <tr>
-                                    <th>Nombre</th>
-                                    <td>{{ $puesto->name }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Productos Disponibles</th>
-                                    <td>{{ $puesto->maxproductos }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Subcategorias Disponibles</th>
-                                    <td>{{ $puesto->maxsubcategorias }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Calificación</th>
-                                    <td>{{ $puesto->calification }} / 5</td>
-                                </tr>
-                                <tr>
-                                    <th>Celular 1</th>
-                                    <td>{{ $puesto->phone }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Celular 2</th>
-                                    <td>{{ $puesto->phone2 }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Estado</th>
-                                    @if(auth()->user()->status)
-                                        <td><span class="badge badge-success">Activado</span></td>
-                                    @else
-                                        <td><span class="badge badge-danger">Desactivado</span></td>
-                                    @endif
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <!-- End Vista de Usuario -->
         </div>
         </form>
     </div>
