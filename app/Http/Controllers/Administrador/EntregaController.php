@@ -50,7 +50,7 @@ class EntregaController extends Controller
             $name = $file->getClientOriginalName();
             $fileName = 'public/entregas/'.$entrega->id.'/'.$name;
             \Storage::disk('local')->put($fileName,  \File::get($file));
-            $entrega->name = $name;
+            $entrega->icono = $name;
             $entrega->save();
         }
 
@@ -83,14 +83,14 @@ class EntregaController extends Controller
         $this->validate($request, $rules);
 
         $entrega->name = $request->input('name');
-        $entrega->descripcion = $request->input('description');
+        $entrega->description = $request->input('description');
         $file = $request->file('file');
 
         if($file != null) {
             $name = $file->getClientOriginalName();
             $fileName = 'public/entregas/'.$entrega->id.'/'.$name;
             \Storage::disk('local')->put($fileName,  \File::get($file));
-            $entrega->name = $name;
+            $entrega->icono = $name;
         }
 
         $entrega->save();
