@@ -107,7 +107,6 @@
                             </optgroup>
                             </select>
                             </div>
-<<<<<<< HEAD
                         </div>
                         <hr>
                         <div class="form-group">
@@ -156,12 +155,6 @@
                             <img src="{{ asset('img/imagen.png') }}" class="card-img-top mt-2" alt="Sin imagen">
                             <input type="file" class="form-control-file" name="banner">
                         @endif
-                            <div class="form-group">
-                                <label class="form-label" for="description">Descripción del Puesto</label>
-                                <textarea name="description" data-provide="markdown" rows="14">{{ old('description', $puesto->description) }}</textarea>
-                            </div> 
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                        </form>
                     </div>
                 </div>
             </div>
