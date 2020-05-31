@@ -20,6 +20,15 @@
         </ul>
     </li>
     <li class="sidebar-item">
+        <a href="#entrega" data-toggle="collapse" class="sidebar-link collapsed">
+            <i class="align-middle mr-2 fas fa-fw fa-user-cog"></i> <span class="align-middle">{{ __('Entregas') }}</span>
+        </a>
+        <ul id="entrega" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('entregas') }}">{{ __('Lista de Entregas') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('entregas/create') }}">{{ __('Crear Entrega') }}</a></li>
+        </ul>
+    </li>
+    <li class="sidebar-item">
         <a href="#puestos" data-toggle="collapse" class="sidebar-link collapsed">
             <i class="align-middle mr-2 fas fa-fw fa-store"></i> <span class="align-middle">{{ __('Puestos') }}</span>
         </a>

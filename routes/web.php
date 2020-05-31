@@ -96,6 +96,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/distrito/{distrito}/edit', 'Administrador\DistritoController@edit');
     Route::put('/distrito/{distrito}/update', 'Administrador\DistritoController@update');
 
+    Route::get('/entregas', 'Administrador\EntregaController@index');
+    Route::get('/entregas/create', 'Administrador\EntregaController@create');
+    Route::post('/entregas/store', 'Administrador\EntregaController@store');
+    Route::get('/entregas/{entrega}/edit', 'Administrador\EntregaController@edit');
+    Route::put('/entregas/{entrega}/update', 'Administrador\EntregaController@update');
+
     // Documento
     Route::get('/documento', 'Administrador\DocumentoController@index');
     Route::get('/documento/create', 'Administrador\DocumentoController@create');
