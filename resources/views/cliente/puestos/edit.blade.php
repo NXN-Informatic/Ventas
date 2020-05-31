@@ -98,6 +98,21 @@
                                 <label class="form-label" for="banner">Suba el Banner de su puesto</label>
                                 <input type="file" class="form-control-file" name="banner">
                             </div>
+                            <div class="form-group">
+                                <label class="form-label">Seleccione Banner por defecto</label>
+                                <div class="mb-3">
+								<select class="form-control" name="bannerPrueba" id="bannerDefecto">
+                                    <option value="">Selecione</option>
+                                    <option value="banner1.jpg">Banner1</option>
+                                    <option value="banner2.jpg">Banner2</option>
+                                    <option value="banner3.jpg">Banner3</option>
+                                </select>
+                                </div>
+                            </div>
+                            <hr>
+                            <div id="bannerimg">
+                            
+                            </div>
                             <hr>
                             <div class="form-group">
                                 <label class="form-label" for="description">Descripción del Puesto</label>
@@ -194,5 +209,15 @@
             $subcategoria.html(htmlOptions);
         }
     });
+    $bannerimg = $('#bannerimg');
+    $bannerDefecto = $('#bannerDefecto');
+
+    $bannerDefecto.change(() => {
+            const img = $bannerDefecto.val();
+            let htmlOptions = '';
+            htmlOptions += `<img src="{{ asset('img/${img}') }}" width="100%">`;
+            $bannerimg.html(htmlOptions);
+        });
+
 </script>
 @endsection

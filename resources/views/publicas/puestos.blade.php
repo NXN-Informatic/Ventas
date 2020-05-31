@@ -30,13 +30,33 @@
         <div class="button buttonLeft dflex"><i class="fas fa-angle-left"></i></div>
         <div class="button buttonRight dflex"><i class="fas fa-angle-right"></i></div>
     </div>
+    @if($puesto->banner == "banner1.jpg" | $puesto->banner == "banner2.jpg" | $puesto->banner == "banner3.jpg")
     <ul class="slider dflex">
         <li class="slider__item col-12 dflex firstSlide active">
             <div class="image col-lg-12 col-12">
-                <img class="switchImage" src="{{ asset('storage/'.$puesto->id.'/banner/'.$puesto->banner)}}" alt="">
+                <img class="switchImage" src="{{ asset('img/'.$puesto->banner)}}" alt="">
             </div>
         </li>
     </ul>
+    @else 
+        @if($puesto->banner != null)
+        <ul class="slider dflex">
+            <li class="slider__item col-12 dflex firstSlide active">
+                <div class="image col-lg-12 col-12">
+                    <img class="switchImage" src="{{ asset('storage/'.$puesto->id.'/banner/'.$puesto->banner)}}" alt="">
+                </div>
+            </li>
+        </ul>
+        @else
+        <ul class="slider dflex">
+            <li class="slider__item col-12 dflex firstSlide active">
+                <div class="image col-lg-12 col-12">
+                    <img class="switchImage" src="{{ asset('img/banner 11.jpg')}}" alt="">
+                </div>
+            </li>
+        </ul>
+        @endif
+    @endif
 </div>
 <!--End Banner Slide-->
 <!--Start Featured Products-->

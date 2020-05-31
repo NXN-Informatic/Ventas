@@ -93,6 +93,17 @@
                                 <label class="form-label" for="logo">Suba el logo de su puesto</label>
                                 <input type="file" class="form-control-file" name="logo">
                             </div>
+                            <div class="form-group">
+                                <label class="form-label">Seleccione Banner por defecto</label>
+                                <div class="mb-3">
+								<select class="form-control select2" id="bannerDefecto">
+                                    <option value="">Selecione</option>
+                                    <option value="">Banner1</option>
+                                    <option value="">Banner2</option>
+                                    <option value="">Banner3</option>
+                                </select>
+                                </div>
+                            </div>
                             <hr>
                             <div class="form-group">
                                 <label class="form-label" for="banner">Suba el Banner de su puesto</label>
