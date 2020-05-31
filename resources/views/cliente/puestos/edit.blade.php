@@ -157,28 +157,11 @@
                             <input type="file" class="form-control-file" name="banner">
                         @endif
                             <div class="form-group">
-                                <label class="form-label">Seleccione Banner por defecto</label>
-                                <div class="mb-3">
-								<select class="form-control" name="bannerPrueba" id="bannerDefecto">
-                                    <option value="">Selecione</option>
-                                    <option value="banner1.jpg">Banner1</option>
-                                    <option value="banner2.jpg">Banner2</option>
-                                    <option value="banner3.jpg">Banner3</option>
-                                </select>
-                                </div>
-                            </div>
-                            <hr>
-                            <div id="bannerimg">
-                            
-                            </div>
-                            <hr>
-                            <div class="form-group">
                                 <label class="form-label" for="description">Descripción del Puesto</label>
                                 <textarea name="description" data-provide="markdown" rows="14">{{ old('description', $puesto->description) }}</textarea>
                             </div> 
                             <button type="submit" class="btn btn-primary">Guardar</button>
                         </form>
->>>>>>> 01a6e56bfb101bbdf02d414218e65c1b7b5816d1
                     </div>
                 </div>
             </div>
