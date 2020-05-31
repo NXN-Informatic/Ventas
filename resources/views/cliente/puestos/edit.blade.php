@@ -17,12 +17,15 @@
                 </ol>
             </nav>
         </div>
+        <form action="{{ url('puesto/update/'.$puesto->id) }}" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
         <div class="row">
             <!-- Formulario de Usuario -->
-            <div class="col-xxl-9">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title mb-0">{{ __('Actualizar Puesto') }}</h5>
+                        <h5 class="card-title mb-0">{{ __('Información General') }}</h5>
                     </div>
                     <div class="card-body">
                         @if($errors->any())
@@ -46,71 +49,119 @@
                             </button>
 						</div>
                         @endif
-                        <form action="{{ url('puesto/update/'.$puesto->id) }}" method="post" enctype="multipart/form-data">
-                            @csrf
-                            @method('PUT')
-                            <div class="form-group">
-                                <label class="form-label" for="name">Nombre del Puesto</label>
-                                <input type="text" class="form-control" name="name" value="{{ old('name', $puesto->name) }}" required>
-                                <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
-                            </div>
-                            @if($puesto->maxsubcategorias != 0)
-                            <div class="form-group">
-                               <label class="form-label">Seleccione su categoria</label>
-                               <div class="mb-3">
-								<select class="form-control select2" id="categoria" name="categoria_id" data-toggle="select2">
-                                    <optgroup label="Categorias Disponibles">
-                                    <option value=""></option>
-                                    @foreach($categorias as $categoria)
-                                        <option value="{{ $categoria->id }}">{{ $categoria->name }}</option>
-                                    @endforeach
-                                    </optgroup>
-                                </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Seleccione las subcategorias</label>
-                                <div class="mb-3">
-								<select class="form-control select2" id="subcategoria" name="subcategoria_id[]" data-toggle="select2" multiple>
-                                <optgroup label="Subcategorias Disponibles">
-                                    @foreach($subcategorias as $subcategoria)
-                                        <option value="{{ $subcategoria->id }}">{{ $subcategoria->name }}</option>
-                                    @endforeach
+                        <div class="form-group">
+                            <label class="form-label" for="name">Nombre del Puesto</label>
+                            <input type="text" class="form-control form-control-lg" name="name" value="{{ old('name', $puesto->name) }}" required>
+                            <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
+                        </div>
+                        @if($puesto->maxsubcategorias != 0)
+                        <div class="form-group">
+                            <label class="form-label">A qué sector pertenece</label>
+                            <div class="mb-3">
+                            <select class="form-control select2 form-control-lg" id="categoria" name="categoria_id" data-toggle="select2">
+                                <optgroup label="Categorias Disponibles">
+                                <option value=""></option>
+                                @foreach($categorias as $categoria)
+                                    <option value="{{ $categoria->id }}">{{ $categoria->name }}</option>
+                                @endforeach
                                 </optgroup>
-                                </select>
-                                </div>
+                            </select>
                             </div>
-                            @endif
-                            <div class="form-group">
-                                <label class="form-label" for="phone">Celular del Puesto</label>
-                                <input type="text" class="form-control" name="phone" value="{{ old('phone', $puesto->phone) }}">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Qué Venderas? (Multiple)</label>
+                            <div class="mb-3">
+                            <select class="form-control select2 form-control-lg" id="subcategoria" name="subcategoria_id[]" data-toggle="select2" multiple>
+                            <optgroup label="Subcategorias Disponibles">
+                                <option value=""></option>
+                                @foreach($subcategorias as $subcategoria)
+                                    <option value="{{ $subcategoria->id }}">{{ $subcategoria->name }}</option>
+                                @endforeach
+                            </optgroup>
+                            </select>
                             </div>
-                            <div class="form-group">
-                                <label class="form-label" for="phone2">Celular opcional del Puesto</label>
-                                <input type="text" class="form-control" name="phone2" value="{{ old('phone2', $puesto->phone2) }}">
+                        </div>
+                        @endif
+                        <div class="form-group">
+                            <label class="form-label">Cómo te pagarán los clientes? (Multiple)</label>
+                            <div class="mb-3">
+                            <select class="form-control select2 form-control-lg" id="formapago" name="formapago_id[]" data-toggle="select2" multiple>
+                            <optgroup label="Formas de pago disponibles">
+                                <option value=""></option>
+                                @foreach($formapagos as $formapago)
+                                    <option value="{{ $formapago->id }}">{{ $formapago->name }}</option>
+                                @endforeach
+                            </optgroup>
+                            </select>
                             </div>
-                            <div class="form-group">
-                                <label class="form-label" for="logo">Suba el logo de su puesto</label>
-                                <input type="file" class="form-control-file" name="logo">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Cómo entregarás los productos? (Multiple)</label>
+                            <div class="mb-3">
+                            <select class="form-control select2 form-control-lg" id="formaentrega" name="formaentrega_id[]" data-toggle="select2" multiple>
+                            <optgroup label="Formas de entrega disponibles">
+                                <option value=""></option>
+                                @foreach($formaentregas as $formaentrega)
+                                    <option value="{{ $formaentrega->id }}">{{ $formaentrega->name }}</option>
+                                @endforeach
+                            </optgroup>
+                            </select>
                             </div>
-                            <hr>
-                            <div class="form-group">
-                                <label class="form-label" for="banner">Suba el Banner de su puesto</label>
-                                <input type="file" class="form-control-file" name="banner">
-                            </div>
-                            <hr>
-                            <div class="form-group">
-                                <label class="form-label" for="description">Descripción del Puesto</label>
-                                <textarea name="description" data-provide="markdown" rows="14">{{ old('description', $puesto->description) }}</textarea>
-                            </div> 
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                        </form>
+                        </div>
+                        <hr>
+                        <div class="form-group">
+                            <label class="form-label" for="description">Describe tu puesto. </label>
+                            <textarea name="description" data-provide="markdown" rows="8">{{ old('description', $puesto->description) }}</textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">{{ __('Información de contacto') }}</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label class="form-label" for="phone">Celular</label>
+                            <input type="text" class="form-control form-control-lg" name="phone" value="{{ old('phone', $puesto->phone) }}">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="phone2">Celular (opcional)</label>
+                            <input type="text" class="form-control form-control-lg" name="phone2" value="{{ old('phone2', $puesto->phone2) }}">
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">{{ __('Personalización') }}</h5>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title mb-0">Logo</h5>
+                        @if ($puesto->perfil)
+                            <img src="{{ asset('storage/'.$puesto->id.'/logo/'.$puesto->perfil) }}" class="card-img-top mt-2" alt="Angelica Ramos">
+                            <input type="file" class="form-control-file" name="logo">
+                        @else
+                            <img src="{{ asset('img/imagen.png') }}" class="card-img-top mt-2" alt="Sin imagen">
+                            <input type="file" class="form-control-file" name="logo">
+                        @endif
+                        <hr>
+                        <h5 class="card-title mb-0">Banner</h5>
+                        @if ($puesto->banner))
+                            <img src="{{ asset('storage/'.$puesto->id.'/banner/'.$puesto->perfil) }}" class="card-img-top mt-2" alt="Angelica Ramos">
+                            <input type="file" class="form-control-file" name="banner">
+                        @else
+                            <img src="{{ asset('img/imagen.png') }}" class="card-img-top mt-2" alt="Sin imagen">
+                            <input type="file" class="form-control-file" name="banner">
+                        @endif
                     </div>
                 </div>
             </div>
             <!-- End Formulario de Usuario -->
             
             <!-- Vista de Usuario -->
+            
             <div class="col-xxl-3">
                 <div class="card">
                     <div class="card-body">
@@ -161,6 +212,7 @@
             </div>
             <!-- End Vista de Usuario -->
         </div>
+        </form>
     </div>
 </main>
 @include('layouts.partials.footer')

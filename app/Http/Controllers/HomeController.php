@@ -58,10 +58,11 @@ class HomeController extends Controller
         } else {
             $productocompletado = collect();
         }
+        $usuarios_puestos = UsuarioPuesto::where('usuario_id', auth()->user()->id)->get();
         //$pc = new Puesto;
         //$puestocompletado = $pc->usuario_puestos()->where('usuario_id',auth()->user()->id)->get();
         //dd($puestocompletado);
         //$puestocompletado = Producto::find(1)->grupo->puestosubcategoria->puesto->usuario_puestos->where('user_id',auth()->user()->id)->first()->get();
-        return view('home', compact('usercompletado','puestocompletado','productocompletado'));
+        return view('home', compact('usercompletado','puestocompletado','productocompletado','usuarios_puestos'));
     }
 }

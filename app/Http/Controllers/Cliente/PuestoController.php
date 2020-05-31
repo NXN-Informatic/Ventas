@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\UsuarioPuesto;
 use App\Puesto;
+use App\Pago;
+use App\PagoPuesto;
+use App\EntregaPuesto;
+use App\Entrega;
 use App\Categoria;
 use App\Subcategoria;
 use App\PuestoSubcategoria;
@@ -37,7 +41,13 @@ class PuestoController extends Controller
             $categoria = Categoria::find($categoria_id);
             $subcategorias = $categoria->subcategorias;
         } else $subcategorias = collect();
-        return view('cliente.puestos.edit', compact('puesto', 'categorias', 'subcategorias'));
+
+        $formapagos = Pago::all();
+        $pago_id = old('pago_id');
+        $formaentregas = Entrega::all();
+        $entrega_id = old('entrega_id');
+        
+        return view('cliente.puestos.edit', compact('puesto', 'categorias', 'subcategorias', 'formapagos', 'formaentregas'));
     }
     public function catalog($puesto) {
         
@@ -58,7 +68,7 @@ class PuestoController extends Controller
             'phone2'        =>  'min:9|max:12',
             'phone'         =>  'min:9|max:12',
             'subcategoria_id' => 'required',
-            'planid'        => 'required'
+            'planid'        => 'required',
         ];
         $this->validate($request, $rules);
 
@@ -158,7 +168,24 @@ class PuestoController extends Controller
                 ]);
             }
         }
-
+        $formapagos = $request->input('formapago_id');
+        if($formapagos != null) {
+            for($i=0 ; $i < count($formapagos); ++$i) {
+                PagoPuesto::create([
+                    "puesto_id"         =>  $puesto->id,
+                    "pago_id"   =>  $formapagos[$i]
+                ]);
+            }
+        }
+        $formaentregas = $request->input('formaentrega_id');
+        if($formaentregas != null) {
+            for($i=0 ; $i < count($formaentregas); ++$i) {
+                EntregaPuesto::create([
+                    "puesto_id"         =>  $puesto->id,
+                    "entrega_id"   =>  $formaentregas[$i]
+                ]);
+            }
+        }
         $notification = 'Se ha actualizado los datos de su puesto Correctamente';
         return redirect('/puesto/'.$puesto->id.'/edit')->with(compact('notification'));
     }

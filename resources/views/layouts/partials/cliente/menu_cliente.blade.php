@@ -19,13 +19,10 @@
             <i class="align-middle mr-2 fas fa-fw fa-store-alt"></i> <span class="align-middle">{{ __('Mis Puestos') }}</span>
             <span class="sidebar-badge badge badge-pill badge-primary">{{ __('Ir') }}</span>
         </a>
-<<<<<<< HEAD
         <ul id="puestos" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
             <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto') }}">{{ __('Lista de Puestos') }}</a></li>
             <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto/create') }}">{{ __('Crear Puesto') }}</a></li>
         </ul>
-=======
->>>>>>> 4f28714634254e643b751ad7df7eaa351bdb184e
     </li>
     <li class="sidebar-item">
         <a class="sidebar-link" href="{{ url('price') }}">
