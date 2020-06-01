@@ -61,9 +61,9 @@
                         </label>
                         <hr>
                         <div class="text-center mt-3">    
-                            <a href="{{ route('social_auth' , ['driver' => 'facebook']) }}" class="btn btn-facebook btn-lg mt-2">
+                            <!-- <a href="{{ route('social_auth' , ['driver' => 'facebook']) }}" class="btn btn-facebook btn-lg mt-2">
                                 {{ __("Facebook") }} <i class="align-middle mr-2 fab fa-fw fa-facebook"></i>
-                            </a>
+                            </a> -->
                             <a href="{{ route('social_auth' , ['driver' => 'google']) }}" class="btn btn-google btn-lg mt-2">
                                 {{ __("Google") }} <i class="fa fa-google"></i>
                             </a>
