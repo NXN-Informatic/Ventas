@@ -95,6 +95,15 @@
                 <h2 style="font-size: 20px"><i class="fas fa-phone-volume"></i> Llamar {{ $usuario_puestos->puesto->phone2 }}</h2>
               @endif
               <br>
+             
+            @endforeach
+          </div>
+          <br>
+          <div style="border-style: ridge;padding:5px">
+            <!-- Productos Precio -->
+            <h2 class="precio color" style="font-size:18px">{{ __('Tipo de Entrega') }}</h2>
+            @foreach($usuario_puestos->puesto->entrega_puestos as $entrega_puestos)
+              <h2 style="font-size: 20px"><i class="fas fa-phone-volume"></i> {{ $entrega_puestos->entrega->name }} </h2>
             @endforeach
           </div>
           <br>

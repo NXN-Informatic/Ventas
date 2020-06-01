@@ -17,6 +17,10 @@ Auth::routes();
  * Rutas Publicas
  */
 
+ 
+Route::get('_oauth/{driver}' , 'Auth\LoginController@redirectToProvider')->name('social_auth');
+Route::get('login/{driver}/callback' , 'Auth\LoginController@handleProviderCallback');
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/puesto/{puesto}/detail', 'Cliente\PuestoController@compartir');    
 Route::get('/all/productos', 'PublicController@productos');
