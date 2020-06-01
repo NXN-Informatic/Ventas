@@ -191,7 +191,6 @@ class PuestoController extends Controller
                 EntregaPuesto::create([
                     "entrega_id"   =>  $formaentregas[$i],
                     "puesto_id"         =>  $puesto->id
-                    
                 ]);
             }
         }
