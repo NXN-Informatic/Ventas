@@ -82,32 +82,6 @@
                             </div>
                         </div>
                         @endif
-                        <div class="form-group">
-                            <label class="form-label">Cómo te pagarán los clientes? (Multiple)</label>
-                            <div class="mb-3">
-                            <select class="form-control select2 form-control-lg" id="formapago" name="formapago_id[]" data-toggle="select2" multiple>
-                            <optgroup label="Formas de pago disponibles">
-                                <option value=""></option>
-                                @foreach($formapagos as $formapago)
-                                    <option value="{{ $formapago->id }}">{{ $formapago->name }}</option>
-                                @endforeach
-                            </optgroup>
-                            </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Cómo entregarás los productos? (Multiple)</label>
-                            <div class="mb-3">
-                            <select class="form-control select2 form-control-lg" id="formaentrega" name="formaentrega_id[]" data-toggle="select2" multiple>
-                            <optgroup label="Formas de entrega disponibles">
-                                <option value=""></option>
-                                @foreach($formaentregas as $formaentrega)
-                                    <option value="{{ $formaentrega->id }}">{{ $formaentrega->name }}</option>
-                                @endforeach
-                            </optgroup>
-                            </select>
-                            </div>
-                        </div>
                         <hr>
                         <div class="form-group">
                             <label class="form-label" for="description">Describe tu puesto. </label>
@@ -135,26 +109,35 @@
                 </div>
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title mb-0">{{ __('Personalización') }}</h5>
+                        <h5 class="card-title mb-0">{{ __('Entrega & Pagos') }}</h5>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title mb-0">Logo</h5>
-                        @if ($puesto->perfil)
-                            <img src="{{ asset('storage/'.$puesto->id.'/logo/'.$puesto->perfil) }}" class="card-img-top mt-2" alt="Angelica Ramos">
-                            <input type="file" class="form-control-file" name="logo">
-                        @else
-                            <img src="{{ asset('img/imagen.png') }}" class="card-img-top mt-2" alt="Sin imagen">
-                            <input type="file" class="form-control-file" name="logo">
-                        @endif
-                        <hr>
-                        <h5 class="card-title mb-0">Banner</h5>
-                        @if ($puesto->banner)
-                            <img src="{{ asset('storage/'.$puesto->id.'/banner/'.$puesto->banner) }}" class="card-img-top mt-2" alt="Angelica Ramos">
-                            <input type="file" class="form-control-file" name="banner">
-                        @else
-                            <img src="{{ asset('img/imagen.png') }}" class="card-img-top mt-2" alt="Sin imagen">
-                            <input type="file" class="form-control-file" name="banner">
-                        @endif
+                        <div class="form-group">
+                            <label class="form-label">Cómo te pagarán los clientes? (Multiple)</label>
+                            <div class="mb-3">
+                            <select class="form-control select2 form-control-lg" id="formapago" name="formapago_id[]" data-toggle="select2" multiple>
+                            <optgroup label="Formas de pago disponibles">
+                                <option value=""></option>
+                                @foreach($formapagos as $formapago)
+                                    <option value="{{ $formapago->id }}">{{ $formapago->name }}</option>
+                                @endforeach
+                            </optgroup>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Cómo entregarás los productos? (Multiple)</label>
+                            <div class="mb-3">
+                            <select class="form-control select2 form-control-lg" id="formaentrega" name="formaentrega_id[]" data-toggle="select2" multiple>
+                            <optgroup label="Formas de entrega disponibles">
+                                <option value=""></option>
+                                @foreach($formaentregas as $formaentrega)
+                                    <option value="{{ $formaentrega->id }}">{{ $formaentrega->name }}</option>
+                                @endforeach
+                            </optgroup>
+                            </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

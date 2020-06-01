@@ -48,16 +48,17 @@ Route::group(['middleware' => 'auth'], function () {
     // Rutas de Cliente => Puesto
     Route::get('/puesto', 'Cliente\PuestoController@index');
     Route::get('/puesto/{puesto}/edit', 'Cliente\PuestoController@edit');
-    Route::get('/puesto/{puesto}/fbcatalog', 'Cliente\PuestoController@catalog');
+    Route::get('/puesto/fbcatalogo', 'Cliente\PuestoController@catalog');
     Route::put('/puesto/update/{puesto}', 'Cliente\PuestoController@update');
     Route::get('/puesto/create', 'Cliente\PuestoController@create');
     Route::post('/puesto/store', 'Cliente\PuestoController@store');
-    Route::post('/puesto/editar', 'Cliente\PuestoController@editar');
+    Route::get('/puesto/editar', 'Cliente\PuestoController@editar');
+    Route::get('/puesto/personalizar', 'Cliente\PuestoController@personalizar');
 
     // Productos Cliente
     Route::get('/producto/{usuarioPuesto}/lista', 'Cliente\ProductoController@index');
     Route::get('/producto/create', 'Cliente\ProductoController@puestos');
-    Route::get('/producto/{usuarioPuesto}/add', 'Cliente\ProductoController@create');
+    Route::get('/producto/add', 'Cliente\ProductoController@create');
     Route::post('/producto/store', 'Cliente\ProductoController@store');
     Route::get('/productos/{grupo}/all/{usuarioPuesto}', 'Cliente\ProductoController@productos');
     Route::get('/producto/{usuarioPuesto}/editar/{producto}' , 'Cliente\ProductoController@editar');
@@ -69,7 +70,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/producto/dropzonedelete', 'Cliente\ProductoController@dropzonedelete');
 
     // Grupos de Cliente
-    Route::get('/producto/{usuarioPuesto}/grupo', 'Cliente\ProductoController@create_grupo');
+    Route::get('/producto/creargrupo', 'Cliente\ProductoController@create_grupo');
     Route::post('/producto/grupo', 'Cliente\ProductoController@grupo');
 
     // Suscripciones

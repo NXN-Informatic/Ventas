@@ -19,9 +19,12 @@
             <i class="align-middle mr-2 fas fa-fw fa-store-alt"></i> <span class="align-middle">{{ __('Mis Puestos') }}</span>
             <span class="sidebar-badge badge badge-pill badge-primary">{{ __('Ir') }}</span>
         </a>
-        <ul id="puestos" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto') }}">{{ __('Lista de Puestos') }}</a></li>
-            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto/create') }}">{{ __('Crear Puesto') }}</a></li>
+        <ul id="puestos" class="sidebar-dropdown list-unstyled collapse show" data-parent="#sidebar">
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto/editar') }}">{{ __('Actualizar Datos') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto/personalizar') }}">{{ __('Personalizar') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('producto/add') }}">{{ __('Añadir Productos') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('producto/creargrupo') }}">{{ __('Añadir Grupos') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto/fbcatalogo') }}">{{ __('Enlazar con Facebook') }}</a></li>
         </ul>
     </li>
     <li class="sidebar-item">

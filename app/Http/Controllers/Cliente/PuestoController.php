@@ -51,8 +51,9 @@ class PuestoController extends Controller
         
         return view('cliente.puestos.edit', compact('puesto', 'categorias', 'subcategorias', 'formapagos', 'formaentregas'));
     }
-    public function catalog($puesto) {
-        
+    public function catalog() {
+        $usuariopuesto = UsuarioPuesto::where('usuario_id', auth()->user()->id)->first();
+        $puesto = $usuariopuesto->puesto;
         $catalog_url = $this->storeExcel($puesto);
         return view('cliente.puestos.catalog', compact('catalog_url'));
     }
@@ -60,7 +61,37 @@ class PuestoController extends Controller
     public function editar(){
         $usuariopuesto = UsuarioPuesto::where('usuario_id', auth()->user()->id)->first();
         $puesto = $usuariopuesto->puesto;
-        return view('cliente.puestos.editar', compact('puesto'));
+        $categorias = Categoria::all();
+        $categoria_id = old('categoria_id');
+        if ($categoria_id) {
+            $categoria = Categoria::find($categoria_id);
+            $subcategorias = $categoria->subcategorias;
+        } else $subcategorias = collect();
+
+        $formapagos = Pago::all();
+        //$pago_id = old('pago_id');
+        $formaentregas = Entrega::all();
+        //$entrega_id = old('entrega_id');
+        
+        return view('cliente.puestos.edit', compact('puesto', 'categorias', 'subcategorias', 'formapagos', 'formaentregas'));
+    }
+
+    public function personalizar(){
+        $usuariopuesto = UsuarioPuesto::where('usuario_id', auth()->user()->id)->first();
+        $puesto = $usuariopuesto->puesto;
+        $categorias = Categoria::all();
+        $categoria_id = old('categoria_id');
+        if ($categoria_id) {
+            $categoria = Categoria::find($categoria_id);
+            $subcategorias = $categoria->subcategorias;
+        } else $subcategorias = collect();
+
+        $formapagos = Pago::all();
+        //$pago_id = old('pago_id');
+        $formaentregas = Entrega::all();
+        //$entrega_id = old('entrega_id');
+        
+        return view('cliente.puestos.personalizar', compact('puesto', 'categorias', 'subcategorias', 'formapagos', 'formaentregas'));
     }
 
     public function store(Request $request) {
@@ -139,6 +170,8 @@ class PuestoController extends Controller
         $puesto->description = $request->input('description');
         $puesto->phone2 = $request->input('phone2');
         $puesto->phone = $request->input('phone');
+        $puesto->elegirnos = $request->input('elegirnos');
+        $puesto->nosotros = $request->input('nosotros');
         //$puesto->precio_min = $request->input('precio_min');
 
         $file = $request->file('logo');
@@ -195,7 +228,7 @@ class PuestoController extends Controller
             }
         }
         $notification = 'Se ha actualizado los datos de su puesto Correctamente';
-        return redirect('/puesto/'.$puesto->id.'/edit')->with(compact('notification'));
+        return redirect('/puesto')->with(compact('notification'));
     }
 
     public function compartir(Puesto $puesto) {

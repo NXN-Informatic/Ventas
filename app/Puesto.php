@@ -23,7 +23,9 @@ class Puesto extends Model
         'banner',
         'maxproductos',
         'maxsubcategorias',
-        'plan_id'
+        'plan_id',
+        'elegirnos',
+        'nosotros'
     ];
 
     public function puestosubcategorias() {

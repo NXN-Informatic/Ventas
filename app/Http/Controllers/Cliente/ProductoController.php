@@ -30,12 +30,14 @@ class ProductoController extends Controller
         return view('cliente.producto.puestos', compact('usuarios_puestos'));
     }
 
-    public function create_grupo(UsuarioPuesto $usuarioPuesto) {
+    public function create_grupo() {
+        $usuarioPuesto = UsuarioPuesto::where('usuario_id', auth()->user()->id)->first();
         $puestoSubcategorias = PuestoSubcategoria::where('puesto_id', $usuarioPuesto->puesto_id)->get();
         return view('cliente.producto.grupo', compact('usuarioPuesto', 'puestoSubcategorias'));
     }
 
-    public function create(UsuarioPuesto $usuarioPuesto) {
+    public function create() {
+        $usuarioPuesto = UsuarioPuesto::where('usuario_id', auth()->user()->id)->first();
         $puestoSubcategorias = PuestoSubcategoria::where('puesto_id', $usuarioPuesto->puesto_id)->get();
         $id = Producto::orderBy('id', 'desc')->first();
         $id = $id->id + 1;
