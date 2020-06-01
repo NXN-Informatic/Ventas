@@ -85,7 +85,7 @@ class ProductoController extends Controller
         
         
         $notification = 'El producto se creo correctamente';
-        return redirect('/producto/'.$request->input('puesto_id').'/add')->with(compact('notification'));
+        return redirect('/producto/add')->with(compact('notification'));
     }
 
     public function editar(UsuarioPuesto $usuarioPuesto, Producto $producto) {
