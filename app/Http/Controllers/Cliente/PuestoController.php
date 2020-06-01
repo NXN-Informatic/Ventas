@@ -45,9 +45,9 @@ class PuestoController extends Controller
         } else $subcategorias = collect();
 
         $formapagos = Pago::all();
-        $pago_id = old('pago_id');
+        //$pago_id = old('pago_id');
         $formaentregas = Entrega::all();
-        $entrega_id = old('entrega_id');
+        //$entrega_id = old('entrega_id');
         
         return view('cliente.puestos.edit', compact('puesto', 'categorias', 'subcategorias', 'formapagos', 'formaentregas'));
     }
@@ -189,8 +189,9 @@ class PuestoController extends Controller
         if($formaentregas != null) {
             for($i=0 ; $i < count($formaentregas); ++$i) {
                 EntregaPuesto::create([
-                    "puesto_id"         =>  $puesto->id,
-                    "entrega_id"   =>  $formaentregas[$i]
+                    "entrega_id"   =>  $formaentregas[$i],
+                    "puesto_id"         =>  $puesto->id
+                    
                 ]);
             }
         }

@@ -13,8 +13,8 @@ class EntregaPuesto extends Model
      */
     protected $fillable = [
         'activo', 
-        'entrega_id ',
-        'puesto_id ',
+        'entrega_id',
+        'puesto_id'
     ];
 
     public function puesto(){

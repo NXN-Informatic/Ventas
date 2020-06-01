@@ -56,7 +56,7 @@
                         </div>
                         @if($puesto->maxsubcategorias != 0)
                         <div class="form-group">
-                            <label class="form-label">A qué sector pertenece</label>
+                            <label class="form-label">A qué sector pertenece?</label>
                             <div class="mb-3">
                             <select class="form-control select2 form-control-lg" id="categoria" name="categoria_id" data-toggle="select2">
                                 <optgroup label="Categorias Disponibles">
@@ -148,7 +148,7 @@
                         @endif
                         <hr>
                         <h5 class="card-title mb-0">Banner</h5>
-                        @if ($puesto->banner))
+                        @if ($puesto->banner)
                             <img src="{{ asset('storage/'.$puesto->id.'/banner/'.$puesto->banner) }}" class="card-img-top mt-2" alt="Angelica Ramos">
                             <input type="file" class="form-control-file" name="banner">
                         @else
