@@ -34,6 +34,8 @@
                             <input type="text" class="form-control" id="enlace" name="enlace" value="{{ $catalog_url }}" required>
                             <button class="btn mb-1 btn-success" name="btnenlace" id="btnenlace" onclick="copyToClipboard('enlace')"><i class="fas fa-copy"></i> Copiar</button>
                         </div>
+                        <hr>
+                        <h3>Tutorial en Construcción</h3>
                     </div>
                 </div>
             </div>

@@ -54,7 +54,7 @@ class PuestoController extends Controller
     public function catalog() {
         $usuariopuesto = UsuarioPuesto::where('usuario_id', auth()->user()->id)->first();
         $puesto = $usuariopuesto->puesto;
-        $catalog_url = $this->storeExcel($puesto);
+        $catalog_url = $this->storeExcel($puesto->id);
         return view('cliente.puestos.catalog', compact('catalog_url'));
     }
 
