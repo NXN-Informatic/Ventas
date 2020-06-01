@@ -57,11 +57,11 @@ class ProductoController extends Controller
             'name' => $request->input('name'),
             'description' => $request->input('description'),
             'precio' => $request->input('precio'),
-            'grupo_id' => $request->input('grupo'),
-            'stock' => $request->input('stock')
+            'grupo_id' => $request->input('grupo')
         ]);
 
         $files = $request->file('attachment');
+        //dd($files);
         $puesto = $request->input('puesto');
         $producto = $producto->id;
         foreach($files as $file){
@@ -125,7 +125,7 @@ class ProductoController extends Controller
         ]);
 
         $notification = 'Se ha creado su Grupo Correctamente';
-        return redirect('/producto/'.$request->input('puesto_id').'/add')->with(compact('notification'));
+        return redirect('/puesto')->with(compact('notification'));
     }
 
     public function dropzoneFrom(Request $request)

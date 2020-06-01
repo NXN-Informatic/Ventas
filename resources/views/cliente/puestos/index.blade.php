@@ -35,6 +35,7 @@
                                         <span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> Creado </span> {{ $usuarios_puesto->puesto->created_at }}
                                 
                                         <div class="col-sm-10 ml-sm-auto text-right mt-2">
+                                            <a href="{{ url('producto/'.$usuarios_puesto->id.'/grupo') }}" class="btn btn-secondary mt-2">Registrar Grupo</a>
                                             <a href="{{ url('producto/'.$usuarios_puesto->id.'/add') }}"><button type="submit" class="btn btn-primary">{{ __('Añadir Productos') }}</button></a>
                                             <a href="{{ url('producto/'.$usuarios_puesto->id.'/lista') }}"><button type="submit" class="btn btn-success">{{ __('Ver Productos') }}</button></a>
                                             <a href="{{ url('puesto/'.$usuarios_puesto->puesto->id.'/fbcatalog') }}"><button type="submit" class="btn btn-success">{{ __('Enlazar con Facebook') }}</button></a>

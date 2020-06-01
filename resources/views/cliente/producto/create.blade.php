@@ -23,19 +23,15 @@
                 </ol>
             </nav>
         </div>
+        <form action="{{ url('producto/store/') }}" method="post" enctype="multipart/form-data">
+        @csrf
         <div class="row">
-            <div class="col-12">
+            <div class="col-4">
                 <div class="card">
                     <div class="card-header">
                         <div class="row align-items-center">
                             <div class="col">
                                 <h5 class="card-title mb-0">{{ __('Registrar Producto') }}</h5>
-                            </div>
-                            <div class="col text-right">
-                                <a href="{{ url('/producto/'.$usuarioPuesto->id.'/grupo') }}" class="btn btn-secondary mt-2">Registrar Grupo</a>
-                                <a href="{{ url('producto/create') }}"><button type="button" class="btn btn-info mt-2" >
-                                    Ver Producto
-                                </button></a>
                             </div>
                         </div>
                     </div>
@@ -61,70 +57,92 @@
                             </button>
 						</div>
                         @endif
-                        <form action="{{ url('producto/store/') }}" method="post" enctype="multipart/form-data">
-                            @csrf
                             <div class="form-group">
-                                <label class="form-label" for="name">Nombre del Producto</label>
-                                <input type="text" class="form-control" name="name" value="{{ old('name') }}" required>
+                                <label class="form-label" for="name">Nombre</label>
+                                <input type="text" class="form-control form-control-lg" name="name" value="{{ old('name') }}" required>
                                 <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
                             </div>
                             <div class="form-group">
-                                <label class="form-label" for="precio">Precio del Producto</label>
-                                <input type="number" class="form-control" name="precio" value="{{ old('precio') }}" required>
+                                <label class="form-label" for="precio">Precio</label>
+                                <input type="number" class="form-control form-control-lg" name="precio" value="{{ old('precio') }}" required>
                                 <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
                             </div>
-                            <div class="form-group">
-                               <label class="form-label">Seleccione su Subcategoria</label>
+                        <!--<div class="form-group">
+                               <label class="form-label">Pertenece a</label>
                                <div class="mb-3">
 								<select class="form-control select2" id="subcategoria" name="subcategoria" data-toggle="select2">
                                     <optgroup label="Subcategorias Disponibles">
                                     <option value=""></option>
-                                    @foreach($puestoSubcategorias as $puestosub)
-                                        <option value="{{ $puestosub->id }}">{{ $puestosub->subcategoria->name }}</option>
-                                    @endforeach
+                                    foreach($puestoSubcategorias as $puestosub)
+                                        <option value=" $puestosub->id }}"> $puestosub->subcategoria->name </option>
+                                    //endforeach
                                     </optgroup>
                                 </select>
                                 </div>
-                            </div>
+                            </div>-->
                             <div class="form-group">
-                               <label class="form-label">Seleccione su Grupo</label>
+                               <label class="form-label">Añadir al Grupo</label>
                                <div class="mb-3">
-								<select class="form-control select2" id="grupo" name="grupo" data-toggle="select2">
+								<select class="form-control form-control-lg select2" id="grupo" name="grupo" data-toggle="select2">
                                     <optgroup label="Grupos Disponibles">
                                     <option value=""></option>
-                                    @foreach($grupos as $grupo)
+                                    @foreach ($puestoSubcategorias as $psub)
+                                        @foreach($psub->grupos as $grupo)
                                         <option value="{{ $grupo->id }}">{{ $grupo->name }}</option>
+                                        @endforeach
                                     @endforeach
                                     </optgroup>
                                 </select>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="form-label" for="stock">Stock del Producto</label>
-                                <input type="number" class="form-control" name="stock" value="{{ old('stock') }}">
-                                <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
+                            <input type="hidden" name="puesto_id" value={{ $usuarioPuesto->id }}>
+                            <br>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h5 class="card-title mb-0">{{ __('Carga las fotos del producto') }}</h5>
                             </div>
-                            <div class="form-group">
-                                <label class="form-label" for="description">Descripción del Producto</label>
-                                <textarea name="description" rows="14" >{{ old('description') }}</textarea>
-                            </div> 
+                        </div>
+                    </div>
+                    <div class="card-body">
                             <input type="hidden" name="puesto" value="{{ $usuarioPuesto->puesto->id }}">
                             <input type="file" id="attachment" name="attachment[]" multiple>
-                            <br>
                             <hr>
                             <div class="row" id="preview_img">
-          
                             </div>
-                            <hr>
-                            <input type="hidden" name="puesto_id" value={{ $usuarioPuesto->id }}>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                            <br>
-                        </form>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h5 class="card-title mb-0">{{ __('Detalles del producto') }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <!-- End Formulario de Usuario <label class="form-label" for="description">Descripción del Producto</label> -->
+                            <textarea name="description" rows="10" >{{ old('description') }}</textarea>
+                        </div> 
                     </div>
                 </div>
             </div>
         </div>
-
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+        </form>
     </div>
 </main>
 @include('layouts.partials.footer')

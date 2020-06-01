@@ -27,7 +27,7 @@
                                 <h5 class="card-title mb-0">{{ __('Registrar Grupo') }}</h5>
                             </div>
                             <div class="col text-right">
-                                <a href="{{ url('/producto/create') }}" class="btn btn-pill btn-info">Volver y Cancelar</a>
+                                <a href="{{ url('/puesto') }}" class="btn btn-pill btn-info">Volver y Cancelar</a>
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                                 <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Seleccione las subcategorias</label>
+                                <label class="form-label">Asociar a</label>
                                 <div class="mb-3">
 								<select class="form-control select2" name="subcategoria_id" data-toggle="select2">
                                 <optgroup label="Subcategorias Disponibles">
@@ -60,7 +60,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlTextarea1">Descripción</label>
-                                <textarea class="form-control" name="description" rows="3">{{ old('description') }}</textarea>
+                                <textarea class="form-control" name="description" rows="2">{{ old('description') }}</textarea>
                             </div>
                             <input type="hidden" name="puesto_id" value="{{ $usuarioPuesto->id }}">
                             <button type="submit" class="btn btn-primary">Guardar</button>
