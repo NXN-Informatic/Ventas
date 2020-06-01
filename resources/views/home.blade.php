@@ -35,7 +35,7 @@
                                             <a href="{{ url('puesto/'.$usuarios_puesto->puesto->id.'/edit') }}">
                                                 <button class="btn btn-primary"><i class="fas fa-edit" title="Editar"></i></button>
                                             </a>
-                                            <a href="{{ url('puesto/'.$usuarios_puesto->puesto->id.'/detail') }}">
+                                            <a target="_blank" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com/puesto/{{ $usuarios_puesto->puesto->id }}/detail">
                                                 <button class="btn btn-secondary"><i class="fas fa-globe-americas" title="Compartir"></i></button>
                                             </a>
                                             <button type="submit" class="btn btn-danger"><i class="fas fa-times" title="Eliminar"></i></button>
