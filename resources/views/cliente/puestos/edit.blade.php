@@ -149,7 +149,7 @@
                         <hr>
                         <h5 class="card-title mb-0">Banner</h5>
                         @if ($puesto->banner))
-                            <img src="{{ asset('storage/'.$puesto->id.'/banner/'.$puesto->perfil) }}" class="card-img-top mt-2" alt="Angelica Ramos">
+                            <img src="{{ asset('storage/'.$puesto->id.'/banner/'.$puesto->banner) }}" class="card-img-top mt-2" alt="Angelica Ramos">
                             <input type="file" class="form-control-file" name="banner">
                         @else
                             <img src="{{ asset('img/imagen.png') }}" class="card-img-top mt-2" alt="Sin imagen">
