@@ -11,12 +11,12 @@
 @section('title','Bienvenido')
 
 <!--Start Single Product-->
-<div class="singleProduct" id="ocultar1">
+<div class="singleProduct container" id="ocultar1">
   <div class="singleProduct__wrap container">
     <div class="signleProduct__content">
       <div class="product dflex">
           <div class="col-lg-7 col-12">
-            <div class="swiper-container" style="border-style: ridge;">
+            <div class="swiper-container" >
               <div class="swiper-wrapper">
               <!-- Imagen Productos -->
               @foreach($producto->imagen_productos as $imagenes)
@@ -42,7 +42,7 @@
               </div>
               <br>
               <!-- Productos Descripción -->
-              <div style="border-style: ridge;padding: 10px">
+              <div>
                 <h2 style="text-align: left;font-size: 20px" class="color">{{ __('Descripción') }}</h2><br>
                 <h2>{!! $producto->description !!}</h2>
               </div>

@@ -1,5 +1,11 @@
 @extends('layouts.app')
 @section('title','Mis Productos')
+
+@section('styles')
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+@endsection
+
 @section('content')
 @include('layouts.partials.menu')
 @include('layouts.partials.navbar')
@@ -30,7 +36,6 @@
                                     <h5 class="card-title">{{ $puestoSubcategoria->subcategoria->name }} </h5>
                                 </div>
                             </div>
-                        </div>
                             @foreach($puestoSubcategoria->grupos as $grupos)
                             <div class="card shadow-sm bg-white">
                                 <div class="card-body">
