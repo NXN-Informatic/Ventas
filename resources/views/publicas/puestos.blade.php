@@ -79,10 +79,10 @@
                         <i class="far fa-star text-dark"></i> 
                     @endfor
                 </label><br><br>
-                <label style="font-size:20px">Llamar
-                    <i class="fas fa-phone-volume"></i>{{ $puesto->phone }}
+                <label style="font-size:20px">
+                    <i class="fas fa-phone-volume"></i> Llamar {{ $puesto->phone }} 
                     @if($puesto->phone2)
-                     <p> - {{ $puesto->phone2 }} </p>
+                      - {{ $puesto->phone2 }}
                     @endif
                 </label><br><br>
                 <br>
