@@ -65,11 +65,11 @@
     <div class="signleProduct__content">
       <h1 class="title" style="font-size: 30px">{{ $puesto->name }}</h1><br><br>
       <div class="product dflex">
-          <div class="col-lg-4 col-12" style="text-align: right;">
+          <div class="col-lg-3 col-12" style="text-align: center;">
                 <img src="{{ asset('storage/'.$puesto->id.'/logo/'.$puesto->perfil) }}" style="width: 200px; height: 200px">
           </div>
         
-          <div class="content col-lg-8 col-12">
+          <div class="content col-lg-9 col-12">
               <div class="col-lg-12 col-12">
                   <label style="font-size:20px; color:#F0C908">
                     @for ($i = 0; $i < $puesto->calification; $i++)   
@@ -110,6 +110,7 @@
         <div class="button-group filters-button-group feature__buttons">
         </div>
         <ul class="featureSlider container">
+      <h1 class="title" style="font-size: 30px">Productos de la Tienda</h1><br><br>
             <li class="grid features__grid">
                 @foreach($puesto->puestosubcategorias as $puestosubcategorias)
                     @foreach($puestosubcategorias->grupos as $grupos)
