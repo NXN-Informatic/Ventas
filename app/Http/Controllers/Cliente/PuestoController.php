@@ -232,6 +232,12 @@ class PuestoController extends Controller
     }
 
     public function compartir(Puesto $puesto) {
+        foreach($puesto->usuario_puestos as $usuario_puestos){
+
+        }
+        $latitud = $usuario_puestos->user->latitud;
+        $longitud = $usuario_puestos->user->longitud;
+
         $categs = [];
         $categorias = Categoria::all();
         foreach($puesto->puestosubcategorias as $subcategorias){
@@ -240,7 +246,7 @@ class PuestoController extends Controller
                 $categs[] = $name;
             }
         }
-        return view('/publicas/puestos', compact('puesto', 'categs', 'categorias'));
+        return view('/publicas/puestos', compact('puesto', 'categs', 'categorias', 'latitud', 'longitud'));
     }
 
     public function apiTiendas($name) 

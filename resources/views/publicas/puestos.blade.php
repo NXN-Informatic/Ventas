@@ -59,20 +59,49 @@
     @endif
 </div>
 <!--End Banner Slide-->
+<!--Start Single Product-->
+<div class="singleProduct" id="ocultar5">
+  <div class="singleProduct__wrap container">
+    <div class="signleProduct__content">
+      <h1 class="title" style="font-size: 30px">{{ $puesto->name }}</h1><br><br>
+      <div class="product dflex">
+          <div class="col-lg-6 col-12">
+                <label style="font-size:20px; color:#F0C908">
+                    @for ($i = 0; $i < $puesto->calification; $i++)   
+                        <i class="fas fa-star"></i>
+                    @endfor
+                    @for ($i = 0; $i < (5 - $puesto->calification); $i++)
+                        <i class="far fa-star text-dark"></i> 
+                    @endfor
+                </label><br><br>
+                <label style="font-size:20px">
+                    <i class="fas fa-phone-volume"></i> Llamar {{ $puesto->phone }}
+                    @if($puesto->phone2)
+                    <br><br>
+                    <i class="fas fa-phone-volume"></i> Llamar {{ $puesto->phone2 }}
+                    @endif
+                </label><br><br>
+                <br>
+                <label style="font-size: 20px">Tipos de pago</label>
+                    @foreach($puesto->pago_puestos as $pago_puestos)
+                        <p style="font-size: 15px">{{ $pago_puestos->pago->name }}</p>
+                    @endforeach
+          </div>
+        
+          <div class="content col-lg-6 col-12">
+              <div class="col-lg-12 col-12">
+                  
+                  <p style="font-size: 15px">{{ $puesto->description }}</p>
+              </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
 <!--Start Featured Products-->
 <div class="featureProduct" id="ocultar1">
-    <label style="font-size:20px; color:#F0C908">
-        @for ($i = 0; $i < $puesto->calification; $i++)   
-            <i class="fas fa-star"></i>
-        @endfor
-        @for ($i = 0; $i < (5 - $puesto->calification); $i++)
-            <i class="far fa-star text-dark"></i> 
-        @endfor
-    </label><br><br>
-    <label style="font-size:20px">
-        <i class="fas fa-phone-volume"></i> Llamar {{ $puesto->phone }}
-    </label><br><br>
-    <h4 class="title">{{ $puesto->name }}</h4>
     <div class="feature__filter">
         <div class="button-group filters-button-group feature__buttons">
         </div>
@@ -85,31 +114,32 @@
                         @foreach($productos->imagen_productos as $imagen) @endforeach
                         @if($imagen != null)
                         <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">
-                            <div class="features__image desk"><img src="{{ asset('storage/'.$puesto->id.'/'.$productos->id.'/'.$imagen->imagen) }}"  width="200px" height="300px" alt="">
+                            <div class="features__image desk"><a href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="black"><img src="{{ asset('storage/'.$puesto->id.'/'.$productos->id.'/'.$imagen->imagen) }}"  width="200px" height="300px" alt=""></a>
                                 <div class="image__overlay">
                                     <div class="color">
                                         <div class="image" data-image="{{ asset('storage/'.$puesto->id.'/'.$productos->id.'/'.$imagen->imagen) }}"  width="200px" height="300px"></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="features__content"><a class="link" href="#">{{$productos->name}}</a>
+                            <div class="features__content"><a class="link" href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="black">{{$productos->name}}</a>
                                 <p class="price">S./ ${{$productos->precio}}</p>
                                 <div class="content__overlay">
                                     <p>{{ $productos->description }}</p>
-                                    <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="black">Ver Producto</a><a href="{{ url('/producto/'. $productos->id.'/detailProd') }}"><i class="fas fa-search"></i></a></div>
+                                    <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="black">Ver Producto</a><a ><i class="fas fa-search"></i></a></div>
                                 </div>
                             </div>
                         </div>
                         @else
                         <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">
-                            <div class="features__image desk"><img src="{{ asset('img/defaultProducto.jpg') }}"  width="200px" height="300px" alt="">
+                            <div class="features__image desk">
+                                <a href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="black"><img src="{{ asset('img/defaultProducto.jpg') }}"  width="200px" height="300px" alt=""></a>a
                                 <div class="image__overlay">
                                     <div class="color">
                                         <div class="image" data-image="{{ asset('img/defaultProducto.jpg') }}"  width="200px" height="300px"></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="features__content"><a class="link" href="#">{{$productos->name}}</a>
+                            <div class="features__content"><a class="link" href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="black">{{$productos->name}}</a>
                                 <p class="price">S./ ${{$productos->precio}}</p>
                                 <div class="content__overlay">
                                     <p>{{ $productos->description }}</p>
@@ -159,18 +189,54 @@
     </div>
 </div>
 
+<!--Start Single Product-->
+<div class="singleProduct" style="margin-top: -5%" id="ocultar1">
+  <div class="singleProduct__wrap container">
+    <div class="signleProduct__content">
+      <div class="product dflex">
+          <div class="col-lg-6 col-12">
+              <label style="font-size: 20px">Sobre Nosotros</label><br><br>
+                <p style="font-size:18px">{{ $puesto->nosotros }}</p>
+          </div>
+        
+          <div class="content col-lg-6 col-12">
+              <div class="col-lg-12 col-12">
+                  <label style="font-size: 20px">¿Porque Elegirnos?</label><br><br>
+                <p style="font-size:18px">{{ $puesto->elegirnos }}</p>
+              </div>
+          </div>
 
-<section class="disqus container">
-    <h2>Comparte tu Opinión</h2>
-    <div id="disqus_thread"></div>
-    <br><br><br>
-</section>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div id="map" style="height: 500px;"></div>
+<br><br>
 
 @include('layouts.components.footer')
 @endsection
 
 @section('scripts')
     <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+    <script src="{{ asset('js/publicas/detailProduc.js') }}"></script>
+  <script>
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 17,
+            center: new google.maps.LatLng(<?php echo $latitud; ?>, <?php echo $longitud; ?>),
+        });
+
+        marker = new google.maps.Marker({
+          map: map,
+          position: new google.maps.LatLng(<?php echo $latitud; ?>, <?php echo $longitud; ?>)
+        });
+    }
+    //initMap(); Esto es innecesario porque en el callback de la URL lo estás llamando.
+  </script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK7XD3i3cgtPV9SKcDff2IJc0O-WpNoNY&callback=initMap" async defer></script> 
+  <script>
     <script>
         (function() { // DON'T EDIT BELOW THIS LINE
         setTimeout(cargar, 1000);
@@ -214,6 +280,7 @@
       // Variables Define
       $mostrarcategoria = $('#categoria');
       $ocultar1 = $('#ocultar1');
+      $ocultar5 = $('#ocultar5');
       $ocultar2 = $('#tiendas');
       $resultado = $('#resultado');
       $mostrar = $('#mostrar');
@@ -227,11 +294,13 @@
 
           $mostrarcategoria.hide();
           $ocultar1.show();
+          $ocultar5.show();
           $ocultar2.show();
         }else {
           $mostrarcategoria.show();
           $ocultar1.hide();
           $ocultar2.hide();
+          $ocultar5.hide();
           const url = `/categoria/${cateogiraId}/apiProductosCategoria`;
           $.getJSON(url, onProducCateg);
         }
@@ -245,11 +314,13 @@
           $mostrarcategoria.hide();
           $ocultar1.show();
           $ocultar2.show();
+          $ocultar5.hide();
           $mostrar.hide();
         }else {
 
           $ocultar1.hide();
           $ocultar2.hide();
+          $ocultar5.hide();
           $mostrar.show();
           const url = `/productos/${valor}/all`;
           $.getJSON(url, onMostrar);
@@ -270,31 +341,31 @@
             if(productos.image != null){
                 htmlOptions += 
                 `<li class="product__item">`+
-                    `<div class="product__image"><img src="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}" alt="">`+
+                    `<div class="product__image"><a href="{{ url('/producto/${productos.id}/detailProd') }}" target="black"><img src="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}" alt=""></a>`+
                         `<div class="image__tools"><i class="fas fa-search"></i>`+
                             `<i class="fas fa-random"></i>`+
                             `<i class="far fa-heart"></i>`+
                         `</div>`+
                     `</div>`+
-                    `<div class="product__content" style="width:100%"><a class="link-title" href="#">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
-                        `<p class="price">$${productos.precio}</p>`+
-                        `<div class="color"><span style="background: #f0deba" data-image="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"></span><span style="background: #000" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
-                        `<p>${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}">Ver Producto</a>`+
+                    `<div class="product__content" style="width:100%"><a class="link-title" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black" style="font-size:30px">${productos.name}</a>`+
+                        `<p class="price" style="font-size:25px">S./${productos.precio}</p>`+
+                        `<div class="color"></div>`+
+                        `<p style="font-size:15px">${ productos.description }</p><a class="btn active" target="black" href="{{ url('/producto/${productos.id}/detailProd') }}">Ver Producto</a>`+
                     `</div>`+
                 `</li>`;
             }else{
                 htmlOptions += 
                 `<li class="product__item">`+
-                    `<div class="product__image"><img src="{{ asset('img/defaultProducto.jpg') }}" alt="">`+
+                    `<div class="product__image"><a href="{{ url('/producto/${productos.id}/detailProd') }}" target="black"><img src="{{ asset('img/defaultProducto.jpg') }}" alt=""></a>`+
                         `<div class="image__tools"><i class="fas fa-search"></i>`+
                             `<i class="fas fa-random"></i>`+
                             `<i class="far fa-heart"></i>`+
                         `</div>`+
                     `</div>`+
-                    `<div class="product__content" style="width:100%"><a class="link-title" href="#">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
-                        `<p class="price">$${productos.precio}</p>`+
-                        `<div class="color"><span style="background: #f0deba" data-image="{{ asset('img/defaultProducto.jpg') }}"></span><span style="background: #000" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
-                        `<p>${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}">Ver Producto</a>`+
+                    `<div class="product__content" style="width:100%"><a class="link-title" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
+                        `<p class="price" style="font-size:25px">S./${productos.precio}</p>`+
+                        `<div class="color"></div>`+
+                        `<p style="font-size:15px">${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black">Ver Producto</a>`+
                     `</div>`+
                 `</li>`;
             }
@@ -316,30 +387,30 @@
         if(productos.image != null){
           htmlOptions += 
           `<li class="product__item">`+
-              `<div class="product__image"><img src="{{ asset('img/defaultProducto.jpg') }}" alt="">`+
+              `<div class="product__image"><a href="{{ url('/producto/${productos.id}/detailProd') }}" target="black"><img src="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}" alt=""></a>`+
                   `<div class="image__tools"><i class="fas fa-search"></i>`+
                       `<i class="fas fa-random"></i>`+
                       `<i class="far fa-heart"></i>`+
                   `</div>`+
               `</div>`+
-              `<div class="product__content" style="width:100%"><a class="link-title" href="#">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
+              `<div class="product__content" style="width:100%"><a class="link-title" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
                   `<p class="price">$${productos.precio}</p>`+
                   `<div class="color"><span style="background: #f0deba" data-image="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"></span><span style="background: #000" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
-                  `<p>${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}">Ver Producto</a>`+
+                  `<p style="font-size:15px">${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black">Ver Producto</a>`+
               `</div>`+
           `</li>`;
         }else{
             `<li class="product__item">`+
-              `<div class="product__image"><img src="{{ asset('img/defaultProducto.jpg') }}" alt="">`+
+              `<div class="product__image"><a href="{{ url('/producto/${productos.id}/detailProd') }}" target="black"><img src="{{ asset('img/defaultProducto.jpg') }}" alt=""></a>`+
                   `<div class="image__tools"><i class="fas fa-search"></i>`+
                       `<i class="fas fa-random"></i>`+
                       `<i class="far fa-heart"></i>`+
                   `</div>`+
               `</div>`+
-              `<div class="product__content" style="width:100%"><a class="link-title" href="#">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
+              `<div class="product__content" style="width:100%"><a class="link-title" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
                   `<p class="price">$${productos.precio}</p>`+
                   `<div class="color"><span style="background: #f0deba" data-image="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"></span><span style="background: #000" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
-                  `<p>${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}">Ver Producto</a>`+
+                  `<p style="font-size:15px">${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black">Ver Producto</a>`+
               `</div>`+
           `</li>`;
         }

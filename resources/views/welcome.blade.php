@@ -43,14 +43,15 @@
                 @foreach($producto->imagen_productos as $imagen) @endforeach
                 @if($imagen)
                 <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">
-                    <div class="features__image desk"><img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="200px" height="300px" alt="">
+                    <div class="features__image desk">
+                        <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="black"><img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="200px" height="300px" alt=""></a>
                         <div class="image__overlay">
                             <div class="color">
                                 <div class="image" data-image="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="200px" height="300px"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="features__content"><a class="link" href="#">{{$producto->name}}</a>
+                    <div class="features__content"><a class="link" href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="black">{{$producto->name}}</a>
                         <p class="price">S./ ${{$producto->precio}}</p>
                         <div class="content__overlay">
                             <p>{{ $producto->description }}</p>
@@ -60,14 +61,15 @@
                 </div>
                 @else
                 <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">
-                    <div class="features__image desk"><img src="{{ asset('img/defaultProducto.jpg') }}"  width="200px" height="300px" alt="">
+                    <div class="features__image desk">
+                        <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="black"><img src="{{ asset('img/defaultProducto.jpg') }}"  width="200px" height="300px" alt=""></a>
                         <div class="image__overlay">
                             <div class="color">
                                 <div class="image" data-image="{{ asset('img/defaultProducto.jpg') }}"  width="200px" height="300px"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="features__content"><a class="link" href="#">{{$producto->name}}</a>
+                    <div class="features__content"><a class="link" href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="black">{{$producto->name}}</a>
                         <p class="price">S./ ${{$producto->precio}}</p>
                         <div class="content__overlay">
                             <p>{{ $producto->description }}</p>
@@ -254,10 +256,10 @@
                             `<i class="far fa-heart"></i>`+
                         `</div>`+
                     `</div>`+
-                    `<div class="product__content" style="width:100%"><a class="link-title" href="#">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
-                        `<p class="price">S./${productos.precio}</p>`+
+                    `<div class="product__content" style="width:100%"><a class="link-title" href="#" style="font-size:30px">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
+                        `<p class="price" style="font-size:25px">S./${productos.precio}</p>`+
                         `<div class="color"><span style="background: #f0deba" data-image="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"></span><span style="background: #000" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
-                        `<p>${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black">Ver Producto</a>`+
+                        `<p style="font-size:15px">${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black">Ver Producto</a>`+
                     `</div>`+
                 `</li>`;
             });
@@ -321,16 +323,16 @@
             data.forEach(productos => {
                 htmlOptions += 
                 `<li class="product__item">`+
-                    `<div class="product__image"><img src="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}" alt="">`+
+                    `<div class="product__image"><a href="{{ url('/producto/${productos.id}/detailProd') }}" target="black"><img src="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}" alt=""></a>`+
                         `<div class="image__tools"><i class="fas fa-search"></i>`+
                             `<i class="fas fa-random"></i>`+
                             `<i class="far fa-heart"></i>`+
                         `</div>`+
                     `</div>`+
-                    `<div class="product__content" style="width:100%"><a class="link-title" href="#">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
-                        `<p class="price">$${productos.precio}</p>`+
-                        `<div class="color"><span style="background: #f0deba" data-image="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"></span><span style="background: #000" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
-                        `<p>${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black">Ver Producto</a>`+
+                    `<div class="product__content" style="width:100%"><a class="link-title" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black" style="font-size:30px">${productos.name}</a>`+
+                        `<p class="price" style="font-size:25px">S./${productos.precio}</p>`+
+                        `<div class="color"></div>`+
+                        `<p style="font-size:15px">${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black">Ver Producto</a>`+
                     `</div>`+
                 `</li>`;
             });
