@@ -60,7 +60,7 @@
             <div class="col-5">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title mb-0">Lista de Tareas Pendientes</h5>
+                        <h5 class="card-title mb-0">Prepárese para su primera venta! Siga éstas recomendaciones:</h5>
                     </div>
                     <div class="card-body">
                         <div class="col-12 col-md-6 col-lg-4">

@@ -34,21 +34,21 @@
         </div>
         <div class="row">
         @foreach($productos as $producto)
-            <div class="col-xxl-3">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row no-gutters">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="card">
                             <div class="col-sm-12 col-xl-12 col-xxl-12 text-center">
                             @if(count($producto->imagen_productos) > 0)
                             <div class="swiper-container">
                             <div class="swiper-wrapper">
-                            @foreach($producto->imagen_productos as $imagenes)
-                                <div class="swiper-slide">
-                                    <a href="#">
-                                        <img src="{{ asset('storage/'.$usuarioPuesto->puesto_id.'/'.$producto->id.'/'.$imagenes->imagen) }}" class="card-img-top mt-2" alt="Angelica Ramos">
-                                    </a>
-                                </div>
-                            @endforeach
+                                @foreach($producto->imagen_productos as $imagenes)
+                                    <div class="swiper-slide">
+                                        <a href="#">
+                                            <img src="{{ asset('storage/'.$usuarioPuesto->puesto_id.'/'.$producto->id.'/'.$imagenes->imagen) }}" class="card-img-top mt-2" alt="Angelica Ramos">
+                                        </a>
+                                    </div>
+                                @endforeach
                             </div>
                                 <div class="swiper-pagination"></div>
                                 <div class="swiper-button-prev"></div>
@@ -59,46 +59,48 @@
                             @endif
                             </div>
                         </div>
-                        <br>
-                        <table class="table table-sm my-2">
-                            <tbody>
-                                <tr>
-                                    <th>Nombre</th>
-                                    <td>{{ $producto->name }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Precio</th>
-                                    <td>{{ $producto->precio }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Stock</th>
-                                    <td>{{ $producto->stock }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class="row">
-                            <div class="col-md-6 text-center mt-2">
-                                <a href="{{ url('producto/'.$usuarioPuesto->id.'/editar/'.$producto->id) }}"><button type="button" class="btn btn-primary btn-block">
-                                    Editar
-                                </button></a>
-                            </div>
-                            <div class="col-md-6 text-center mt-2">
-                                <a  href="javascript:void" onclick="$('#delete-form').submit();"><button type="button" class="btn btn-danger btn-block">
-                                    Eliminar
-                                </button></a>
+                    </div>
+                    <div class="col-9">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-10 ml-sm-auto text-right mt-2">
+                                        <a href="{{ url('producto/'.$usuarioPuesto->id.'/editar/'.$producto->id) }}"><button type="button" class="btn btn-primary">
+                                            <i class="fas fa-edit" title="Editar"></i>
+                                        </button></a>
+                                        <a  href="javascript:void" onclick="$('#delete-form').submit();"><button type="button" class="btn btn-danger">
+                                            <i class="fas fa-times" title="Eliminar"></i>
+                                        </button></a>
+                                    </div>
+                                </div>
+                                <table class="table table-sm my-2">
+                                    <tbody>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <td>{{ $producto->name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Precio</th>
+                                            <td>{{ $producto->precio }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Stock</th>
+                                            <td>{{ $producto->stock }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <form id="delete-form" action="{{ url('/producto/'.$producto->id.'/delete') }}" method="POST" style="display: none;">
+                                    @csrf
+                                    @method('PUT')
+                                    <input type="hidden" name="puesto_id" value="{{ $usuarioPuesto->puesto_id }}">
+                                </form>
                             </div>
                         </div>
-                        
-                        <form id="delete-form" action="{{ url('/producto/'.$producto->id.'/delete') }}" method="POST" style="display: none;">
-                            @csrf
-                            @method('PUT')
-                            <input type="hidden" name="puesto_id" value="{{ $usuarioPuesto->puesto_id }}">
-                        </form>
                     </div>
                 </div>
             </div>
         @endforeach
-    </div>
+        </div>
 </main>
 @include('layouts.partials.footer')
 @endsection

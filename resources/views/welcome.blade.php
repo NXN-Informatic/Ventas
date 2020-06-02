@@ -14,16 +14,15 @@
 <!--Start Feature Product-->
 <div class="featureProduct singleProduct" id="tiendas">
     <div class="feature__wrap container">
-    <h4 class="title">TIENDAS DISPONIBLES</h4>
-    <div class="feature__filter">
-        <div class="featureSlider">
-        <div class="sliderButton left"><i class="fas fa-angle-left"></i></div>
-        <div class="sliderButton right"><i class="fas fa-angle-right"></i></div>
-        <ul class="features__grid" id="wrap">
-            
-        </ul>
+        <h4 class="title">ÚLTIMAS TIENDAS</h4>
+        <div class="feature__filter">
+            <div class="featureSlider">
+            <div class="sliderButton left"><i class="fas fa-angle-left"></i></div>
+            <div class="sliderButton right"><i class="fas fa-angle-right"></i></div>
+            <ul class="features__grid" id="wrap">
+            </ul>
+            </div>
         </div>
-    </div>
     </div>
     <a href="{{ url('puestos/all') }}">
         <button type="submit" style="background:#153d77">VER MAS TIENDAS</button>
@@ -33,7 +32,7 @@
 
 <!--Start Featured Products-->
 <div class="featureProduct" id="prod">
-    <h4 class="title">Productos Disponibles</h4>
+    <h4 class="title">MEJORES PRODUCTOS</h4>
     <div class="feature__filter">
         <div class="button-group filters-button-group feature__buttons">
         </div>
@@ -51,7 +50,7 @@
                         </div>
                     </div>
                     <div class="features__content"><a class="link" href="#">{{$producto->name}}</a>
-                        <p class="price">S./ ${{$producto->precio}}</p>
+                        <p class="price">S./ {{$producto->precio}}</p>
                         <div class="content__overlay">
                             <p>{{ $producto->description }}</p>
                             <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="black">Ver Producto</a><a href="{{ url('/producto/'. $producto->id.'/detailProd') }}"><i class="fas fa-search"></i></a></div>
@@ -68,7 +67,7 @@
                         </div>
                     </div>
                     <div class="features__content"><a class="link" href="#">{{$producto->name}}</a>
-                        <p class="price">S./ ${{$producto->precio}}</p>
+                        <p class="price">S./ {{$producto->precio}}</p>
                         <div class="content__overlay">
                             <p>{{ $producto->description }}</p>
                             <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="black">Ver Producto</a><a href="{{ url('/producto/'. $producto->id.'/detailProd') }}"><i class="fas fa-search"></i></a></div>

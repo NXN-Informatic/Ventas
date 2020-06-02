@@ -15,7 +15,8 @@ use App\Exports\CatalogsExport;
 
 class ProductoController extends Controller
 {
-    public function index(UsuarioPuesto $usuarioPuesto) {
+    public function index() {
+        $usuarioPuesto = UsuarioPuesto::where('usuario_id', auth()->user()->id)->first();
         $puestoSubcategorias = PuestoSubcategoria::where('puesto_id', $usuarioPuesto->puesto_id)->get();
         return view('cliente.producto.index', compact('puestoSubcategorias', 'usuarioPuesto'));  
     }

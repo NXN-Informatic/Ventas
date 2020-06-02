@@ -15,17 +15,31 @@
         </a>
     </li>
     <li class="sidebar-item">
+        <a class="sidebar-link" href="{{'producto/lista' }}">
+            <i class="align-middle mr-2 fas fa-fw fa-shopping-bag"></i> <span class="align-middle">{{ __('Productos') }}</span>
+            <span class="sidebar-badge badge badge-pill badge-primary">{{ __('Ir') }}</span>
+        </a>
+        <ul id="productos" class="sidebar-dropdown list-unstyled collapse show" data-parent="#sidebar">
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('producto/add') }}">{{ __('Añadir Productos') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('producto/creargrupo') }}">{{ __('Añadir Grupos') }}</a></li>
+        </ul>
+    </li>
+    <li class="sidebar-item">
         <a href="{{ url('puesto') }}" class="sidebar-link collapsed">
-            <i class="align-middle mr-2 fas fa-fw fa-store-alt"></i> <span class="align-middle">{{ __('Mis Puestos') }}</span>
+            <i class="align-middle mr-2 fas fa-fw fa-store-alt"></i> <span class="align-middle">{{ __('Mi Puesto') }}</span>
             <span class="sidebar-badge badge badge-pill badge-primary">{{ __('Ir') }}</span>
         </a>
         <ul id="puestos" class="sidebar-dropdown list-unstyled collapse show" data-parent="#sidebar">
             <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto/editar') }}">{{ __('Actualizar Datos') }}</a></li>
             <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto/personalizar') }}">{{ __('Personalizar') }}</a></li>
-            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('producto/add') }}">{{ __('Añadir Productos') }}</a></li>
-            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('producto/creargrupo') }}">{{ __('Añadir Grupos') }}</a></li>
-            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto/fbcatalogo') }}">{{ __('Enlazar con Facebook') }}</a></li>
+            
         </ul>
+    </li>
+    <li class="sidebar-item">
+        <a class="sidebar-link" href="{{ url('puesto/fbcatalog') }}">
+            <i class="align-middle mr-2 fas fa-fw fa-share-alt"></i> <span class="align-middle">{{ __('Canales de Venta') }}</span>
+            <span class="sidebar-badge badge badge-pill badge-primary">{{ __('Ir') }}</span>
+        </a>
     </li>
     <li class="sidebar-item">
         <a class="sidebar-link" href="{{ url('price') }}">
