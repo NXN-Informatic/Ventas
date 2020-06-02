@@ -87,7 +87,12 @@
                             <label class="form-label" for="description">Describe tu puesto. </label>
                             <textarea name="description" data-provide="markdown" rows="8">{{ old('description', $puesto->description) }}</textarea>
                         </div>
+                        
                         <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
+                        <br><br>
+                        <div id="map" style="height: 500px;"></div>
+                
+                        <input type="hidden" id="coords" />
                     </div>
                 </div>
             </div>
@@ -150,6 +155,102 @@
 @endsection
 
 @section('scripts')
+<script>
+    initMap = function () 
+    {
+    //usamos la API para geolocalizar el usuario
+        navigator.geolocation.getCurrentPosition(
+          function (position){
+            latitud = "<?php echo $latitud ?>";
+            longitud = "<?php echo $longitud ?>";
+            
+            if(latitud === ""){
+                coords =  {
+                    lng: position.coords.longitude,
+                    lat: position.coords.latitude
+                };
+            }
+            setMapa(coords);  //pasamos las coordenadas al metodo para crear el mapa
+            
+           
+          },function(error){console.log(error);});
+
+    }
+    
+    function setMapa (coords)
+    {
+        if(coords.lat === undefined){
+            //Se crea una nueva instancia del objeto mapa
+            var map = new google.maps.Map(document.getElementById('map'),
+            {
+                zoom: 13,
+                center:new google.maps.LatLng("<?php echo $latitud ?>","<?php echo $longitud ?>"),
+
+            });
+            //Creamos el marcador en el mapa con sus propiedades
+            //para nuestro obetivo tenemos que poner el atributo draggable en true
+            //position pondremos las mismas coordenas que obtuvimos en la geolocalización
+            marker = new google.maps.Marker({
+                map: map,
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                position: new google.maps.LatLng("<?php echo $latitud ?>","<?php echo $longitud ?>"),
+
+            });
+        }else{
+            //Se crea una nueva instancia del objeto mapa
+            var map = new google.maps.Map(document.getElementById('map'),
+            {
+                zoom: 13,
+                center:new google.maps.LatLng(coords.lat,coords.lng),
+
+            });
+            //Creamos el marcador en el mapa con sus propiedades
+            //para nuestro obetivo tenemos que poner el atributo draggable en true
+            //position pondremos las mismas coordenas que obtuvimos en la geolocalización
+            marker = new google.maps.Marker({
+                map: map,
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                position: new google.maps.LatLng(coords.lat,coords.lng),
+
+            });
+            
+            // const url = `/position/${coords.lat}/${coords.lng}`;
+            // $.getJSON(url, function(data){
+
+            // });
+        }
+        //agregamos un evento al marcador junto con la funcion callback al igual que el evento dragend que indica 
+        //cuando el usuario a soltado el marcador
+        marker.addListener('click', toggleBounce);
+        
+        marker.addListener( 'dragend', function (event)
+        {
+            //escribimos las coordenadas de la posicion actual del marcador dentro del input #coords
+            document.getElementById("coords").value = this.getPosition().lat()+","+ this.getPosition().lng();
+            // console.log(this.getPosition().lat());
+            // console.log(this.getPosition().lng());
+            const url = `/position/${this.getPosition().lat()}/${this.getPosition().lng()}`;
+            $.getJSON(url, onRespuesta);
+        });
+    }
+    function onRespuesta(data){
+
+    }
+
+    //callback al hacer clic en el marcador lo que hace es quitar y poner la animacion BOUNCE
+    function toggleBounce() {
+    if (marker.getAnimation() !== null) {
+        marker.setAnimation(null);
+    } else {
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
+    }
+    //initMap(); Esto es innecesario porque en el callback de la URL lo estás llamando.
+  </script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK7XD3i3cgtPV9SKcDff2IJc0O-WpNoNY&callback=initMap" async defer></script> 
+  
 <script>
     $(function() {
         $(".select2").each(function() {

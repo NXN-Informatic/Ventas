@@ -72,8 +72,11 @@ class PuestoController extends Controller
         //$pago_id = old('pago_id');
         $formaentregas = Entrega::all();
         //$entrega_id = old('entrega_id');
+
+        $latitud = auth()->user()->latitud;
+        $longitud = auth()->user()->longitud;
         
-        return view('cliente.puestos.edit', compact('puesto', 'categorias', 'subcategorias', 'formapagos', 'formaentregas'));
+        return view('cliente.puestos.edit', compact('latitud','longitud','puesto', 'categorias', 'subcategorias', 'formapagos', 'formaentregas'));
     }
 
     public function personalizar(){

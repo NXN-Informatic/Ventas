@@ -47,4 +47,11 @@ class UserController extends Controller
         $notification = 'Se ha actualizado Sus datos Correctamente';
         return redirect('/user')->with(compact('notification'));
     }
+
+    public function position($latitud, $longitud){
+        $usuario = User::where('id', auth()->user()->id)->first();
+        $usuario->latitud = $latitud;
+        $usuario->longitud = $longitud;
+        $usuario->save();
+    }
 }
