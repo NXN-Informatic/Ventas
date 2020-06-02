@@ -13,6 +13,9 @@
             <i class="align-middle mr-2 fas fa-fw fa-user-tie"></i> <span class="align-middle">{{ __('Mis Datos') }}</span>
             <span class="sidebar-badge badge badge-pill badge-primary">{{ __('Ir') }}</span>
         </a>
+        <ul id="misdatos" class="sidebar-dropdown list-unstyled collapse show" data-parent="#sidebar">
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('producto/add') }}">{{ __('Datos de Acceso') }}</a></li>
+        </ul>
     </li>
     <li class="sidebar-item">
         <a class="sidebar-link" href="{{'producto/lista' }}">
@@ -20,8 +23,8 @@
             <span class="sidebar-badge badge badge-pill badge-primary">{{ __('Ir') }}</span>
         </a>
         <ul id="productos" class="sidebar-dropdown list-unstyled collapse show" data-parent="#sidebar">
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('producto/creargrupo') }}">{{ __('Crear Categorias') }}</a></li>
             <li class="sidebar-item"><a class="sidebar-link" href="{{ url('producto/add') }}">{{ __('Añadir Productos') }}</a></li>
-            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('producto/creargrupo') }}">{{ __('Añadir Grupos') }}</a></li>
         </ul>
     </li>
     <li class="sidebar-item">
@@ -30,6 +33,7 @@
             <span class="sidebar-badge badge badge-pill badge-primary">{{ __('Ir') }}</span>
         </a>
         <ul id="puestos" class="sidebar-dropdown list-unstyled collapse show" data-parent="#sidebar">
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail') }}" target="black">{{ __('Ver mi Puesto') }}</a></li>
             <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto/editar') }}">{{ __('Actualizar Datos') }}</a></li>
             <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto/personalizar') }}">{{ __('Personalizar') }}</a></li>
             
