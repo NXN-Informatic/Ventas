@@ -88,11 +88,11 @@
                 <br>
                 @if(count($puesto->pago_puestos) > 0)
                 <label style="font-size: 20px">Tipos de pago</label>
-                <label>
+                <p style="font-size: 15px ; margin-left: 5px">
                     @foreach($puesto->pago_puestos as $pago_puestos)
                         {{ $pago_puestos->pago->name }} - 
                     @endforeach  
-                </label>
+                  </p>
                   <br><br>
                 @endif
                   <p style="font-size: 15px">{{ $puesto->description }}</p>
