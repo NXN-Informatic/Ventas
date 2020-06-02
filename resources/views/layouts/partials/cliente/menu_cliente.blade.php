@@ -36,7 +36,7 @@
         </ul>
     </li>
     <li class="sidebar-item">
-        <a class="sidebar-link" href="{{ url('puesto/fbcatalog') }}">
+        <a class="sidebar-link" href="{{ url('puesto/fbcatalogo') }}">
             <i class="align-middle mr-2 fas fa-fw fa-share-alt"></i> <span class="align-middle">{{ __('Canales de Venta') }}</span>
             <span class="sidebar-badge badge badge-pill badge-primary">{{ __('Ir') }}</span>
         </a>
