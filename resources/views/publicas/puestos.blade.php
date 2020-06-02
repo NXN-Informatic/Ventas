@@ -82,8 +82,7 @@
                 <label style="font-size:20px">
                     <i class="fas fa-phone-volume"></i> Llamar {{ $puesto->phone }}
                     @if($puesto->phone2)
-                    <br><br>
-                    <i class="fas fa-phone-volume"></i> Llamar {{ $puesto->phone2 }}
+                    <i class="fas fa-phone-volume" style="margin-left: 5px"></i> Llamar {{ $puesto->phone2 }}
                     @endif
                 </label><br><br>
                 <br>
