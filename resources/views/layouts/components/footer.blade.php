@@ -6,7 +6,7 @@
         <div class="footer__item col-lg-3 col-sm-6 col-12">
             <h2 style="font-size: 20px">Contacto</h2><br>
             <p style="color:#fff;font-size: 17px">
-                ComercioLocal@gmail.com</p>
+            nxninformaticsolution@gmail.com</p>
             <p style="color:#fff">
                 Tacna, Perú</p>
             
@@ -23,6 +23,10 @@
         </div>
         <div class="footer__item col-lg-3 col-sm-6 col-12">
             <img src="{{ asset('/img/logonxn.jpeg') }}" alt="" style="display:block;width: 140px; height: 140px;margin:auto">
+            <br>
+            <h2 style="text-align: center;">
+            © Desarrollado por NXN Solutions
+            </h2>
         </div>
     </div>
 </div>

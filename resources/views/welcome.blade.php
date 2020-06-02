@@ -53,7 +53,7 @@
                     <div class="features__content"><a class="link" href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="black">{{$producto->name}}</a>
                         <p class="price">S./ ${{$producto->precio}}</p>
                         <div class="content__overlay">
-                            <p>{{ $producto->description }}</p>
+                            <p>{!! $producto->description !!}</p>
                             <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="black">Ver Producto</a><a href="{{ url('/producto/'. $producto->id.'/detailProd') }}"><i class="fas fa-search"></i></a></div>
                         </div>
                     </div>
@@ -68,15 +68,10 @@
                             </div>
                         </div>
                     </div>
-<<<<<<< HEAD
                     <div class="features__content"><a class="link" href="#">{{$producto->name}}</a>
                         <p class="price">S./ {{$producto->precio}}</p>
-=======
-                    <div class="features__content"><a class="link" href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="black">{{$producto->name}}</a>
-                        <p class="price">S./ ${{$producto->precio}}</p>
->>>>>>> b7d500b814f51840d9b2e3e99ae53bfa0bf4f8c7
                         <div class="content__overlay">
-                            <p>{{ $producto->description }}</p>
+                            <p>{!! $producto->description !!}</p>
                             <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="black">Ver Producto</a><a href="{{ url('/producto/'. $producto->id.'/detailProd') }}"><i class="fas fa-search"></i></a></div>
                         </div>
                     </div>

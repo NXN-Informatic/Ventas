@@ -65,8 +65,13 @@
     <div class="signleProduct__content">
       <h1 class="title" style="font-size: 30px">{{ $puesto->name }}</h1><br><br>
       <div class="product dflex">
-          <div class="col-lg-6 col-12">
-                <label style="font-size:20px; color:#F0C908">
+          <div class="col-lg-4 col-12" style="text-align: right;">
+                <img src="{{ asset('storage/'.$puesto->id.'/logo/'.$puesto->perfil) }}" style="width: 200px; height: 200px">
+          </div>
+        
+          <div class="content col-lg-8 col-12">
+              <div class="col-lg-12 col-12">
+                  <label style="font-size:20px; color:#F0C908">
                     @for ($i = 0; $i < $puesto->calification; $i++)   
                         <i class="fas fa-star"></i>
                     @endfor
@@ -82,15 +87,13 @@
                     @endif
                 </label><br><br>
                 <br>
+                @if(count($puesto->pago_puestos) > 0)
                 <label style="font-size: 20px">Tipos de pago</label>
                     @foreach($puesto->pago_puestos as $pago_puestos)
                         <p style="font-size: 15px">{{ $pago_puestos->pago->name }}</p>
-                    @endforeach
-          </div>
-        
-          <div class="content col-lg-6 col-12">
-              <div class="col-lg-12 col-12">
-                  
+                    @endforeach  
+                  <br><br>
+                @endif
                   <p style="font-size: 15px">{{ $puesto->description }}</p>
               </div>
           </div>
@@ -124,7 +127,7 @@
                             <div class="features__content"><a class="link" href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="black">{{$productos->name}}</a>
                                 <p class="price">S./ ${{$productos->precio}}</p>
                                 <div class="content__overlay">
-                                    <p>{{ $productos->description }}</p>
+                                    <p>{!! $productos->description !!}</p>
                                     <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="black">Ver Producto</a><a ><i class="fas fa-search"></i></a></div>
                                 </div>
                             </div>
@@ -142,7 +145,7 @@
                             <div class="features__content"><a class="link" href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="black">{{$productos->name}}</a>
                                 <p class="price">S./ ${{$productos->precio}}</p>
                                 <div class="content__overlay">
-                                    <p>{{ $productos->description }}</p>
+                                    <p>{!! $productos->description !!}</p>
                                     <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="black">Ver Producto</a><a href="{{ url('/producto/'. $productos->id.'/detailProd') }}"><i class="fas fa-search"></i></a></div>
                                 </div>
                             </div>
@@ -295,11 +298,13 @@
           $mostrarcategoria.hide();
           $ocultar1.show();
           $ocultar5.show();
+          $resultado.hide();
           $ocultar2.show();
         }else {
           $mostrarcategoria.show();
           $ocultar1.hide();
           $ocultar2.hide();
+          $resultado.hide();
           $ocultar5.hide();
           const url = `/categoria/${cateogiraId}/apiProductosCategoria`;
           $.getJSON(url, onProducCateg);
@@ -313,12 +318,14 @@
 
           $mostrarcategoria.hide();
           $ocultar1.show();
+          $resultado.hide();
           $ocultar2.show();
           $ocultar5.hide();
           $mostrar.hide();
         }else {
 
           $ocultar1.hide();
+          $resultado.hide();
           $ocultar2.hide();
           $ocultar5.hide();
           $mostrar.show();

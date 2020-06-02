@@ -103,7 +103,7 @@
             <!-- Productos Precio -->
             <h2 class="precio color" style="font-size:18px">{{ __('Tipo de Entrega') }}</h2>
             @foreach($usuario_puestos->puesto->entrega_puestos as $entrega_puestos)
-              <h2 style="font-size: 20px"><i class="fas fa-phone-volume"></i> {{ $entrega_puestos->entrega->name }} </h2>
+              <h2 style="font-size: 20px"> {{ $entrega_puestos->entrega->name }} </h2>
             @endforeach
           </div>
           <br>
@@ -307,12 +307,14 @@
           $mostrarcategoria.hide();
           $ocultar1.show();
           $ocultar2.show();
+          $resultado.hide();
           $ocultarProd.show();
         }else {
           $ocultarProd.hide();
           $mostrarcategoria.show();
           $ocultar1.hide();
           $ocultar2.hide();
+          $resultado.hide();
           const url = `/categoria/${cateogiraId}/apiProductosCategoria`;
           $.getJSON(url, onProducCateg);
         }
@@ -329,11 +331,13 @@
           $ocultar1.show();
           $ocultar2.show();
           $mostrar.hide();
+          $resultado.hide();
         }else {
           $ocultarProd.hide();
           $ocultar1.hide();
           $ocultar2.hide();
           $mostrar.show();
+          $resultado.hide();
           const url = `/productos/${valor}/all`;
           $.getJSON(url, onMostrar);
         }
