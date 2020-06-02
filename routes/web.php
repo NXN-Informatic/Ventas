@@ -44,6 +44,7 @@ Route::group(['middleware' => 'auth'], function () {
     // Rutas de Cliente => Perfil de Usuario
     Route::get('/user', 'Cliente\UserController@edit');
     Route::put('/user/update/{usuario}', 'Cliente\UserController@update');
+    Route::get('/position/{latitud}/{longitud}','Cliente\UserController@position');
 
     // Rutas de Cliente => Puesto
     Route::get('/puesto', 'Cliente\PuestoController@index');
