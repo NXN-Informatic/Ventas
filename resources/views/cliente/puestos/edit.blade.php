@@ -85,7 +85,7 @@
                         <hr>
                         <div class="form-group">
                             <label class="form-label" for="description">Describe tu puesto. </label>
-                            <textarea name="description" data-provide="markdown" rows="8">{{ old('description', $puesto->description) }}</textarea>
+                            <textarea name="description" maxlength="256" data-provide="markdown" rows="8">{{ old('description', $puesto->description) }}</textarea>
                         </div>
                         
                         <div class="form-group">
