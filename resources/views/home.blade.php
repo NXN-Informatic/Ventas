@@ -86,28 +86,25 @@
                             <div class="card">
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">
-                                        @if($usercompletado->completado)
+                                        @if ($productocompletado->isNotEmpty())
                                         <div class="alert alert-success alert-outline-coloured alert-dismissible" role="alert">
                                             <div class="alert-icon">
-                                                
                                                 <i class="far fa-fw fa-heart"></i>
                                             </div>
                                             <div class="alert-message">
-                                                <strong>Completa tu registro:</strong> Ve a "Mis Datos" y completa la información de tu cuenta. Esto habilitará algunas funcionalidades.
+                                                <strong>Sube tus productos:</strong> Ve a "Mis Puestos > Lista de Puestos" y añade productos a tu puesto virtual. 
                                             </div>
-                                        </div>            
+                                        </div>
                                         @else
                                         <div class="alert alert-primary alert-outline-coloured alert-dismissible" role="alert">
                                             <div class="alert-icon">
-                                                
                                                 <i class="far fa-fw fa-hourglass"></i>
                                             </div>
                                             <div class="alert-message">
-                                                <strong>Completa tu registro:</strong> Ve a "Mis Datos" y completa la información de tu cuenta. Esto habilitará algunas funcionalidades.
+                                                <strong>Sube tus productos:</strong> Ve a "Mis Puestos > Lista de Puestos" y añade productos a tu puesto virtual. 
                                             </div>
-                                        </div>            
+                                        </div>
                                         @endif
-                                        
                                     </li>
                                     <li class="list-group-item">
                                         @if ($puestocompletado)
@@ -129,28 +126,49 @@
                                             </div>
                                         </div>
                                         @endif
-                                        
                                     </li>
                                     <li class="list-group-item">
-                                        @if ($productocompletado->isNotEmpty())
                                         <div class="alert alert-success alert-outline-coloured alert-dismissible" role="alert">
                                             <div class="alert-icon">
                                                 <i class="far fa-fw fa-heart"></i>
                                             </div>
                                             <div class="alert-message">
-                                                <strong>Sube tus productos:</strong> Ve a "Mis Puestos > Lista de Puestos" y añade productos a tu puesto virtual. 
+                                                <strong>Crea tu puesto:</strong> Ve a "Mis Puestos > Crear Puesto" registra tu tienda y escoge el plan a tu medida.
                                             </div>
                                         </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        @if($usercompletado->completado)
+                                        <div class="alert alert-success alert-outline-coloured alert-dismissible" role="alert">
+                                            <div class="alert-icon">
+                                                
+                                                <i class="far fa-fw fa-heart"></i>
+                                            </div>
+                                            <div class="alert-message">
+                                                <strong>Completa tu registro:</strong> Ve a "Mis Datos" y completa la información de tu cuenta. Esto habilitará algunas funcionalidades.
+                                            </div>
+                                        </div>            
                                         @else
                                         <div class="alert alert-primary alert-outline-coloured alert-dismissible" role="alert">
+                                            <div class="alert-icon">
+                                                
+                                                <i class="far fa-fw fa-hourglass"></i>
+                                            </div>
+                                            <div class="alert-message">
+                                                <strong>Completa tu registro:</strong> Ve a "Mis Datos" y completa la información de tu cuenta. Esto habilitará algunas funcionalidades.
+                                            </div>
+                                        </div>            
+                                        @endif
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="alert alert-info alert-outline-coloured alert-dismissible" role="alert">
                                             <div class="alert-icon">
                                                 <i class="far fa-fw fa-hourglass"></i>
                                             </div>
                                             <div class="alert-message">
-                                                <strong>Sube tus productos:</strong> Ve a "Mis Puestos > Lista de Puestos" y añade productos a tu puesto virtual. 
+                                                <strong>Enlaza con FB:</strong> Ve a "Mis Puestos > Lista de Puestos" y sincroniza tu puesto con una página de Facebook. 
                                             </div>
                                         </div>
-                                        @endif
                                     </li>
                                     <li class="list-group-item">
                                         <div class="alert alert-info alert-outline-coloured alert-dismissible" role="alert">
