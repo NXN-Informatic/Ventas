@@ -92,7 +92,8 @@
                                                 <i class="far fa-fw fa-heart"></i>
                                             </div>
                                             <div class="alert-message">
-                                                <strong>Sube tus productos:</strong> Ve a "Mis Puestos > Lista de Puestos" y añade productos a tu puesto virtual. 
+                                                <div class="row"><a href="{{url('producto/lista') }}"><h6><strong>Añada sus productos o servicios</strong></h6> </a><small style="margin-left:10px" class="form-text text-muted">{{ __('Estimación: 5 min') }}</small></div>
+                                                
                                             </div>
                                         </div>
                                         @else
@@ -101,7 +102,8 @@
                                                 <i class="far fa-fw fa-hourglass"></i>
                                             </div>
                                             <div class="alert-message">
-                                                <strong>Sube tus productos:</strong> Ve a "Mis Puestos > Lista de Puestos" y añade productos a tu puesto virtual. 
+                                                <div class="row"><a href="{{url('producto/lista') }}"><h6 style="margin-left:10px"><strong>  Añada sus productos o servicios</strong></h6> </a><small style="margin-left:30px" class="form-text text-muted">{{ __('     Estimación: 5 min') }}</small></div>
+                                                Cree sus primeras categorias y registre sus primeros productos, nombres e imágenes.
                                             </div>
                                         </div>
                                         @endif
