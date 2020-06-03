@@ -40,7 +40,38 @@
                             </div>
                         </div>
                     </div>
-                    @endforeach
+                @endforeach
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="col-12 text-center mt-2">
+                                <h5>Únete a nuestra Comunidad y mejora tus ventas</h5>
+                            </div>
+                            <div class="col-12" style="margin-top: 15px">
+                                <div class="col-12 text-center mt-2">
+                                    <a target="_blank" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com/puesto/{{ $usuarios_puesto->puesto->id }}/detail">
+                                        <button class="btn mb-1 btn-facebook btn-lg"><i class="align-left fab fa-facebook" title="Compartir"></i><span style="margin-left:20px; margin-right:20px">{{ __('    Unirse    ') }}</span></button>
+                                    </a>
+                                    <small class="form-text text-muted">{{ __('Unase a nuestro grupo cerrado en Facebook ""') }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="col-12 text-center mt-2">
+                                <h5>¿Quieres hacernos una consulta?</h5>
+                            </div>
+                            <div class="col-12" style="margin-top: 15px">
+                                <div class="col-12 text-center mt-2">
+                                    <a target="_blank" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com/puesto/{{ $usuarios_puesto->puesto->id }}/detail">
+                                        <button class="btn mb-1 btn-success btn-lg"><i class="align-left fab fa-whatsapp" title="Compartir"></i><span style="margin-left:20px; margin-right:20px">{{ __('    948588436    ') }}</span></button>
+                                    </a>
+                                    <small class="form-text text-muted">{{ __('Estamos dispuestos a ayudarte') }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
             </div>
             <!-- End Formulario de Usuario -->
             
