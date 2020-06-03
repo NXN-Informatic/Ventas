@@ -218,7 +218,7 @@
             
             // const url = `/position/${coords.lat}/${coords.lng}`;
             // $.getJSON(url, function(data){
-
+                
             // });
         }
         //agregamos un evento al marcador junto con la funcion callback al igual que el evento dragend que indica 

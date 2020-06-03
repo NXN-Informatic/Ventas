@@ -54,4 +54,8 @@ class UserController extends Controller
         $usuario->longitud = $longitud;
         $usuario->save();
     }
+
+    public function movil(){
+        return view('cliente.movil');
+    }
 }
