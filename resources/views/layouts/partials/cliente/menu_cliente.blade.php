@@ -24,7 +24,7 @@
             <span class="sidebar-badge badge badge-pill badge-primary">{{ __('Ir') }}</span>
         </a>
         <ul id="puestos" class="sidebar-dropdown list-unstyled collapse show" data-parent="#sidebar">
-            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto/editar') }}">{{ __('Actualizar Datos') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto/editar') }}">{{ __('Configuración') }}</a></li>
             <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto/personalizar') }}">{{ __('Personalizar') }}</a></li>
             
         </ul>
