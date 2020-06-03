@@ -28,7 +28,7 @@
         <form action="{{ url('producto/store/') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="row">
-            <div class="col-4">
+            <div class="col-lg-4 col-12">
                 <div class="card">
                     <div class="card-header">
                         <div class="row align-items-center">
@@ -103,7 +103,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-8">
+            <div class="col-lg-8 col-12">
                 <div class="card">
                     <div class="card-header">
                         <div class="row align-items-center">
