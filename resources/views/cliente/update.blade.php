@@ -61,6 +61,10 @@
                                 <input type="text" class="form-control" name="sur_name" value="{{ old('sur_name', auth()->user()->sur_name) }}">
                             </div>
                             <div class="form-group">
+                                <label class="form-label" for="email">Correo de Usuario</label>
+                                <input type="hidden" class="form-control" name="email" value="{{ old('email', auth()->user()->email) }}">
+                            </div>
+                            <div class="form-group">
                                 <label class="form-label" for="dni">Tipo de Documento</label>
                                 <div class="mb-3">
                                 <select class="form-control" id="identidad_id" name="identidad_id" required>

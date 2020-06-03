@@ -233,7 +233,7 @@ class PuestoController extends Controller
             }
         }
         $notification = 'Se ha actualizado los datos de su puesto Correctamente';
-        return redirect('/puesto')->with(compact('notification'));
+        return redirect('/home')->with(compact('notification'));
     }
 
     public function compartir(Puesto $puesto) {

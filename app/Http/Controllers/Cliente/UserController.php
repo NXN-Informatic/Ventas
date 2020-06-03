@@ -45,7 +45,7 @@ class UserController extends Controller
         $usuario->save();
 
         $notification = 'Se ha actualizado Sus datos Correctamente';
-        return redirect('/user')->with(compact('notification'));
+        return redirect('/home')->with(compact('notification'));
     }
 
     public function position($latitud, $longitud){
