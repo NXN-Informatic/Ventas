@@ -16,7 +16,7 @@ class CreatePuestosTable extends Migration
         Schema::create('puestos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 120)->unique();
-            $table->string('description', 256)->nullable();
+            $table->string('description', 256)->nullable()->default('La tienda líder en venta de artículos (rellene) en Tacna. La mejor calidad, al mejor precio que se encuentra en el mercado.');
             $table->string('phone2', 15)->nullable();
             $table->integer('calification')->unsigned()->default(1);
             $table->string('phone', 15)->nullable();
