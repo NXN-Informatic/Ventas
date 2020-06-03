@@ -151,7 +151,7 @@
                                             </div>
                                         </div>            
                                         @else
-                                        <div class="alert alert-primary alert-outline-coloured alert-dismissible" role="alert">
+                                        <div class="alert alert-warning alert-outline-coloured alert-dismissible" role="alert">
                                             <div class="alert-icon">
                                                 
                                                 <i class="far fa-fw fa-hourglass"></i>
