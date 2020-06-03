@@ -13,16 +13,18 @@
     <div class="container-fluid">
 
         <div class="header">
-            <h1 class="header-title">
-                {{ __('Panel de Usuario') }}
+            <h1 style="font-size: 50px" class="header-title">
+                {{ __('Catálogo') }}
             </h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="dashboard-default.html">{{ __('Feria_Tacna') }}</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ __('Productos') }}</li>
+                    <li class="breadcrumb-item"><a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="black">Tablero</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Añadir Producto</li>
                 </ol>
+                <a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="black"><button class="btn btn-info" ><span style="margin-left:20px; margin-right:20px">      Ver mi Tienda      </span></button></a>
+                
             </nav>
-        </div>
+		</div>
         <form action="{{ url('producto/store/') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="row">
@@ -31,7 +33,7 @@
                     <div class="card-header">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h5 class="card-title mb-0">{{ __('Registrar Producto') }}</h5>
+                                <h5 class="card-title mb-0">{{ __('Nuevo Producto') }}</h5>
                             </div>
                         </div>
                     </div>
@@ -43,22 +45,9 @@
                             </div>
                         </div>
                         @endif
-                        @if (session('notification'))
-                        <div class="alert alert-primary alert-dismissible" role="alert">
-                            <div class="alert-icon">
-                                <i class="far fa-fw fa-bell"></i>
-                            </div>
-                            <div class="alert-message">
-                                <strong>{{ session('notification') }}</strong>
-                            </div>
-
-							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                            </button>
-						</div>
-                        @endif
+                        
                             <div class="form-group">
-                                <label class="form-label" for="name">Nombre</label>
+                                <label class="form-label" for="name">Nombre de producto</label>
                                 <input type="text" class="form-control form-control-lg" name="name" value="{{ old('name') }}" required>
                                 <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
                             </div>
@@ -81,7 +70,7 @@
                                 </div>
                             </div>-->
                             <div class="form-group">
-                               <label class="form-label">Añadir al Grupo</label>
+                               <label class="form-label">Añadir a la categoría</label>
                                <div class="mb-3">
 								<select class="form-control form-control-lg select2" id="grupo" name="grupo" data-toggle="select2">
                                     <optgroup label="Grupos Disponibles">
@@ -97,7 +86,20 @@
                             </div>
                             <input type="hidden" name="puesto_id" value={{ $usuarioPuesto->id }}>
                             <br>
-                        
+                            @if (session('notification'))
+                            <div class="alert alert-success alert-dismissible" role="alert">
+                                <div class="alert-icon">
+                                    <i class="far fa-fw fa-heart"></i>
+                                </div>
+                                <div class="alert-message">
+                                    <strong>{{ session('notification') }}</strong>
+                                </div>
+    
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            @endif
                     </div>
                 </div>
             </div>
@@ -106,7 +108,7 @@
                     <div class="card-header">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h5 class="card-title mb-0">{{ __('Carga las fotos del producto') }}</h5>
+                                <h5 class="card-title mb-0">{{ __('Fotos del producto') }}</h5>
                             </div>
                         </div>
                     </div>
@@ -123,7 +125,7 @@
                     <div class="card-header">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h5 class="card-title mb-0">{{ __('Detalles del producto') }}</h5>
+                                <h5 class="card-title mb-0">{{ __('Descripción del producto') }}</h5>
                             </div>
                         </div>
                     </div>
@@ -137,10 +139,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                </div>
+            <div class="col-12 text-center">
+                <button type="submit" class="btn btn-primary btn-lg"><span style="margin-left: 83px; margin-right: 83px">Añadir producto</span></button>
             </div>
         </div>
         </form>

@@ -79,7 +79,7 @@
             <div class="col-7">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title mb-0">Prepárese para su primera venta! Siga éstas recomendaciones:</h5>
+                        <h4>Prepárese para su primera venta! Siga éstas recomendaciones:</h3>
                     </div>
                     <div class="card-body">
                         <div class="col-12 col-md-6 col-lg-4">
@@ -92,17 +92,17 @@
                                                 <i class="far fa-fw fa-heart"></i>
                                             </div>
                                             <div class="alert-message">
-                                                <div class="row"><a href="{{url('producto/lista') }}"><h6><strong>Añada sus productos o servicios</strong></h6> </a><small style="margin-left:10px" class="form-text text-muted">{{ __('Estimación: 5 min') }}</small></div>
-                                                
+                                                <div class="row"><a href="{{url('producto/lista') }}"><h5 style="margin-left:10px"><strong>  Añada sus productos o servicios</strong></h5> </a><small style="margin-left:30px" class="form-text text-muted">{{ __('     Estimación: 5 min') }}</small></div>
+                                                Cree sus primeras categorias y registre sus primeros productos, nombres e imágenes.
                                             </div>
                                         </div>
                                         @else
-                                        <div class="alert alert-primary alert-outline-coloured alert-dismissible" role="alert">
+                                        <div class="alert alert-warning alert-outline-coloured alert-dismissible" role="alert">
                                             <div class="alert-icon">
                                                 <i class="far fa-fw fa-hourglass"></i>
                                             </div>
                                             <div class="alert-message">
-                                                <div class="row"><a href="{{url('producto/lista') }}"><h6 style="margin-left:10px"><strong>  Añada sus productos o servicios</strong></h6> </a><small style="margin-left:30px" class="form-text text-muted">{{ __('     Estimación: 5 min') }}</small></div>
+                                                <div class="row"><a href="{{url('producto/lista') }}"><h5 style="margin-left:10px"><strong>  Añada sus productos o servicios</strong></h5> </a><small style="margin-left:30px" class="form-text text-muted">{{ __('     Estimación: 5 min') }}</small></div>
                                                 Cree sus primeras categorias y registre sus primeros productos, nombres e imágenes.
                                             </div>
                                         </div>
@@ -115,70 +115,86 @@
                                                 <i class="far fa-fw fa-heart"></i>
                                             </div>
                                             <div class="alert-message">
-                                                <strong>Crea tu puesto:</strong> Ve a "Mis Puestos > Crear Puesto" registra tu tienda y escoge el plan a tu medida.
+                                                <div class="row"><a href="{{url('puesto/editar') }}"><h5 style="margin-left:10px"><strong>  Ingrese información de su Tienda</strong></h5> </a><small style="margin-left:20px" class="form-text text-muted">{{ __('     Estimación: 1 min') }}</small></div>
+                                                Complete datos importantes como su ubicación, métodos de envío, formas de pago y más.
                                             </div>
                                         </div>
                                         @else
-                                        <div class="alert alert-primary alert-outline-coloured alert-dismissible" role="alert">
+                                        <div class="alert alert-warning alert-outline-coloured alert-dismissible" role="alert">
                                             <div class="alert-icon">
                                                 <i class="far fa-fw fa-hourglass"></i>
                                             </div>
                                             <div class="alert-message">
-                                                <strong>Crea tu puesto:</strong> Ve a "Mis Puestos > Crear Puesto" registra tu tienda y escoge el plan a tu medida.
+                                                <div class="row"><a href="{{url('puesto/editar') }}"><h5 style="margin-left:10px"><strong>  Ingrese información de su Tienda</strong></h5> </a><small style="margin-left:20px" class="form-text text-muted">{{ __('     Estimación: 1 min') }}</small></div>
+                                                Complete datos importantes como su ubicación, métodos de envío, formas de pago y más.
                                             </div>
                                         </div>
                                         @endif
                                     </li>
                                     <li class="list-group-item">
+                                        @if ($puestocompletado)
                                         <div class="alert alert-success alert-outline-coloured alert-dismissible" role="alert">
                                             <div class="alert-icon">
                                                 <i class="far fa-fw fa-heart"></i>
                                             </div>
                                             <div class="alert-message">
-                                                <strong>Crea tu puesto:</strong> Ve a "Mis Puestos > Crear Puesto" registra tu tienda y escoge el plan a tu medida.
+                                                <div class="row"><a href="{{url('puesto/personalizar') }}"><h5 style="margin-left:10px"><strong>  Diseñe su Tienda</strong></h5> </a><small style="margin-left:20px" class="form-text text-muted">{{ __('     Estimación: 5 min') }}</small></div>
+                                                Personalice su tienda para conseguir más ventas, con sus propios banners, la descripción de su negocio y de usted como emprendedor.
                                             </div>
                                         </div>
+                                        @else
+                                        <div class="alert alert-warning alert-outline-coloured alert-dismissible" role="alert">
+                                            <div class="alert-icon">
+                                                <i class="far fa-fw fa-hourglass"></i>
+                                            </div>
+                                            <div class="alert-message">
+                                                <div class="row"><a href="{{url('puesto/personalizar') }}"><h5 style="margin-left:10px"><strong>  Diseñe su Tienda</strong></h5> </a><small style="margin-left:20px" class="form-text text-muted">{{ __('     Estimación: 5 min') }}</small></div>
+                                                Personalice su tienda para conseguir más ventas, con sus propios banners, la descripción de su negocio y de usted como emprendedor.
+                                            </div>
+                                        </div>
+                                        @endif
                                     </li>
                                     <li class="list-group-item">
                                         @if($usercompletado->completado)
                                         <div class="alert alert-success alert-outline-coloured alert-dismissible" role="alert">
                                             <div class="alert-icon">
-                                                
                                                 <i class="far fa-fw fa-heart"></i>
                                             </div>
                                             <div class="alert-message">
-                                                <strong>Completa tu registro:</strong> Ve a "Mis Datos" y completa la información de tu cuenta. Esto habilitará algunas funcionalidades.
+                                                <div class="row"><a href="{{url('/user') }}"><h5 style="margin-left:10px"><strong>Ingrese sus datos de propietario</strong></h5> </a><small style="margin-left:20px" class="form-text text-muted">{{ __('Estimación: 1 min') }}</small></div>
+                                                Complete su identificación y genere mayor confianza en sus clientes.
                                             </div>
-                                        </div>            
+                                        </div>        
                                         @else
                                         <div class="alert alert-warning alert-outline-coloured alert-dismissible" role="alert">
                                             <div class="alert-icon">
-                                                
                                                 <i class="far fa-fw fa-hourglass"></i>
                                             </div>
                                             <div class="alert-message">
-                                                <strong>Completa tu registro:</strong> Ve a "Mis Datos" y completa la información de tu cuenta. Esto habilitará algunas funcionalidades.
+                                                <div class="row"><a href="{{url('/user') }}"><h5 style="margin-left:10px"><strong>Ingrese sus datos de propietario</strong></h5> </a><small style="margin-left:20px" class="form-text text-muted">{{ __('Estimación: 1 min') }}</small></div>
+                                                Complete su identificación y genere mayor confianza en sus clientes.
                                             </div>
-                                        </div>            
+                                        </div>         
                                         @endif
                                     </li>
                                     <li class="list-group-item">
-                                        <div class="alert alert-info alert-outline-coloured alert-dismissible" role="alert">
+                                        <div class="alert alert-warning alert-outline-coloured alert-dismissible" role="alert">
                                             <div class="alert-icon">
                                                 <i class="far fa-fw fa-hourglass"></i>
                                             </div>
                                             <div class="alert-message">
-                                                <strong>Enlaza con FB:</strong> Ve a "Mis Puestos > Lista de Puestos" y sincroniza tu puesto con una página de Facebook. 
+                                                <div class="row"><a href="{{url('puesto/fbcatalogo') }}"><h5 style="margin-left:10px"><strong>Conecte su tienda a su página de facebook.</strong></h5> </a><small style="margin-left:20px" class="form-text text-muted">{{ __('Estimación: 5 min') }}</small></div>
+                                                (Opcional) Sincronice su catálogo con su página de facebook automáticamente y expanda su negocio a más canales de venta.
                                             </div>
                                         </div>
                                     </li>
                                     <li class="list-group-item">
-                                        <div class="alert alert-info alert-outline-coloured alert-dismissible" role="alert">
+                                        <div class="alert alert-warning alert-outline-coloured alert-dismissible" role="alert">
                                             <div class="alert-icon">
                                                 <i class="far fa-fw fa-hourglass"></i>
                                             </div>
                                             <div class="alert-message">
-                                                <strong>Enlaza con FB:</strong> Ve a "Mis Puestos > Lista de Puestos" y sincroniza tu puesto con una página de Facebook. 
+                                                <div class="row"><a href="#"><h5 style="margin-left:10px"><strong>¡Listo! Empiece a vender. Comparta su tienda con sus clientes.</strong></h5> </a></div>
                                             </div>
                                         </div>
                                     </li>

@@ -85,7 +85,7 @@ class ProductoController extends Controller
         
         
         
-        $notification = 'El producto se creo correctamente';
+        $notification = '¡Subida Exitosa! Añada más productos';
         return redirect('/producto/add')->with(compact('notification'));
     }
 

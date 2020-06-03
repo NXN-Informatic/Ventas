@@ -13,18 +13,29 @@
 <main class="content">
     <div class="container-fluid">
         <div class="header">
-            <h1 class="header-title">
-                {{ __('Panel de Usuario') }}
+            <h1 style="font-size: 50px" class="header-title">
+                {{ __('Catálogo') }}
             </h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">{{ __('Feria_Tacna') }}</a></li>
-                <li class="breadcrumb-item active" aria-current="page">{{ __('Mis Productos') }}</li>
+                    <li class="breadcrumb-item"><a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="black">Tablero</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Catálogo</li>
                 </ol>
+                <a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="black"><button class="btn btn-info" ><span style="margin-left:20px; margin-right:20px">      Ver mi Tienda      </span></button></a>
+                
             </nav>
-        </div>
+		</div>
         <div class="row">
-            <div class="col-xl-12 col-xxl-10 d-flex">
+            <div class="col-sm-12">
+                    <a href="{{ url('producto/creargrupo') }}" class="btn btn-primary btn-lg mt-2">
+                        <i class="fa fa-star"></i>  <span style="margin-left:20px; margin-right:20px">{{ __('    Crear Categorías    ') }}</span>
+                    </a>
+                    <a href="{{ url('producto/add')  }}" class="btn btn-secondary btn-lg mt-2 ">
+                        <i class="fa fa-plus"></i> <span style="margin-left:20px; margin-right:20px">{{ __('    Añadir Productos    ') }}</span> 
+                    </a>
+            </div>
+            <hr>
+            <div style="margin-top: 20px" class="col-xl-12 col-xxl-10 d-flex">
                 <div class="w-100">
                 <div class="row">
                 <div class="col-sm-12">
