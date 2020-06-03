@@ -79,7 +79,7 @@
             <div class="col-7">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Prepárese para su primera venta! Siga éstas recomendaciones:</h3>
+                        <h4>Prepárese para su primera venta! Siga éstas recomendaciones:</h4>
                     </div>
                     <div class="card-body">
                         <div class="col-12 col-md-6 col-lg-4">

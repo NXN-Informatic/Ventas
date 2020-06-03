@@ -7,16 +7,18 @@
 <main class="content">
     <div class="container-fluid">
         <div class="header">
-            <h1 class="header-title">
-                {{ __('Panel de Usuario') }}
+            <h1 style="font-size: 50px" class="header-title">
+                {{ __('Mi Tienda') }}
             </h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">{{ __('Feria_Tacna') }}</a></li>
-                <li class="breadcrumb-item active" aria-current="page">{{ __('Mis puestos') }}</li>
+                    <li class="breadcrumb-item"><a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="_blank">Tablero</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Configuración</li>
                 </ol>
+                <a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="black"><button class="btn btn-info" ><span style="margin-left:20px; margin-right:20px">      Ver mi Tienda      </span></button></a>
+                
             </nav>
-        </div>
+		</div>
         <form action="{{ url('puesto/update/'.$puesto->id) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -25,7 +27,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title mb-0">{{ __('Información General') }}</h5>
+                        <h4>{{ __('Información de la Tienda') }}</h4>
                     </div>
                     <div class="card-body">
                         @if($errors->any())
@@ -50,13 +52,14 @@
 						</div>
                         @endif
                         <div class="form-group">
-                            <label class="form-label" for="name">Nombre del Puesto</label>
-                            <input type="text" class="form-control form-control-lg" name="name" value="{{ old('name', $puesto->name) }}" required>
+                        <strong><label class="form-label" for="name">Nombre de su Tienda</label></strong>
+                            <small class="form-text text-muted">{{ __('Indique el nombre de la Tienda como quiera que aparezca para sus clientes. Puede cambiar el nombre de su tienda en cualquier momento.') }}</small>
+                            <input style="margin-top:7px" type="text" class="form-control form-control-lg" name="name" value="{{ old('name', $puesto->name) }}" required>
                             <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
                         </div>
                         @if($puesto->maxsubcategorias != 0)
                         <div class="form-group">
-                            <label class="form-label">A qué sector pertenece?</label>
+                        <strong><label class="form-label">Sector del negocio</label></strong>
                             <div class="mb-3">
                             <select class="form-control select2 form-control-lg" id="categoria" name="categoria_id" data-toggle="select2">
                                 <optgroup label="Categorias Disponibles">
@@ -69,8 +72,9 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Qué Venderas? (Multiple)</label>
-                            <div class="mb-3">
+                            <strong><label class="form-label">¿Qué Venderas?</label></strong>
+                            <small class="form-text text-muted">{{ __('**Multiple') }}</small>
+                            <div class="mb-3" style="margin-top:7px">
                             <select class="form-control select2 form-control-lg" id="subcategoria" name="subcategoria_id[]" data-toggle="select2" multiple>
                             <optgroup label="Subcategorias Disponibles">
                                 <option value=""></option>
@@ -84,21 +88,26 @@
                         @endif
                         <hr>
                         <div class="form-group">
-                            <label class="form-label" for="description">Describe tu puesto. </label>
-                            <textarea name="description" data-provide="markdown" rows="8">{{ old('description', $puesto->description) }}</textarea>
+                        <strong><label class="form-label" for="description">Resumen de tu Puesto</label></strong>
+                            <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Describe brevemente qué encontrarán tus clientes dentro de tu Tienda. (Máx 2 líneas o 40 palabras)') }}</small>
+                            <textarea name="description" data-provide="markdown" rows="3">{{ old('description', $puesto->description) }}</textarea>
                         </div>
-                        
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h4>{{ __('Ubicación de la Tienda') }}</h4>
+                    </div>
+                    <div class="card-body">
                         <div class="form-group">
-                            <label class="form-label" for="direccion">Dirección de tu puesto. </label>
+                        <strong><label class="form-label" for="direccion">Dirección de tu puesto. </label></strong>
                             <input type="text" class="form-control form-control-lg" name="direccion" value="{{ old('direccion', $puesto->direccion) }}" required>
-                 
                         </div>
-                        
-                        <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
                         <br><br>
                         <div id="map" style="height: 500px;"></div>
                 
                         <input type="hidden" id="coords" />
+                        <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
                     </div>
                 </div>
             </div>
