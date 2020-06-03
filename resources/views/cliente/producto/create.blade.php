@@ -115,6 +115,7 @@
                             <input type="file" id="attachment" name="attachment[]" multiple>
                             <hr>
                             <div class="row" id="preview_img">
+                                
                             </div>
                     </div>
                 </div>

@@ -8,9 +8,9 @@
             <div class="d-table-cell align-middle">
 
             <div class="text-center mt-4">
-                <h1 class="h2">{{ __('REGISTRE SU USUARIO') }}</h1>
+                <h1 class="h2">{{ __('Comience con una cuenta gratuita!') }}</h1>
                 <p class="lead">
-                {{ __('Su tienda en linea ya está casi lista') }}
+                {{ __('Cree su Tienda en línea') }}
                 </p>
             </div>
 
@@ -27,7 +27,7 @@
                         <form role="form" method="POST" action="{{ route('register') }}">
                         @csrf
                             <div class="form-group">
-                                <label>{{ __('Correo Electrónico') }}</label>
+                                <label>{{ __('Email') }}</label>
                                 <input class="form-control form-control-lg" type="email" name="email" value="{{ old('email') }}" required />
                                 <small class="form-text text-muted">{{ __('Con este correo podrá iniciar sesión.') }}</small>
                             </div>
@@ -37,23 +37,22 @@
                                 <small class="form-text text-muted">{{ __('Su contraseña es personal.') }}</small>
                             </div>
                             <div class="text-center mt-3">
-                                <button type="submit" class="btn btn-lg btn-primary">{{ __('Registrarse') }}</button>
+                                <button type="submit" class="btn btn-lg btn-primary">{{ __('Siguiente: configura tu Tienda') }}</button>
                             </div>
                         </form>
-                        <hr>
+                        <br>
                         <label>
-                            <a href="{{ route('login') }}">
-                            <h4 style="text-align:right">
-                                {{ __('Ya tienes una cuenta ? ') }}
+                            <a href="{{ route('login') }}"><u>
+                            <h4 style="text-align:right" class="link">
+                                {{ __('Ya tienes una cuenta? Inicie Sesión') }}
                             </h4>
-                            </a>
+                            </u></a>
                         </label>
                     
                         <hr>
                         <label>
-                            {{ __('O Registrese con su Redes sociales') }}
+                            {{ __('O registrese con sus redes sociales') }}
                         </label>
-                        <hr>
                         <div class="text-center mt-3">    
                             <!-- <a href="" class="btn btn-facebook btn-lg mt-2">
                                 {{ __("Facebook") }} <i class="align-middle mr-2 fab fa-fw fa-facebook"></i>

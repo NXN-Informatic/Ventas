@@ -53,8 +53,8 @@
                             <div class="col-12 col-lg-12">
                                 <div id="smartwizard-arrows-primary" class="wizard wizard-primary mb-4 sw-main sw-theme-arrows">
                                     <ul class="nav nav-tabs step-anchor">
-                                        <li class="nav-item done"><a href="#arrows-primary-step-1" class="nav-link">Mis datos Personales<br></a></li>
-                                        <li class="nav-item done"><a href="#arrows-primary-step-2" class="nav-link">Editar más Datos<br></a></li>
+                                        <li class="nav-item done"><a href="#arrows-primary-step-1" class="nav-link">Datos Personales<br></a></li>
+                                        <li class="nav-item done"><a href="#arrows-primary-step-2" class="nav-link">Datos de Validación<br></a></li>
                                     </ul>
 
                                     <div class="sw-container tab-content" style="min-height: 62.4px;">
@@ -89,17 +89,7 @@
                                         </div>
                                         <div id="arrows-primary-step-2" class="tab-pane step-content" style="display: none;">
                                         <div class="form-group">
-                                            <label class="form-label" for="email">Email de Usuario</label>
-                                            <input type="email" class="form-control" name="email" value="{{ old('email', auth()->user()->email) }}" required>
-                                            <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="form-label" for="password">Actualizar Contraseña de Usuario</label>
-                                            <input type="text" class="form-control" name="password" value="{{ old('address') }}">
-                                            <small class="form-text text-muted">{{ __('Si no quiere actualizarla no escriba nada.') }}</small>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="form-label" for="distrito_id">Seleecione su distrito</label>
+                                            <label class="form-label" for="distrito_id">Seleccione su distrito</label>
                                             <div class="mb-3">
                                             <select class="form-control select2" id="distrito_id" name="distrito_id" data-toggle="select2">
                                                 <optgroup label="Filtre por Nombre de País , Ciudad , Provincia , Distrito">
@@ -125,7 +115,6 @@
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Guardar</button>
-                                    <a id="find_btn" class="btn btn-dark" style="color:#fff">Guardar mi ubicación</a>
                                     <hr>
                                 </div>
                             </div>
@@ -279,7 +268,7 @@
                 });
         })
 
-        $("#find_btn").click(function () { //user clicks button
+        /*$("#find_btn").click(function () { //user clicks button
             if ("geolocation" in navigator){ //check geolocation available 
                 //try to get user current location using getCurrentPosition() method
                 navigator.geolocation.getCurrentPosition(function(position){ 
@@ -290,7 +279,7 @@
             }else{
                 console.log("Browser doesn't support geolocation!");
             }
-        });
+        });*/
     });
 
 </script>

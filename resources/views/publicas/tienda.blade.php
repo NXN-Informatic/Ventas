@@ -12,7 +12,7 @@
             <div class="d-table-cell align-middle">
 
             <div class="text-center mt-4">
-                <h1 class="h2">{{ __('REGISTRE SU TIENDA') }}</h1>
+                <h1 class="h2">{{ __('Complete el registro') }}</h1>
                 <p class="lead">
                 {{ __('Su tienda en linea ya está casi lista') }}
                 </p>
@@ -31,7 +31,14 @@
                         <form role="form" method="POST" action="{{ url('tienda/create') }}">
                         @csrf
                             <div class="form-group">
-                               <label class="form-label">Seleccione su Rubro</label>
+                            <strong><label>{{ __('¿Cuál es el nombre de su Tienda?') }}</label></strong>
+                                <small class="form-text text-muted">{{ __('Introduzca el nombre de la Tienda como quiera que aparezca para sus clientes. Puede cambiar el nombre de su tienda en cualquier momento.') }}</small>
+                                
+                                <input style="margin-top:7px" class="form-control form-control-lg" type="text" name="name" value="{{ old('name') }}" required />
+                                
+                            </div>
+                            <div class="form-group">
+                               <strong><label class="form-label">¿A qué sector pertenece?</label></strong>
                                <div class="mb-3">
 								<select class="form-control select2" id="categoria" name="categoria_id" data-toggle="select2">
                                     <optgroup label="Categorias Disponibles">
@@ -44,8 +51,9 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Seleccione las subcategorias</label>
-                                <div class="mb-3">
+                            <strong><label class="form-label">¿Qué va a vender?</label></strong>
+                                <small class="form-text text-muted">{{ __('Seleccione todas las opciones que requiera su Tienda') }}</small>
+                                <div style="margin-top:7px" class="mb-3">
 								<select class="form-control select2" id="subcategoria" name="subcategoria_id[]" data-toggle="select2" multiple>
                                 <optgroup label="Subcategorias Disponibles">
                                     @foreach($subcategorias as $subcategoria)
@@ -55,18 +63,15 @@
                                 </select>
                                 </div>
                             </div>
+                            
                             <div class="form-group">
-                                <label>{{ __('Nombre del Puesto') }}</label>
-                                <input class="form-control form-control-lg" type="text" name="name" value="{{ old('name') }}" required />
-                                <small class="form-text text-muted">{{ __('Ingrese su nombre de su puesto.') }}</small>
-                            </div>
-                            <div class="form-group">
-                                <label>{{ __('Contácto de su Puesto') }}</label>
-                                <input class="form-control form-control-lg" type="text" name="phone" value="{{ old('phone') }}"/>
-                                <small class="form-text text-muted">{{ __('Ingrese su número de celular.') }}</small>
+                            <strong><label>{{ __('¿A qué número llamarán sus clientes?') }}</label></strong>
+                                <small class="form-text text-muted">{{ __('Este es su número principal y se mostrará a sus potenciales clientes.') }}</small>
+                                <input style="margin-top:7px" class="form-control form-control-lg" type="text" name="phone" value="{{ old('phone') }}"/>
+                                
                             </div>
                             <div class="text-center mt-3">
-                                <button type="submit" class="btn btn-lg btn-primary">{{ __('Registrar Tienda') }}</button>
+                                <button type="submit" class="btn btn-lg btn-primary">{{ __('     Finalizar y seguir al Tablero     ') }}</button>
                             </div>
                         </form>
                     </div>

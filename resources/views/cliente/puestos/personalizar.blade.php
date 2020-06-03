@@ -28,11 +28,15 @@
                     </div>
                     <div class="card-body">
                         @if ($puesto->perfil)
-                            <img src="{{ asset('storage/'.$puesto->id.'/logo/'.$puesto->perfil) }}" class="img-thumbnail rounded mr-2 mb-2" alt="Angelica Ramos">
-                            <input type="file" class="form-control-file" name="logo">
+                            <div class="row" id="preview_logo">
+                                <img src="{{ asset('storage/'.$puesto->id.'/logo/'.$puesto->perfil) }}" class="img-thumbnail rounded mr-2 mb-2" alt="Angelica Ramos">
+                            </div>
+                            <input type="file" class="form-control-file" name="logo" id="logo">
                         @else
-                            <img src="{{ asset('img/imagen.png') }}" class="img-thumbnail rounded mr-2 mb-2" alt="Sin imagen">
-                            <input type="file" class="form-control-file" name="logo">
+                            <div class="row" id="preview_logo">
+                                <img src="{{ asset('img/imagen.png') }}" class="img-thumbnail rounded mr-2 mb-2" alt="Sin imagen">
+                            </div>
+                            <input type="file" class="form-control-file" name="logo" id="logo">
                         @endif
                     </div>
                 </div>
@@ -44,11 +48,15 @@
                     </div>
                     <div class="card-body">
                         @if ($puesto->banner)
-                            <img src="{{ asset('storage/'.$puesto->id.'/banner/'.$puesto->banner) }}" class="img-thumbnail rounded mr-2 mb-2" alt="Angelica Ramos">
-                            <input type="file" class="form-control-file" name="banner">
+                            <div class="row" id="preview_banner">
+                                <img src="{{ asset('storage/'.$puesto->id.'/banner/'.$puesto->banner) }}" class="img-thumbnail rounded mr-2 mb-2" alt="Angelica Ramos">
+                            </div>
+                            <input type="file" class="form-control-file" name="banner" id="banner">
                         @else
-                            <img src="{{ asset('img/imagen.png') }}" class="img-thumbnail rounded mr-2 mb-2" alt="Sin imagen">
-                            <input type="file" class="form-control-file" name="banner">
+                            <div class="row" id="preview_banner">
+                                <img src="{{ asset('img/imagen.png') }}" class="img-thumbnail rounded mr-2 mb-2" alt="Sin imagen">
+                            </div>
+                            <input type="file" class="form-control-file" name="banner" id="banner">
                         @endif
                     </div>
                 </div>
@@ -152,4 +160,54 @@
         });
 
 </script>
+<script>
+ 
+    $(document).ready(function(){
+        $('#logo').on('change', function(){ //on file input change
+        if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
+        {
+            $('#preview_logo').empty();
+            var data = $(this)[0].files; //this file data
+            $.each(data, function(index, file){ //loop though each file
+                if(/(\.|\/)(gif|jpe?g|png)$/i.test(file.type)){ //check supported file type
+                    var fRead = new FileReader(); //new filereader
+                    fRead.onload = (function(file){ //trigger function on successful read
+                    return function(e) {
+                        var img = $('<img/>').addClass('img-thumbnail rounded mr-2 mb-2').attr('src', e.target.result).attr('height', '50%'); //create image element 
+                        $('#preview_logo').append(img); //append image to output element
+                    };
+                    })(file);
+                    fRead.readAsDataURL(file); //URL representing the file's data.
+                }
+            });
+             
+        }else{
+            alert("Your browser doesn't support File API!"); //if File API is absent
+        }
+     });
+     $('#banner').on('change', function(){ //on file input change
+        if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
+        {
+            $('#preview_banner').empty();
+            var data = $(this)[0].files; //this file data
+            $.each(data, function(index, file){ //loop though each file
+                if(/(\.|\/)(gif|jpe?g|png)$/i.test(file.type)){ //check supported file type
+                    var fRead = new FileReader(); //new filereader
+                    fRead.onload = (function(file){ //trigger function on successful read
+                    return function(e) {
+                        var img = $('<img/>').addClass('img-thumbnail rounded mr-2 mb-2').attr('src', e.target.result).attr('height', '100%').attr('width', '100%'); //create image element 
+                        $('#preview_banner').append(img); //append image to output element
+                    };
+                    })(file);
+                    fRead.readAsDataURL(file); //URL representing the file's data.
+                }
+            });
+             
+        }else{
+            alert("Your browser doesn't support File API!"); //if File API is absent
+        }
+     });
+    });
+     
+    </script>
 @endsection

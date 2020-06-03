@@ -9,54 +9,74 @@
     <div class="container-fluid">
 
         <div class="header">
-            <h1 class="header-title">
-                {{ __('Panel de Administración') }}
+            <h1 style="font-size: 50px" class="header-title">
+                {{ __('¡Saludos!') }}
             </h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="dashboard-default.html">Feria_Tacna</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                    <li class="breadcrumb-item"><a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="black">Tablero</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Inicio</li>
                 </ol>
+                <a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="black"><button class="btn btn-info" ><span style="margin-left:20px; margin-right:20px">      Ver mi Tienda      </span></button></a>
+                
             </nav>
 		</div>
 
         <div class="row" >
             <!-- Formulario de Usuario -->
-            <div class="col-xxl-6">
+            <div class="col-5">
                 @foreach($usuarios_puestos as $usuarios_puesto)
                     <div class="card">
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col mt-0">
-                                    <h5 class="card-title">Puesto Nº {{ $usuarios_puesto->puesto_id }}</h5>
-                                </div>
+                            <div class="col-12 text-center mt-2">
+                                <h5>Comparta su Tienda con sus clientes</h5>
                             </div>
-                            <div class="col-12">
-                                <h1 class="display-5 mt-2 mb-4">{{ $usuarios_puesto->puesto->name }}</h1>
-                                <label style="font-size:20px; color:#F0C908">
-                                @for ($i = 0; $i < $usuarios_puesto->puesto->calification; $i++)   
-                                    <i class="fas fa-star"></i>
-                                @endfor
-                                @for ($i = 0; $i < (5 - $usuarios_puesto->puesto->calification); $i++)
-                                    <i class="far fa-star text-dark"></i> 
-                                @endfor
-                                </label>
-                            </div>
-                            <div class="col-12">
-                                <div class="col-sm-10 ml-sm-auto text-right mt-2">
+                            <div class="col-12" style="margin-top: 15px">
+                                <div class="col-12 text-center mt-2">
                                     <a target="_blank" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com/puesto/{{ $usuarios_puesto->puesto->id }}/detail">
-                                        <button class="btn mb-1 btn-facebook btn-lg"><i class="align-left fab fa-facebook" title="Compartir"></i>{{ __(' Compartir mi tienda ') }}</button>
+                                        <button class="btn mb-1 btn-facebook btn-lg"><i class="align-left fab fa-facebook" title="Compartir"></i><span style="margin-left:20px; margin-right:20px">{{ __('    Compartir    ') }}</span></button>
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    @endforeach
+                @endforeach
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="col-12 text-center mt-2">
+                                <h5>Únete a nuestra Comunidad y mejora tus ventas</h5>
+                            </div>
+                            <div class="col-12" style="margin-top: 15px">
+                                <div class="col-12 text-center mt-2">
+                                    <a target="_blank" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com/puesto/{{ $usuarios_puesto->puesto->id }}/detail">
+                                        <button class="btn mb-1 btn-facebook btn-lg"><i class="align-left fab fa-facebook" title="Compartir"></i><span style="margin-left:20px; margin-right:20px">{{ __('    Unirse    ') }}</span></button>
+                                    </a>
+                                    <small class="form-text text-muted">{{ __('Unase a nuestro grupo cerrado en Facebook ""') }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="col-12 text-center mt-2">
+                                <h5>¿Quieres hacernos una consulta?</h5>
+                            </div>
+                            <div class="col-12" style="margin-top: 15px">
+                                <div class="col-12 text-center mt-2">
+                                    <a target="_blank" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com/puesto/{{ $usuarios_puesto->puesto->id }}/detail">
+                                        <button class="btn mb-1 btn-success btn-lg"><i class="align-left fab fa-whatsapp" title="Compartir"></i><span style="margin-left:20px; margin-right:20px">{{ __('    948588436    ') }}</span></button>
+                                    </a>
+                                    <small class="form-text text-muted">{{ __('Estamos dispuestos a ayudarte') }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
             </div>
             <!-- End Formulario de Usuario -->
             
             <!-- Vista de Usuario -->
-            <div class="col-xxl-6">
+            <div class="col-7">
                 <div class="card">
                     <div class="card-header">
                         <h5 class="card-title mb-0">Prepárese para su primera venta! Siga éstas recomendaciones:</h5>
