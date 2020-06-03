@@ -112,6 +112,7 @@ class PuestoController extends Controller
             $puesto = Puesto::create([
                 'name' => $request->input('name'),
                 'description' => $request->input('description'),
+                'direccion' => $request->input('direccion'),
                 'phone' => $request->input('phone'),
                 'phone2' => $request->input('phone2'),
                 'maxsubcategorias' => 2,
@@ -173,6 +174,7 @@ class PuestoController extends Controller
         $puesto->description = $request->input('description');
         $puesto->phone2 = $request->input('phone2');
         $puesto->phone = $request->input('phone');
+        $puesto->direccion = $request->input('direccion');
         $puesto->elegirnos = $request->input('elegirnos');
         $puesto->nosotros = $request->input('nosotros');
         //$puesto->precio_min = $request->input('precio_min');

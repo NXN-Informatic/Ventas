@@ -25,7 +25,8 @@ class Puesto extends Model
         'maxsubcategorias',
         'plan_id',
         'elegirnos',
-        'nosotros'
+        'nosotros',
+        'direccion'
     ];
 
     public function puestosubcategorias() {

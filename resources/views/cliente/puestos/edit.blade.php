@@ -88,6 +88,12 @@
                             <textarea name="description" data-provide="markdown" rows="8">{{ old('description', $puesto->description) }}</textarea>
                         </div>
                         
+                        <div class="form-group">
+                            <label class="form-label" for="direccion">Dirección de tu puesto. </label>
+                            <input type="text" class="form-control form-control-lg" name="direccion" value="{{ old('direccion', $puesto->direccion) }}" required>
+                 
+                        </div>
+                        
                         <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
                         <br><br>
                         <div id="map" style="height: 500px;"></div>
