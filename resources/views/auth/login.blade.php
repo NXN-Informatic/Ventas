@@ -8,10 +8,8 @@
             <div class="d-table-cell align-middle">
 
             <div class="text-center mt-4">
-                <h1 class="h2">{{ __('INICIE SESIÓN') }}</h1>
-                <p class="lead">
-                {{ __('Ingrese a su panel de administración') }}
-                </p>
+                <h1 class="h2">{{ __('Acceda a su cuenta de FeriaTacna') }}</h1>
+                <br>
             </div>
 
             <div class="card">
@@ -24,14 +22,10 @@
                         </div>
                     </div>
                     @endif
-                        
-                        <div class="text-center">
-                            <img src="{{ asset('img/user.png') }}" alt="Linda Miller" class="img-fluid rounded-circle" width="132" height="132" />
-                        </div>
                         <form role="form" method="POST" action="{{ route('login') }}">
                         @csrf
                             <div class="form-group">
-                                <label>{{ __('Correo Electrónico') }}</label>
+                                <label>{{ __('Email') }}</label>
                                 <input class="form-control form-control-lg" type="email" name="email" 
                                 value="{{ old('email') }}" required />
                                 <small class="form-text text-muted">{{ __('Con este correo podrá iniciar sesión.') }}</small>
@@ -42,34 +36,40 @@
                                 <small class="form-text text-muted">{{ __('Su contraseña es personal.') }}</small>
                             </div>
                             <div class="text-center mt-3">
-                                <button type="submit" class="btn btn-lg btn-primary">{{ __('INICIAR') }}</button>
+                                <button type="submit" class="btn btn-lg btn-primary">{{ __('     Ingresa     ') }}</button>
                             </div>
                         </form>
-                        <hr>
+                        <br>
                         <label>
                             <a href="{{ route('register') }}">
-                            <h4 style="text-align:right">
-                                {{ __('Aún no te tienes cuentas ? ') }}
-                            </h4>
+                            <u><h5 style="text-align:right">
+                                {{ __('Crea una nueva cuenta en FeriaTacna?') }}
+                            </h5>
+                            </u>
                             </a>
-                        </label>
-                    
-                        <hr>
-                        
+                        </label>  
+                        <br>
+                        <hr>  
                         <label>
-                            {{ __('O Inicia Sesión con Redes sociales') }}
+                            {{ __('O iniciar sesión con: ') }}
                         </label>
-                        <hr>
+                        <br>
                         <div class="text-center mt-3">    
                             <!-- <a href="{{ route('social_auth' , ['driver' => 'facebook']) }}" class="btn btn-facebook btn-lg mt-2">
                                 {{ __("Facebook") }} <i class="align-middle mr-2 fab fa-fw fa-facebook"></i>
                             </a> -->
-                            <a href="{{ route('social_auth' , ['driver' => 'google']) }}" class="btn btn-google btn-lg mt-2">
-                                {{ __("Google") }} <i class="fa fa-google"></i>
-                            </a>
-                            <a href="{{ route('social_auth' , ['driver' => 'twitter']) }}" class="btn btn-twitter btn-lg mt-2">
-                                {{ __("Twitter") }} <i class="fa fa-twitter"></i>
-                            </a>
+                            <div class="row">
+                            <div class="col-6">
+                                <a href="{{ route('social_auth' , ['driver' => 'google']) }}" class="btn btn-google btn-lg mt-2 btn-block">
+                                    {{ __("Google") }} <i class="fa fa-google"></i>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="{{ route('social_auth' , ['driver' => 'twitter']) }}" class="btn btn-twitter btn-lg mt-2 btn-block">
+                                    {{ __("Twitter") }} <i class="fa fa-twitter"></i>
+                                </a>
+                            </div>
+                            </div>
                         </div>
                         <hr>
                     </div>
