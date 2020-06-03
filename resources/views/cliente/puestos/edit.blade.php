@@ -24,7 +24,7 @@
             @method('PUT')
         <div class="row">
             <!-- Formulario de Usuario -->
-            <div class="col-md-8">
+            <div class="col-md-7">
                 <div class="card">
                     <div class="card-header">
                         <h4>{{ __('Información de la Tienda') }}</h4>
@@ -86,7 +86,18 @@
                             </div>
                         </div>
                         @endif
-                        <hr>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="form-label" for="phone">Celular</label>
+                                    <input type="text" class="form-control form-control-lg" name="phone" value="{{ old('phone', $puesto->phone) }}">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="phone2">Celular (opcional)</label>
+                                    <input type="text" class="form-control form-control-lg" name="phone2" value="{{ old('phone2', $puesto->phone2) }}">
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-group">
                         <strong><label class="form-label" for="description">Resumen de tu Puesto</label></strong>
                             <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Describe brevemente qué encontrarán tus clientes dentro de tu Tienda. (Máx 2 líneas o 40 palabras)') }}</small>
@@ -94,6 +105,8 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-5">
                 <div class="card">
                     <div class="card-header">
                         <h4>{{ __('Ubicación de la Tienda') }}</h4>
@@ -103,28 +116,9 @@
                         <strong><label class="form-label" for="direccion">Dirección de tu puesto. </label></strong>
                             <input type="text" class="form-control form-control-lg" name="direccion" value="{{ old('direccion', $puesto->direccion) }}" required>
                         </div>
-                        <br><br>
-                        <div id="map" style="height: 500px;"></div>
+                        <div id="map" style="height: 300px;"></div>
                 
                         <input type="hidden" id="coords" />
-                        <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="card-title mb-0">{{ __('Información de contacto') }}</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label class="form-label" for="phone">Celular</label>
-                            <input type="text" class="form-control form-control-lg" name="phone" value="{{ old('phone', $puesto->phone) }}">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="phone2">Celular (opcional)</label>
-                            <input type="text" class="form-control form-control-lg" name="phone2" value="{{ old('phone2', $puesto->phone2) }}">
-                        </div>
                     </div>
                 </div>
                 <div class="card">
@@ -162,6 +156,15 @@
                 </div>
             </div>
             <!-- End Formulario de Usuario -->
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <button type="submit" class="btn btn-primary btn-lg"><span style="margin-left: 83px; margin-right: 83px">Guardar datos</span></button>
+                    </div>
+                </div>
+            </div>
         </div>
         </form>
     </div>
