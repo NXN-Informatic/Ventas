@@ -50,74 +50,37 @@
                         <form action="{{ url('user/update/'.auth()->user()->id) }}" method="post">
                             @csrf
                             @method('PUT')
-                            <div class="col-12 col-lg-12">
-                                <div id="smartwizard-arrows-primary" class="wizard wizard-primary mb-4 sw-main sw-theme-arrows">
-                                    <ul class="nav nav-tabs step-anchor">
-                                        <li class="nav-item done"><a href="#arrows-primary-step-1" class="nav-link">Datos Personales<br></a></li>
-                                        <li class="nav-item done"><a href="#arrows-primary-step-2" class="nav-link">Datos de Validación<br></a></li>
-                                    </ul>
-
-                                    <div class="sw-container tab-content" style="min-height: 62.4px;">
-                                        <div id="arrows-primary-step-1" class="tab-pane step-content" style="display: none;">
-                                        <div class="form-group">
-                                            <label class="form-label" for="name">Nombre de Usuario</label>
-                                            <input type="text" class="form-control" name="name" value="{{ old('name', auth()->user()->name) }}" required>
-                                            <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="form-label" for="sur_name">Apellido de Usuario</label>
-                                            <input type="text" class="form-control" name="sur_name" value="{{ old('sur_name', auth()->user()->sur_name) }}">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="form-label" for="dni">Tipo de Documento</label>
-                                            <div class="mb-3">
-                                            <select class="form-control" id="identidad_id" name="identidad_id" required>
-                                                <optgroup label="Documentos Disponibles">
-                                                @foreach($tipoDocuments as $document)
-                                                    <option value="{{ $document->id }}" 
-                                                        @if(auth()->user()->identidad_id == $document->id ) selected @endif >{{ $document->name }}</option>
-                                                @endforeach
-                                                </optgroup>
-                                            </select>
-                                            </div>
-                                            <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="form-label" for="ndocumento">Número de Documento</label>
-                                            <input type="text" class="form-control" name="ndocumento" value="{{ old('ndocumento', auth()->user()->ndocumento) }}" required>
-                                        </div>
-                                        </div>
-                                        <div id="arrows-primary-step-2" class="tab-pane step-content" style="display: none;">
-                                        <div class="form-group">
-                                            <label class="form-label" for="distrito_id">Seleccione su distrito</label>
-                                            <div class="mb-3">
-                                            <select class="form-control select2" id="distrito_id" name="distrito_id" data-toggle="select2">
-                                                <optgroup label="Filtre por Nombre de País , Ciudad , Provincia , Distrito">
-                                                <option value=""></option>
-                                                @foreach($distritos as $distrito)
-                                                    <option value="{{ $distrito->id }}" 
-                                                        @if(auth()->user()->distrito_id == $distrito->id ) selected @endif >{{ $distrito->nombre }} - {{ $distrito->provincia->region->nombre }} - {{ $distrito->provincia->region->pais->nombre }}</option>
-                                                @endforeach
-                                                </optgroup>
-                                            </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="hidden" class="form-control" id="latitud" name="latitud" value="{{ old('latitud', auth()->user()->latitud) }}" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="hidden" class="form-control" id="longitud" name="longitud" value="{{ old('longitud', auth()->user()->longitud) }}" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="form-label" for="address">Dirección de Usuario</label>
-                                            <input type="text" class="form-control" name="address" value="{{ old('address', auth()->user()->address) }}">
-                                        </div>
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
-                                    <hr>
-                                </div>
+                           
+                            <div class="form-group">
+                                <label class="form-label" for="name">Nombre de Usuario</label>
+                                <input type="text" class="form-control" name="name" value="{{ old('name', auth()->user()->name) }}" required>
+                                <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
                             </div>
+                            <div class="form-group">
+                                <label class="form-label" for="sur_name">Apellido de Usuario</label>
+                                <input type="text" class="form-control" name="sur_name" value="{{ old('sur_name', auth()->user()->sur_name) }}">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="dni">Tipo de Documento</label>
+                                <div class="mb-3">
+                                <select class="form-control" id="identidad_id" name="identidad_id" required>
+                                    <optgroup label="Documentos Disponibles">
+                                    @foreach($tipoDocuments as $document)
+                                        <option value="{{ $document->id }}" 
+                                            @if(auth()->user()->identidad_id == $document->id ) selected @endif >{{ $document->name }}</option>
+                                    @endforeach
+                                    </optgroup>
+                                </select>
+                                </div>
+                                <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="ndocumento">Número de Documento</label>
+                                <input type="text" class="form-control" name="ndocumento" value="{{ old('ndocumento', auth()->user()->ndocumento) }}" required>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                                    
                         </form>
                     </div>
                 </div>

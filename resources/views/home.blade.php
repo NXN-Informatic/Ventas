@@ -24,7 +24,7 @@
 
         <div class="row" >
             <!-- Formulario de Usuario -->
-            <div class="col-5">
+            <div class="col-lg-5 col-12">
                 @foreach($usuarios_puestos as $usuarios_puesto)
                     <div class="card">
                         <div class="card-body">
@@ -76,13 +76,12 @@
             <!-- End Formulario de Usuario -->
             
             <!-- Vista de Usuario -->
-            <div class="col-7">
+            <div class="col-lg-7 col-12">
                 <div class="card">
                     <div class="card-header">
                         <h4>Prepárese para su primera venta! Siga éstas recomendaciones:</h4>
                     </div>
                     <div class="card-body">
-                        <div class="col-12 col-md-6 col-lg-4">
                             <div class="card">
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">
@@ -200,7 +199,6 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div>
                     </div>
                 </div>
             </div>
