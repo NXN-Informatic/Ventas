@@ -224,10 +224,13 @@ class PuestoController extends Controller
         $subcategorias = $request->input('subcategoria_id');
         if($subcategorias != null) {
             for($i=0 ; $i < count($subcategorias); ++$i) {
-                PuestoSubcategoria::create([
-                    "puesto_id"         =>  $puesto->id,
-                    "subcategoria_id"   =>  $subcategorias[$i]
-                ]);
+                $subcategoria = PuestoSubcategoria::where('subcategoria_id', $subcategorias[$i])->where('puesto_id', $puesto->id)->first();
+                if($subcategoria == null){
+                    PuestoSubcategoria::create([
+                        "puesto_id"         =>  $puesto->id,
+                        "subcategoria_id"   =>  $subcategorias[$i]
+                    ]);
+                }
             }
         }
         $formapagos = $request->input('formapago_id');
