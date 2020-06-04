@@ -223,8 +223,6 @@ class PuestoController extends Controller
 
         $subcategorias = $request->input('subcategoria_id');
         if($subcategorias != null) {
-            PuestoSubcategoria::where('puesto_id', $puesto->id)->delete();
-
             for($i=0 ; $i < count($subcategorias); ++$i) {
                 PuestoSubcategoria::create([
                     "puesto_id"         =>  $puesto->id,
