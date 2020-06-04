@@ -69,14 +69,34 @@ class PuestoController extends Controller
         } else $subcategorias = collect();
 
         $formapagos = Pago::all();
+
+        $formapagosuser = PagoPuesto::where('puesto_id', $puesto->id)->get();
+        
         //$pago_id = old('pago_id');
         $formaentregas = Entrega::all();
         //$entrega_id = old('entrega_id');
 
+        $formaentregasuser = EntregaPuesto::where('puesto_id', $puesto->id)->get();
+
         $latitud = auth()->user()->latitud;
         $longitud = auth()->user()->longitud;
+
+        $categs = [];
+        $subcat = [];
+        foreach($puesto->puestosubcategorias as $subcategorias){
+            $sub = $subcategorias->subcategoria->id;
+            $name = $subcategorias->subcategoria->categoria->name;
+            if(!in_array($name, $categs)) {
+                $categs[] = $name;
+            }
+            if(!in_array($sub, $subcat)){
+                $subcat[] = $sub;
+            }
+        }
+
+        $subcategorias = Subcategoria::all();
         
-        return view('cliente.puestos.edit', compact('latitud','longitud','puesto', 'categorias', 'subcategorias', 'formapagos', 'formaentregas'));
+        return view('cliente.puestos.edit', compact('categs','subcat','formapagosuser', 'formaentregasuser','latitud','longitud','puesto', 'categorias', 'subcategorias', 'formapagos', 'formaentregas'));
     }
 
     public function personalizar(){
@@ -203,11 +223,9 @@ class PuestoController extends Controller
 
         $subcategorias = $request->input('subcategoria_id');
         if($subcategorias != null) {
-            $total =  ($puesto->maxsubcategorias >= count($subcategorias))? count($subcategorias) : $puesto->maxsubcategorias;
-            $puesto->maxsubcategorias = $puesto->maxsubcategorias - $total;
-            $puesto->save(); 
-            
-            for($i=0 ; $i < $total; ++$i) {
+            PuestoSubcategoria::where('puesto_id', $puesto->id)->delete();
+
+            for($i=0 ; $i < count($subcategorias); ++$i) {
                 PuestoSubcategoria::create([
                     "puesto_id"         =>  $puesto->id,
                     "subcategoria_id"   =>  $subcategorias[$i]
