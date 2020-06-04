@@ -20,28 +20,39 @@
         <form action="{{ url('puesto/update/'.$puesto->id) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="card-title mb-0">{{ __('Mi Logo') }}</h5>
-                    </div>
-                    <div class="card-body">
-                        @if ($puesto->perfil)
-                            <div class="row" id="preview_logo">
-                                <img src="{{ asset('storage/'.$puesto->id.'/logo/'.$puesto->perfil) }}" class="img-thumbnail rounded mr-2 mb-2" alt="Angelica Ramos">
+            <div class="row">
+                <!-- Formulario de Usuario -->
+    
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="form-label" for="name">¿Por qué elegir tu Puesto?</label>
+                                <textarea name="elegirnos" data-provide="markdown" rows="5">{{ old('elegirnos', $puesto->elegirnos) }}</textarea>
+                                <input type="hidden" class="form-control form-control-lg" name="name" value="{{ old('name', $puesto->name) }}" required>
+                                <input type="hidden" class="form-control form-control-lg" name="description" value="{{old('description', $puesto->description)}}">
                             </div>
-                            <input type="file" class="form-control-file" name="logo" id="logo">
-                        @else
-                            <div class="row" id="preview_logo">
-                                <img src="{{ asset('img/imagen.png') }}" class="img-thumbnail rounded mr-2 mb-2" alt="Sin imagen">
-                            </div>
-                            <input type="file" class="form-control-file" name="logo" id="logo">
-                        @endif
+                        </div>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="form-label" for="name">Cuentanos sobre ti y tu negocio</label>
+                                <textarea name="nosotros" data-provide="markdown" rows="5">{{ old('nosotros', $puesto->nosotros) }}</textarea>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <input type="hidden" class="form-control form-control-lg" name="phone" value="{{ old('phone', $puesto->phone) }}">
+                    <input type="hidden" class="form-control form-control-lg" name="phone2" value="{{ old('phone2', $puesto->phone2) }}">
+                </div>
+                <!-- End Formulario de Usuario -->
             </div>
-            <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
                         <h5 class="card-title mb-0">{{ __('Mi Banner') }}</h5>
@@ -61,59 +72,33 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <!-- Formulario de Usuario -->
-
-            <div class="col-md-12">
+            <div class="col-md-4">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title mb-0">{{ __('Mensajes') }}</h5>
+                        <h5 class="card-title mb-0">{{ __('Mi Logo') }}</h5>
                     </div>
                     <div class="card-body">
-                        @if($errors->any())
-                        <div class="alert alert-danger alert-dismissible" role="alert">
-                            <div class="alert-message">
-                                <strong>{{ $errors->first() }}</strong>
+                        @if ($puesto->perfil)
+                            <div class="row" id="preview_logo">
+                                <img src="{{ asset('storage/'.$puesto->id.'/logo/'.$puesto->perfil) }}" class="img-thumbnail rounded mr-2 mb-2" alt="Angelica Ramos">
                             </div>
-                        </div>
+                            <input type="file" class="form-control-file" name="logo" id="logo">
+                        @else
+                            <div class="row" id="preview_logo">
+                                <img src="{{ asset('img/imagen.png') }}" class="img-thumbnail rounded mr-2 mb-2" alt="Sin imagen">
+                            </div>
+                            <input type="file" class="form-control-file" name="logo" id="logo">
                         @endif
-                        @if (session('notification'))
-                        <div class="alert alert-primary alert-dismissible" role="alert">
-                            <div class="alert-icon">
-                                <i class="far fa-fw fa-bell"></i>
-                            </div>
-                            <div class="alert-message">
-                                <strong>{{ session('notification') }}</strong>
-                            </div>
-
-							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                            </button>
-						</div>
-                        @endif
-                        <div class="form-group">
-                            <label class="form-label" for="name">¿Por qué elegir tu Puesto?</label>
-                            <textarea name="elegirnos" data-provide="markdown" rows="5">{{ old('elegirnos', $puesto->elegirnos) }}</textarea>
-                            <input type="hidden" class="form-control form-control-lg" name="name" value="{{ old('name', $puesto->name) }}" required>
-                            <input type="hidden" class="form-control form-control-lg" name="description" value="{{old('description', $puesto->description)}}">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="name">Cuentanos sobre ti y tu negocio</label>
-                            <textarea name="nosotros" data-provide="markdown" rows="5">{{ old('nosotros', $puesto->nosotros) }}</textarea>
-                        </div>
-                        <hr>
-                        <div class="mt-auto text-center">
-                            <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
-                        </div>    
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <input type="hidden" class="form-control form-control-lg" name="phone" value="{{ old('phone', $puesto->phone) }}">
-                <input type="hidden" class="form-control form-control-lg" name="phone2" value="{{ old('phone2', $puesto->phone2) }}">
+        </div>
+        <div class="row">
+            <div class="col-12">
+                    <div class="card-body text-center">
+                        <button type="submit" class="btn btn-primary btn-lg"><span style="margin-left: 83px; margin-right: 83px">Guardar datos</span></button>
+                    </div>
             </div>
-            <!-- End Formulario de Usuario -->
         </div>
         </form>
     </div>

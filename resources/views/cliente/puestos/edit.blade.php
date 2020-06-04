@@ -102,11 +102,7 @@
                         <div class="form-group">
                         <strong><label class="form-label" for="description">Resumen de tu Tienda</label></strong>
                             <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Describe brevemente qué encontrarán tus clientes dentro de tu Tienda. (Máx 2 líneas o 40 palabras)') }}</small>
-<<<<<<< HEAD
-                            <textarea name="description" data-provide="markdown" rows="6">{{ old('description', $puesto->description) }}</textarea>
-=======
-                            <textarea name="description" maxlength="40" data-provide="markdown" rows="3">{{ old('description', $puesto->description) }}</textarea>
->>>>>>> 2809769945b1a5cc89c56054901106873fd2335f
+                            <textarea name="description" maxlength="200" data-provide="markdown" rows="6">{{ old('description', $puesto->description) }}</textarea>
                         </div>
                     </div>
                 </div>
