@@ -11,16 +11,18 @@
 <main class="content">
     <div class="container-fluid">
         <div class="header">
-            <h1 class="header-title">
-                {{ __('Panel de Usuario') }}
+            <h1 style="font-size: 50px" class="header-title">
+                {{ __('Canales de venta') }}
             </h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">{{ __('Feria_Tacna') }}</a></li>
-                <li class="breadcrumb-item active" aria-current="page">{{ __('Mis puestos') }}</li>
+                    <li class="breadcrumb-item"><a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="_blank">Tablero</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Canales de Venta</li>
                 </ol>
+                <a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="black"><button class="btn btn-info" ><span style="margin-left:20px; margin-right:20px">      Ver mi Tienda      </span></button></a>
+                
             </nav>
-        </div>
+		</div>
         <div class="row">
             <!-- Formulario de Usuario -->
             <div class="col-xxl-12">

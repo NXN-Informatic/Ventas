@@ -10,15 +10,15 @@
 
         <div class="row mt-n3">
             <div class="col-md-11 col-lg- col-xl-12 col-xxl-8 mx-auto">
-                <h1 class="text-center header-title">We have a plan for everyone</h1>
+                <h1 class="text-center header-title">Tenemos un plan especial para tí</h1>
                 <p class="lead text-center mb-4 header-subtitle">Whether you're a business or an individual, 14-day trial no credit card required.
                 </p>
 
                 <div class="row justify-content-center mt-3 mb-2">
                     <div class="col-auto">
                         <nav class="nav btn-group">
-                            <a href="#monthly" class="btn btn-primary active" data-toggle="tab">Monthly billing</a>
-                            <a href="#annual" class="btn btn-light" data-toggle="tab">Annual billing</a>
+                            <a href="#monthly" class="btn btn-primary active" data-toggle="tab">Mensual</a>
+                            <a href="#annual" class="btn btn-light" data-toggle="tab">Anual</a>
                         </nav>
                     </div>
                 </div>
@@ -30,23 +30,23 @@
                                 <div class="card text-center h-100">
                                     <div class="card-body d-flex flex-column">
                                         <div class="mb-4">
-                                            <h5>Free</h5>
-                                            <span class="display-4">$0</span>
+                                            <h5>Gratuito</h5>
+                                            <span class="display-4">S/.0</span>
                                         </div>
-                                        <h6>Includes:</h6>
+                                        <h6>Incluye:</h6>
                                         <ul class="list-unstyled">
                                             <li class="mb-2">
-                                                1 users
+                                                10 productos
                                             </li>
                                             <li class="mb-2">
-                                                5 projects
+                                                1 puesto
                                             </li>
                                             <li class="mb-2">
-                                                5 GB storage
+                                                1 oferta/mes
                                             </li>
                                         </ul>
                                         <div class="mt-auto">
-                                            <a href="#" class="btn btn-lg btn-outline-primary">Sign up</a>
+                                        <button type="button" class="btn btn-lg btn-outline-primary" name="p1" id="p1">Elegir</button>
                                         </div>
                                     </div>
                                 </div>
@@ -55,30 +55,30 @@
                                 <div class="card text-center h-100">
                                     <div class="card-body d-flex flex-column">
                                         <div class="mb-4">
-                                            <h5>Standard</h5>
-                                            <span class="display-4">$19</span>
-                                            <span>/mo</span>
+                                            <h5>Estándar</h5>
+                                            <span class="display-4">S/.29</span>
+                                            <span>/mes</span>
                                         </div>
-                                        <h6>Includes:</h6>
+                                        <h6>Incluye:</h6>
                                         <ul class="list-unstyled">
                                             <li class="mb-2">
-                                                5 users
+                                                50 productos
                                             </li>
                                             <li class="mb-2">
-                                                50 projects
+                                                2 puestos
                                             </li>
                                             <li class="mb-2">
-                                                50 GB storage
+                                                1 oferta/sem
                                             </li>
                                             <li class="mb-2">
-                                                Security policy
+                                                Enlace Tienda FB
                                             </li>
                                             <li class="mb-2">
-                                                Weekly backups
+                                                Pagos virtuales
                                             </li>
                                         </ul>
                                         <div class="mt-auto">
-                                            <a href="#" class="btn btn-lg btn-primary">Try it for free</a>
+                                            <button type="button" class="btn btn-lg btn-outline-primary" name="p2" id="p2">50% 1er Mes</button>
                                         </div>
                                     </div>
                                 </div>
@@ -87,36 +87,39 @@
                                 <div class="card text-center h-100">
                                     <div class="card-body d-flex flex-column">
                                         <div class="mb-4">
-                                            <h5>Plus</h5>
-                                            <span class="display-4">$39</span>
-                                            <span>/mo</span>
+                                            <h5>Premium</h5>
+                                            <span class="display-4">S/.49</span>
+                                            <span>/mes</span>
                                         </div>
-                                        <h6>Includes:</h6>
+                                        <h6>Incluye:</h6>
                                         <ul class="list-unstyled">
                                             <li class="mb-2">
-                                                Unlimited users
+                                                productos ilimitados
                                             </li>
                                             <li class="mb-2">
-                                                Unlimited projects
+                                                5 puestos
                                             </li>
                                             <li class="mb-2">
-                                                250 GB storage
+                                                1 oferta/día
                                             </li>
                                             <li class="mb-2">
-                                                Priority support
+                                                Posicionamiento
                                             </li>
                                             <li class="mb-2">
-                                                Security policy
+                                                Enlace Tienda FB
                                             </li>
                                             <li class="mb-2">
-                                                Daily backups
+                                                Ventas 100% online
                                             </li>
                                             <li class="mb-2">
-                                                Custom CSS
+                                                Asesoria Comercial
+                                            </li>
+                                            <li class="mb-2">
+                                                Google Analytics
                                             </li>
                                         </ul>
                                         <div class="mt-auto">
-                                            <a href="#" class="btn btn-lg btn-outline-primary">Try it for free</a>
+                                            <button type="button" class="btn btn-lg btn-outline-primary" name="p3" id="p3">50% 1er Mes</button>
                                         </div>
                                     </div>
                                 </div>
@@ -125,36 +128,39 @@
                                 <div class="card text-center h-100">
                                     <div class="card-body d-flex flex-column">
                                         <div class="mb-4">
-                                            <h5>Plus</h5>
-                                            <span class="display-4">$39</span>
-                                            <span>/mo</span>
+                                            <h5>Premium</h5>
+                                            <span class="display-4">S/.49</span>
+                                            <span>/mes</span>
                                         </div>
-                                        <h6>Includes:</h6>
+                                        <h6>Incluye:</h6>
                                         <ul class="list-unstyled">
                                             <li class="mb-2">
-                                                Unlimited users
+                                                productos ilimitados
                                             </li>
                                             <li class="mb-2">
-                                                Unlimited projects
+                                                5 puestos
                                             </li>
                                             <li class="mb-2">
-                                                250 GB storage
+                                                1 oferta/día
                                             </li>
                                             <li class="mb-2">
-                                                Priority support
+                                                Posicionamiento
                                             </li>
                                             <li class="mb-2">
-                                                Security policy
+                                                Enlace Tienda FB
                                             </li>
                                             <li class="mb-2">
-                                                Daily backups
+                                                Ventas 100% online
                                             </li>
                                             <li class="mb-2">
-                                                Custom CSS
+                                                Asesoria Comercial
+                                            </li>
+                                            <li class="mb-2">
+                                                Google Analytics
                                             </li>
                                         </ul>
                                         <div class="mt-auto">
-                                            <a href="#" class="btn btn-lg btn-outline-primary">Try it for free</a>
+                                            <button type="button" class="btn btn-lg btn-outline-primary" name="p4" id="p4">60% 1er mes</button>
                                         </div>
                                     </div>
                                 </div>
@@ -167,23 +173,23 @@
                                 <div class="card text-center h-100">
                                     <div class="card-body d-flex flex-column">
                                         <div class="mb-4">
-                                            <h5>Free</h5>
+                                            <h5>Gratuito</h5>
                                             <span class="display-4">$0</span>
                                         </div>
-                                        <h6>Includes:</h6>
+                                        <h6>Incluye:</h6>
                                         <ul class="list-unstyled">
                                             <li class="mb-2">
-                                                1 users
+                                                10 productos
                                             </li>
                                             <li class="mb-2">
-                                                5 projects
+                                                1 puesto
                                             </li>
                                             <li class="mb-2">
-                                                5 GB storage
+                                                1 oferta/mes
                                             </li>
                                         </ul>
                                         <div class="mt-auto">
-                                            <a href="#" class="btn btn-lg btn-outline-primary">Sign up</a>
+                                            <button type="button" class="btn btn-lg btn-outline-primary" name="p5" id="p5">Elegir</button>
                                         </div>
                                     </div>
                                 </div>
@@ -192,30 +198,30 @@
                                 <div class="card text-center h-100">
                                     <div class="card-body d-flex flex-column">
                                         <div class="mb-4">
-                                            <h5>Standard</h5>
-                                            <span class="display-4">$199</span>
-                                            <span class="text-small4">/mo</span>
+                                            <h5>Estándar</h5>
+                                            <span class="display-4">S/.399</span>
+                                            <span class="text-small4">/año</span>
                                         </div>
-                                        <h6>Includes:</h6>
+                                        <h6>Incluye:</h6>
                                         <ul class="list-unstyled">
                                             <li class="mb-2">
-                                                5 users
+                                                50 productos
                                             </li>
                                             <li class="mb-2">
-                                                50 projects
+                                                2 puestos
                                             </li>
                                             <li class="mb-2">
-                                                50 GB storage
+                                                1 oferta/sem
                                             </li>
                                             <li class="mb-2">
-                                                Security policy
+                                                Enlace Tienda FB
                                             </li>
                                             <li class="mb-2">
-                                                Weekly backups
+                                                Pagos virtuales
                                             </li>
                                         </ul>
                                         <div class="mt-auto">
-                                            <a href="#" class="btn btn-lg btn-primary">Try it for free</a>
+                                            <button type="button" class="btn btn-lg btn-outline-primary" name="p6" id="p6">10% dscto</button>
                                         </div>
                                     </div>
                                 </div>
@@ -224,79 +230,84 @@
                                 <div class="card text-center h-100">
                                     <div class="card-body d-flex flex-column">
                                         <div class="mb-4">
-                                            <h5>Plus</h5>
-                                            <span class="display-4">$399</span>
-                                            <span>/mo</span>
+                                            <h5>Premium</h5>
+                                            <span class="display-4">S/.649</span>
+                                            <span>/año</span>
                                         </div>
-                                        <h6>Includes:</h6>
+                                        <h6>Incluye:</h6>
                                         <ul class="list-unstyled">
                                             <li class="mb-2">
-                                                Unlimited users
+                                                productos ilimitados
                                             </li>
                                             <li class="mb-2">
-                                                Unlimited projects
+                                                5 puestos
                                             </li>
                                             <li class="mb-2">
-                                                250 GB storage
+                                                1 oferta/día
                                             </li>
                                             <li class="mb-2">
-                                                Priority support
+                                                Posicionamiento
                                             </li>
                                             <li class="mb-2">
-                                                Security policy
+                                                Enlace Tienda FB
                                             </li>
                                             <li class="mb-2">
-                                                Daily backups
+                                                Ventas 100% online
                                             </li>
                                             <li class="mb-2">
-                                                Custom CSS
+                                                Asesoria Comercial
+                                            </li>
+                                            <li class="mb-2">
+                                                Google Analytics
                                             </li>
                                         </ul>
                                         <div class="mt-auto">
-                                            <a href="#" class="btn btn-lg btn-outline-primary">Try it for free</a>
+                                            <button type="button" class="btn btn-lg btn-outline-primary" name="p7" id="p7">20% dscto</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
                             <div class="col-sm-3 mb-3 mb-md-0">
                                 <div class="card text-center h-100">
                                     <div class="card-body d-flex flex-column">
                                         <div class="mb-4">
-                                            <h5>Plus</h5>
-                                            <span class="display-4">$399</span>
-                                            <span>/mo</span>
+                                            <h5>Premium</h5>
+                                            <span class="display-4">S/.649</span>
+                                            <span>/año</span>
                                         </div>
-                                        <h6>Includes:</h6>
+                                        <h6>Incluye:</h6>
                                         <ul class="list-unstyled">
                                             <li class="mb-2">
-                                                Unlimited users
+                                                productos ilimitados
                                             </li>
                                             <li class="mb-2">
-                                                Unlimited projects
+                                                5 puestos
                                             </li>
                                             <li class="mb-2">
-                                                250 GB storage
+                                                1 oferta/día
                                             </li>
                                             <li class="mb-2">
-                                                Priority support
+                                                Posicionamiento
                                             </li>
                                             <li class="mb-2">
-                                                Security policy
+                                                Enlace Tienda FB
                                             </li>
                                             <li class="mb-2">
-                                                Daily backups
+                                                Ventas 100% online
                                             </li>
                                             <li class="mb-2">
-                                                Custom CSS
+                                                Asesoria Comercial
+                                            </li>
+                                            <li class="mb-2">
+                                                Google Analytics
                                             </li>
                                         </ul>
                                         <div class="mt-auto">
-                                            <a href="#" class="btn btn-lg btn-outline-primary">Try it for free</a>
+                                            <button type="button" class="btn btn-lg btn-outline-primary" name="p8" id="p8">30% dscto</button>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>  
                         </div>
                     </div>
                 </div>
