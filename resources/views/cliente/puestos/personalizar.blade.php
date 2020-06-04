@@ -27,7 +27,8 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="form-group">
-                                <label class="form-label" for="name">¿Por qué elegir tu Puesto?</label>
+                                <strong><label class="form-label" for="name">¿Porque elegirlos?</label></strong>
+                                <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('* Máx 100 palabras') }}</small>
                                 <textarea name="elegirnos" data-provide="markdown" rows="5">{{ old('elegirnos', $puesto->elegirnos) }}</textarea>
                                 <input type="hidden" class="form-control form-control-lg" name="name" value="{{ old('name', $puesto->name) }}" required>
                                 <input type="hidden" class="form-control form-control-lg" name="description" value="{{old('description', $puesto->description)}}">
@@ -39,7 +40,8 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="form-group">
-                                <label class="form-label" for="name">Cuentanos sobre ti y tu negocio</label>
+                            <strong><label class="form-label" for="name">Cuentanos sobre ti y tu negocio</label></strong>
+                            <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Cuenta a tus clientes un poco de ti. Máx 70 palabras.') }}</small>
                                 <textarea name="nosotros" data-provide="markdown" rows="5">{{ old('nosotros', $puesto->nosotros) }}</textarea>
                             </div> 
                         </div>
@@ -55,7 +57,8 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title mb-0">{{ __('Mi Banner') }}</h5>
+                        <strong><label class="form-label" for="name">Portada de su Tienda</label></strong>
+                        <small class="form-text text-muted" style="margin-bottom: 0px" >{{ __('Elegimos para ti una portada por defecto. puedes comenzar con este o subir uno personalizado.') }}</small>
                     </div>
                     <div class="card-body">
                         @if ($puesto->banner)
@@ -75,7 +78,8 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title mb-0">{{ __('Mi Logo') }}</h5>
+                        <strong><label class="form-label" for="name">Logo de su Tienda</label></strong>
+                        <small class="form-text text-muted" style="margin-bottom: 0px" >{{ __('El logo por defecto es Feria tacna, puedes comenzar con este o subir uno propio.') }}</small>
                     </div>
                     <div class="card-body">
                         @if ($puesto->perfil)
