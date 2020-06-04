@@ -3,10 +3,8 @@
     <a class="sidebar-toggle d-flex mr-2">
         <i class="hamburger align-self-center"></i>
     </a>
-    <form class="form-inline d-none d-sm-inline-block">
-        <input class="form-control form-control-lite" type="text" placeholder="Search projects...">
-    </form>
-
+    
+    <div class="form-control form-control-lite"><span style="color: #E5E5E5">Desplegar menú</span></div>
     <div class="navbar-collapse collapse">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown active">
