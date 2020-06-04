@@ -7,22 +7,23 @@
 <main class="content">
     <div class="container-fluid">
         <div class="header">
-            <h1 class="header-title">
-                {{ __('Panel de Usuario') }}
+            <h1 style="font-size: 50px" class="header-title">
+                {{ __('Mis Datos') }}
             </h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">{{ __('Feria_Tacna') }}</a></li>
-                <li class="breadcrumb-item active" aria-current="page">{{ __('Perfil de Usuario') }}</li>
+                    <li class="breadcrumb-item"><a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="_blank">Tablero</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Mis datos</li>
                 </ol>
+                <a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="black"><button class="btn btn-info" ><span style="margin-left:20px; margin-right:20px">      Ver mi Tienda      </span></button></a>
             </nav>
-        </div>
+		</div>
         <div class="row" >
             <!-- Formulario de Usuario -->
             <div class="col-xxl-8">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title mb-0">{{ __('MI PERFIL DE USUARIO') }}</h5>
+                        <h4>{{ __('Datos de propietario') }}</h4>
                     </div>
                     <div class="card-body">
                         @if($errors->any())
@@ -52,20 +53,21 @@
                             @method('PUT')
                            
                             <div class="form-group">
-                                <label class="form-label" for="name">Nombre de Usuario</label>
+                                <strong><label class="form-label" for="name">Nombres completos</label></strong>
                                 <input type="text" class="form-control" name="name" value="{{ old('name', auth()->user()->name) }}" required>
                                 <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
                             </div>
                             <div class="form-group">
-                                <label class="form-label" for="sur_name">Apellido de Usuario</label>
+                                <strong><label class="form-label" for="sur_name">Apellidos completos</label></strong>
                                 <input type="text" class="form-control" name="sur_name" value="{{ old('sur_name', auth()->user()->sur_name) }}">
+                                <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
                             </div>
+                            <!-- <div class="form-group">
+                                <strong><label class="form-label" for="email">Correo de Usuario</label></strong>
+                                <input type="hidden" class="form-control" name="email" value="old('email', auth()->user()->email)">
+                            </div>-->
                             <div class="form-group">
-                                <label class="form-label" for="email">Correo de Usuario</label>
-                                <input type="hidden" class="form-control" name="email" value="{{ old('email', auth()->user()->email) }}">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" for="dni">Tipo de Documento</label>
+                                <strong><label class="form-label" for="dni">Tipo de documento</label></strong>
                                 <div class="mb-3">
                                 <select class="form-control" id="identidad_id" name="identidad_id" required>
                                     <optgroup label="Documentos Disponibles">
@@ -76,14 +78,17 @@
                                     </optgroup>
                                 </select>
                                 </div>
-                                <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
                             </div>
                             <div class="form-group">
-                                <label class="form-label" for="ndocumento">Número de Documento</label>
+                                <strong><label class="form-label" for="name">Número de documento</label></strong>
+                                <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Con este dato validaremos su identidad. Esta información no será pública.') }}</small>
                                 <input type="text" class="form-control" name="ndocumento" value="{{ old('ndocumento', auth()->user()->ndocumento) }}" required>
+                                <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-lg"><span style="margin-left: 83px; margin-right: 83px">Guardar datos</span></button>
                             </div>
                             
-                            <button type="submit" class="btn btn-primary">Guardar</button>
                                     
                         </form>
                     </div>

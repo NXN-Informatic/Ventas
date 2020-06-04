@@ -58,12 +58,18 @@
                             <!-- <a href="{{ route('social_auth' , ['driver' => 'facebook']) }}" class="btn btn-facebook btn-lg mt-2">
                                 {{ __("Facebook") }} <i class="align-middle mr-2 fab fa-fw fa-facebook"></i>
                             </a> -->
-                            <a href="{{ route('social_auth' , ['driver' => 'google']) }}" class="btn btn-google btn-lg mt-2 btn-block">
-                                {{ __("Google") }} <i class="fa fa-google"></i>
-                            </a>
-                            <a href="{{ route('social_auth' , ['driver' => 'twitter']) }}" class="btn btn-twitter btn-lg mt-2 btn-block">
-                                {{ __("Twitter") }} <i class="fa fa-twitter"></i>
-                            </a>
+                            <div class="row">
+                            <div class="col-6">
+                                <a href="{{ route('social_auth' , ['driver' => 'google']) }}" class="btn btn-google btn-lg mt-2 btn-block">
+                                    {{ __("Google") }} <i class="fa fa-google"></i>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="{{ route('social_auth' , ['driver' => 'twitter']) }}" class="btn btn-twitter btn-lg mt-2 btn-block">
+                                    {{ __("Twitter") }} <i class="fa fa-twitter"></i>
+                                </a>
+                            </div>
+                            </div>
                         </div>
                         <hr>
                     </div>
