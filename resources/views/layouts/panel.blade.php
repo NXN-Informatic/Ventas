@@ -66,8 +66,6 @@
       <div class="nav__wrap container dflex">
           <div class="nav__button"><i class="fas fa-bars"></i>MENU</div>
           <a class="nav__logo" href="/">
-            <img src="{{ asset('/img/logoFeria.jpg') }}" alt="" style="height:40px; width:70px">
-
           </a>
 
       </div>

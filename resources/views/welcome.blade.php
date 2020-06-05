@@ -122,7 +122,7 @@
 </div>
 
 <!--Start Contáctanos-->
-<div class="featureProduct" style="margin-top:-6%">
+<!-- <div class="featureProduct" style="margin-top:-6%">
     <h4 class="title">CONTÁCTANOS</h4>
     <section class="form_wrap">
     <section class="cantact_info">
@@ -154,7 +154,7 @@
             <input type="button" value="Enviar Mensaje" id="btnSend">
         </div>
     </form>
-</section>
+</section> -->
 </div>
 
 @include('layouts.components.footer')

@@ -18,17 +18,25 @@
     .swiper-container:hover .swiper-button-next {
         display: flex !important;
     }
+    a:hover {
+    color: orange;
+    }
+    .headermax{
+        height: 400px;
+    }
+    @media (max-width: 600px) {
+    .headermax {
+        height: 250px;
+    }
+    }
     </style>
 @endsection
 
 @section('content')
 @include('layouts.components.navbar')
 <!--Start Banner Slide-->
-<div class="banner" id="tiendas">
+<!-- <div class="banner" id="tiendas">
     <div class="banner__control">
-        <div class="circle dflex"><span class="active" data-slide="0"></span><span data-slide="1"></span><span data-slide="2"></span></div>
-        <div class="button buttonLeft dflex"><i class="fas fa-angle-left"></i></div>
-        <div class="button buttonRight dflex"><i class="fas fa-angle-right"></i></div>
     </div>
     @if($puesto->banner == "banner1.jpg" | $puesto->banner == "banner2.jpg" | $puesto->banner == "banner3.jpg")
     <ul class="slider dflex">
@@ -44,6 +52,8 @@
             <li class="slider__item col-12 dflex firstSlide active">
                 <div class="image col-lg-12 col-12">
                     <img class="switchImage" src="{{ asset('storage/'.$puesto->id.'/banner/'.$puesto->banner)}}" alt="">
+                    
+                    <h1 class="title">Woodmart Blog</h1>
                 </div>
             </li>
         </ul>
@@ -52,18 +62,34 @@
             <li class="slider__item col-12 dflex firstSlide active">
                 <div class="image col-lg-12 col-12">
                     <img class="switchImage" src="{{ asset('img/banner 11.jpg')}}" alt="">
+                    
+      <h1 class="title">Woodmart Blog</h1>
                 </div>
             </li>
         </ul>
         @endif
     @endif
+</div> -->
+@if($puesto->banner == null)
+<div class="bannerBlog headermax" style="background-image: url('{{ asset('storage/'.$puesto->id.'/banner/'.$puesto->banner)}}')">
+    <h1 class="title">Woodmart Blog</h1>
 </div>
+@else
+<div class="bannerBlog" style="background-image: url('{{ asset('img/banner/1.jpg')}}');">
+    <h1 class="title">Woodmart Blog</h1>
+    <div style="text-align:center;">
+    <br>
+    <a href="" class="title clases btn btn-primary" style="background:#000;"><h1 class="title" style="font-size:20px">Woodmart Blog</h1></a>
+    
+    </div>
+</div>
+@endif
 <!--End Banner Slide-->
 <!--Start Single Product-->
 <div class="singleProduct" id="ocultar5">
   <div class="singleProduct__wrap container">
     <div class="signleProduct__content">
-      <h1 class="title" style="font-size: 30px">{{ $puesto->name }}</h1><br><br>
+      <h1 class="title" style="font-size: 35px">{{ $puesto->name }}</h1><br><br>
       <div class="product dflex">
           <div class="col-lg-3 col-12" style="text-align: center;">
                 <img src="{{ asset('storage/'.$puesto->id.'/logo/'.$puesto->perfil) }}" style="width: 200px; height: 200px">
