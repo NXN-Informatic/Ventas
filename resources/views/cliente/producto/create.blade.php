@@ -29,6 +29,19 @@
         @csrf
         <div class="row">
             <div class="col-lg-4 col-12">
+                @if (session('notification'))
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <div class="alert-icon">
+                    <i class="far fa-fw fa-heart"></i>
+                </div>
+                <div class="alert-message">
+                    <strong>{{ session('notification') }}</strong>
+                </div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            @endif
                 <div class="card">
                     <div class="card-header">
                         <div class="row align-items-center">
@@ -86,20 +99,6 @@
                             </div>
                             <input type="hidden" name="puesto_id" value={{ $usuarioPuesto->id }}>
                             <br>
-                            @if (session('notification'))
-                            <div class="alert alert-success alert-dismissible" role="alert">
-                                <div class="alert-icon">
-                                    <i class="far fa-fw fa-heart"></i>
-                                </div>
-                                <div class="alert-message">
-                                    <strong>{{ session('notification') }}</strong>
-                                </div>
-    
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                            @endif
                     </div>
                 </div>
             </div>

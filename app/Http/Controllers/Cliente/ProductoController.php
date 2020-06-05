@@ -128,7 +128,7 @@ class ProductoController extends Controller
         ]);
 
         $notification = 'Se ha creado su Grupo Correctamente';
-        return redirect('/puesto')->with(compact('notification'));
+        return redirect('/producto/creargrupo')->with(compact('notification'));
     }
 
     public function dropzoneFrom(Request $request)
