@@ -48,7 +48,7 @@
 						</div>
                         @endif
                         
-                        <form action="{{ url('user/update/'.auth()->user()->id) }}" method="post">
+                        <form action="{{ url('user/update/'.auth()->user()->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                            
@@ -85,11 +85,13 @@
                                 <input type="text" class="form-control" name="ndocumento" value="{{ old('ndocumento', auth()->user()->ndocumento) }}" required>
                                 <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
                             </div>
+                            <div class="form-group">
+                            <strong><label class="form-label">Suba su Foto de Perfil</label></strong>
+                                <input type="file" class="form-control-file" name="imagen">
+                            </div>
                             <div class="col-12 text-center">
                                 <button type="submit" class="btn btn-primary btn-lg"><span style="margin-left: 83px; margin-right: 83px">Guardar datos</span></button>
                             </div>
-                            
-                                    
                         </form>
                     </div>
                 </div>
@@ -102,7 +104,11 @@
                     <div class="card-body">
                         <div class="row no-gutters">
                             <div class="col-sm-12 col-xl-12 col-xxl-12 text-center">
+                            @if(auth()->user()->imagen)
+                                <img src="{{ asset('storage/usuarios/'.auth()->user()->id.'/'.auth()->user()->imagen) }}" width="140" height="140" class="rounded-circle mt-2" alt="Angelica Ramos">
+                            @else
                                 <img src="{{ asset('img/user.png') }}" width="140" height="140" class="rounded-circle mt-2" alt="Angelica Ramos">
+                            @endif
                             </div>
                         </div>
                         <br>
