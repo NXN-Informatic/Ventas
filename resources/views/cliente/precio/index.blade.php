@@ -79,9 +79,6 @@
                                             <li class="mb-2">
                                                 Configura descuentos a productos
                                             </li>
-                                            <li class="mb-2">
-                                                Pagos virtuales
-                                            </li>
                                         </ul>
                                         <div class="mt-auto">
                                             <button type="button" class="btn btn-lg btn-outline-success" name="p2" id="p2">Elegir Plan</button>
@@ -98,35 +95,31 @@
                                             <span>/mes</span><br>
                                             <span class="text-small4">S/. 55 en Plan anual</span>
                                         </div>
+                                        <ul class="list-unstyled">
+                                            <li class="mb-2">
+                                                400 productos
+                                            </li>
+                                        </ul>
                                         <h6>Incluye:</h6>
                                         <ul class="list-unstyled">
                                             <li class="mb-2">
-                                                productos ilimitados
+                                                Sin Comisiones
                                             </li>
                                             <li class="mb-2">
-                                                5 puestos
+                                                Vende en FeriaTacna y Facebook
                                             </li>
                                             <li class="mb-2">
-                                                1 oferta/día
+                                                Configura descuentos a productos
                                             </li>
                                             <li class="mb-2">
-                                                Posicionamiento
+                                                App Manager
                                             </li>
                                             <li class="mb-2">
-                                                Enlace Tienda FB
-                                            </li>
-                                            <li class="mb-2">
-                                                Ventas 100% online
-                                            </li>
-                                            <li class="mb-2">
-                                                Asesoria Comercial
-                                            </li>
-                                            <li class="mb-2">
-                                                Google Analytics
+                                                Mayor personalización de Tienda
                                             </li>
                                         </ul>
                                         <div class="mt-auto">
-                                            <button type="button" class="btn btn-lg btn-outline-success" name="p3" id="p3">50% 1er Mes</button>
+                                            <button type="button" class="btn btn-lg btn-outline-success" name="p3" id="p3">Elegir Plan</button>
                                         </div>
                                     </div>
                                 </div>
@@ -136,39 +129,41 @@
                                     <div class="card-body d-flex flex-column">
                                         <div class="mb-4">
                                             <h5>Premium</h5>
-                                            <span class="display-4">S/.99</span>
+                                            <span class="display-4">S/.129</span>
                                             <span>/mes</span><br>
                                             <span class="text-small4">S/. 120 en Plan anual</span>
                                         </div>
+                                        <ul class="list-unstyled">
+                                            <li class="mb-2">
+                                                Productos ilimitados
+                                            </li>
+                                        </ul>
                                         <h6>Incluye:</h6>
                                         <ul class="list-unstyled">
                                             <li class="mb-2">
-                                                productos ilimitados
+                                                Sin Comisiones
                                             </li>
                                             <li class="mb-2">
-                                                5 puestos
+                                                Vende en FeriaTacna y Facebook
                                             </li>
                                             <li class="mb-2">
-                                                1 oferta/día
+                                                Configura descuentos a productos
                                             </li>
                                             <li class="mb-2">
-                                                Posicionamiento
+                                                App Manager
                                             </li>
                                             <li class="mb-2">
-                                                Enlace Tienda FB
+                                                Mayor personalización de Tienda
                                             </li>
                                             <li class="mb-2">
-                                                Ventas 100% online
+                                                Multiples Usuarios
                                             </li>
                                             <li class="mb-2">
-                                                Asesoria Comercial
-                                            </li>
-                                            <li class="mb-2">
-                                                Google Analytics
+                                                Estadísticas
                                             </li>
                                         </ul>
                                         <div class="mt-auto">
-                                            <button type="button" class="btn btn-lg btn-outline-primary" name="p4" id="p4">60% 1er mes</button>
+                                            <button type="button" class="btn btn-lg btn-outline-success" name="p4" id="p4">Elegir Plan</button>
                                         </div>
                                     </div>
                                 </div>
@@ -185,20 +180,22 @@
                                             <span class="display-4">$0</span><br>
                                             <span class="text-small4">Para siempre GRATIS</span>
                                         </div>
+                                        <ul class="list-unstyled">
+                                            <li class="mb-2">
+                                                Hasta 35 productos
+                                            </li>
+                                        </ul>
                                         <h6>Incluye:</h6>
                                         <ul class="list-unstyled">
                                             <li class="mb-2">
-                                                10 productos
+                                                Sin Comisiones
                                             </li>
                                             <li class="mb-2">
-                                                1 puesto
-                                            </li>
-                                            <li class="mb-2">
-                                                1 oferta/mes
+                                                Vende en FeriaTacna y Facebook
                                             </li>
                                         </ul>
                                         <div class="mt-auto">
-                                            <button type="button" class="btn btn-lg btn-outline-primary" name="p5" id="p5">Elegir</button>
+                                            <button type="button" class="btn btn-lg btn-outline-success" name="p5" id="p5">Elegir Plan</button>
                                         </div>
                                     </div>
                                 </div>
@@ -212,26 +209,25 @@
                                             <span class="text-small4">/año</span><br>
                                             <span class="text-small4">S/. 25 mes</span>
                                         </div>
+                                        <ul class="list-unstyled">
+                                            <li class="mb-2">
+                                                100 productos
+                                            </li>
+                                        </ul>
                                         <h6>Incluye:</h6>
                                         <ul class="list-unstyled">
                                             <li class="mb-2">
-                                                50 productos
+                                                Sin Comisiones
                                             </li>
                                             <li class="mb-2">
-                                                2 puestos
+                                                Vende en FeriaTacna y Facebook
                                             </li>
                                             <li class="mb-2">
-                                                1 oferta/sem
-                                            </li>
-                                            <li class="mb-2">
-                                                Enlace Tienda FB
-                                            </li>
-                                            <li class="mb-2">
-                                                Pagos virtuales
+                                                Configura descuentos a productos
                                             </li>
                                         </ul>
                                         <div class="mt-auto">
-                                            <button type="button" class="btn btn-lg btn-outline-primary" name="p6" id="p6">10% dscto</button>
+                                            <button type="button" class="btn btn-lg btn-outline-success" name="p6" id="p6">Elegir Plan</button>
                                         </div>
                                     </div>
                                 </div>
@@ -245,35 +241,31 @@
                                             <span class="text-small4">/año</span><br>
                                             <span class="text-small4">S/.55 mes </span>
                                         </div>
+                                        <ul class="list-unstyled">
+                                            <li class="mb-2">
+                                                400 productos
+                                            </li>
+                                        </ul>
                                         <h6>Incluye:</h6>
                                         <ul class="list-unstyled">
                                             <li class="mb-2">
-                                                productos ilimitados
+                                                Sin Comisiones
                                             </li>
                                             <li class="mb-2">
-                                                5 puestos
+                                                Vende en FeriaTacna y Facebook
                                             </li>
                                             <li class="mb-2">
-                                                1 oferta/día
+                                                Configura descuentos a productos
                                             </li>
                                             <li class="mb-2">
-                                                Posicionamiento
+                                                App Manager
                                             </li>
                                             <li class="mb-2">
-                                                Enlace Tienda FB
-                                            </li>
-                                            <li class="mb-2">
-                                                Ventas 100% online
-                                            </li>
-                                            <li class="mb-2">
-                                                Asesoria Comercial
-                                            </li>
-                                            <li class="mb-2">
-                                                Google Analytics
+                                                Mayor personalización de Tienda
                                             </li>
                                         </ul>
                                         <div class="mt-auto">
-                                            <button type="button" class="btn btn-lg btn-outline-primary" name="p7" id="p7">20% dscto</button>
+                                            <button type="button" class="btn btn-lg btn-outline-success" name="p7" id="p7">Elegir Plan</button>
                                         </div>
                                     </div>
                                 </div>
@@ -287,35 +279,37 @@
                                             <span class="text-small4">/año</span><br>
                                             <span class="text-small4">S/.120 mes</span>
                                         </div>
+                                        <ul class="list-unstyled">
+                                            <li class="mb-2">
+                                                Productos ilimitados
+                                            </li>
+                                        </ul>
                                         <h6>Incluye:</h6>
                                         <ul class="list-unstyled">
                                             <li class="mb-2">
-                                                productos ilimitados
+                                                Sin Comisiones
                                             </li>
                                             <li class="mb-2">
-                                                5 puestos
+                                                Vende en FeriaTacna y Facebook
                                             </li>
                                             <li class="mb-2">
-                                                1 oferta/día
+                                                Configura descuentos a productos
                                             </li>
                                             <li class="mb-2">
-                                                Posicionamiento
+                                                App Manager
                                             </li>
                                             <li class="mb-2">
-                                                Enlace Tienda FB
+                                                Mayor personalización de Tienda
                                             </li>
                                             <li class="mb-2">
-                                                Ventas 100% online
+                                                Multiples Usuarios
                                             </li>
                                             <li class="mb-2">
-                                                Asesoria Comercial
-                                            </li>
-                                            <li class="mb-2">
-                                                Google Analytics
+                                                Estadísticas
                                             </li>
                                         </ul>
                                         <div class="mt-auto">
-                                            <button type="button" class="btn btn-lg btn-outline-primary" name="p8" id="p8">30% dscto</button>
+                                            <button type="button" class="btn btn-lg btn-outline-success" name="p8" id="p8">Elegir Plan</button>
                                         </div>
                                     </div>
                                 </div>
