@@ -79,7 +79,7 @@
     <h1 class="title">Woodmart Blog</h1>
     <div style="text-align:center;">
     <br>
-    <a href="" class="title clases btn btn-primary" style="background:#000;"><h1 class="title" style="font-size:20px">Woodmart Blog</h1></a>
+    <a onmouseover="document.getElementById('btn-puesto').style.background = '#bf0000'" onmouseout="document.getElementById('btn-puesto').style.background = '#000'" href="" id="btn-puesto" class="title clases btn btn-primary" style="background:#000;"><h1 class="title" style="font-size:20px">Woodmart Blog</h1></a>
     
     </div>
 </div>
