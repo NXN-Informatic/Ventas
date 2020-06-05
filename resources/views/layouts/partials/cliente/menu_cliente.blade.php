@@ -9,33 +9,33 @@
         </a>
     </li>
     <li class="sidebar-item">
-        <a class="sidebar-link" href="{{url('producto/lista') }}">
-            <i class="align-middle mr-2 fas fa-fw fa-shopping-bag"></i> <span class="align-middle">{{ __('Catálogo') }}</span>
-            <span class="sidebar-badge badge badge-pill badge-primary">{{ __('Ir') }}</span>
+        <a href="#catalogo" data-toggle="collapse" class="sidebar-link collapsed">
+            <i class="align-middle mr-2 fas fa-fw fa-shopping-bag"></i> <span class="align-middle">Mi Catalogo</span>
         </a>
-        <ul id="productos" class="sidebar-dropdown list-unstyled collapse show" data-parent="#sidebar">
+        <ul id="catalogo" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+            <li class="sidebar-item"><a class="sidebar-link" href="{{url('producto/lista') }}">{{ __('Catálogo') }}</a></li>
             <li class="sidebar-item"><a class="sidebar-link" href="{{ url('producto/creargrupo') }}">{{ __('Crear Categorias') }}</a></li>
             <li class="sidebar-item"><a class="sidebar-link" href="{{ url('producto/add') }}">{{ __('Añadir Productos') }}</a></li>
         </ul>
     </li>
     <li class="sidebar-item">
-        <a href="{{ url('puesto') }}" class="sidebar-link collapsed">
-            <i class="align-middle mr-2 fas fa-fw fa-store-alt"></i> <span class="align-middle">{{ __('Mi Tienda') }}</span>
-            <span class="sidebar-badge badge badge-pill badge-primary">{{ __('Ir') }}</span>
+        <a href="#tienda" data-toggle="collapse" class="sidebar-link collapsed">
+            <i class="align-middle mr-2 fas fa-fw fa-store-alt"></i> <span class="align-middle">Mi Tienda</span>
         </a>
-        <ul id="puestos" class="sidebar-dropdown list-unstyled collapse show" data-parent="#sidebar">
+        <ul id="tienda" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+            <li class="sidebar-item"><a class="sidebar-link" href="d{{ url('puesto') }}">{{ __('Mi Tienda') }}</a></li>
             <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto/editar') }}">{{ __('Configuración') }}</a></li>
             <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto/personalizar') }}">{{ __('Personalizar') }}</a></li>
-            
         </ul>
     </li>
     <li class="sidebar-item">
-        <a class="sidebar-link" href="{{ url('user') }}">
-            <i class="align-middle mr-2 fas fa-fw fa-user-tie"></i> <span class="align-middle">{{ __('Mis Datos') }}</span>
-            <span class="sidebar-badge badge badge-pill badge-primary">{{ __('Ir') }}</span>
+        <a href="#datos" data-toggle="collapse" class="sidebar-link collapsed">
+            <i class="align-middle mr-2 fas fa-fw fa-home"></i> <span class="align-middle">{{ __('Mis Datos') }}</span>
         </a>
-        <ul id="misdatos" class="sidebar-dropdown list-unstyled collapse show" data-parent="#sidebar">
+        <ul id="datos" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('user') }}">Mi perfil</a></li>
             <li class="sidebar-item"><a class="sidebar-link" href="{{ url('producto/add') }}">{{ __('Datos de Acceso') }}</a></li>
+            
         </ul>
     </li>
     <li class="sidebar-item">
