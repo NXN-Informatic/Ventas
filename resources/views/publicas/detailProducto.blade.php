@@ -50,17 +50,24 @@
         
         <div class="content col-lg-5 col-12">
           <div style="border-style: ridge;padding:5px">
-            <!-- Productos Precio -->
-            <div class="precio color">S/.{{ $producto->precio }}</div>
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                <!-- Productos Precio -->
+                <div class="precio color" style="color: #bf0000">S/.{{ $producto->precio }}</div>
+                </div>
+                <div class="col-lg-6 col-12">
+                  <!-- Productos Creación -->
+                  <p style="text-align:right">{{ $producto->created_at }}</p>
+                </div>
+            </div>
             <!-- Productos Name -->
-            <h1 class="text-left">{{ $producto->name }}</h1>  
-            <!-- Productos Creación -->
-            <p style="text-align:right">{{ $producto->created_at }}</p>
+            <h1 class="text-left" style="font-size: 20px; color: #000; font-weight: normal;">{{ $producto->name }}</h1>  
+            
           </div>
           <br>
           <div style="border-style: ridge;padding:5px">
             <!-- Descripción Vendedor -->
-            <h2 class="precio color" style="font-size:18px">{{ __('Descripción del Puesto') }}</h2>
+            <h2 class="precio color" style="font-size:25px">{{ __('Tienda') }}</h2>
             <br>
             @foreach($producto->grupo->puestosubcategoria->puesto->usuario_puestos as $usuario_puestos)
               <!-- Imagen Vendedor -->
@@ -70,17 +77,16 @@
               <input type="hidden" id="latitud" name="latitud" value="{{ $usuario_puestos->user->latitud }}">
               <input type="hidden" id="longitud" name="longitud" value="{{ $usuario_puestos->user->longitud }}">
               <!-- Email Vendedor -->
-              <p style="text-align: left;"><i class="far fa-envelope" style="margin-right: 10px"></i> {{ $usuario_puestos->user->email }}</p>
-              <label style="font-size:20px; color:#F0C908">
+              <!-- <label style="font-size:20px; color:#F0C908">
                   @for ($i = 0; $i < $usuario_puestos->puesto->calification; $i++)   
                       <i class="fas fa-star"></i>
                   @endfor
                   @for ($i = 0; $i < (5 - $usuario_puestos->puesto->calification); $i++)
                       <i class="far fa-star text-dark"></i> 
                   @endfor
-              </label><br><br>
+              </label><br><br> -->
               <!-- Fecha Vendedor -->
-              <p style="text-align: right;"><span style="font-size: 15px; color:#000">{{ __('Miembro desde:') }} </span> {{ $usuario_puestos->user->created_at }}</p>
+              <!-- <p style="text-align: right;"><span style="font-size: 15px; color:#000">{{ __('Miembro desde:') }} </span> {{ $usuario_puestos->user->created_at }}</p> -->
               <!-- Chatea con el  Vendedor -->
               <a href="{{ url('/puesto/'.$usuario_puestos->puesto->id.'/detail') }}" target="black">
                 <button class="btn btn-primary" style="background:#000">{{ __('Chatea con el Vendedor') }}</button>
