@@ -72,24 +72,31 @@
 </div> -->
 @if($puesto->banner == null)
 <div class="bannerBlog headermax" style="background-image: url('{{ asset('storage/'.$puesto->id.'/banner/'.$puesto->banner)}}')">
-    <h1 class="title">Woodmart Blog</h1>
-</div>
-@else
-<div class="bannerBlog" style="background-image: url('{{ asset('img/banner/1.jpg')}}');">
-    <h1 class="title">Woodmart Blog</h1>
+    <h1 class="title" style="font-size:25px; text-align:right; margin-top:-5%; margin-right:10px"><i class="fas fa-phone-volume"></i> Llamar {{ $puesto->phone }} </h1>
+    <h1 class="title">{{ $puesto->name }}</h1>
     <div style="text-align:center;">
     <br>
-    <a onmouseover="document.getElementById('btn-puesto').style.background = '#bf0000'" onmouseout="document.getElementById('btn-puesto').style.background = '#000'" href="" id="btn-puesto" class="title clases btn btn-primary" style="background:#000;"><h1 class="title" style="font-size:20px">Woodmart Blog</h1></a>
+    <a href="" class="title clases btn btn-primary" style="background:#000;"><h1 class="title" style="font-size:15px">Contacto</h1></a>
+    
+    </div>
+</div>
+@else
+<div class="bannerBlog" style="background-image: url('{{ asset('img/banner/fondo.jpg')}}');height:400px">
+    <h1 class="title" style="font-size:25px; text-align:right; margin-top:-5%; margin-right:10px"><i class="fas fa-phone-volume"></i> Llamar {{ $puesto->phone }} </h1>
+    <br><br><br><br><br>
+    <h1 class="title">{{ $puesto->name }}</h1>
+    <div style="text-align:center;">
+    <br>
+    <a href="" class="title clases btn btn-primary" style="background:#000;"><h1 class="title" style="font-size:15px">Comprar</h1></a>
     
     </div>
 </div>
 @endif
 <!--End Banner Slide-->
 <!--Start Single Product-->
-<div class="singleProduct" id="ocultar5">
+<!-- <div class="singleProduct" id="ocultar5">
   <div class="singleProduct__wrap container">
     <div class="signleProduct__content">
-      <h1 class="title" style="font-size: 35px">{{ $puesto->name }}</h1><br><br>
       <div class="product dflex">
           <div class="col-lg-3 col-12" style="text-align: center;">
                 <img src="{{ asset('storage/'.$puesto->id.'/logo/'.$puesto->perfil) }}" style="width: 200px; height: 200px">
@@ -128,7 +135,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 <!--Start Featured Products-->
 <div class="featureProduct" id="ocultar1">
@@ -220,35 +227,75 @@
 <div class="singleProduct" style="margin-top: -5%" id="ocultar1">
   <div class="singleProduct__wrap container">
     <div class="signleProduct__content">
-      <div class="product dflex">
-          <div class="col-lg-6 col-12">
-              <label style="font-size: 20px">Sobre Nosotros</label><br><br>
-                <p style="font-size:18px">{{ $puesto->nosotros }}</p>
-          </div>
-        
-          <div class="content col-lg-6 col-12">
-              <div class="col-lg-12 col-12">
-                  <label style="font-size: 20px">¿Porque Elegirnos?</label><br><br>
+      <div class="product dflex" >
+          <div class="col-lg-8 col-12">
+                <label style="font-size: 25px; font-weight: bold;">¿Porque Elegirnos?</label><br><br>
                 <p style="font-size:18px">{{ $puesto->elegirnos }}</p>
-              </div>
+                <br><br><br><br><br>
+                <div class="row">
+                    <div class="col-lg-8 col-12">
+                      <label style="font-size: 25px; font-weight: bold;">Sobre Nosotros</label><br><br>
+                      @foreach($puesto->usuario_puestos as $usuario_puesto) @endforeach
+                      <p style="font-size:18px">{{ $puesto->nosotros }}</p>
+                    </div>
+                    <div class="col-lg-4 col-12" style="text-align: center;margin-top: 3%">
+                      <img src="{{ asset('/storage/usuarios/'.$usuario_puesto->user->id.'/'.$usuario_puesto->user->imagen) }}"
+                      style="border-radius: 50%" width="150px"><br><br>
+                      <h2>{{ $usuario_puesto->user->name }}</h2>
+                    </div>
+                </div>
+                
           </div>
-
       </div>
     </div>
   </div>
 </div>
 
+<div class="featureProduct" id="ocultar1" style="margin-top: -8%">
+    <div class="feature__filter">
+        <div class="button-group filters-button-group feature__buttons">
+        </div>
+        <ul class="featureSlider container">
+          <h1 class="title" style="font-size: 25px">Contacto</h1><br><br>
+          <div class="row">
+            <div class="col-lg-6 col-12">  
+              <!-- Mapa -->
+              <div id="map" style="height: 400px;"></div>
+            </div>
+            <div class="col-lg-6 col-12">
+              <div style="text-align: left;">
+                <br><br>
+                <h1>Dirección</h1>
+                <br>
+                <h1 style="font-weight: normal;">{{ $puesto->direccion }}</h1>  
+                <br><br><br>
+                 <h1 class="title" style="font-size: 20px">Número de Contacto</h1><br>
+          <h1 class="title" style="font-size:25px;font-weight: normal;"><i class="fab fa-whatsapp" style="margin-right: 8px"></i>{{ $puesto->phone }} </h1>  
+          <br><br>
+                @if(count($puesto->pago_puestos) > 0)
+                <label style="font-size: 20px; font-weight: bold;">Tipos de pago</label><br><br>
+                <p style="font-size: 20px ; margin-left: 5px; color: #545353">
+                    @foreach($puesto->pago_puestos as $pago_puestos)
+                        {{ $pago_puestos->pago->name }} - 
+                    @endforeach  
+                  </p>
+                  <br>
+                @endif
+              </div>
+            </div>
+          </div>
+        </ul>
+    </div>
+</div>
 
-  <div id="map" style="height: 500px;"></div>
-<br><br>
+@include('layouts.components.footer')  
 
-@include('layouts.components.footer')
 @endsection
 
 @section('scripts')
     <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
     <script src="{{ asset('js/publicas/detailProduc.js') }}"></script>
-  <script>
+      <script>
     function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 17,
@@ -263,7 +310,6 @@
     //initMap(); Esto es innecesario porque en el callback de la URL lo estás llamando.
   </script>
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK7XD3i3cgtPV9SKcDff2IJc0O-WpNoNY&callback=initMap" async defer></script> 
-  <script>
     <script>
         (function() { // DON'T EDIT BELOW THIS LINE
         setTimeout(cargar, 1000);
@@ -275,6 +321,7 @@
         }
         })();
     </script>
+
     <script>
         var mySwiper = new Swiper ('.swiper-container', {
             // Optional parameters
@@ -302,65 +349,112 @@
             },
         });
     </script>
+
     <script>
-    $(function() {
-      // Variables Define
-      $mostrarcategoria = $('#categoria');
-      $ocultar1 = $('#ocultar1');
-      $ocultar5 = $('#ocultar5');
-      $ocultar2 = $('#tiendas');
-      $resultado = $('#resultado');
-      $mostrar = $('#mostrar');
+      $(function() {
+        // Variables Define
+        $mostrarcategoria = $('#categoria');
+        $ocultar1 = $('#ocultar1');
+        $ocultar5 = $('#ocultar5');
+        $ocultar2 = $('#tiendas');
+        $resultado = $('#resultado');
+        $mostrar = $('#mostrar');
 
-      $resultado.hide();
-      $mostrarcategoria.hide();
-      
-      $('ul#tags li').click( function() {
-        const cateogiraId = $(this).attr('value');
-        if(cateogiraId == 0) {
+        $resultado.hide();
+        $mostrarcategoria.hide();
+        
+        $('ul#tags li').click( function() {
+          const cateogiraId = $(this).attr('value');
+          if(cateogiraId == 0) {
 
-          $mostrarcategoria.hide();
-          $ocultar1.show();
-          $ocultar5.show();
-          $resultado.hide();
-          $ocultar2.show();
-        }else {
-          $mostrarcategoria.show();
-          $ocultar1.hide();
-          $ocultar2.hide();
-          $resultado.hide();
-          $ocultar5.hide();
-          const url = `/categoria/${cateogiraId}/apiProductosCategoria`;
-          $.getJSON(url, onProducCateg);
+            $mostrarcategoria.hide();
+            $ocultar1.show();
+            $ocultar5.show();
+            $resultado.hide();
+            $ocultar2.show();
+          }else {
+            $mostrarcategoria.show();
+            $ocultar1.hide();
+            $ocultar2.hide();
+            $resultado.hide();
+            $ocultar5.hide();
+            const url = `/categoria/${cateogiraId}/apiProductosCategoria`;
+            $.getJSON(url, onProducCateg);
+          }
+        });
+
+        $("#buscar").on("keyup", function() {
+
+          valor = $(this).val();
+          if(valor.length === 0) {
+
+            $mostrarcategoria.hide();
+            $ocultar1.show();
+            $resultado.hide();
+            $ocultar2.show();
+            $ocultar5.hide();
+            $mostrar.hide();
+          }else {
+
+            $ocultar1.hide();
+            $resultado.hide();
+            $ocultar2.hide();
+            $ocultar5.hide();
+            $mostrar.show();
+            const url = `/productos/${valor}/all`;
+            $.getJSON(url, onMostrar);
+          }
+        });
+
+        function onMostrar(data) {
+            let htmlOptions = '';
+
+            if(data.length === 0) {
+              $resultado.show();
+            }
+            else {
+              $resultado.hide();
+            }
+
+            data.forEach(productos => {
+              if(productos.image != null){
+                  htmlOptions += 
+                  `<li class="product__item">`+
+                      `<div class="product__image"><a href="{{ url('/producto/${productos.id}/detailProd') }}" target="black"><img src="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}" alt=""></a>`+
+                          `<div class="image__tools"><i class="fas fa-search"></i>`+
+                              `<i class="fas fa-random"></i>`+
+                              `<i class="far fa-heart"></i>`+
+                          `</div>`+
+                      `</div>`+
+                      `<div class="product__content" style="width:100%"><a class="link-title" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black" style="font-size:30px">${productos.name}</a>`+
+                          `<p class="price" style="font-size:25px">S./${productos.precio}</p>`+
+                          `<div class="color"></div>`+
+                          `<p style="font-size:15px">${ productos.description }</p><a class="btn active" target="black" href="{{ url('/producto/${productos.id}/detailProd') }}">Ver Producto</a>`+
+                      `</div>`+
+                  `</li>`;
+              }else{
+                  htmlOptions += 
+                  `<li class="product__item">`+
+                      `<div class="product__image"><a href="{{ url('/producto/${productos.id}/detailProd') }}" target="black"><img src="{{ asset('img/defaultProducto.jpg') }}" alt=""></a>`+
+                          `<div class="image__tools"><i class="fas fa-search"></i>`+
+                              `<i class="fas fa-random"></i>`+
+                              `<i class="far fa-heart"></i>`+
+                          `</div>`+
+                      `</div>`+
+                      `<div class="product__content" style="width:100%"><a class="link-title" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
+                          `<p class="price" style="font-size:25px">S./${productos.precio}</p>`+
+                          `<div class="color"></div>`+
+                          `<p style="font-size:15px">${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black">Ver Producto</a>`+
+                      `</div>`+
+                  `</li>`;
+              }
+          });
+          $mostrar.html(htmlOptions);
         }
-      });
 
-      $("#buscar").on("keyup", function() {
-
-        valor = $(this).val();
-        if(valor.length === 0) {
-
-          $mostrarcategoria.hide();
-          $ocultar1.show();
-          $resultado.hide();
-          $ocultar2.show();
-          $ocultar5.hide();
-          $mostrar.hide();
-        }else {
-
-          $ocultar1.hide();
-          $resultado.hide();
-          $ocultar2.hide();
-          $ocultar5.hide();
-          $mostrar.show();
-          const url = `/productos/${valor}/all`;
-          $.getJSON(url, onMostrar);
-        }
-      });
-
-      function onMostrar(data) {
+        function onProducCateg(data) {
           let htmlOptions = '';
-
+          
           if(data.length === 0) {
             $resultado.show();
           }
@@ -369,87 +463,41 @@
           }
 
           data.forEach(productos => {
-            if(productos.image != null){
-                htmlOptions += 
-                `<li class="product__item">`+
-                    `<div class="product__image"><a href="{{ url('/producto/${productos.id}/detailProd') }}" target="black"><img src="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}" alt=""></a>`+
-                        `<div class="image__tools"><i class="fas fa-search"></i>`+
-                            `<i class="fas fa-random"></i>`+
-                            `<i class="far fa-heart"></i>`+
-                        `</div>`+
-                    `</div>`+
-                    `<div class="product__content" style="width:100%"><a class="link-title" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black" style="font-size:30px">${productos.name}</a>`+
-                        `<p class="price" style="font-size:25px">S./${productos.precio}</p>`+
-                        `<div class="color"></div>`+
-                        `<p style="font-size:15px">${ productos.description }</p><a class="btn active" target="black" href="{{ url('/producto/${productos.id}/detailProd') }}">Ver Producto</a>`+
-                    `</div>`+
-                `</li>`;
-            }else{
-                htmlOptions += 
-                `<li class="product__item">`+
-                    `<div class="product__image"><a href="{{ url('/producto/${productos.id}/detailProd') }}" target="black"><img src="{{ asset('img/defaultProducto.jpg') }}" alt=""></a>`+
-                        `<div class="image__tools"><i class="fas fa-search"></i>`+
-                            `<i class="fas fa-random"></i>`+
-                            `<i class="far fa-heart"></i>`+
-                        `</div>`+
-                    `</div>`+
-                    `<div class="product__content" style="width:100%"><a class="link-title" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
-                        `<p class="price" style="font-size:25px">S./${productos.precio}</p>`+
-                        `<div class="color"></div>`+
-                        `<p style="font-size:15px">${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black">Ver Producto</a>`+
-                    `</div>`+
-                `</li>`;
-            }
-        });
-        $mostrar.html(htmlOptions);
-      }
-
-      function onProducCateg(data) {
-        let htmlOptions = '';
-        
-        if(data.length === 0) {
-          $resultado.show();
-        }
-        else {
-          $resultado.hide();
-        }
-
-        data.forEach(productos => {
-        if(productos.image != null){
-          htmlOptions += 
-          `<li class="product__item">`+
-              `<div class="product__image"><a href="{{ url('/producto/${productos.id}/detailProd') }}" target="black"><img src="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}" alt=""></a>`+
-                  `<div class="image__tools"><i class="fas fa-search"></i>`+
-                      `<i class="fas fa-random"></i>`+
-                      `<i class="far fa-heart"></i>`+
-                  `</div>`+
-              `</div>`+
-              `<div class="product__content" style="width:100%"><a class="link-title" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
-                  `<p class="price">$${productos.precio}</p>`+
-                  `<div class="color"><span style="background: #f0deba" data-image="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"></span><span style="background: #000" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
-                  `<p style="font-size:15px">${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black">Ver Producto</a>`+
-              `</div>`+
-          `</li>`;
-        }else{
+          if(productos.image != null){
+            htmlOptions += 
             `<li class="product__item">`+
-              `<div class="product__image"><a href="{{ url('/producto/${productos.id}/detailProd') }}" target="black"><img src="{{ asset('img/defaultProducto.jpg') }}" alt=""></a>`+
-                  `<div class="image__tools"><i class="fas fa-search"></i>`+
-                      `<i class="fas fa-random"></i>`+
-                      `<i class="far fa-heart"></i>`+
-                  `</div>`+
-              `</div>`+
-              `<div class="product__content" style="width:100%"><a class="link-title" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
-                  `<p class="price">$${productos.precio}</p>`+
-                  `<div class="color"><span style="background: #f0deba" data-image="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"></span><span style="background: #000" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
-                  `<p style="font-size:15px">${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black">Ver Producto</a>`+
-              `</div>`+
-          `</li>`;
+                `<div class="product__image"><a href="{{ url('/producto/${productos.id}/detailProd') }}" target="black"><img src="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}" alt=""></a>`+
+                    `<div class="image__tools"><i class="fas fa-search"></i>`+
+                        `<i class="fas fa-random"></i>`+
+                        `<i class="far fa-heart"></i>`+
+                    `</div>`+
+                `</div>`+
+                `<div class="product__content" style="width:100%"><a class="link-title" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
+                    `<p class="price">$${productos.precio}</p>`+
+                    `<div class="color"><span style="background: #f0deba" data-image="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"></span><span style="background: #000" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
+                    `<p style="font-size:15px">${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black">Ver Producto</a>`+
+                `</div>`+
+            `</li>`;
+          }else{
+              `<li class="product__item">`+
+                `<div class="product__image"><a href="{{ url('/producto/${productos.id}/detailProd') }}" target="black"><img src="{{ asset('img/defaultProducto.jpg') }}" alt=""></a>`+
+                    `<div class="image__tools"><i class="fas fa-search"></i>`+
+                        `<i class="fas fa-random"></i>`+
+                        `<i class="far fa-heart"></i>`+
+                    `</div>`+
+                `</div>`+
+                `<div class="product__content" style="width:100%"><a class="link-title" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
+                    `<p class="price">$${productos.precio}</p>`+
+                    `<div class="color"><span style="background: #f0deba" data-image="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"></span><span style="background: #000" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
+                    `<p style="font-size:15px">${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black">Ver Producto</a>`+
+                `</div>`+
+            `</li>`;
+          }
+          });
+          $mostrarcategoria.html(htmlOptions);
         }
-        });
-        $mostrarcategoria.html(htmlOptions);
-      }
-    });
-  </script>
+      });
+    </script>
 @endsection
 
 
