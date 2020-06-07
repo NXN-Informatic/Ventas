@@ -28,6 +28,24 @@
             <div class="col-xxl-12">
                 <div class="card">
                     <div class="card-header">
+                        <h5 class="card-title mb-0">{{ __('Vende en FeriaTacna!') }}</h5>
+                        <div class="col-12">
+                            <div class="col-12 custom-control custom-switch text-right">
+                                <input type="checkbox" class="custom-control-input" checked id="customSwitch1" >
+                                <label class="custom-control-label" for="customSwitch1">Activado</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Tu Tienda será publicada en nuestras plataformas. Los visitantes podrán buscar y visitar tu Tienda.</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-12">
+                <div class="card">
+                    <div class="card-header">
                         <h5 class="card-title mb-0">{{ __('Conecta tu Puesto con tu Página de Facebook!') }}</h5>
                     </div>
                     <div class="card-body">

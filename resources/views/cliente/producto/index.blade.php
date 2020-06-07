@@ -26,6 +26,7 @@
             </nav>
 		</div>
         <div class="row">
+            <h2>Cree categorías y añada sus productos.</h2>
             <div class="col-sm-12">
                     <a href="{{ url('producto/creargrupo') }}" class="btn btn-primary btn-lg mt-2">
                         <i class="fa fa-star"></i>  <span style="margin-left:20px; margin-right:20px">{{ __('    Crear Categorías    ') }}</span>
@@ -54,8 +55,8 @@
                                         <h5 class="card-title">{{ $grupos->name }} </h5>
                                         <div class="row align-items-center">
                                             @foreach($grupos->productos as $producto)
-                                                <div class="col-12">
-                                                    <div class="row">
+                                                <div class="col-12" >
+                                                    <div class="row" style="border: 1px; border-color: #c5c5c5">
                                                         <div class="col-lg-3 col-12">
                                                             <div class="card">
                                                                 <div class="col-sm-12 col-xl-12 col-xxl-12 text-center">
@@ -85,8 +86,8 @@
                                                                 <div class="card-body">
                                                                     <div class="row">
                                                                         <div class="col-sm-10 ml-sm-auto text-right mt-2">
-                                                                            <a href="{{ url('producto/'.$usuarioPuesto->id.'/editar/'.$producto->id) }}"><button type="button" class="btn btn-primary">
-                                                                                <i class="fas fa-edit" title="Editar"></i>
+                                                                            <a href="{{ url('producto/'.$usuarioPuesto->id.'/editar/'.$producto->id) }}"><button type="button" class="btn mb-1 btn-primary">
+                                                                                <i class="fas fa-edit" title="Editar"></i><span style="margin-left: 7px; margin-right: 2px">Editar</span>
                                                                             </button></a>
                                                                             <a  href="javascript:void" onclick="$('#delete-form').submit();"><button type="button" class="btn btn-danger">
                                                                                 <i class="fas fa-times" title="Eliminar"></i>
@@ -102,10 +103,6 @@
                                                                             <tr>
                                                                                 <th>Precio</th>
                                                                                 <td>{{ $producto->precio }}</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <th>Stock</th>
-                                                                                <td>{{ $producto->stock }}</td>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>

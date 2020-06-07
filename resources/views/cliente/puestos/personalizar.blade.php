@@ -90,7 +90,7 @@
                             <input type="file" class="form-control-file" name="logo" id="logo">
                         @else
                             <div class="row" id="preview_logo">
-                                <img src="{{ asset('img/imagen.png') }}" class="img-thumbnail rounded mr-2 mb-2" alt="Sin imagen">
+                                <img src="{{ asset('default\perfil.png') }}" class="img-thumbnail rounded mr-2 mb-2" alt="Sin imagen">
                             </div>
                             <input type="file" class="form-control-file" name="logo" id="logo">
                         @endif

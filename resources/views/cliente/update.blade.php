@@ -86,7 +86,8 @@
                                 <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
                             </div>
                             <div class="form-group">
-                            <strong><label class="form-label">Suba su Foto de Perfil</label></strong>
+                            <strong><label class="form-label">Foto de Perfil</label></strong>
+                            <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Con esto aumentará la confianza de sus clientes.') }}</small>
                                 <input type="file" class="form-control-file" name="imagen">
                             </div>
                             <div class="col-12 text-center">
@@ -107,7 +108,7 @@
                             @if(auth()->user()->imagen)
                                 <img src="{{ asset('storage/usuarios/'.auth()->user()->id.'/'.auth()->user()->imagen) }}" width="140" height="140" class="rounded-circle mt-2" alt="Angelica Ramos">
                             @else
-                                <img src="{{ asset('img/user.png') }}" width="140" height="140" class="rounded-circle mt-2" alt="Angelica Ramos">
+                                <img src="{{ asset('default\perfil.png') }}" width="140" height="140" class="rounded-circle mt-2" alt="Angelica Ramos">
                             @endif
                             </div>
                         </div>
@@ -132,7 +133,7 @@
                                 </tr>
                                 <tr>
                                     <th>Role</th>
-                                    <td>{{ auth()->user()->role }}</td>
+                                    <td>Propietario</td>
                                 </tr>
                                 <tr>
                                     <th>Estado</th>

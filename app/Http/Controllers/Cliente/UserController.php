@@ -49,7 +49,7 @@ class UserController extends Controller
         }
         $usuario->save();
 
-        $notification = 'Se ha actualizado Sus datos Correctamente';
+        $notification = 'Sus datos fueron actualizados correctamente';
         return redirect('/home')->with(compact('notification'));
     }
 
