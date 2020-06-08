@@ -72,7 +72,7 @@
 </div> -->
 @if($puesto->banner == null)
 <div class="bannerBlog headermax" style="background-image: url('{{ asset('storage/'.$puesto->id.'/banner/'.$puesto->banner)}}')">
-    <h1 class="title" style="font-size:25px; text-align:right; margin-top:-5%; margin-right:10px"><i class="fas fa-phone-volume"></i> Llamar {{ $puesto->phone }} </h1>
+    <h1 class="title" style="font-size:25px; text-align:right; margin-top:-5%; margin-right:10px"><i class="fab fa-whatsapp" style="margin-right: 8px"></i> {{ $puesto->phone }} </h1>
     <h1 class="title">{{ $puesto->name }}</h1>
     <div style="text-align:center;">
     <br>
@@ -82,7 +82,7 @@
 </div>
 @else
 <div class="bannerBlog" style="background-image: url('{{ asset('img/banner/fondo.jpg')}}');height:400px">
-    <h1 class="title" style="font-size:25px; text-align:right; margin-top:-5%; margin-right:10px"><i class="fas fa-phone-volume"></i> Llamar {{ $puesto->phone }} </h1>
+    <h1 class="title" style="font-size:25px; text-align:right; margin-top:-5%; margin-right:10px"><i class="fab fa-whatsapp" style="margin-right: 8px"></i> {{ $puesto->phone }} </h1>
     <br><br><br><br><br>
     <h1 class="title">{{ $puesto->name }}</h1>
     <div style="text-align:center;">
@@ -140,10 +140,6 @@
 <!--Start Featured Products-->
 <div class="featureProduct" id="ocultar1">
     <div class="feature__filter">
-        <div class="button-group filters-button-group feature__buttons">
-        </div>
-        <h1 class="title" style="font-size: 30px">{{'Productos de "'.$puesto->name.'"'}}
-        </h1><br>
         @foreach($puesto->puestosubcategorias as $puestosubcategorias)
             @foreach($puestosubcategorias->grupos as $grupos)
                 <ul class="featureSlider container" style="position: relative">
@@ -151,7 +147,7 @@
                     @if($aux->isNotEmpty())
                     <div class="row">
                         <div class="col-12" style="text-align: left">
-                        <h2>{{ $grupos->name }}</h2>
+                        <h2 style="font-size: 20px">{{ $grupos->name }}</h2>
                         </div>
                     </div>
                     <li class="grid features__grid" style="position: relative">

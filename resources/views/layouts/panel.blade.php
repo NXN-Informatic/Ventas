@@ -61,7 +61,9 @@
     <div class="header__wrap container dflex">
         <ul class="header__item dflex left">
           <div class="ocultar">
-            <img src="{{ asset('img/logo.png') }}" style="width: 120px; margin-right: 20px">
+            <a href="/">
+            <img src="{{ asset('img/logo.png') }}" style="width: 120px; margin-right: 20px">    
+            </a>
           </div>
             <li class="header__list"><span style="color: #000">CATEGORIAS</span><i class="fas fa-angle-down"></i>
                 <ul class="sub" id="tags">
@@ -86,7 +88,7 @@
   <div class="nav" id="ocultarBanner">
     <div style="text-align: right; margin-right: 20px">    
         <a href="{{ url('register') }}">
-            <button class="btn" style="background:#FF0000; border-radius:20px; font-weight: bold;">Crea tu tienda GRATUITA</button>  
+            <button class="btn" style="background:#FF0000; border-radius:20px; font-weight: bold; ">Crea tu tienda GRATUITA</button>  
         </a>
         </div>
       <div class="nav__wrap container dflex">

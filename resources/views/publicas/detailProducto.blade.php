@@ -88,18 +88,20 @@
               <!-- Fecha Vendedor -->
               <!-- <p style="text-align: right;"><span style="font-size: 15px; color:#000">{{ __('Miembro desde:') }} </span> {{ $usuario_puestos->user->created_at }}</p> -->
               <!-- Chatea con el  Vendedor -->
+              <br>
               <a href="{{ url('/puesto/'.$usuario_puestos->puesto->id.'/detail') }}" target="black">
                 <button class="btn btn-primary" style="background:#000">{{ __('Chatea con el Vendedor') }}</button>
               </a><br><br>
               @if($usuario_puestos->puesto->phone)
                 <!-- Phone Vendedor -->
-                <h2 style="font-size: 20px"><i class="fas fa-phone-volume"></i> Llamar {{ $usuario_puestos->puesto->phone }}</h2>
+                <h2 style="font-size: 20px"><i class="fas fa-phone-volume"></i> {{ $usuario_puestos->puesto->phone }}</h2>
               @endif
               <br>
               @if($usuario_puestos->puesto->phone2)
                 <!-- Phone 2 Vendedor -->
-                <h2 style="font-size: 20px"><i class="fas fa-phone-volume"></i> Llamar {{ $usuario_puestos->puesto->phone2 }}</h2>
+                <h2 style="font-size: 20px"><i class="fas fa-phone-volume"></i> {{ $usuario_puestos->puesto->phone2 }}</h2>
               @endif
+
               <br>
              
             @endforeach
