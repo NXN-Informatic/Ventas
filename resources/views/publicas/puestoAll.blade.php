@@ -25,7 +25,7 @@
                         <i class="far fa-heart"></i>
                     </div>
                 </div>
-                <div class="product__content"><a class="link-title" href="#">{{ $puesto->name}}</a>
+                <div class="product__content" style="width: 100%"><a class="link-title" href="#">{{ $puesto->name}}</a>
                     <label style="font-size:20px; color:#F0C908">
                         @for ($i = 0; $i < $puesto->calification; $i++)   
                             <i class="fas fa-star"></i>
