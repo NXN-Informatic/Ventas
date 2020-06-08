@@ -16,6 +16,9 @@
                     <li class="breadcrumb-item active" aria-current="page">Personalizar</li>
                 </ol>
                 <a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="black"><button class="btn btn-info" ><span style="margin-left:20px; margin-right:20px">      Ver mi Tienda      </span></button></a>
+                <a target="_blank" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com/puesto/{{ auth()->user()->usuario_puestos->first()->puesto_id }}/detail">
+                    <button class="btn mb-1 btn-facebook btn-lg"><i class="align-left fab fa-facebook" title="Compartir"></i><span style="margin-left:20px; margin-right:20px">{{ __('    Compartir    ') }}</span></button>
+                </a>
             </nav>
 		</div>
         <form action="{{ url('puesto/update/'.$puesto->id) }}" method="post" enctype="multipart/form-data">
@@ -90,7 +93,7 @@
                             <input type="file" class="form-control-file" name="logo" id="logo">
                         @else
                             <div class="row" id="preview_logo">
-                                <img src="{{ asset('img/imagen.png') }}" class="img-thumbnail rounded mr-2 mb-2" alt="Sin imagen">
+                                <img src="{{ asset('default\perfil.png') }}" class="img-thumbnail rounded mr-2 mb-2" alt="Sin imagen">
                             </div>
                             <input type="file" class="form-control-file" name="logo" id="logo">
                         @endif

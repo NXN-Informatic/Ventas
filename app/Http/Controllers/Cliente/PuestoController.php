@@ -173,7 +173,7 @@ class PuestoController extends Controller
                 ]);
             }
     
-            $notification = 'Se ha creado su Puesto Correctamente.';
+            $notification = 'Su Tienda ha sido creada con éxito.';
         }else {
             $notification = 'Usted no Tiene acceso para crear más Productos.';
         }
@@ -251,7 +251,7 @@ class PuestoController extends Controller
                 ]);
             }
         }
-        $notification = 'Se ha actualizado los datos de su puesto Correctamente';
+        $notification = 'Se ha actualizado los datos de su Tienda correctamente';
         return redirect('/home')->with(compact('notification'));
     }
 

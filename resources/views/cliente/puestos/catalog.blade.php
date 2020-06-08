@@ -20,11 +20,31 @@
                     <li class="breadcrumb-item active" aria-current="page">Canales de Venta</li>
                 </ol>
                 <a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="black"><button class="btn btn-info" ><span style="margin-left:20px; margin-right:20px">      Ver mi Tienda      </span></button></a>
-                
+                <a target="_blank" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com/puesto/{{ auth()->user()->usuario_puestos->first()->puesto_id }}/detail">
+                    <button class="btn mb-1 btn-facebook btn-lg"><i class="align-left fab fa-facebook" title="Compartir"></i><span style="margin-left:20px; margin-right:20px">{{ __('    Compartir    ') }}</span></button>
+                </a>
             </nav>
 		</div>
         <div class="row">
             <!-- Formulario de Usuario -->
+            <div class="col-xxl-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">{{ __('Vende en FeriaTacna!') }}</h5>
+                        <div class="col-12">
+                            <div class="col-12 custom-control custom-switch text-right">
+                                <input type="checkbox" class="custom-control-input" checked id="customSwitch1" >
+                                <label class="custom-control-label" for="customSwitch1">Activado</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Tu Tienda será publicada en nuestras plataformas. Los visitantes podrán buscar y visitar tu Tienda.</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col-xxl-12">
                 <div class="card">
                     <div class="card-header">

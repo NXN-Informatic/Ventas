@@ -90,7 +90,7 @@ class PublicController extends Controller
                 ]);
             }
     
-            $notification = 'Se ha creado su Puesto Correctamente.';
+            $notification = 'Su Tienda ha sido creada correctamente.';
         }else {
             $notification = 'Usted no Tiene acceso para crear más Productos.';
         }

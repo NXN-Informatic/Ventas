@@ -160,7 +160,7 @@
                                     <?php $imagen = null; ?>
                                     <?php $imagen = $productos->imagen_productos->first(); //solo una imagen x producto?>
                                     @if($imagen != null)
-                                        <div class="element-item features__item col-3 sale" style="position: relative">
+                                        <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale" style="position: relative">
                                             <div class="features__image desk"><a href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="black"><img src="{{ asset('storage/'.$puesto->id.'/'.$productos->id.'/'.$imagen->imagen) }}"  width="200px" height="300px" alt=""></a>
                                                 <div class="image__overlay">
                                                     <div class="color">
