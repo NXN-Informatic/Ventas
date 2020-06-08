@@ -29,6 +29,17 @@
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
+      <style>
+      .ocultar{
+          display: block;
+      }
+    @media (max-width: 600px) {
+      .ocultar {
+          display: : none;
+      }
+    }
+    </style>
+
 </head>
 <body>
     
@@ -43,10 +54,13 @@
   <!--End Elements Page-->
 
   <!--Start Header-->
-  <header style="background:#153d77">
+  <header style="background:#fff">
     <div class="header__wrap container dflex">
         <ul class="header__item dflex left">
-            <li class="header__list"><span>CATEGORIAS</span><i class="fas fa-angle-down"></i>
+          <div class="ocultar">
+            <img src="{{ asset('img/logo.png') }}" style="width: 120px; margin-right: 20px">
+          </div>
+            <li class="header__list"><span style="color: #000">CATEGORIAS</span><i class="fas fa-angle-down"></i>
                 <ul class="sub" id="tags">
                     <li value="0"><span>TODOS</span></li>
                     @foreach($categorias as $categoria)
@@ -57,12 +71,18 @@
         </ul>
         <input type="text" id="buscar" name="buscar" style="width:400px;background:#fff" placeholder="Busque su Producto...">
         <ul class="header__item dflex right">
-            <li class="header__list"><span><a href="{{ url('login') }}" style="color:#fff">LOGIN</a></span></li>
-            <li class="header__list"><span><a href="{{ url('register') }}" style="color:#fff">REGISTRAR TIENDA</a></span></li>
+            <li class="header__list"><span><a href="{{ url('login') }}" style="color:#000">LOGIN</a></span></li>
+            <li class="header__list"><i style="color: #000" class="fa fa-heart" aria-hidden="true"></i></li>
+            <li class="header__list"><i style="color: #000" class="fa fa-user" aria-hidden="true"></i></li>
         </ul>
     </div>
   </header>
   <div class="nav" id="ocultarBanner">
+    <div style="text-align: right; margin-right: 20px">    
+        <a href="{{ url('register') }}">
+            <button class="btn" style="background:#FF0000; border-radius:20px; font-weight: bold;">Crea tu tienda GRATUITA</button>  
+        </a>
+        </div>
       <div class="nav__wrap container dflex">
           <div class="nav__button"><i class="fas fa-bars"></i>MENU</div>
           <a class="nav__logo" href="/">
