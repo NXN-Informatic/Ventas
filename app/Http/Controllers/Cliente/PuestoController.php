@@ -251,7 +251,7 @@ class PuestoController extends Controller
                 ]);
             }
         }
-        $notification = 'Se ha actualizado los datos de su puesto Correctamente';
+        $notification = 'Se ha actualizado los datos de su Tienda correctamente';
         return redirect('/home')->with(compact('notification'));
     }
 
