@@ -21,172 +21,172 @@
                 </a>
             </nav>
 		</div>
-        <form action="{{ url('home') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ url('/puesto/update/'.auth()->user()->usuario_puestos->first()->puesto_id) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
-        <div class="row">
-            <!-- Formulario de Usuario -->
-            <div class="col-md-7">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>{{ __('Información de la Tienda') }}</h4>
-                    </div>
-                    <div class="card-body">
-                        @if($errors->any())
-                        <div class="alert alert-danger alert-dismissible" role="alert">
-                            <div class="alert-message">
-                                <strong>{{ $errors->first() }}</strong>
-                            </div>
+            <div class="row">
+                <!-- Formulario de Usuario -->
+                <div class="col-md-7">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>{{ __('Información de la Tienda') }}</h4>
                         </div>
-                        @endif
-                        @if (session('notification'))
-                        <div class="alert alert-primary alert-dismissible" role="alert">
-                            <div class="alert-icon">
-                                <i class="far fa-fw fa-bell"></i>
+                        <div class="card-body">
+                            @if($errors->any())
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <div class="alert-message">
+                                    <strong>{{ $errors->first() }}</strong>
+                                </div>
                             </div>
-                            <div class="alert-message">
-                                <strong>{{ session('notification') }}</strong>
-                            </div>
-
-							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                            </button>
-						</div>
-                        @endif
-                        <div class="form-group">
-                        <strong><label class="form-label" for="name">Nombre de su Tienda</label></strong>
-                            <small class="form-text text-muted">{{ __('Indique el nombre de la Tienda como quiera que aparezca para sus clientes. Puede cambiar el nombre de su tienda en cualquier momento.') }}</small>
-                            <input style="margin-top:7px" type="text" class="form-control form-control-lg" name="name" value="{{ old('name', $puesto->name) }}" required>
-                            <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
-                        </div>
-                        <div class="form-group">
-                        <strong><label class="form-label">Sector del negocio</label></strong>
-                            <div class="mb-3">
-                            @if( $categs)
-                            <input type="text" class="form-control" value="{{ $categs[0] }}">
                             @endif
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <strong><label class="form-label">¿Qué venderás?</label></strong>
-                            <small class="form-text text-muted">{{ __('Puede seleccionar varias opciones.') }}</small>
-                            <div class="mb-3" style="margin-top:7px">
-                            <select class="form-control select2 form-control-lg" id="subcategoria" name="subcategoria_id[]" data-toggle="select2" multiple>
-                            <optgroup label="Subcategorias Disponibles">
-                                <option value=""></option>
-                                @foreach($subcategorias as $subcategoria)
-                                    <option value="{{ $subcategoria->id }}" 
-                                    @for ($i = 0; $i < count($subcat); $i++)
-                                        @if($subcat[$i] == $subcategoria->id)
-                                            selected
-                                        @endif
-                                    @endfor
-                                    >{{ $subcategoria->name }}</option>
-                                @endforeach
-                            </optgroup>
-                            </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <strong><label class="form-label" for="contacto">Información de contacto</label></strong>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Celular 1') }}</small>
-                                    <input type="text" class="form-control form-control-lg" name="phone" value="{{ old('phone', $puesto->phone) }}">
+                            @if (session('notification'))
+                            <div class="alert alert-primary alert-dismissible" role="alert">
+                                <div class="alert-icon">
+                                    <i class="far fa-fw fa-bell"></i>
                                 </div>
-                                <div class="col-md-6">
-                                    <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Celular 2') }}</small>
-                                    <input type="text" class="form-control form-control-lg" name="phone2" value="{{ old('phone2', $puesto->phone2) }}">
+                                <div class="alert-message">
+                                    <strong>{{ session('notification') }}</strong>
+                                </div>
+
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            @endif
+                            <div class="form-group">
+                            <strong><label class="form-label" for="name">Nombre de su Tienda</label></strong>
+                                <small class="form-text text-muted">{{ __('Indique el nombre de la Tienda como quiera que aparezca para sus clientes. Puede cambiar el nombre de su tienda en cualquier momento.') }}</small>
+                                <input style="margin-top:7px" type="text" class="form-control form-control-lg" name="name" value="{{ old('name', $puesto->name) }}" required>
+                                <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
+                            </div>
+                            <div class="form-group">
+                            <strong><label class="form-label">Sector del negocio</label></strong>
+                                <div class="mb-3">
+                                @if( $categs)
+                                <input type="text" class="form-control" value="{{ $categs[0] }}">
+                                @endif
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                        <strong><label class="form-label" for="description">Resumen de tu Tienda</label></strong>
-                            <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Describe brevemente qué encontrarán tus clientes dentro de tu Tienda. (Máx 2 líneas o 40 palabras)') }}</small>
-                            <textarea name="description" maxlength="250" data-provide="markdown" rows="6">{{ old('description', $puesto->description) }}</textarea>
-                        </div>
-                
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-5">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>{{ __('Ubicación de la Tienda física') }}</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="form-group">
-                            <strong><label class="form-label" for="direccion">Ubicación de tu Tienda o lugar de reparto (Dirección completa) </label></strong>
-                            <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Indique la ubicación como quiera que aparezca para sus clientes.') }}</small>
-                            <input style="margin-top: 7px" type="text" class="form-control form-control-lg" name="direccion" value="{{ old('direccion', $puesto->direccion) }}" required>
-                        </div>
-                        <div class="form-group">
-                            <strong><label class="form-label" for="mapa">Mapa de ubicación</label></strong>
-                            <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Arrastre el marcador hacia la ubicación aproximada de su Tienda.') }}</small>
-                            <div id="map" style="height: 300px;"></div>
-                            <input type="hidden" id="coords" />
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title mb-0">{{ __('Información de Entrega y Pagos') }}</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="form-group">
-                            <strong><label class="form-label">¿Cómo te pagarán los clientes?</label></strong>
-                            <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Indique a sus clientes qué formas de pago acepta. Puede seleccionar varias opciones.') }}</small>
-                            <div class="mb-3">
-                            <select class="form-control select2 form-control-lg" id="formapago" name="formapago_id[]" data-toggle="select2" multiple>
-                            <optgroup label="Formas de pago disponibles">
-                                <option value=""></option>
-                                @foreach($formapagos as $formapago)
-                                    <option value="{{ $formapago->id }}"              
-                                    @foreach($formapagosuser as $formapag)
-                                        @if($formapag->pago->id == $formapago->id)
-                                            selected
-                                        @endif
-                                    @endforeach
-                                    >{{ $formapago->name }}</option>
-                                @endforeach
-                            </optgroup>
-                            </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <strong><label class="form-label">¿Cómo entregarás los productos?</label></strong>
-                            <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Indique a sus clientes qué formas de entrega ofrece. Puede seleccionar varias opciones.') }}</small>
-                            <div class="mb-3">
-                                <select class="form-control select2 form-control-lg" id="formaentrega" name="formaentrega_id[]" data-toggle="select2" multiple>
-                                <optgroup label="Formas de entrega disponibles">
+                            <div class="form-group">
+                                <strong><label class="form-label">¿Qué venderás?</label></strong>
+                                <small class="form-text text-muted">{{ __('Puede seleccionar varias opciones.') }}</small>
+                                <div class="mb-3" style="margin-top:7px">
+                                <select class="form-control select2 form-control-lg" id="subcategoria" name="subcategoria_id[]" data-toggle="select2" multiple>
+                                <optgroup label="Subcategorias Disponibles">
                                     <option value=""></option>
-                                    @foreach($formaentregas as $formaentrega)
-                                        <option value="{{ $formaentrega->id }}" 
-                                        @foreach($formaentregasuser as $formaEntr)
-                                            @if($formaEntr->entrega->id == $formaentrega->id)
+                                    @foreach($subcategorias as $subcategoria)
+                                        <option value="{{ $subcategoria->id }}" 
+                                        @for ($i = 0; $i < count($subcat); $i++)
+                                            @if($subcat[$i] == $subcategoria->id)
                                                 selected
                                             @endif
-                                        @endforeach
-                                        >{{ $formaentrega->name }}</option>
+                                        @endfor
+                                        >{{ $subcategoria->name }}</option>
                                     @endforeach
                                 </optgroup>
                                 </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <strong><label class="form-label" for="contacto">Información de contacto</label></strong>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Celular 1') }}</small>
+                                        <input type="text" class="form-control form-control-lg" name="phone" value="{{ old('phone', $puesto->phone) }}">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Celular 2') }}</small>
+                                        <input type="text" class="form-control form-control-lg" name="phone2" value="{{ old('phone2', $puesto->phone2) }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                            <strong><label class="form-label" for="description">Resumen de tu Tienda</label></strong>
+                                <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Describe brevemente qué encontrarán tus clientes dentro de tu Tienda. (Máx 2 líneas o 40 palabras)') }}</small>
+                                <textarea name="description" maxlength="250" data-provide="markdown" rows="6">{{ old('description', $puesto->description) }}</textarea>
+                            </div>
+                    
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-5">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>{{ __('Ubicación de la Tienda física') }}</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <strong><label class="form-label" for="direccion">Ubicación de tu Tienda o lugar de reparto (Dirección completa) </label></strong>
+                                <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Indique la ubicación como quiera que aparezca para sus clientes.') }}</small>
+                                <input style="margin-top: 7px" type="text" class="form-control form-control-lg" name="direccion" value="{{ old('direccion', $puesto->direccion) }}" required>
+                            </div>
+                            <div class="form-group">
+                                <strong><label class="form-label" for="mapa">Mapa de ubicación</label></strong>
+                                <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Arrastre el marcador hacia la ubicación aproximada de su Tienda.') }}</small>
+                                <div id="map" style="height: 300px;"></div>
+                                <input type="hidden" id="coords" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title mb-0">{{ __('Información de Entrega y Pagos') }}</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <strong><label class="form-label">¿Cómo te pagarán los clientes?</label></strong>
+                                <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Indique a sus clientes qué formas de pago acepta. Puede seleccionar varias opciones.') }}</small>
+                                <div class="mb-3">
+                                <select class="form-control select2 form-control-lg" id="formapago" name="formapago_id[]" data-toggle="select2" multiple>
+                                <optgroup label="Formas de pago disponibles">
+                                    <option value=""></option>
+                                    @foreach($formapagos as $formapago)
+                                        <option value="{{ $formapago->id }}"              
+                                        @foreach($formapagosuser as $formapag)
+                                            @if($formapag->pago->id == $formapago->id)
+                                                selected
+                                            @endif
+                                        @endforeach
+                                        >{{ $formapago->name }}</option>
+                                    @endforeach
+                                </optgroup>
+                                </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <strong><label class="form-label">¿Cómo entregarás los productos?</label></strong>
+                                <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Indique a sus clientes qué formas de entrega ofrece. Puede seleccionar varias opciones.') }}</small>
+                                <div class="mb-3">
+                                    <select class="form-control select2 form-control-lg" id="formaentrega" name="formaentrega_id[]" data-toggle="select2" multiple>
+                                    <optgroup label="Formas de entrega disponibles">
+                                        <option value=""></option>
+                                        @foreach($formaentregas as $formaentrega)
+                                            <option value="{{ $formaentrega->id }}" 
+                                            @foreach($formaentregasuser as $formaEntr)
+                                                @if($formaEntr->entrega->id == $formaentrega->id)
+                                                    selected
+                                                @endif
+                                            @endforeach
+                                            >{{ $formaentrega->name }}</option>
+                                        @endforeach
+                                    </optgroup>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- End Formulario de Usuario -->
             </div>
-            <!-- End Formulario de Usuario -->
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <button type="submit" class="btn btn-primary btn-lg"><span style="margin-left: 83px; margin-right: 83px">Guardar datos</span></button>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <button type="submit" class="btn btn-primary btn-lg"><span style="margin-left: 83px; margin-right: 83px">Guardar datos</span></button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </form>
     </div>
 </main>
