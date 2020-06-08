@@ -1,7 +1,4 @@
 <ul class="sidebar-nav">
-    <li class="sidebar-header">
-        Main
-    </li>
     <li class="sidebar-item">
         <a class="sidebar-link" href="{{ url('home') }}">
             <i class="align-middle mr-2 fas fa-fw fa-home" style="color: #bf0000"></i> <span class="align-middle">{{ __('Inicio') }}</span>

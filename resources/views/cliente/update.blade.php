@@ -111,7 +111,7 @@
                             @if(auth()->user()->imagen)
                                 <img src="{{ asset('storage/usuarios/'.auth()->user()->id.'/'.auth()->user()->imagen) }}" width="140" height="140" class="rounded-circle mt-2" alt="Angelica Ramos">
                             @else
-                                <img src="{{ asset('default\perfil.png') }}" width="140" height="140" class="rounded-circle mt-2" alt="Angelica Ramos">
+                                <img src="{{ asset('img/logost.jpg') }}" width="140" height="140" class="rounded-circle mt-2" alt="Angelica Ramos">
                             @endif
                             </div>
                         </div>
@@ -135,7 +135,7 @@
                                     <td>{{ auth()->user()->email }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Role</th>
+                                    <th>Rol</th>
                                     <td>Propietario</td>
                                 </tr>
                                 <tr>

@@ -138,9 +138,10 @@ class PuestoController extends Controller
                 'maxsubcategorias' => 2,
                 'plan_id' => $request->input('planid')
             ]);
-
             $file = $request->file('logo');
+
             $banner = $request->file('banner');
+
             if($file != null) {
                 $name = $file->getClientOriginalName();
                 $fileName = 'public/'.$puesto->id.'/logo/'.$name;
@@ -198,27 +199,39 @@ class PuestoController extends Controller
         $puesto->elegirnos = $request->input('elegirnos');
         $puesto->nosotros = $request->input('nosotros');
         //$puesto->precio_min = $request->input('precio_min');
-
+        $aux=0;
         $file = $request->file('logo');
         $banner = $request->file('banner');
+        $banner2 = $request->input('bannerdefault');
+
+        if($banner == null){
+            if($banner2 != null){
+                $aux=1;
+            }
+        }
+
         if($file != null) {
             $name = $file->getClientOriginalName();
             $fileName = 'public/'.$puesto->id.'/logo/'.$name;
             \Storage::disk('local')->put($fileName,  \File::get($file));
             $puesto->perfil = $name;
         }
-
-        if($request->input('bannerPrueba') != null) {
-            $puesto->banner = $request->input('bannerPrueba');
-        }else {
-            
+        
+        if($aux==0){
             if($banner != null) {
                 $name = $banner->getClientOriginalName();
                 $fileName = 'public/'.$puesto->id.'/banner/'.$name;
                 \Storage::disk('local')->put($fileName,  \File::get($banner));
                 $puesto->banner = $name;
             }
+        }else{
+            $contents = file_get_contents('.'.$banner2);
+            $name = 'public/'.$puesto->id.'/banner/banerdef.jpg';
+            \Storage::disk('local')->put($name, $contents);
+            $puesto->banner= 'banerdef.jpg';
         }
+        
+        
         $puesto->save();
 
         $subcategorias = $request->input('subcategoria_id');

@@ -18,7 +18,7 @@ class CreateProductosTable extends Migration
             $table->string('codigo', 15)->nullable();
             $table->string('name', 50);
             $table->string('description', 450)->nullable();
-            $table->float('precio', 5,2);
+            $table->float('precio', 8,2);
             $table->integer('stock')->nullable();
             $table->boolean('activo')->default(true);
             
