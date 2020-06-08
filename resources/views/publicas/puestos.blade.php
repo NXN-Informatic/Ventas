@@ -70,13 +70,13 @@
         @endif
     @endif
 </div> -->
-@if($puesto->banner == null)
+@if($puesto->banner != null)
 <div class="bannerBlog headermax" style="background-image: url('{{ asset('storage/'.$puesto->id.'/banner/'.$puesto->banner)}}')">
     <h1 class="title" style="font-size:25px; text-align:right; margin-top:-5%; margin-right:10px"><i class="fas fa-phone-volume"></i> Llamar {{ $puesto->phone }} </h1>
     <h1 class="title">{{ $puesto->name }}</h1>
     <div style="text-align:center;">
     <br>
-    <a href="" class="title clases btn btn-primary" style="background:#000;"><h1 class="title" style="font-size:15px">Contacto</h1></a>
+    <a href="" class="title clases btn btn-primary" style="background:#000;"><h1 class="title" style="font-size:15px">Comprar</h1></a>
     
     </div>
 </div>

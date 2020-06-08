@@ -1,8 +1,10 @@
 <div class="wrapper" >
     <nav id="sidebar" class="sidebar">
-        <a class="sidebar-brand" href="/" style="background-color: #fff">
-            <img src="{{ asset('img/logo.png') }}" class="img-fluid mb-2">
-        </a>
+        <div class="row text-center" style="margin-right: 0rem">
+            <a class="sidebar-brand" href="/" style="background-color: #fff">
+                <img src="{{ asset('img/logo.png') }}" class="img-fluid mb-2" style="width: 50%">
+            </a>
+        </div>
         <div class="sidebar-content">
             <div class="sidebar-user">
                 @if(auth()->user()->imagen)
