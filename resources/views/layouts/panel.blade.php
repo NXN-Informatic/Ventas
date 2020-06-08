@@ -32,6 +32,17 @@
     .nav__search{flex:2;margin:0 20px;border:2px solid rgba(129,129,129,.2)}@media (max-width:991px){.nav .nav__wrap .nav__search{display:none}}.nav .nav__wrap .nav__search input,.nav .nav__wrap .nav__search select{color:#777;border:0}.nav .nav__wrap .nav__search input{border-right:1px solid rgba(129,129,129,.2)}.nav .nav__wrap .nav__search a{width:50px;color:#777;text-align:center;padding:10px 15px;font-size:18px;border-left:1px solid rgba(129,129,129,.2)}
     </style>
 
+      <style>
+      .ocultar{
+          display: block;
+      }
+    @media (max-width: 600px) {
+      .ocultar {
+          display: : none;
+      }
+    }
+    </style>
+
 </head>
 <body>
     
@@ -46,10 +57,13 @@
   <!--End Elements Page-->
 
   <!--Start Header-->
-  <header style="background:#ffffff">
+  <header style="background:#fff">
     <div class="header__wrap container dflex">
         <ul class="header__item dflex left">
-            <li class="header__list"><span style="color: #000">Categorias</span><i class="fas fa-angle-down"></i>
+          <div class="ocultar">
+            <img src="{{ asset('img/logo.png') }}" style="width: 120px; margin-right: 20px">
+          </div>
+            <li class="header__list"><span style="color: #000">CATEGORIAS</span><i class="fas fa-angle-down"></i>
                 <ul class="sub" id="tags">
                     <li value="0"><span>TODOS</span></li>
                     @foreach($categorias as $categoria)
@@ -63,12 +77,18 @@
             <a><i class="fas fa-search" style="margin-left: 10px; margin-right:10px"></i></a>
           </div>
         <ul class="header__item dflex right">
-            <li class="header__list"><span><a href="{{ url('login') }}" style="color:#000">Login</a></span></li>
-            <li class="header__list"><span><a href="{{ url('register') }}" style="color:#000">Registrar Tienda</a></span></li>
+            <li class="header__list"><span><a href="{{ url('login') }}" style="color:#000">LOGIN</a></span></li>
+            <li class="header__list"><i style="color: #000" class="fa fa-heart" aria-hidden="true"></i></li>
+            <li class="header__list"><i style="color: #000" class="fa fa-user" aria-hidden="true"></i></li>
         </ul>
     </div>
   </header>
   <div class="nav" id="ocultarBanner">
+    <div style="text-align: right; margin-right: 20px">    
+        <a href="{{ url('register') }}">
+            <button class="btn" style="background:#FF0000; border-radius:20px; font-weight: bold;">Crea tu tienda GRATUITA</button>  
+        </a>
+        </div>
       <div class="nav__wrap container dflex">
           <div class="nav__button"><i class="fas fa-bars"></i>MENU</div>
           <a class="nav__logo" href="/">

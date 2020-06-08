@@ -11,10 +11,31 @@
 @include('layouts.components.navbar')
 @include('layouts.components.banner')
 
+
+<!--Start Feature Product-->
+<div class="featureProduct singleProduct" id="tiendas">
+    <div class="feature__wrap container" style="margin-top: 15px; padding-left: 50px; padding-right: 50px">
+        <div class="row" style="border: solid; padding: 14px">
+            <div class="col-lg-4 col-12">
+                <h3 style="color: #FF0000; font-size: 16px">BUSCA</h3>
+                <h3 style="margin-top: 1px; font-size: 14px">Productos y tiendas de tacna, ahorra tiempo y dinero</h3>
+            </div>
+            <div class="col-lg-4 col-12">
+                <h3 style="color: #FF0000; font-size: 16px">COMPARA</h3>
+                <h3 style="margin-top: 1px; font-size: 14px">Precios y caracteristicas, de tus tiendas locales de siempre</h3>
+            </div>
+            <div class="col-lg-4 col-12">
+                <h3 style="color: #FF0000; font-size: 16px">COMPRA</h3>
+                <h3 style="margin-top: 1px; font-size: 14px">Sin comisiones ni tarjetas, trato directo con tiendas</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!--Start Feature Product-->
 <div class="featureProduct singleProduct" id="tiendas">
     <div class="feature__wrap container">
-        <h4 class="title">ÚLTIMAS TIENDAS</h4>
+        <h4 class="title">Tiendas Recomendadas <a href="{{ url('puestos/all') }}"> Ver tiendas</a></h4> 
         <div class="feature__filter">
             <div class="featureSlider">
             <div class="sliderButton left"><i class="fas fa-angle-left"></i></div>
@@ -24,66 +45,63 @@
             </div>
         </div>
     </div>
-    <a href="{{ url('puestos/all') }}">
-        <button type="submit" style="background:#153d77">VER MAS TIENDAS</button>
-    </a>
 </div>
 <!--End Feature Product-->
 
 <!--Start Featured Products-->
-<div class="featureProduct" id="prod">
-    <h4 class="title">MEJORES PRODUCTOS</h4>
-    <div class="feature__filter">
-        <div class="button-group filters-button-group feature__buttons">
+<div class="featureProduct singleProduct" id="prod">
+    <div class="feature__wrap container">
+        <h4 class="title">Productos para ti <a href="{{ url('all/productos') }}"> Ver productos</a></h4> 
+        <div class="feature__filter">
+            <div class="button-group filters-button-group feature__buttons">
+            </div>
+            <ul class="featureSlider container">
+                <li class="grid features__grid">
+                @foreach($productos as $producto)
+                    @foreach($producto->imagen_productos as $imagen) @endforeach
+                    @if($imagen)
+                    <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">
+                        <div class="features__image desk">
+                            <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="black"><img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="200px" height="300px" alt=""></a>
+                            <div class="image__overlay">
+                                <div class="color">
+                                    <div class="image" data-image="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="200px" height="300px"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="features__content"><a class="link" href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="black">{{$producto->name}}</a>
+                            <p class="price">S./ ${{$producto->precio}}</p>
+                            <div class="content__overlay">
+                                <p>{!! $producto->description !!}</p>
+                                <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="black">Ver Producto</a><a href="{{ url('/producto/'. $producto->id.'/detailProd') }}"><i class="fas fa-search"></i></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    @else
+                    <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">
+                        <div class="features__image desk">
+                            <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="black"><img src="{{ asset('img/defaultProducto.jpg') }}"  width="200px" height="300px" alt=""></a>
+                            <div class="image__overlay">
+                                <div class="color">
+                                    <div class="image" data-image="{{ asset('img/defaultProducto.jpg') }}"  width="200px" height="300px"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="features__content"><a class="link" href="#">{{$producto->name}}</a>
+                            <p class="price">S./ {{$producto->precio}}</p>
+                            <div class="content__overlay">
+                                <p>{!! $producto->description !!}</p>
+                                <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="black">Ver Producto</a><a href="{{ url('/producto/'. $producto->id.'/detailProd') }}"><i class="fas fa-search"></i></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
+                @endforeach
+                </li>
+            </ul>
         </div>
-        <ul class="featureSlider container">
-            <li class="grid features__grid">
-            @foreach($productos as $producto)
-                @foreach($producto->imagen_productos as $imagen) @endforeach
-                @if($imagen)
-                <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">
-                    <div class="features__image desk">
-                        <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="black"><img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="200px" height="300px" alt=""></a>
-                        <div class="image__overlay">
-                            <div class="color">
-                                <div class="image" data-image="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="200px" height="300px"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="features__content"><a class="link" href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="black">{{$producto->name}}</a>
-                        <p class="price">S./ ${{$producto->precio}}</p>
-                        <div class="content__overlay">
-                            <p>{!! $producto->description !!}</p>
-                            <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="black">Ver Producto</a><a href="{{ url('/producto/'. $producto->id.'/detailProd') }}"><i class="fas fa-search"></i></a></div>
-                        </div>
-                    </div>
-                </div>
-                @else
-                <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">
-                    <div class="features__image desk">
-                        <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="black"><img src="{{ asset('img/defaultProducto.jpg') }}"  width="200px" height="300px" alt=""></a>
-                        <div class="image__overlay">
-                            <div class="color">
-                                <div class="image" data-image="{{ asset('img/defaultProducto.jpg') }}"  width="200px" height="300px"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="features__content"><a class="link" href="#">{{$producto->name}}</a>
-                        <p class="price">S./ {{$producto->precio}}</p>
-                        <div class="content__overlay">
-                            <p>{!! $producto->description !!}</p>
-                            <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="black">Ver Producto</a><a href="{{ url('/producto/'. $producto->id.'/detailProd') }}"><i class="fas fa-search"></i></a></div>
-                        </div>
-                    </div>
-                </div>
-                @endif
-            @endforeach
-            </li>
-        </ul>
     </div>
-    <a href="{{ url('all/productos') }}">
-        <button type="submit" style="background:#153d77">VER MAS PRODUCTOS</button>
-    </a>
+    
 </div>
 
 <!--Start Product-->
