@@ -62,20 +62,37 @@
                 <div class="card">
                     <div class="card-header">
                         <strong><label class="form-label" for="name">Portada de su Tienda</label></strong>
-                        <small class="form-text text-muted" style="margin-bottom: 0px" >{{ __('Elegimos para ti una portada por defecto. puedes comenzar con este o subir uno personalizado.') }}</small>
-                    </div>
+                        </div>
                     <div class="card-body">
-                        @if ($puesto->banner)
-                            <div class="row" id="preview_banner">
+                        <div class="row">
+                            <div class=" col-sm-6">
+                                <small class="form-text text-muted" style="margin-bottom: 7px; margin-top:-10px" >{{ __('Suba desde su equipo:') }}</small>
+                                <input type="file" class="form-control-file" name="banner" id="banner">
+                            </div>
+                            <div class=" col-sm-6">
+                                <small class="form-text text-muted" style="margin-bottom: 7px; margin-top:-10px" >{{ __('O elija una de estas:') }}</small>
+                                <select class="form-control select2 form-control-lg" id="bannerdefault" name="bannerdefault" data-toggle="select2">
+                                    <optgroup label="Banners disponibles">
+                                        <option value=""></option>
+                                        <option value="/img/defecto/ropadamas.jpg">Moda Dama</option>
+                                        <option value="/img/defecto/ropabebe.jpg">Ropa Bebe</option>
+                                        <option value="/img/defecto/modaninos.jpg">Moda Niños</option>
+                                        <option value="/img/defecto/modacaballeros.jpg">Moda Caballeros</option>
+                                        <option value="/img/defecto/modadeportiva.jpg">Ropa Deportiva</option>
+                                        <option value="/img/defecto/modajovenes.jpg">Moda Jóvenes</option>
+                                        <option value="/img/defecto/ropadormir.jpg">Ropa Dormir</option>
+                                        <option value="/img/defecto/ropainterior.jpg">Ropa Interior/Baño</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row" id="preview_banner">
+                            @if ($puesto->banner)
                                 <img src="{{ asset('storage/'.$puesto->id.'/banner/'.$puesto->banner) }}" class="img-thumbnail rounded mr-2 mb-2" alt="Angelica Ramos">
-                            </div>
-                            <input type="file" class="form-control-file" name="banner" id="banner">
-                        @else
-                            <div class="row" id="preview_banner">
+                            @else
                                 <img src="{{ asset('img/imagen.png') }}" class="img-thumbnail rounded mr-2 mb-2" alt="Sin imagen">
-                            </div>
-                            <input type="file" class="form-control-file" name="banner" id="banner">
-                        @endif
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
@@ -142,15 +159,6 @@
             $subcategoria.html(htmlOptions);
         }
     });
-    $bannerimg = $('#bannerimg');
-    $bannerDefecto = $('#bannerDefecto');
-
-    $bannerDefecto.change(() => {
-            const img = $bannerDefecto.val();
-            let htmlOptions = '';
-            htmlOptions += `<img src="{{ asset('img/${img}') }}" width="100%">`;
-            $bannerimg.html(htmlOptions);
-        });
 
 </script>
 <script>
@@ -178,6 +186,7 @@
             alert("Your browser doesn't support File API!"); //if File API is absent
         }
      });
+
      $('#banner').on('change', function(){ //on file input change
         if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
         {
@@ -200,6 +209,15 @@
             alert("Your browser doesn't support File API!"); //if File API is absent
         }
      });
+    $bannerimg = $('#preview_banner');
+    $bannerDefecto = $('#bannerdefault');
+
+    $bannerDefecto.change(() => {
+            $bannerimg.empty();
+            var imag = ".."+$bannerDefecto.val();
+            var img = $('<img/>').addClass('img-thumbnail rounded mr-2 mb-2').attr('src', imag).attr('height', '100%').attr('width', '100%'); //create image element 
+            $bannerimg.append(img);
+        });
     });
      
     </script>
