@@ -88,7 +88,7 @@
                                                                 <div class="card-body">
                                                                     <div class="row">
                                                                         <div class="col-sm-10 ml-sm-auto text-right mt-2">
-                                                                            <a href="{{ url('producto/'.$usuarioPuesto->id.'/editar/'.$producto->id) }}"><button type="button" class="btn mb-1 btn-primary">
+                                                                            <a href="{{ url('producto/'.$usuarioPuesto->id.'/editar/'.$producto->id) }}"><button type="button" class="btn mb-1 btn-secondary">
                                                                                 <i class="fas fa-edit" title="Editar"></i><span style="margin-left: 7px; margin-right: 2px">Editar</span>
                                                                             </button></a>
                                                                             <a  href="javascript:void" onclick="$('#delete-form').submit();"><button type="button" class="btn btn-danger">
