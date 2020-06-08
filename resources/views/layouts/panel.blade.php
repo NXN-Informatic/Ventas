@@ -57,7 +57,6 @@
   <!--End Elements Page-->
 
   <!--Start Header-->
-<<<<<<< HEAD
   <header style="background:#fff">
     <div class="header__wrap container dflex">
         <ul class="header__item dflex left">
@@ -65,12 +64,6 @@
             <img src="{{ asset('img/logo.png') }}" style="width: 120px; margin-right: 20px">
           </div>
             <li class="header__list"><span style="color: #000">CATEGORIAS</span><i class="fas fa-angle-down"></i>
-=======
-  <header style="background:#ffffff">
-    <div class="header__wrap container dflex">
-        <ul class="header__item dflex left">
-            <li class="header__list"><span style="color: #000">Categorias</span><i class="fas fa-angle-down"></i>
->>>>>>> e7b03b9bfda3040d3b02ad8c88797e72d01e0c85
                 <ul class="sub" id="tags">
                     <li value="0"><span>TODOS</span></li>
                     @foreach($categorias as $categoria)
@@ -84,14 +77,9 @@
             <a><i class="fas fa-search" style="margin-left: 10px; margin-right:10px"></i></a>
           </div>
         <ul class="header__item dflex right">
-<<<<<<< HEAD
             <li class="header__list"><span><a href="{{ url('login') }}" style="color:#000">LOGIN</a></span></li>
             <li class="header__list"><i style="color: #000" class="fa fa-heart" aria-hidden="true"></i></li>
             <li class="header__list"><i style="color: #000" class="fa fa-user" aria-hidden="true"></i></li>
-=======
-            <li class="header__list"><span><a href="{{ url('login') }}" style="color:#000">Login</a></span></li>
-            <li class="header__list"><span><a href="{{ url('register') }}" style="color:#000">Registrar Tienda</a></span></li>
->>>>>>> e7b03b9bfda3040d3b02ad8c88797e72d01e0c85
         </ul>
     </div>
   </header>
