@@ -47,22 +47,20 @@ class HomeController extends Controller
         } else {
             $puestocompletado = 0;
         }
-        if ($puestocompletado) {
-            $prods = Puesto::find($up->first()->puesto_id)->puestosubcategorias()->get();
-            $grupos = Grupo::where('puestosubcategoria_id',$prods->first()->id)->get();
-            if($grupos->isNotEmpty()) {
-                $productocompletado = Producto::where('grupo_id',$grupos->first()->id)->get();
-            } else {
-                $productocompletado = collect();
-            }
+        $prods = Puesto::find($up->first()->puesto_id)->puestosubcategorias()->get();
+        $grupos = Grupo::where('puestosubcategoria_id',$prods->first()->id)->get();
+        if($grupos->isNotEmpty()) {
+            $productocompletado = Producto::where('grupo_id',$grupos->first()->id)->get();
         } else {
             $productocompletado = collect();
         }
+        
         $usuarios_puestos = UsuarioPuesto::where('usuario_id', auth()->user()->id)->get();
+        $fbconectado = \Storage::exists('public/'.$up->first()->puesto_id.'/fb_catalog.csv');
         //$pc = new Puesto;
         //$puestocompletado = $pc->usuario_puestos()->where('usuario_id',auth()->user()->id)->get();
         //dd($puestocompletado);
         //$puestocompletado = Producto::find(1)->grupo->puestosubcategoria->puesto->usuario_puestos->where('user_id',auth()->user()->id)->first()->get();
-        return view('home', compact('usercompletado','puestocompletado','productocompletado','usuarios_puestos'));
+        return view('home', compact('usercompletado','puestocompletado','productocompletado','usuarios_puestos','fbconectado'));
     }
 }

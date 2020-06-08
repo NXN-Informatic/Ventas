@@ -194,25 +194,49 @@
                                         @endif
                                     </li>
                                     <li class="list-group-item" style="padding: .2rem 1.25rem; border: 0px solid rgba(0, 0, 0, .125);">
-                                        <div class="alert alert-warning alert-outline alert-dismissible" style="margin-top: 0px; margin-bottom: 0px" role="alert">
-                                            <div class="alert-icon" style="background-color: #999999">
-                                                <i class="fas fa-fw fa-check"></i>
+                                        @if($fbconectado)
+                                            <div class="alert alert-success alert-outline-coloured alert-dismissible" style="margin-top: 0px; margin-bottom: 0px" role="alert">
+                                                <div class="alert-icon">
+                                                    <i class="fas fa-fw fa-check"></i>
+                                                </div>
+                                                <div class="alert-message">
+                                                    <div class="row"><a href="{{url('puesto/canales') }}"><h5 style="margin-left:10px"><strong>Conecte su tienda a su página de facebook.</strong></h5> </a><small style="margin-left:20px" class="form-text text-muted">{{ __('Estimación: 5 min') }}</small></div>
+                                                    (Opcional) Sincronice su catálogo con su página de facebook automáticamente y expanda su negocio a más canales de venta.
+                                                </div>
                                             </div>
-                                            <div class="alert-message">
-                                                <div class="row"><a href="{{url('puesto/fbcatalogo') }}"><h5 style="margin-left:10px"><strong>Conecte su tienda a su página de facebook.</strong></h5> </a><small style="margin-left:20px" class="form-text text-muted">{{ __('Estimación: 5 min') }}</small></div>
-                                                (Opcional) Sincronice su catálogo con su página de facebook automáticamente y expanda su negocio a más canales de venta.
+                                        @else
+                                            <div class="alert alert-warning alert-outline alert-dismissible" style="margin-top: 0px; margin-bottom: 0px" role="alert">
+                                                <div class="alert-icon" style="background-color: #999999">
+                                                    <i class="fas fa-fw fa-check"></i>
+                                                </div>
+                                                <div class="alert-message">
+                                                    <div class="row"><a href="{{url('puesto/canales') }}"><h5 style="margin-left:10px"><strong>Conecte su tienda a su página de facebook.</strong></h5> </a><small style="margin-left:20px" class="form-text text-muted">{{ __('Estimación: 5 min') }}</small></div>
+                                                    (Opcional) Sincronice su catálogo con su página de facebook automáticamente y expanda su negocio a más canales de venta.
+                                                </div>
                                             </div>
-                                        </div>
+                                        @endif
                                     </li>
                                     <li class="list-group-item" style="padding: .2rem 1.25rem; border: 0px solid rgba(0, 0, 0, .125);">
-                                        <div class="alert alert-warning alert-outline alert-dismissible" style="margin-top: 0px; margin-bottom: 0px" role="alert">
-                                            <div class="alert-icon" style="background-color: #999999">
-                                                <i class="fas fa-fw fa-check"></i>
+                                        @if($productocompletado->isNotEmpty() and $puestocompletado and $usercompletado->completado and $fbconectado)
+                                            <div class="alert alert-success alert-outline-coloured alert-dismissible" style="margin-top: 0px; margin-bottom: 0px" role="alert">
+                                                <div class="alert-icon">
+                                                    <i class="fas fa-fw fa-check"></i>
+                                                </div>
+                                                <div class="alert-message">
+                                                    <div class="row"><a href="#"><h5 style="margin-left:10px"><strong>¡Listo! Empiece a vender. Comparta su tienda con sus clientes.</strong></h5> </a></div>
+                                                </div>
                                             </div>
-                                            <div class="alert-message">
-                                                <div class="row"><a href="#"><h5 style="margin-left:10px"><strong>¡Listo! Empiece a vender. Comparta su tienda con sus clientes.</strong></h5> </a></div>
+                                        @else
+                                            <div class="alert alert-warning alert-outline alert-dismissible" style="margin-top: 0px; margin-bottom: 0px" role="alert">
+                                                <div class="alert-icon" style="background-color: #999999">
+                                                    <i class="fas fa-fw fa-check"></i>
+                                                </div>
+                                                <div class="alert-message">
+                                                    <div class="row"><a href="#"><h5 style="margin-left:10px"><strong>¡Listo! Empiece a vender. Comparta su tienda con sus clientes.</strong></h5> </a></div>
+                                                </div>
                                             </div>
-                                        </div>
+                                        @endif
+                                        
                                     </li>
                                 </ul>
                             </div>
