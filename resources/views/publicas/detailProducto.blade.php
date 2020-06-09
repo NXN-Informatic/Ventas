@@ -16,8 +16,8 @@
     <div class="signleProduct__content">
       <div class="product dflex">
           <div class="col-lg-7 col-12">
-            <div class="swiper-container" >
-              <div class="swiper-wrapper">
+            <div class="swiper-container" style="border: solid;border-color: #ccc;">
+              <div class="swiper-wrapper" >
               <!-- Imagen Productos -->
               @foreach($producto->imagen_productos as $imagenes)
                 <div class="swiper-slide">
@@ -43,7 +43,7 @@
               <br>
               <!-- Productos Descripción -->
               <div>
-                <h2 style="text-align: left;font-size: 20px" class="color">{{ __('Descripción') }}</h2><br>
+                <h2 style="text-align: left;font-size: 20px">{{ __('Descripción') }}</h2><br>
                 <h2>{!! $producto->description !!}</h2>
               </div>
         </div>
@@ -65,7 +65,7 @@
             
           </div>
           <br>
-          <div style="border-style: ridge;padding:5px">
+          <div style="border-style: ridge;padding:5px; border-color: #000;">
             <!-- Descripción Vendedor -->
             <h2 class="precio color" style="font-size:25px">{{ __('Tienda') }}</h2>
             <br>
@@ -117,7 +117,7 @@
           <br>
           <div style="border-style: ridge;padding:5px">
             <!-- Lugar de Publicación -->
-            <h2 style="text-align: left;font-size: 20px" class="color">{{ __('Publicado en...') }}</h2>
+            <h2 style="text-align: left;font-size: 20px" class="color">{{ __('Ubicación') }}</h2>
             <br>
               <!-- Mapa -->
              <div id="map" style="height: 300px;"></div>
