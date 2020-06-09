@@ -15,18 +15,18 @@
 <!--Start Feature Product-->
 <div class="featureProduct singleProduct" id="tiendas">
     <div class="feature__wrap container" style="margin-top: 15px; padding-left: 50px; padding-right: 50px">
-        <div class="row" style="border: solid; padding: 14px">
+        <div class="row" style="border: 1px solid; padding: 14px; border-color:#c5c5c5">
             <div class="col-lg-4 col-12">
-                <h3 style="color: #FF0000; font-size: 16px">BUSCA</h3>
-                <h3 style="margin-top: 1px; font-size: 14px">Productos y tiendas de tacna, ahorra tiempo y dinero</h3>
+                <h3 style="color: #bf0000; font-size: 16px">BUSCA</h3>
+                <span style="margin-top: 1px; font-size: 14px; color:#000">Productos y tiendas de tacna, ahorra tiempo y dinero</span>
             </div>
             <div class="col-lg-4 col-12">
-                <h3 style="color: #FF0000; font-size: 16px">COMPARA</h3>
-                <h3 style="margin-top: 1px; font-size: 14px">Precios y caracteristicas, de tus tiendas locales de siempre</h3>
+                <h3 style="color: #bf0000; font-size: 16px">COMPARA</h3>
+                <span style="margin-top: 1px; font-size: 14px; color:#000">Precios y caracteristicas, de tus tiendas locales de siempre</span>
             </div>
             <div class="col-lg-4 col-12">
-                <h3 style="color: #FF0000; font-size: 16px">COMPRA</h3>
-                <h3 style="margin-top: 1px; font-size: 14px">Sin comisiones ni tarjetas, trato directo con tiendas</h3>
+                <h3 style="color: #bf0000; font-size: 16px">COMPRA</h3>
+                <span style="margin-top: 1px; font-size: 14px; color:#000">Sin comisiones ni tarjetas, trato directo con tiendas</span>
             </div>
         </div>
     </div>
@@ -297,16 +297,16 @@
             
             let htmlOptions = '';
             data.forEach(puestos => {
-                if(puestos.perfil != null) {
+                if(puestos.banner != null) {
                     htmlOptions += 
                     `<li class="features__item col-lg-3 col-sm-6 col-12">`+
-                        `<div class="features__image wood light5"><img src="{{ url('storage/${puestos.id}/logo/${puestos.perfil}') }}" width="200px" height="200px">`+
+                        `<div class="features__image wood light5"><img src="{{ url('storage/${puestos.id}/banner/${puestos.banner}') }}" width="200px" height="200px">`+
                             `<div class="image__tools"><i class="far fa-heart"></i>`+
                                 `<i class="fas fa-cart-plus"></i>`+
                                 `<i class="fas fa-search"></i>`+
                             `</div>`+
                         `</div>`+
-                        `<div class="features__content" style="width:100%"><a class="link" href="{{ url('/puesto/${puestos.id}/detail') }}" target="black">${puestos.name}</a>`+
+                        `<div class="features__content" style="width:100%"><a class="link" href="{{ url('/puesto/${puestos.id}/detail') }}" target="black"><strong>${puestos.name}</strong></a>`+
                         `</div>`+
                     `</li>`;
                 }else {
@@ -318,7 +318,7 @@
                                 `<i class="fas fa-search"></i>`+
                             `</div>`+
                         `</div>`+
-                        `<div class="features__content" style="width:100%"><a class="link" href="{{ url('/puesto/${puestos.id}/detail') }}" target="black">${puestos.name}</a>`+
+                        `<div class="features__content" style="width:100%"><a class="link" href="{{ url('/puesto/${puestos.id}/detail') }}" target="black"><strong>${puestos.name}</strong></a>`+
                         `</div>`+
                     `</li>`;
                 }
