@@ -70,6 +70,7 @@
         @endif
     @endif
 </div> -->
+<div id="ocultar9">
 @if($puesto->banner != null)
 <div class="bannerBlog headermax" style="background-image: url('{{ asset('storage/'.$puesto->id.'/banner/'.$puesto->banner)}}')">
     <h1 class="title" style="font-size:25px; text-align:right; margin-top:-5%; margin-right:10px"><i class="fab fa-whatsapp" style="margin-right: 8px"></i> {{ $puesto->phone }} </h1>
@@ -91,7 +92,9 @@
     
     </div>
 </div>
-@endif
+@endif    
+</div>
+
 <!--End Banner Slide-->
 <!--Start Single Product-->
 <!-- <div class="singleProduct" id="ocultar5">
@@ -351,6 +354,7 @@
         // Variables Define
         $mostrarcategoria = $('#categoria');
         $ocultar1 = $('#ocultar1');
+        $ocultar9 = $('#ocultar9');
         $ocultar5 = $('#ocultar5');
         $ocultar2 = $('#tiendas');
         $resultado = $('#resultado');
@@ -365,6 +369,7 @@
 
             $mostrarcategoria.hide();
             $ocultar1.show();
+            $ocultar9.show();
             $ocultar5.show();
             $resultado.hide();
             $ocultar2.show();
@@ -372,6 +377,7 @@
             $mostrarcategoria.show();
             $ocultar1.hide();
             $ocultar2.hide();
+            $ocultar9.hide();
             $resultado.hide();
             $ocultar5.hide();
             const url = `/categoria/${cateogiraId}/apiProductosCategoria`;
@@ -388,6 +394,7 @@
             $ocultar1.show();
             $resultado.hide();
             $ocultar2.show();
+            $ocultar9.show();
             $ocultar5.hide();
             $mostrar.hide();
           }else {
@@ -396,6 +403,7 @@
             $resultado.hide();
             $ocultar2.hide();
             $ocultar5.hide();
+            $ocultar9.hide();
             $mostrar.show();
             const url = `/productos/${valor}/all`;
             $.getJSON(url, onMostrar);

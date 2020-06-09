@@ -208,6 +208,7 @@
         $producto_id = $('#prod');
         $mostrar = $('#mostrar');
         $tiendas = $('#tiendas');
+        $tiendas2 = $('#tiendas2');
         $addtienda = $('#wrap');
         $resultado = $('#resultado');
         
@@ -224,6 +225,7 @@
                 $('#ocultarBanner3').show();
                 $('#ocultarBanner4').show();
                 $tiendas.show();
+                $tiendas2.show();
                 $('#prod').show();
                 $('#categoria').hide();
                 $('#mostrar').hide();
@@ -232,6 +234,7 @@
                 $('#categoria').show();
                 $('#ocultarBanner2').hide();
                 $tiendas.hide();
+                $tiendas2.hide();
                 $('#prod').hide();
                 $('#ocultarBanner3').hide();
                 $('#ocultarBanner4').hide();
@@ -247,12 +250,14 @@
                 $('#ocultarBanner3').show();
                 $('#ocultarBanner4').show();
                 $tiendas.show();
+                $tiendas2.show();
                 $('#categoria').hide();
                 $('#mostrar').hide();
                 $('#prod').show();
             }else {
                 mostrarload(valor);
                 $tiendas.hide();
+                $tiendas2.hide();
                 $('#ocultarBanner').hide();
                 $('#ocultarBanner2').hide();
                 $('#ocultarBanner3').hide();

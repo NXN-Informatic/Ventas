@@ -16,20 +16,20 @@
             <li class="tab__item"><a class="link" href="{{ url('/register') }}">Register</a></li>
             
         </ul>
-        <ul class="tab__list category">
+        <ul class="tab__list category" id="tags">
+            <li value="0"><span>TODOS</span></li>
             @foreach($categorias as $categoria)
-            <li class="tab__item">
+            <li class="tab__item" value="{{ $categoria->id }}">
                 <a class="link dflex" href="#"><span>{{ $categoria->name }}</span></a>
             </li>
             @endforeach
         </ul>
     </div>
 </div>
-<div class="moblie-navBottom dflex"><a class="link" href="#"><i class="fas fa-store"></i>
-    <p>Shop</p></a><a class="link" href="#"><i class="fas fa-filter"></i>
-    <p>Filters</p></a><a class="link" href="#"><i class="fas fa-heart"></i>
-    <p>Wishlist</p></a><a class="link" href="#"><i class="fas fa-user"></i>
-    <p>My Account</p></a><a class="link" href="#"><i class="fas fa-random"></i>
-    <p>Compare</p></a>
+<div class="moblie-navBottom dflex">
+    <a class="link" href="{{ url('/puestos/all') }}"><i class="fas fa-store"></i><p>Tiendas</p></a>
+    <a class="link" href="{{ url('/all/productos') }}"><i class="fas fa-heart"></i><p>Productos</p></a>
+    <a class="link" href="{{ url('/login') }}"><i class="fas fa-user"></i><p>Mi cuenta</p></a>
+    <a class="link" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com"><i class="fas fa-random"></i><p>Compartir</p></a>
 </div>
 <!--End Menu Mobile-->
