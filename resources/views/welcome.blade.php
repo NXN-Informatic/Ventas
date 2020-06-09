@@ -13,9 +13,9 @@
 
 
 <!--Start Feature Product-->
-<div class="featureProduct singleProduct" id="tiendas">
+<div class="featureProduct singleProduct" id="tiendas" style="background: #F3F3F3">
     <div class="feature__wrap container" style="margin-top: 15px; padding-left: 50px; padding-right: 50px">
-        <div class="row" style="border: 1px solid; padding: 14px; border-color:#c5c5c5">
+        <div class="row" style="border: 1px solid; padding: 14px; border-color:#c5c5c5; background: #fff">
             <div class="col-lg-4 col-12">
                 <h3 style="color: #bf0000; font-size: 16px">BUSCA</h3>
                 <span style="margin-top: 1px; font-size: 14px; color:#000">Productos y tiendas de tacna, ahorra tiempo y dinero</span>
@@ -33,7 +33,7 @@
 </div>
 
 <!--Start Feature Product-->
-<div class="featureProduct singleProduct" id="tiendas2">
+<div class="featureProduct singleProduct" id="tiendas2" style="background: #F3F3F3">
     <div class="feature__wrap container">
         <h4 class="title">Tiendas Recomendadas <a href="{{ url('puestos/all') }}"> Ver tiendas</a></h4> 
         <div class="feature__filter">
@@ -49,7 +49,7 @@
 <!--End Feature Product-->
 
 <!--Start Featured Products-->
-<div class="featureProduct singleProduct" id="prod">
+<div class="featureProduct singleProduct" id="prod" style="background: #F3F3F3">
     <div class="feature__wrap container">
         <h4 class="title">Productos para ti <a href="{{ url('all/productos') }}"> Ver productos</a></h4> 
         <div class="feature__filter">
@@ -105,8 +105,8 @@
 </div>
 
 <!--Start Product-->
-<div class="shopProduct">
-    <div class="shopProduct__wrap dflex container">
+<div class="shopProduct" style="background: #F3F3F3;">
+    <div class="shopProduct__wrap dflex container" >
         <div class="product__item col-lg-12 col-12">
 
             <ul class="filterProduct gridRow" id="mostrar">
@@ -117,7 +117,7 @@
 </div>
 
 <!-- Sin Resultados -->
-<div class="shopProduct" id="resultado">
+<div class="shopProduct" id="resultado" >
     <div class="shopProduct__wrap dflex container">
         <div class="product__item col-lg-12 col-12">
             <div class="conatiner" style="background:#FF1643;text-align: center;padding:5px">
@@ -128,7 +128,7 @@
 </div>
 
 <!--Start Categorias-->
-<div class="shopProduct">
+<div class="shopProduct" style="background: #F3F3F3;">
     <div class="shopProduct__wrap dflex container">
         <div class="product__item col-lg-12 col-12">
 
