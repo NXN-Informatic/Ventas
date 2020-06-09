@@ -30,7 +30,7 @@
         </a>
         <ul id="datos" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
             <li class="sidebar-item"><a class="sidebar-link" href="{{ url('user') }}">Mi perfil</a></li>
-            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('producto/add') }}">{{ __('Datos de Acceso') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('acceso') }}">{{ __('Datos de Acceso') }}</a></li>
             
         </ul>
     </li>

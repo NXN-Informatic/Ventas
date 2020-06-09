@@ -15,10 +15,16 @@
                     <li class="breadcrumb-item"><a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="_blank">Tablero</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Configuración</li>
                 </ol>
-                <a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="black"><button class="btn btn-info" ><span style="margin-left:20px; margin-right:20px">      Ver mi Tienda      </span></button></a>
-                <a target="_blank" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com/puesto/{{ auth()->user()->usuario_puestos->first()->puesto_id }}/detail">
-                    <button class="btn mb-1 btn-facebook btn-lg"><i class="align-left fab fa-facebook" title="Compartir"></i><span style="margin-left:20px; margin-right:20px">{{ __('    Compartir    ') }}</span></button>
-                </a>
+                <div class="row">
+                    <div class="col-6">
+                        <a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="black"><button class="btn btn-info btn-lg" ><span style="margin-left:20px; margin-right:20px">      Ver mi Tienda      </span></button></a>
+                    </div>
+                    <div class="col-6">
+                        <a target="_blank" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com/puesto/{{ auth()->user()->usuario_puestos->first()->puesto_id }}/detail">
+                            <button class="btn mb-1 btn-facebook btn-lg"><i class="align-left fab fa-facebook" title="Compartir"></i><span style="margin-left:20px; margin-right:20px">{{ __('    Compartir   ') }}</span></button>
+                        </a>
+                    </div>
+                </div>
             </nav>
 		</div>
         <form action="{{ url('/puesto/update/'.auth()->user()->usuario_puestos->first()->puesto_id) }}" method="post" enctype="multipart/form-data">
