@@ -33,18 +33,24 @@
 </div>
 
 <!--Start Feature Product-->
-<div class="featureProduct singleProduct" id="tiendas">
-    <div class="feature__wrap container">
-        <h4 class="title">Tiendas Recomendadas <a href="{{ url('puestos/all') }}"> Ver tiendas</a></h4> 
-        <div class="feature__filter">
-            <div class="featureSlider">
-            <div class="sliderButton left"><i class="fas fa-angle-left"></i></div>
-            <div class="sliderButton right"><i class="fas fa-angle-right"></i></div>
-            <ul class="features__grid" id="wrap">
-            </ul>
+
+<div class="blog">
+    <h4 class="title">Tiendas Recomendadas <a href="{{ url('puestos/all') }}"> Ver tiendas</a></h4>
+        <div class="blog__wrap dflex">
+        @foreach($pst as $ps)
+        <div class="blog__item col-lg-3">
+            <div class="blog__image"><img src="{{ url('storage/'.$ps->id.'/banner/'.$ps->banner) }}" alt="" height="120px">
+                
+            </div>
+            <div><img src="{{ url('storage/'.$ps->id.'/logo/'.$ps->perfil) }}" alt="" height="100px" width="100px">
+                
+            </div>
+            <div class="blog__content"><a class="heading" href="#">{{ $ps->name}}</a>
+            
+            <p>{{ $ps->description}}</p><a class="link active" href="{{ url('/puesto/'.$ps->id.'/detail') }}"><strong><span style="color: #bf0000; font-size:14px">Visitar</span></strong></a>
             </div>
         </div>
-    </div>
+        @endforeach
 </div>
 <!--End Feature Product-->
 
