@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Identidad;
 use App\Distrito;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -14,6 +15,10 @@ class UserController extends Controller
         $tipoDocuments = Identidad::all();
         $distritos = Distrito::all();
         return view('cliente.update', compact('tipoDocuments', 'distritos'));
+    }
+    public function acceso() {
+        $userdata = User::find(auth()->user()->id);
+        return view('cliente.acceso', compact('userdata'));
     }
 
     public function update(Request $request, User $usuario) {
@@ -50,6 +55,37 @@ class UserController extends Controller
         $usuario->save();
 
         $notification = 'Sus datos fueron actualizados correctamente';
+        return redirect('/home')->with(compact('notification'));
+    }
+
+    public function accesoupdate(Request $request, User $usuario) {
+
+        $rules = [
+            'email'              =>  'required|min:11|max:50',
+            'new1'          =>  'required|min:8',
+            'new2'      =>  'required|min:8',
+            'actual'        =>  'required',
+        ];
+
+        $this->validate($request, $rules);
+
+        $new1 = $request->input('new1');
+        $new2 = $request->input('new2');
+        $actual = $request->input('actual');
+        if($new1!=$new2){
+            $notification = 'Las contraseñas nuevas no coindciden.';
+            return redirect('/acceso')->with(compact('notification'));
+        }else{
+            if(Hash::check($actual, $usuario->password)){
+                $usuario->password = bcrypt($new1);
+            }else{
+                $notification = 'La contraseña actual es incorrecta';
+                return redirect('/acceso')->with(compact('notification'));
+            }
+        }
+        $usuario->save();
+
+        $notification = 'Su contraseña fue actualizada correctamente';
         return redirect('/home')->with(compact('notification'));
     }
 

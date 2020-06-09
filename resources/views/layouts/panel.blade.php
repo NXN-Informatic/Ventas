@@ -51,10 +51,10 @@
 
   @yield('load')
 
-  <!--Start Elements Page-->
+  <!--Start Elements Page
   <a class="onTop dflex" href="#onTop"><i class="fas fa-angle-up"></i></a>
-  <a class="onTop dflex" href="/"><div class="buy dflex"><span>FERIA<strong>TACNA</strong></span></div></a> 
-  <!--End Elements Page-->
+  <a class="onTop dflex" href="/" style="background-color: #c5c5c5"><div class="buy dflex"><span style="color: #bf0000"><strong>FeriaTacna</strong></span></div></a> 
+  --><!--End Elements Page-->
 
   <!--Start Header-->
   <header style="background:#fff">
@@ -88,7 +88,7 @@
   <div class="nav" id="ocultarBanner">
     <div style="text-align: right; margin-right: 20px">    
         <a href="{{ url('register') }}">
-            <button class="btn" style="background:#FF0000; border-radius:20px; font-weight: bold; ">Crea tu tienda GRATUITA</button>  
+            <button class="btn" style="background:#bf0000; border-radius:20px; font-weight: bold; "><strong>Crea tu tienda GRATUITA</strong></button>  
         </a>
         </div>
       <div class="nav__wrap container dflex">
