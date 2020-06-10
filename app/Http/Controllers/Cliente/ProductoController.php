@@ -49,7 +49,7 @@ class ProductoController extends Controller
 
     public function store(Request $request) {
         $rules = [
-            'name'          =>  'required|min:3|max:100|regex:/^[\pL\s\-]+$/u',
+            'name'          =>  'required|min:3|max:100',
             'description'   =>  'max:1000',
             'precio'        =>  'required',
             'grupo'         =>  'required',
