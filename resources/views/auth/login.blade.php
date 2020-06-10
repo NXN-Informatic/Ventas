@@ -32,7 +32,7 @@
                             </div>
                             <div class="form-group">
                                 <label>{{ __('Contraseña') }}</label>
-                                <input class="form-control form-control-lg" type="password" name="password" />
+                                <input class="form-control form-control-lg" type="text" name="password" />
                                 <small class="form-text text-muted">{{ __('Su contraseña es personal.') }}</small>
                             </div>
                             <div class="text-center mt-3">
