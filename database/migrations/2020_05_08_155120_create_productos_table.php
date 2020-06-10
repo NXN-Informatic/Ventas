@@ -25,11 +25,11 @@ class CreateProductosTable extends Migration
             $table->string('condicion',20)->default('new')->nullable();
             $table->string('marca',30)->default('Propia')->nullable();
             $table->unsignedInteger('grupo_id');
-            $table->foreign('grupo_id')->references('id')->on('grupos');
             $table->string('imagen_url',200)->default('https://www.feriatacna.com/img/images/shop/product/book-1.jpg')->nullable();
-            $table->string('producto_url',100)->default('https://feriatacna.com/all/productos')->nullable()->after('condicion');
+            $table->string('producto_url',100)->default('https://feriatacna.com/all/productos')->nullable();
             $table->float('preciooferta', 8,2)->nullable();
             $table->timestamps();
+            $table->foreign('grupo_id')->references('id')->on('grupos');
         });
     }
 
