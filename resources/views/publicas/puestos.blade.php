@@ -73,12 +73,11 @@
 <div id="ocultar9">
 @if($puesto->banner != null)
 <div class="bannerBlog headermax" style="background-image: url('{{ asset('storage/'.$puesto->id.'/banner/'.$puesto->banner)}}')">
-    <h1 class="title" style="font-size:25px; text-align:right; margin-top:-5%; margin-right:10px"><i class="fab fa-whatsapp" style="margin-right: 8px"></i> {{ $puesto->phone }} </h1>
-    <h1 class="title">{{ $puesto->name }}</h1>
+    <h1 class="title" style="font-size:18px; text-align:right; margin-top:-5%; margin-right:10px"><i class="fab fa-whatsapp" style="margin-right: 8px"></i> {{ $puesto->phone }} </h1>
+    <h1 class="title" style="margin-top:7%">{{ $puesto->name }}</h1>
     <div style="text-align:center;">
     <br>
     <a href="" class="title clases btn btn-primary" style="background:#000;"><h1 class="title" style="font-size:15px">Comprar</h1></a>
-    
     </div>
 </div>
 @else
@@ -141,7 +140,7 @@
 </div> -->
 
 <!--Start Featured Products-->
-<div class="featureProduct" id="ocultar1">
+<div class="featureProduct" id="ocultar1" style="padding-top: 4rem">
     <div class="feature__filter">
         @foreach($puesto->puestosubcategorias as $puestosubcategorias)
             @foreach($puestosubcategorias->grupos as $grupos)
