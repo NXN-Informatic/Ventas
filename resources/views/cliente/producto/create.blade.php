@@ -54,6 +54,9 @@
                             <div class="col">
                                 <h5 class="card-title mb-0">{{ __('Nuevo Producto') }}</h5>
                             </div>
+                            <div class="col text-right">
+                                <a href="{{ url('producto/lista') }}" class="btn btn-secondary">Regresar</a>
+                            </div>
                         </div>
                     </div>
                     <div class="card-body">

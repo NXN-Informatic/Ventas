@@ -10,6 +10,9 @@
             <h1 style="font-size: 50px" class="header-title">
                 {{ __('Mis Datos') }}
             </h1>
+            <div class="col text-right">
+                <a href="{{ url('home') }}" class="btn btn-secondary">Regresar</a>
+            </div>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="_blank">Tablero</a></li>

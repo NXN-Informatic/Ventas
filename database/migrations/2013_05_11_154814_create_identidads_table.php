@@ -15,7 +15,7 @@ class CreateIdentidadsTable extends Migration
     {
         Schema::create('identidads', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 45);
+            $table->string('name', 50);
             $table->timestamps();
         });
     }

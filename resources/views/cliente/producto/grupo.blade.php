@@ -34,7 +34,11 @@
                             <div class="col">
                                 <h4>{{ __('Crear categoría') }}</h4>
                             </div>
+                            <div class="col text-right">
+                                <a href="{{ url('producto/lista') }}" class="btn btn-secondary">Regresar</a>
+                            </div>
                         </div>
+                        
                     </div>
                     <div class="card-body">
                         @if($errors->any())
