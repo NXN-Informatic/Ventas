@@ -205,7 +205,7 @@ class PuestoController extends Controller
             $puesto->elegirnos = $request->input('elegirnos');
         }
         if($request->input('nosotros') != null){
-            $puesto->elegirnos = $request->input('nosotros');
+            $puesto->nosotros = $request->input('nosotros');
         }
         
         $puesto->direccion = $request->input('direccion');
