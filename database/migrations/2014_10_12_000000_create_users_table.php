@@ -22,11 +22,9 @@ class CreateUsersTable extends Migration
             $table->string('imagen', 80)->nullable();
             $table->string('email')->unique();
             $table->string('password')->nullable();
-            $table->string('role')->default('Cliente'); // Admin, Cliente
+            $table->string('role')->default('Propietario'); // Admin, Cliente
             $table->string('status', 10)->default('activo'); // desactivo activo eliminado
             $table->integer('maxpuestos')->default(1);
-            $table->string('latitud', 20)->nullable();
-            $table->string('longitud', 20)->nullable();
             $table->string('useragent', 30)->nullable();
             $table->tinyInteger('completado')->default(0);
 

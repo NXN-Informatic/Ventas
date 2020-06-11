@@ -35,6 +35,10 @@
                         <div class="card-header">
                             <h4>{{ __('Información de la Tienda') }}</h4>
                         </div>
+                        
+                        <div class="col text-right">
+                            <a href="{{ url('home') }}" class="btn btn-secondary">Regresar</a>
+                        </div>
                         <div class="card-body">
                             @if($errors->any())
                             <div class="alert alert-danger alert-dismissible" role="alert">

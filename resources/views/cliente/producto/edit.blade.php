@@ -48,6 +48,11 @@
                     <div class="card-header">
                         <h5 class="card-title mb-0">{{ __('Editar Producto') }} {{ $producto->name }}</h5>
                     </div>
+                    
+                    <div class="col text-right">
+                        <a href="{{ url('producto/lista') }}" class="btn btn-secondary">Regresar</a>
+                    </div>
+|
                     <div class="card-body">
                         @if($errors->any())
                         <div class="alert alert-danger alert-dismissible" role="alert">

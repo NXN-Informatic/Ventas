@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddUrlproductToProductosTable extends Migration
+class AddImagenurlToImagenProductosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddUrlproductToProductosTable extends Migration
      */
     public function up()
     {
-        Schema::table('productos', function (Blueprint $table) {
-            $table->string('producto_url',100)->default('https://feriatacna.com/all/productos')->nullable()->after('condicion');
+        Schema::table('imagen_productos', function (Blueprint $table) {
+            $table->string('imagen_url', 200)->nullable();
         });
     }
 
@@ -25,8 +25,8 @@ class AddUrlproductToProductosTable extends Migration
      */
     public function down()
     {
-        Schema::table('productos', function (Blueprint $table) {
-            $table->dropColumn('producto_url');
+        Schema::table('imagen_productos', function (Blueprint $table) {
+           $table->dropColumn('imagen_url');
         });
     }
 }
