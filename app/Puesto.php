@@ -49,6 +49,10 @@ class Puesto extends Model
         return $this->belongsTo(Plan::class);
     }
 
+    public function centroscomerciale() {
+        return $this->belongsTo(CentroComerciale::class);
+    }
+
     public function documentos() {
         return $this->hasMany(Documento::class);
     } 

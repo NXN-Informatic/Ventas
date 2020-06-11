@@ -9,6 +9,7 @@ use App\Puesto;
 use App\Pago;
 use App\PagoPuesto;
 use App\EntregaPuesto;
+use App\CentrosComerciale;
 use App\Entrega;
 use App\Categoria;
 use App\Subcategoria;
@@ -48,8 +49,9 @@ class PuestoController extends Controller
         //$pago_id = old('pago_id');
         $formaentregas = Entrega::all();
         //$entrega_id = old('entrega_id');
+        $cencom = centroscomerciale::all();
         
-        return view('cliente.puestos.edit', compact('puesto', 'categorias', 'subcategorias', 'formapagos', 'formaentregas'));
+        return view('cliente.puestos.edit', compact('puesto', 'categorias', 'subcategorias', 'formapagos', 'formaentregas', 'cencom'));
     }
     public function catalog() {
         $usuariopuesto = UsuarioPuesto::where('usuario_id', auth()->user()->id)->first();
@@ -93,10 +95,14 @@ class PuestoController extends Controller
                 $subcat[] = $sub;
             }
         }
-
-        $subcategorias = Subcategoria::all();
+        $cen = 0;
+        if($puesto->cencom_id){
+            $cen = $puesto->cencom_id;
+        }
         
-        return view('cliente.puestos.edit', compact('categs','subcat','formapagosuser', 'formaentregasuser','latitud','longitud','puesto', 'categorias', 'subcategorias', 'formapagos', 'formaentregas'));
+        $subcategorias = Subcategoria::all();
+        $cencom = CentrosComerciale::all();
+        return view('cliente.puestos.edit', compact('categs','subcat','formapagosuser', 'formaentregasuser','latitud','longitud','puesto', 'categorias', 'subcategorias', 'formapagos', 'formaentregas','cencom','cen'));
     }
 
     public function personalizar(){
@@ -198,6 +204,7 @@ class PuestoController extends Controller
         $puesto->direccion = $request->input('direccion');
         $puesto->elegirnos = $request->input('elegirnos');
         $puesto->nosotros = $request->input('nosotros');
+        $puesto->cencom_id = $request->input('cencom');
         //$puesto->precio_min = $request->input('precio_min');
         $aux=0;
         $file = $request->file('logo');

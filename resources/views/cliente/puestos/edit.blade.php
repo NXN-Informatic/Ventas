@@ -96,6 +96,25 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <strong><label class="form-label">¿Perteneces a un CentroComercial/Asociación/Galería?</label></strong>
+                                <small class="form-text text-muted">{{ __('Ésta información deberá ser corroborada.') }}</small>
+                                <div class="mb-3" style="margin-top:7px">
+                                <select class="form-control select2 form-control-lg" id="cencom" name="cencom" data-toggle="select2">
+                                <optgroup label="Opciones Disponibles">
+                                    <option value=""></option>
+                                    @foreach($cencom as $cenc)
+                                        <option value="{{ $cenc->id }}" 
+                                        @if($cen==$cenc->id){
+                                            selected
+                                        }
+                                        @endif
+                                        >{{ $cenc->nombre }}</option>
+                                    @endforeach
+                                </optgroup>
+                                </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <strong><label class="form-label" for="contacto">Información de contacto</label></strong>
                                 <div class="row">
                                     <div class="col-md-6">
