@@ -228,7 +228,11 @@
       <div class="product dflex" >
           <div class="col-lg-8 col-12">
                 <label style="font-size: 25px; font-weight: bold;">¿Porque Elegirnos?</label><br><br>
+                @if( strlen($puesto->elegirnos) > 0)
                 <p style="font-size:18px">{{ $puesto->elegirnos }}</p>
+                @else
+                <p style="font-size:18px">Porque Somos una Tienda Mejor que otra</p>
+                @endif`
                 <br><br><br><br><br>
                 <div class="row">
                     <div class="col-lg-8 col-12">
