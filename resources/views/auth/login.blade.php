@@ -32,8 +32,9 @@
                             </div>
                             <div class="form-group">
                                 <label>{{ __('Contraseña') }}</label>
-                                <input class="form-control form-control-lg" type="text" name="password" />
+                                <input id="password"  class="form-control form-control-lg" type="password" name="password" />
                                 <small class="form-text text-muted">{{ __('Su contraseña es personal.') }}</small>
+                                <input type="checkbox" name="check_mostrar" onclick='handleClick(this);'><span style="margin-left:10px">Mostrar contraseña</span><br>
                             </div>
                             <div class="text-center mt-3">
                                 <button type="submit" class="btn btn-lg btn-primary">{{ __('     Ingresa     ') }}</button>
@@ -80,4 +81,17 @@
         </div>
     </div>
 </main>
+@endsection
+
+@section('scripts')
+
+<script>
+    function handleClick(cb) {
+    if(cb.checked)
+        $('#password').attr("type","text");
+    else
+        $('#password').attr("type","password");
+    }
+</script>
+
 @endsection
