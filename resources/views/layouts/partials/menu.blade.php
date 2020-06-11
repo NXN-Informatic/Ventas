@@ -16,7 +16,7 @@
                 <small>{{ auth()->user()->usuario_puestos->first()->puesto->name }}</small>
             </div>
 
-            @if(auth()->user()->role == 'Cliente')
+            @if(auth()->user()->role == 'Propietario')
                 @include('layouts.partials.cliente.menu_cliente')
             @elseif(auth()->user()->role == 'Admin')
                 @include('layouts.partials.admin.menu_admin')
