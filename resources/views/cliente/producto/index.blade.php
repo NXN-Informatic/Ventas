@@ -95,7 +95,7 @@
                                                                             <a href="{{ url('producto/'.$usuarioPuesto->id.'/editar/'.$producto->id) }}"><button type="button" class="btn mb-1 btn-secondary">
                                                                                 <i class="fas fa-edit" title="Editar"></i><span style="margin-left: 7px; margin-right: 2px">Editar</span>
                                                                             </button></a>
-                                                                            <a  href="javascript:void" onclick="$('#delete-form').submit();"><button type="button" class="btn btn-danger">
+                                                                            <a  href="javascript:void" onclick="$('{{'#delete-form'.$producto->id}}').submit();"><button type="button" class="btn btn-danger">
                                                                                 <i class="fas fa-times" title="Eliminar"></i>
                                                                             </button></a>
                                                                         </div>
@@ -112,7 +112,7 @@
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
-                                                                    <form id="delete-form" action="{{ url('/producto/'.$producto->id.'/delete') }}" method="POST" style="display: none;">
+                                                                    <form id="{{'delete-form'.$producto->id}}" action="{{ url('/producto/'.$producto->id.'/delete') }}" method="POST" style="display: none;">
                                                                         @csrf
                                                                         @method('PUT')
                                                                         <input type="hidden" name="puesto_id" value="{{ $usuarioPuesto->puesto_id }}">
