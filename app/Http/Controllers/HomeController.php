@@ -43,7 +43,7 @@ class HomeController extends Controller
         $usercompletado = User::find(auth()->user()->id);
         $up = UsuarioPuesto::where('usuario_id', $usercompletado->id)->get();
         if ($up->isNotEmpty()) {
-            $puestocompletado = Puesto::find($up->first()->puesto_id)->completado;
+            $puestocompletado = Puesto::find($up->first()->puesto_id)->personalizado;
         } else {
             $puestocompletado = 0;
         }
