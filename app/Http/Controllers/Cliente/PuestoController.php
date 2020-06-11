@@ -201,9 +201,14 @@ class PuestoController extends Controller
         $puesto->description = $request->input('description');
         $puesto->phone2 = $request->input('phone2');
         $puesto->phone = $request->input('phone');
+        if($request->input('elegirnos') != null){
+            $puesto->elegirnos = $request->input('elegirnos');
+        }
+        if($request->input('nosotros') != null){
+            $puesto->elegirnos = $request->input('nosotros');
+        }
+        
         $puesto->direccion = $request->input('direccion');
-        $puesto->elegirnos = $request->input('elegirnos');
-        $puesto->nosotros = $request->input('nosotros');
         $puesto->cencom_id = $request->input('cencom');
         //$puesto->precio_min = $request->input('precio_min');
         $aux=0;
