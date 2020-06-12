@@ -157,7 +157,10 @@
                     @if($imagen != null)
                     <li class="features__item col-lg-3 col-sm-6 col-12">
                         <div class="features__image wood light5">
+                        <a href="{{ url('/producto/'.$productos->id.'/detailProd') }}">
                         <img src="{{ asset('storage/'.$puesto->id.'/'.$productos->id.'/'.$imagen->imagen) }}" style="width: 200px; height: 200px"> 
+                        
+                        </a>
                             <div class="image__tools"><i class="far fa-heart"></i>
                                 <i class="fas fa-cart-plus"></i>
                                 <i class="fas fa-search"></i>
