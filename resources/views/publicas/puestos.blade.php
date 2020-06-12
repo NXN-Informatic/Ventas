@@ -166,7 +166,7 @@
                         <div class="features__content">
                             <a class="link" href="#"></a>
                             <a class="sub-link" href="{{ url('/producto/'.$productos->id.'/detailProd') }}">{{ $productos->name }}</a>
-                            <p class="price">S./ ${{$productos->precio}}</p>
+                            <p class="price">S./ {{$productos->precio}}</p>
                         </div>
                     </li>
                     @endif

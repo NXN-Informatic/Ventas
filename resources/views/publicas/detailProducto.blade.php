@@ -44,7 +44,8 @@
               <!-- Productos Descripción -->
               <div>
                 <h2 style="text-align: left;font-size: 20px">{{ __('Descripción') }}</h2><br>
-                <h2>{!! $producto->description !!}</h2>
+                <span style="color: #000; font-size: 16px">{{ !! $producto->description !!}}</span>
+                <br>
               </div>
         </div>
         

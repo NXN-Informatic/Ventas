@@ -86,11 +86,11 @@
     </div>
   </header>
   <div class="nav" id="ocultarBanner">
-    <div style="text-align: right; margin-right: 20px; margin-top: -5px; margin-bottom:-20px">    
+      <div style="text-align: right; margin-right: 110px; margin-top: -5px; margin-bottom:-20px">    
         <a href="{{ url('register') }}">
             <button class="btn" style="background:#bf0000; border-radius:10px; font-weight: bold; border-color:#bf0000"><strong>Crea tu tienda GRATUITA</strong></button>  
         </a>
-        </div>
+      </div>
       <div class="nav__wrap container dflex">
           <div class="nav__button"><i class="fas fa-bars"></i>MENU</div>
           <a class="nav__logo" href="/">

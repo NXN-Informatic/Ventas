@@ -112,7 +112,7 @@
             <div class="col-lg-7 col-12">
                 <div class="card">
                     <div class="card-header">
-                        <!--<h4>Prepárese para su primera venta! Siga nuestras recomendaciones:</h4>-->
+                        <h4>Prepárese para su primera venta! Siga nuestras recomendaciones:</h4>
                     </div>
                     <div class="card-body">
                             <div class="card">
@@ -152,7 +152,7 @@
                                         @endif
                                     </li>
                                     <li class="list-group-item" style="padding: .2rem 1.25rem; border: 0px solid rgba(0, 0, 0, .125);">
-                                        @if ($puestocompletado)
+                                        @if ($personalizado)
                                         <div class="alert alert-success alert-outline-coloured alert-dismissible" style="margin-top: 0px; margin-bottom: 0px"  role="alert">
                                             <div class="alert-icon">
                                                 <i class="fas fa-fw fa-check"></i>
@@ -170,6 +170,29 @@
                                             <div class="alert-message">
                                                 <div class="row"><a href="{{url('puesto/personalizar') }}"><h5 style="margin-left:10px"><strong>  Diseñe su Tienda</strong></h5> </a><small style="margin-left:20px" class="form-text text-muted">{{ __('     Estimación: 5 min') }}</small></div>
                                                 Personalice su tienda para conseguir más ventas, con sus propios banners, la descripción de su negocio y de usted como emprendedor.
+                                            </div>
+                                        </div>
+                                        @endif
+                                    </li>
+                                    <li class="list-group-item" style="padding: .2rem 1.25rem; border: 0px solid rgba(0, 0, 0, .125);">
+                                        @if ($puestocompletado)
+                                        <div class="alert alert-success alert-outline-coloured alert-dismissible" style="margin-top: 0px; margin-bottom: 0px"  role="alert">
+                                            <div class="alert-icon">
+                                                <i class="fas fa-fw fa-check"></i>
+                                            </div>
+                                            <div class="alert-message">
+                                                <div class="row"><a href="{{url('puesto/editar') }}"><h5 style="margin-left:10px"><strong>  Ingrese información de su Tienda</strong></h5> </a><small style="margin-left:20px" class="form-text text-muted">{{ __('     Estimación: 1 min') }}</small></div>
+                                                Complete datos importantes como su ubicación, métodos de envío, formas de pago y más.
+                                            </div>
+                                        </div>
+                                        @else
+                                        <div class="alert alert-success alert-outline-coloured alert-dismissible" style="margin-top: 0px; margin-bottom: 0px"  role="alert">
+                                            <div class="alert-icon" style="background-color: #999999">
+                                                <i class="fas fa-fw fa-check"></i>
+                                            </div>
+                                            <div class="alert-message">
+                                                <div class="row"><a href="{{url('puesto/editar') }}"><h5 style="margin-left:10px"><strong>  Ingrese información de su Tienda</strong></h5> </a><small style="margin-left:20px" class="form-text text-muted">{{ __('     Estimación: 1 min') }}</small></div>
+                                                Complete datos importantes como su ubicación, métodos de envío, formas de pago y más.
                                             </div>
                                         </div>
                                         @endif
@@ -195,29 +218,6 @@
                                                 Complete su identificación y genere mayor confianza en sus clientes.
                                             </div>
                                         </div>         
-                                        @endif
-                                    </li>
-                                    <li class="list-group-item" style="padding: .2rem 1.25rem; border: 0px solid rgba(0, 0, 0, .125);">
-                                        @if($fbconectado)
-                                            <div class="alert alert-success alert-outline-coloured alert-dismissible" style="margin-top: 0px; margin-bottom: 0px" role="alert">
-                                                <div class="alert-icon">
-                                                    <i class="fas fa-fw fa-check"></i>
-                                                </div>
-                                                <div class="alert-message">
-                                                    <div class="row"><a href="{{url('puesto/canales') }}"><h5 style="margin-left:10px"><strong>Conecte su tienda a su página de facebook.</strong></h5> </a><small style="margin-left:20px" class="form-text text-muted">{{ __('Estimación: 5 min') }}</small></div>
-                                                    (Opcional) Sincronice su catálogo con su página de facebook automáticamente y expanda su negocio a más canales de venta.
-                                                </div>
-                                            </div>
-                                        @else
-                                            <div class="alert alert-warning alert-outline alert-dismissible" style="margin-top: 0px; margin-bottom: 0px" role="alert">
-                                                <div class="alert-icon" style="background-color: #999999">
-                                                    <i class="fas fa-fw fa-check"></i>
-                                                </div>
-                                                <div class="alert-message">
-                                                    <div class="row"><a href="{{url('puesto/canales') }}"><h5 style="margin-left:10px"><strong>Conecte su tienda a su página de facebook.</strong></h5> </a><small style="margin-left:20px" class="form-text text-muted">{{ __('Estimación: 5 min') }}</small></div>
-                                                    (Opcional) Sincronice su catálogo con su página de facebook automáticamente y expanda su negocio a más canales de venta.
-                                                </div>
-                                            </div>
                                         @endif
                                     </li>
                                     <li class="list-group-item" style="padding: .2rem 1.25rem; border: 0px solid rgba(0, 0, 0, .125);">

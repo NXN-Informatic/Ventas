@@ -43,9 +43,11 @@ class HomeController extends Controller
         $usercompletado = User::find(auth()->user()->id);
         $up = UsuarioPuesto::where('usuario_id', $usercompletado->id)->get();
         if ($up->isNotEmpty()) {
-            $puestocompletado = Puesto::find($up->first()->puesto_id)->personalizado;
+            $personalizado = Puesto::find($up->first()->puesto_id)->personalizado;
+            $puestocompletado = Puesto::find($up->first()->puesto_id)->completado;
         } else {
             $puestocompletado = 0;
+            $personalizado = 0;
         }
         $prods = Puesto::find($up->first()->puesto_id)->puestosubcategorias()->get();
         $grupos = Grupo::where('puestosubcategoria_id',$prods->first()->id)->get();
@@ -61,6 +63,6 @@ class HomeController extends Controller
         //$puestocompletado = $pc->usuario_puestos()->where('usuario_id',auth()->user()->id)->get();
         //dd($puestocompletado);
         //$puestocompletado = Producto::find(1)->grupo->puestosubcategoria->puesto->usuario_puestos->where('user_id',auth()->user()->id)->first()->get();
-        return view('home', compact('usercompletado','puestocompletado','productocompletado','usuarios_puestos','fbconectado'));
+        return view('home', compact('usercompletado','puestocompletado','productocompletado','usuarios_puestos','fbconectado','personalizado'));
     }
 }
