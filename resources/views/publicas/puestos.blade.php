@@ -139,54 +139,44 @@
   </div>
 </div> -->
 
-<!--Start Featured Products-->
-<div class="featureProduct" id="ocultar1" style="padding-top: 4rem">
-    <div class="feature__filter">
-        @foreach($puesto->puestosubcategorias as $puestosubcategorias)
-            @foreach($puestosubcategorias->grupos as $grupos)
-                <ul class="featureSlider container" style="position: relative">
-                    <?php $aux = $grupos->productos->take(4); //toma los primeros 4 productos d cada grupo?>
-                    @if($aux->isNotEmpty())
-                    <div class="row">
-                        <div class="col-12" style="text-align: left">
-                        <h2 style="font-size: 20px">{{ $grupos->name }}</h2>
+
+@foreach($puesto->puestosubcategorias as $puestosubcategorias)
+    @foreach($puestosubcategorias->grupos as $grupos)
+        <div class="featureProduct singleProduct" id="tiendas">
+            <div class="feature__wrap container">
+            <h4 class="title">{{ $grupos->name }}</h4>
+            <div class="feature__filter">
+                <div class="featureSlider">
+                <div class="sliderButton left"><i class="fas fa-angle-left"></i></div>
+                <div class="sliderButton right"><i class="fas fa-angle-right"></i></div>
+                <ul class="features__grid" id="wrap">
+                @foreach($grupos->productos as $productos)
+                    <?php $imagen = null; ?>
+                    <?php $imagen = $productos->imagen_productos->first(); //solo una imagen x producto?>
+                    @if($imagen != null)
+                    <li class="features__item col-lg-3 col-sm-6 col-12">
+                        <div class="features__image wood light5">
+                        <img src="{{ asset('storage/'.$puesto->id.'/'.$productos->id.'/'.$imagen->imagen) }}" style="width: 200px; height: 200px"> 
+                            <div class="image__tools"><i class="far fa-heart"></i>
+                                <i class="fas fa-cart-plus"></i>
+                                <i class="fas fa-search"></i>
+                            </div>
                         </div>
-                    </div>
-                    <li class="grid features__grid" style="position: relative">
-                        <div class="row">
-                            @foreach($aux as $productos)
-                                    <?php $imagen = null; ?>
-                                    <?php $imagen = $productos->imagen_productos->first(); //solo una imagen x producto?>
-                                    @if($imagen != null)
-                                        <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale" style="position: relative">
-                                            <div class="features__image desk"><a href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="black"><img src="{{ asset('storage/'.$puesto->id.'/'.$productos->id.'/'.$imagen->imagen) }}"  width="200px" height="300px" alt=""></a>
-                                                <div class="image__overlay">
-                                                    <div class="color">
-                                                        <div class="image" data-image="{{ asset('storage/'.$puesto->id.'/'.$productos->id.'/'.$imagen->imagen) }}"  width="200px" height="300px">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="features__content"><a class="link" href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="black">{{$productos->name}}</a>
-                                                <p class="price">S./ ${{$productos->precio}}</p>
-                                                <div class="content__overlay">
-                                                    <p>{!! $productos->description !!}</p>
-                                                    <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="black">Ver Producto</a><a ><i class="fas fa-search"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-                            @endforeach
+                        <div class="features__content">
+                            <a class="link" href="#"></a>
+                            <a class="sub-link" href="{{ url('/producto/'.$productos->id.'/detailProd') }}">{{ $productos->name }}</a>
+                            <p class="price">S./ ${{$productos->precio}}</p>
                         </div>
                     </li>
                     @endif
+                @endforeach
                 </ul>
-            @endforeach
-        @endforeach
-        <br><br><br>
-    </div>
-</div>
+                </div>
+            </div>
+            </div>
+        </div>
+    @endforeach
+@endforeach
 
 <!-- Mostrar Productos -->
 <div class="shopProduct">
