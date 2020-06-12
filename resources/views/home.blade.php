@@ -42,73 +42,6 @@
             </div>
         @endif
         <div class="row" >
-            <!-- Formulario de Usuario -->
-            <div class="col-lg-5 col-12">
-                @foreach($usuarios_puestos as $usuarios_puesto)
-                @endforeach
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="col-12 text-center mt-2">
-                                <h5>Bandeja de entrada</h5>
-                            </div>
-                            <div class="col-12" style="margin-top: 15px">
-                                <div class="col-12 text-center mt-2">
-                                    <span>Gracias por formar parte de FeriaTacna. Siga nuestras recomendaciones para empezar.</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="col-12 text-center mt-2">
-                                <h5>¿Quieres mejorar el comercio en Tacna?</h5>
-                            </div>
-                            <div class="col-12" style="margin-top: 15px">
-                                <div class="col-12 text-center mt-2">
-                                    <a target="_blank" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com/puesto/{{ $usuarios_puesto->puesto->id }}/detail">
-                                        <button class="btn mb-1 btn-facebook btn-lg"><i class="align-left fab fa-facebook" title="Compartir"></i><span style="margin-left:20px; margin-right:20px">{{ __('    Unirse    ') }}</span></button>
-                                    </a>
-                                    <small class="form-text text-muted">{{ __('Unase a nuestro grupo cerrado en Facebook.') }}</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="col-12 text-center mt-2">
-                                <h5>Amplía tu catálogo de 20 a 35 productos:</h5>
-                            </div>
-                            <div class="col-12" style="margin-top: 15px">
-                                <div class="col-12 text-center mt-2">
-                                    <span style="margin-bottom: 7px" class="form-text text-muted">{{ __('Comparte FeriaTacna y etiqueta a 2 vendedores.') }}</span>
-                                    <a target="_blank" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com">
-                                        <button class="btn mb-1 btn-facebook btn-lg"><i class="align-left fab fa-facebook" title="Compartir"></i><span style="margin-left:20px; margin-right:20px">{{ __('    Compartir    ') }}</span></button>
-                                    </a>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="col-12 text-center mt-2">
-                                <h5>¿Quieres hacernos una consulta?</h5>
-                            </div>
-                            <div class="col-12" style="margin-top: 15px">
-                                <div class="col-12 text-center mt-2">
-                                    <a target="_blank" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com/puesto/{{ $usuarios_puesto->puesto->id }}/detail">
-                                        <button class="btn mb-1 btn-success btn-lg"><i class="align-left fab fa-whatsapp" title="Compartir"></i><span style="margin-left:20px; margin-right:20px">{{ __('    948588436    ') }}</span></button>
-                                    </a>
-                                    <small class="form-text text-muted">{{ __('Estamos dispuestos a ayudarte') }}</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-            </div>
-            <!-- End Formulario de Usuario -->
-            
-            <!-- Vista de Usuario -->
             <div class="col-lg-7 col-12">
                 <div class="card">
                     <div class="card-header">
@@ -246,6 +179,74 @@
                     </div>
                 </div>
             </div>
+            <!-- Formulario de Usuario -->
+            <div class="col-lg-5 col-12">
+                @foreach($usuarios_puestos as $usuarios_puesto)
+                @endforeach
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="col-12 text-center mt-2">
+                                <h5>Bandeja de entrada</h5>
+                            </div>
+                            <div class="col-12" style="margin-top: 15px">
+                                <div class="col-12 text-center mt-2">
+                                    <span>Gracias por formar parte de FeriaTacna. Siga nuestras recomendaciones para empezar.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="col-12 text-center mt-2">
+                                <h5>¿Quieres mejorar el comercio en Tacna?</h5>
+                            </div>
+                            <div class="col-12" style="margin-top: 15px">
+                                <div class="col-12 text-center mt-2">
+                                    <a target="_blank" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com/puesto/{{ $usuarios_puesto->puesto->id }}/detail">
+                                        <button class="btn mb-1 btn-facebook btn-lg"><i class="align-left fab fa-facebook" title="Compartir"></i><span style="margin-left:20px; margin-right:20px">{{ __('    Unirse    ') }}</span></button>
+                                    </a>
+                                    <small class="form-text text-muted">{{ __('Unase a nuestro grupo cerrado en Facebook.') }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="col-12 text-center mt-2">
+                                <h5>Amplía tu catálogo de 20 a 35 productos:</h5>
+                            </div>
+                            <div class="col-12" style="margin-top: 15px">
+                                <div class="col-12 text-center mt-2">
+                                    <span style="margin-bottom: 7px" class="form-text text-muted">{{ __('Comparte FeriaTacna y etiqueta a 2 vendedores.') }}</span>
+                                    <a target="_blank" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com">
+                                        <button class="btn mb-1 btn-facebook btn-lg"><i class="align-left fab fa-facebook" title="Compartir"></i><span style="margin-left:20px; margin-right:20px">{{ __('    Compartir    ') }}</span></button>
+                                    </a>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="col-12 text-center mt-2">
+                                <h5>¿Quieres hacernos una consulta?</h5>
+                            </div>
+                            <div class="col-12" style="margin-top: 15px">
+                                <div class="col-12 text-center mt-2">
+                                    <a target="_blank" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com/puesto/{{ $usuarios_puesto->puesto->id }}/detail">
+                                        <button class="btn mb-1 btn-success btn-lg"><i class="align-left fab fa-whatsapp" title="Compartir"></i><span style="margin-left:20px; margin-right:20px">{{ __('    948588436    ') }}</span></button>
+                                    </a>
+                                    <small class="form-text text-muted">{{ __('Estamos dispuestos a ayudarte') }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+            </div>
+            <!-- End Formulario de Usuario -->
+            
+            <!-- Vista de Usuario -->
+            
             <!-- End Vista de Usuario -->
         </div>
     </div>
