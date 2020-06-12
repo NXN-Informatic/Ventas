@@ -83,7 +83,7 @@
                                 </div>
                             </div>
                             <div class="features__content"><a class="link" href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="black">{{$producto->name}}</a>
-                                <p class="price">S./ ${{$producto->precio}}</p>
+                                <p class="price">S./ {{$producto->precio}}</p>
                                 <div class="content__overlay">
                                     <p>{!! $producto->description !!}</p>
                                     <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="black">Ver Producto</a><a href="{{ url('/producto/'. $producto->id.'/detailProd') }}"><i class="fas fa-search"></i></a></div>
