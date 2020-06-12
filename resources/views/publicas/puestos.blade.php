@@ -77,7 +77,7 @@
     <h1 class="title" style="margin-top:7%">{{ $puesto->name }}</h1>
     <div style="text-align:center;">
     <br>
-    <a href="" class="title clases btn btn-primary" style="background:#000;"><h1 class="title" style="font-size:15px">Comprar</h1></a>
+    <a id="boton" class="title clases btn btn-primary" style="background:#000;"><h1 class="title" style="font-size:15px">Comprar</h1></a>
     </div>
 </div>
 @else
@@ -87,7 +87,7 @@
     <h1 class="title">{{ $puesto->name }}</h1>
     <div style="text-align:center;">
     <br>
-    <a href="" class="title clases btn btn-primary" style="background:#000;"><h1 class="title" style="font-size:15px">Comprar</h1></a>
+    <a id="boton" class="title clases btn btn-primary" style="background:#000;"><h1 class="title" style="font-size:15px">Comprar</h1></a>
     
     </div>
 </div>
@@ -355,6 +355,10 @@
 
         $resultado.hide();
         $mostrarcategoria.hide();
+
+        $('#boton').click( function() {
+            window.scroll(0,100000)
+        } );
         
         $('ul#tags li').click( function() {
           const cateogiraId = $(this).attr('value');
