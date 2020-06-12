@@ -140,7 +140,7 @@
 </div> -->
 
 <!--Start Featured Products-->
-<div class="featureProduct" id="ocultar1" style="padding-top: 4rem">
+<div class="featureProduct" id="ocultar1" style="padding-top: 4rem; padding-bottom: 0rem">
     <div class="feature__filter">
         @foreach($puesto->puestosubcategorias as $puestosubcategorias)
             @foreach($puestosubcategorias->grupos as $grupos)
@@ -168,7 +168,7 @@
                                                 </div>
                                             </div>
                                             <div class="features__content"><a class="link" href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="black">{{$productos->name}}</a>
-                                                <p class="price">S./ ${{$productos->precio}}</p>
+                                                <p class="price">S./ {{$productos->precio}}</p>
                                                 <div class="content__overlay">
                                                     <p>{!! $productos->description !!}</p>
                                                     <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="black">Ver Producto</a><a ><i class="fas fa-search"></i></a>
@@ -184,7 +184,6 @@
                 </ul>
             @endforeach
         @endforeach
-        <br><br><br>
     </div>
 </div>
 

@@ -261,19 +261,25 @@ class PuestoController extends Controller
         $formapagos = $request->input('formapago_id');
         if($formapagos != null) {
             for($i=0 ; $i < count($formapagos); ++$i) {
-                PagoPuesto::create([
-                    "puesto_id"         =>  $puesto->id,
-                    "pago_id"   =>  $formapagos[$i]
-                ]);
+                $formapago = PagoPuesto::where('pago_id', $formapagos[$i])->where('puesto_id',$puesto->id)->first();
+                if($formapago == null){
+                    PagoPuesto::create([
+                        "puesto_id"         =>  $puesto->id,
+                        "pago_id"   =>  $formapagos[$i]
+                    ]);
+                }
             }
         }
         $formaentregas = $request->input('formaentrega_id');
         if($formaentregas != null) {
             for($i=0 ; $i < count($formaentregas); ++$i) {
-                EntregaPuesto::create([
-                    "entrega_id"   =>  $formaentregas[$i],
-                    "puesto_id"         =>  $puesto->id
-                ]);
+                $formaentrega = EntregaPuesto::where('entrega_id', $formaentregas[$i])->where('puesto_id',$puesto->id)->first();
+                if($formaentrega == null){
+                    EntregaPuesto::create([
+                        "entrega_id"   =>  $formaentregas[$i],
+                        "puesto_id"         =>  $puesto->id
+                    ]);
+                }
             }
         }
         $notification = 'Se ha actualizado los datos de su Tienda correctamente';

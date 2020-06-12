@@ -35,18 +35,19 @@
 <!--Start Feature Product-->
 
 <div class="blog">
-    <h4 class="title">Tiendas Recomendadas <a href="{{ url('puestos/all') }}"> Ver tiendas</a></h4>
+    <h4 class="title">Tiendas Recomendadas <a href="{{ url('puestos/all') }}" target="_blank"> Ver tiendas</a></h4>
         <div class="blog__wrap dflex">
             <div class="row">
         @foreach($pst as $ps)
         <div class="blog__item col-lg-3">
-            <div class="blog__image"><img src="{{ url('storage/'.$ps->id.'/banner/'.$ps->banner) }}" alt="" height="120px">
+            
+            <div class="blog__image"><a class="link active" href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank"><img src="{{ url('storage/'.$ps->id.'/banner/'.$ps->banner) }}" alt="" height="120px"></a>
             </div>
-            <div><img src="{{ url('storage/'.$ps->id.'/logo/'.$ps->perfil) }}" alt="" height="100px" width="100px">
-                
+            <div><a class="link active" href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank"><img src="{{ url('storage/'.$ps->id.'/logo/'.$ps->perfil) }}" alt="" height="100px" width="100px"></a>
+               
             </div>
-            <div class="blog__content"><a class="heading" href="#">{{ $ps->name}}</a>
-                <p>{{ $ps->description}}</p><a class="link active" href="{{ url('/puesto/'.$ps->id.'/detail') }}"><strong><span style="color: #bf0000; font-size:14px">Visitar</span></strong></a>
+            <div class="blog__content"><a class="heading" href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank">{{ $ps->name}}</a>
+                <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank"><p>{{ $ps->description}}</p><strong><span style="color: #bf0000; font-size:14px">Visitar</span></strong></a>
             </div>
         </div>
         @endforeach
