@@ -39,12 +39,18 @@
       .ocultarimg{
         display: block;
       }
+      .style{
+        height: 300px !important;
+      }
     @media (max-width: 600px) {
       .ocultar {
           display: : none;
       }
       .ocultarimg{
         display: none;
+      }
+      .style{
+        height: 140px !important;
       }
     }
     </style>

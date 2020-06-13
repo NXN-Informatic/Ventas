@@ -44,11 +44,7 @@
               <!-- Productos Descripción -->
               <div>
                 <h2 style="text-align: left;font-size: 20px">{{ __('Descripción') }}</h2><br>
-<<<<<<< HEAD
                 <span style="color: #000; font-size: 16px">{{!! $producto->description !!}}</span>
-=======
-                <span style="color: #000; font-size: 16px">{!! $producto->description !!}</span>
->>>>>>> 911e330867564f6835c26a1644f486f567f92857
                 <br>
               </div>
         </div>

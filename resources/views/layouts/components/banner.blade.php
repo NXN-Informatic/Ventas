@@ -2,19 +2,19 @@
     <div class="swiper-wrapper">
         <!-- Imagen Productos -->
         <div class="swiper-slide">
-            <a href="#">
-                <img  src="{{ asset('img/banner/banner 22.jpg') }}"  height="20%" width="100%" style="margin:auto; display: flex;">
-            </a>
+            <div class="bannerBlog style" style="background-image: url('{{ asset('img/banner/banner 22.jpg') }}')">
+                
+            </div>
         </div>
         <div class="swiper-slide">
-            <a href="#">
-                <img  src="{{ asset('img/banner/banner 11.jpg') }}"  height="20%" width="100%" style="margin:auto; display: flex;">
-            </a>
+            <div class="bannerBlog style" style="background-image: url('{{ asset('img/banner/banner 11.jpg') }}')">
+                
+            </div>
         </div>
         <div class="swiper-slide">
-            <a href="#">
-                <a href="/register"><img  src="{{ asset('img/banner/banner 33.jpg') }}"  height="20%" width="100%" style="margin:auto; display: flex;"></a>
-            </a>
+            <div class="bannerBlog style" style="background-image: url('{{ asset('img/banner/banner 33.jpg') }}')">
+                
+            </div>
         </div>
     </div>
   <div class="swiper-pagination"></div>
