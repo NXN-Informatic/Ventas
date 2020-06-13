@@ -322,7 +322,7 @@
         page_id="{{ $puesto->fbpageid}}"
         theme_color="#bf0000"
         logged_in_greeting="¡Hola!, ¿Tienes una consulta?"
-        logged_out_greeting="¡Gracias por tu visita!">
+        logged_out_greeting="¡Hola!, ¿Tienes una consulta?">
     </div>
 @endif
 

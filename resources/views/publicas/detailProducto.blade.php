@@ -244,12 +244,9 @@
         </div>
     </div>
 </div>
+<div id="fb-root"></div>
+<div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="5" data-width=""></div>
 
-<section class="disqus container">
-    <h2>Comparte tu Opinión</h2>
-    <div id="disqus_thread"></div>
-    <br><br><br>
-</section>
 
 @if ($usuario_puestos->puesto->fbpageid)
 <div class="fb-customerchat"
@@ -258,7 +255,7 @@
     theme_color="#bf0000"
     ref="hhhhhhhh"
     logged_in_greeting="¡Hola!, ¿Tienes una consulta?"
-    logged_out_greeting="¡Gracias por tu visita!">
+    logged_out_greeting="¡Hola!, ¿Tienes una consulta?">
 </div>
 @endif
 @include('layouts.components.footer')
@@ -472,6 +469,7 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v7.0" nonce="JAdLXQvG"></script>
 @endsection
 
 
