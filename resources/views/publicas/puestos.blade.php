@@ -320,7 +320,7 @@
     <div class="fb-customerchat"
         attribution=setup_tool
         page_id="{{ $puesto->fbpageid}}"
-        theme_color="#20cef5"
+        theme_color="#bf0000"
         logged_in_greeting="¡Hola!, ¿Tienes una consulta?"
         logged_out_greeting="¡Gracias por tu visita!">
     </div>
