@@ -36,9 +36,15 @@
       .ocultar{
           display: block;
       }
+      .ocultarimg{
+        display: block;
+      }
     @media (max-width: 600px) {
       .ocultar {
           display: : none;
+      }
+      .ocultarimg{
+        display: none;
       }
     }
     </style>
@@ -62,7 +68,7 @@
         <ul class="header__item dflex left">
           <div class="ocultar">
             <a href="/">
-            <img src="{{ asset('img/logo.png') }}" style="width: 120px; margin-right: 20px">    
+              <img src="{{ asset('img/logo.png') }}" class="ocultarimg" style="width: 120px; margin-right: 20px">    
             </a>
           </div>
             <li class="header__list"><span style="color: #000">CATEGORIAS</span><i class="fas fa-angle-down"></i>
@@ -86,7 +92,7 @@
     </div>
   </header>
   <div class="nav" id="ocultarBanner">
-      <div style="text-align: right; margin-right: 110px; margin-top: -5px; margin-bottom:-20px">    
+      <div style="text-align: right; margin-top: -5px; margin-bottom:-20px">    
         <a href="{{ url('register') }}">
             <button class="btn" style="background:#bf0000; border-radius:10px; font-weight: bold; border-color:#bf0000"><strong>Crea tu tienda GRATUITA</strong></button>  
         </a>
