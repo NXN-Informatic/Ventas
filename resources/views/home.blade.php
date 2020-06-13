@@ -4,7 +4,7 @@
 @include('layouts.partials.menu')
 @include('layouts.partials.navbar')
 @section('title','Panel de Administración')
-    
+<div id="fb-root"></div>    
 <main class="content">
     <div class="container-fluid">
 
@@ -202,10 +202,12 @@
                             </div>
                             <div class="col-12" style="margin-top: 15px">
                                 <div class="col-12 text-center mt-2">
-                                    <a target="_blank" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com/puesto/{{ $usuarios_puesto->puesto->id }}/detail">
-                                        <button class="btn mb-1 btn-facebook btn-lg"><i class="align-left fab fa-facebook" title="Compartir"></i><span style="margin-left:20px; margin-right:20px">{{ __('    Unirse    ') }}</span></button>
-                                    </a>
-                                    <small class="form-text text-muted">{{ __('Unase a nuestro grupo cerrado en Facebook.') }}</small>
+                                    <div class="fb-group" 
+                                        data-href="https://web.facebook.com/groups/ferialocal" 
+                                        data-width="180" 
+                                        data-show-social-context="true" 
+                                        data-show-metadata="false">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -250,6 +252,13 @@
             <!-- End Vista de Usuario -->
         </div>
     </div>
+    <div class="fb-group" data-href="https://web.facebook.com/groups/ferialocal" data-width="280" data-show-social-context="true" data-show-metadata="false">dsdd</div>
 </main>
 @include('layouts.partials.footer')
+@endsection
+
+@section('scripts')
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v7.0" nonce="GmREFXbv"></script>
+
+    
 @endsection

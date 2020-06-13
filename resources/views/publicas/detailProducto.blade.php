@@ -47,6 +47,7 @@
                 <span style="color: #000; font-size: 16px">{{!! $producto->description !!}}</span>
                 <br>
               </div>
+              <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="5" data-width="100%"></div>
         </div>
         
         <div class="content col-lg-5 col-12">
@@ -205,6 +206,7 @@
             @endforeach
             </li>
         </ul>
+        
     </div>
     <!-- btn Mostrar Tienda -->
     <a href="{{ url('/all/productos') }}">
@@ -245,7 +247,7 @@
     </div>
 </div>
 <div id="fb-root"></div>
-<div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="5" data-width=""></div>
+
 
 
 @if ($usuario_puestos->puesto->fbpageid)
