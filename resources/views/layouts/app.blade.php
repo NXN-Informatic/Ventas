@@ -22,8 +22,25 @@
 <body class="theme-blue">
 	<div class="splash active">
 		<div class="splash-icon"></div>
-	</div>
-
+    </div>
+    @if(auth()->user()->name)
+        <div class="fb-customerchat"
+        attribution=setup_tool
+        page_id="106833667726609"
+        theme_color="#bf0000"
+        logged_in_greeting="¡Hola {{auth()->user()->name}}!, ¿Tienes una consulta? Estamos dispuestos a ayudarte."
+        logged_out_greeting="¡Hola {{auth()->user()->name}}!, ¿Tienes una consulta? Estamos dispuestos a ayudarte.">
+        </div>
+    @else
+        <div class="fb-customerchat"
+        attribution=setup_tool
+        page_id="106833667726609"
+        theme_color="#bf0000"
+        logged_in_greeting="¡Hola!, ¿Tienes una consulta? Estamos dispuestos a ayudarte."
+        logged_out_greeting="¡Hola!, ¿Tienes una consulta? Estamos dispuestos a ayudarte.">
+        </div>
+    @endif
+    
 	@yield('content')
 
     <svg width="0" height="0" style="position:absolute">
@@ -37,6 +54,22 @@
     </svg>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="{{ asset('js/admin.js') }}" defer></script>
+    <script>
+        window.fbAsyncInit = function() {
+        FB.init({
+            xfbml            : true,
+            version          : 'v7.0'
+        });
+        };
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/es_ES/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
     @yield('scripts')
 </body>
 </html>

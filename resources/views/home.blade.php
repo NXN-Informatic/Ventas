@@ -202,9 +202,9 @@
                             </div>
                             <div class="col-12" style="margin-top: 15px">
                                 <div class="col-12 text-center mt-2">
-                                    <div class="fb-group" 
+                                    <div class="fb-group text-center" 
                                         data-href="https://web.facebook.com/groups/ferialocal" 
-                                        data-width="300px" 
+                                        data-width="280px" 
                                         data-show-social-context="true" 
                                         data-show-metadata="false">
                                     </div>
