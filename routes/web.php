@@ -61,6 +61,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/puesto/store', 'Cliente\PuestoController@store');
     Route::get('/puesto/editar', 'Cliente\PuestoController@editar');
     Route::get('/puesto/personalizar', 'Cliente\PuestoController@personalizar');
+    Route::get('/puesto/infocontacto', 'Cliente\PuestoController@contacto');
+    Route::put('/puesto/contacto/update/{puesto}', 'Cliente\PuestoController@contactoupdate');
 
     // Productos Cliente
     Route::get('/producto/lista', 'Cliente\ProductoController@index');

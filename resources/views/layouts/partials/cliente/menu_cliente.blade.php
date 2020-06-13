@@ -22,6 +22,7 @@
         <ul id="tienda" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
             <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto/editar') }}">{{ __('Configuración') }}</a></li>
             <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto/personalizar') }}">{{ __('Personalizar') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('puesto/infocontacto') }}">{{ __('Información de Contacto') }}</a></li>
         </ul>
     </li>
     <li class="sidebar-item">

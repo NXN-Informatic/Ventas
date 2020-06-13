@@ -123,6 +123,31 @@ class PuestoController extends Controller
         return view('cliente.puestos.personalizar', compact('puesto', 'categorias', 'subcategorias', 'formapagos', 'formaentregas'));
     }
 
+    public function contacto(){
+        $usuariopuesto = UsuarioPuesto::where('usuario_id', auth()->user()->id)->first();
+        $puesto = $usuariopuesto->puesto;
+        
+        return view('cliente.puestos.contacto', compact('puesto'));
+    }
+    public function contactoupdate(Request $request, Puesto $puesto){
+        $rules = [
+            'phone2'        =>  'max:14',
+            'phone'         =>  'max:14',
+            'fbpageid'  => 'min:15|max:15',
+        ];
+
+        $this->validate($request, $rules);
+
+        $puesto->phone2 = $request->input('phone2');
+        $puesto->phone = $request->input('phone');
+        $puesto->fbpageid = $request->input('fbpageid');
+        
+        $puesto->save();
+
+        $notification = 'Se ha actualizado los datos de su Tienda correctamente';
+        return redirect('/home')->with(compact('notification'));
+    }
+
     public function store(Request $request) {
         $rules = [
             'name'          =>  'required|min:3|max:100|unique:puestos',
@@ -201,6 +226,7 @@ class PuestoController extends Controller
         $puesto->description = $request->input('description');
         $puesto->phone2 = $request->input('phone2');
         $puesto->phone = $request->input('phone');
+        $puesto->fbpageid = $request->input('fbpageid');
         if($request->input('elegirnos') != null){
             $puesto->elegirnos = $request->input('elegirnos');
         }

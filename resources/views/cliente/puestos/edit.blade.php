@@ -202,6 +202,18 @@
                             </div>
                         </div>
                     </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title mb-0">{{ __('Información de Redes Sociales') }}</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <strong><label class="form-label">Id de Página de Facebook</label></strong>
+                                <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Ingrese el Page-Id de su página de Facebook. (Ej. 100771198324876)') }}</small>
+                                <input style="margin-top:7px" type="text" class="form-control form-control-lg" name="fbpageid" value="{{ old('name', $puesto->fbpageid) }}" required>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- End Formulario de Usuario -->
             </div>
