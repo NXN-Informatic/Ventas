@@ -4,6 +4,14 @@
     <!-- Swiper -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
     <link rel="stylesheet" href="{{ asset('css/publicas/detailProduc.css') }}">
+    <style type="text/css">
+      .wsp:hover
+      {
+        -moz-box-shadow: 0 0 10px rgb(4, 182, 34);
+        -webkit-box-shadow: 0 0 10px rgb(4, 182, 34);
+        box-shadow: 0 0 10px rgb(4, 182, 34);
+      }
+    </style>
 @endsection
 
 @section('content')
@@ -264,14 +272,14 @@
 @endsection
 @if($usuario_puestos->puesto->wsp)
 <a style="position: fixed; right: 25px; bottom: 90px; width: 60px; z-index: 1000" href="{{ url('https://api.whatsapp.com/send?phone=51'.$usuario_puestos->puesto->wsp.'&text=Hola!%20Me%20interesa%20este%20producto:%20'.$producto->producto_url.'%20¿Está disponible?') }}" target="_blank">
-<img src="{{ asset('img/wsp.png') }}" style="width: 60px; hight: auto" alt="whatsapp">
+<img class="wsp" src="{{ asset('img/wsp.png') }}" style="width: 60px; hight: auto; border-radius:50%" alt="whatsapp">
 </a>
 @else
 
 @endif
 
 @section('scripts')
-
+  
   <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
   <script src="{{ asset('js/publicas/detailProduc.js') }}"></script>
   <script>
