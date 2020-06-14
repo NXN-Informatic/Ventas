@@ -6,6 +6,7 @@
 @endsection
 
 @section('content')
+@include('layouts.partials.fbchat')
 @include('layouts.partials.menu')
 @include('layouts.partials.navbar')
     

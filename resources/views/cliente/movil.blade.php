@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('layouts.partials.fbchat')
 @include('layouts.partials.menu')
 @include('layouts.partials.navbar')
 @section('title','Panel de Administración')

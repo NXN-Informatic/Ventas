@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title','Editar Puesto')
 @section('content')
+@include('layouts.partials.fbchat')
 @include('layouts.partials.menu')
 @include('layouts.partials.navbar')
 
@@ -63,7 +64,7 @@
                             @endif
                             
                             <div class="form-group">
-                                <strong><label class="form-label" for="contacto">Información de contacto</label></strong>
+                                <strong><label class="form-label" for="contacto">¿A qué numero(s) llamarán tus clientes?</label></strong>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Celular 1') }}</small>
@@ -75,17 +76,49 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title mb-0">{{ __('Información de Redes Sociales') }}</h4>
-                        </div>
-                        <div class="card-body">
                             <div class="form-group">
-                                <strong><label class="form-label">Id de Página de Facebook</label></strong>
-                                <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Ingrese el Page-Id de su página de Facebook. (Ej. 100771198324876)') }}</small>
-                                <input style="margin-top:7px" type="text" class="form-control form-control-lg" name="fbpageid" value="{{ old('fbpageid', $puesto->fbpageid) }}" required>
+                                <strong><label class="form-label" for="contacto">¿A qué número te contactarán por WhatsApp?</label></strong>
+                                <div class="row">
+                                        <input type="text" class="form-control form-control-lg" name="wsp" value="{{ old('wsp', $puesto->wsp) }}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <strong><label class="form-label">Página de Facebook</label></strong>
+                                <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Ingrese la dirección url de su Página de Facebook. (Ej. https://www.facebook.com/FeriaTacnaOficial)') }}</small>
+                                <input style="margin-top:7px" type="text" class="form-control form-control-lg" name="fbpage" value="{{ old('fbpageid', $puesto->fbpage) }}">
+                            </div>
+                            <div class="form-group">
+                                <strong><label class="form-label">¿Mostrar chat de Facebook?</label></strong>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sizedModalSm">
+                                    Activar
+                                </button>
+                                <div class="modal fade" id="sizedModalSm" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-sm" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Active el Chat de Messenger en su Tienda en solo 2 pasos!</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body m-3">
+                                                <div class="form-group">
+                                                    @if($puesto->fbpage)
+                                                    <label class="form-label">Paso 1: Visita éste <a href="{{url($puesto->fbpage.'/settings/?tab=messenger_platform')}}" target="_blank"><span style="font-size: 18px"><u>enlace</u></span></a> y en <strong>"Dominios Admitidos"</strong> agrega <strong>"https://www.feriatacna.com"</strong></label>
+                                                    @else
+                                                    <label class="form-label">Paso 1: Ingresa como Administrador a tu página de FB. Ve a <strong><i>Configuración de Página / Mensajería avanzada</i></strong> y en <strong><i>"Dominios Admitidos"</i></strong> agrega <strong>"https://www.feriatacna.com"</strong></label>
+                                                    @endif
+                                                    
+                                                    <label class="form-label">Paso 2: Ingresa tu Page-Id de Facebook. Si no lo tienes, consíguelo<strong><a href="https://www.bufa.es/id-pagina-facebook/" target="_blank">AQUÍ</a></strong></label>
+                                                    <input style="margin-top:7px" type="text" class="form-control form-control-lg" name="fbpageid" value="{{ old('fbpageid', $puesto->fbpageid) }}">
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

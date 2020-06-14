@@ -134,6 +134,8 @@ class PuestoController extends Controller
             'phone2'        =>  'max:14',
             'phone'         =>  'max:14',
             'fbpageid'  => 'min:15|max:15',
+            'wsp' => 'max:15',
+            'fbpage' => 'min:18',
         ];
 
         $this->validate($request, $rules);
@@ -141,7 +143,8 @@ class PuestoController extends Controller
         $puesto->phone2 = $request->input('phone2');
         $puesto->phone = $request->input('phone');
         $puesto->fbpageid = $request->input('fbpageid');
-        
+        $puesto->fbpage = $request->input('fbpage');
+        $puesto->wsp = $request->input('wsp');
         $puesto->save();
 
         $notification = 'Se ha actualizado los datos de su Tienda correctamente';

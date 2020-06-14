@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title','Personalizar Puesto')
 @section('content')
+@include('layouts.partials.fbchat')
 @include('layouts.partials.menu')
 @include('layouts.partials.navbar')
 
