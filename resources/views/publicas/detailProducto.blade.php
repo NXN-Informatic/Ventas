@@ -262,6 +262,13 @@
 @endif
 @include('layouts.components.footer')
 @endsection
+@if($usuario_puestos->puesto->wsp)
+<a style="position: fixed; right: 25px; bottom: 90px; width: 60px; z-index: 1000" href="{{ url('https://api.whatsapp.com/send?phone=51'.$usuario_puestos->puesto->wsp.'&text=Hola!%20Me%20interesa%20este%20producto:%20'.$producto->producto_url.'%20¿Está disponible?') }}" target="_blank">
+<img src="{{ asset('img/wsp.png') }}" style="width: 60px; hight: auto" alt="whatsapp">
+</a>
+@else
+
+@endif
 
 @section('scripts')
 
@@ -283,17 +290,7 @@
 
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK7XD3i3cgtPV9SKcDff2IJc0O-WpNoNY&callback=initMap" async defer>
   </script> 
-  <script>
-      (function() { // DON'T EDIT BELOW THIS LINE
-      setTimeout(cargar, 1000);
-      function cargar() {    
-          var d = document, s = d.createElement('script');
-          s.src = 'https://feriatacna.disqus.com/embed.js';
-          s.setAttribute('data-timestamp', new Date());
-          (d.head || d.body).appendChild(s);
-      }
-      })();
-  </script>
+  
   <script>
     $(function() {
       // Variables Define
