@@ -9,7 +9,7 @@
 @section('content')
 @include('layouts.components.navbar')
 @section('title','Bienvenido')
-
+<div id="fb-root"></div>
 <!--Start Single Product-->
 <div class="singleProduct container" id="ocultar1">
   <div class="singleProduct__wrap container">
@@ -246,7 +246,7 @@
         </div>
     </div>
 </div>
-<div id="fb-root"></div>
+
 
 
 
@@ -279,20 +279,21 @@
           position: new google.maps.LatLng(<?php echo $latitud; ?>, <?php echo $longitud; ?>)
         });
     }
-    //initMap(); Esto es innecesario porque en el callback de la URL lo estás llamando.
   </script>
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK7XD3i3cgtPV9SKcDff2IJc0O-WpNoNY&callback=initMap" async defer></script> 
-    <script>
-        (function() { // DON'T EDIT BELOW THIS LINE
-        setTimeout(cargar, 1000);
-        function cargar() {    
-            var d = document, s = d.createElement('script');
-            s.src = 'https://feriatacna.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', new Date());
-            (d.head || d.body).appendChild(s);
-        }
-        })();
-    </script>
+
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK7XD3i3cgtPV9SKcDff2IJc0O-WpNoNY&callback=initMap" async defer>
+  </script> 
+  <script>
+      (function() { // DON'T EDIT BELOW THIS LINE
+      setTimeout(cargar, 1000);
+      function cargar() {    
+          var d = document, s = d.createElement('script');
+          s.src = 'https://feriatacna.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+      }
+      })();
+  </script>
   <script>
     $(function() {
       // Variables Define
@@ -470,8 +471,9 @@
             js.src = 'https://connect.facebook.net/es_ES/sdk/xfbml.customerchat.js';
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
-    </script>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v7.0" nonce="JAdLXQvG"></script>
+  </script>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v7.0" nonce="JAdLXQvG">
+  </script>
 @endsection
 
 
