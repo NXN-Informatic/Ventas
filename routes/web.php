@@ -24,7 +24,7 @@ Route::get('_oauth/{driver}' , 'Auth\LoginController@redirectToProvider')->name(
 Route::get('login/{driver}/callback' , 'Auth\LoginController@handleProviderCallback');
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/puesto/{puesto}/detail', 'Cliente\PuestoController@compartir');    
+Route::get('/puesto/{puesto}/detail', 'Cliente\PuestoController@compartir');
 Route::get('/all/productos', 'PublicController@productos');
 Route::get('/producto/{producto}/detailProd', 'PublicController@detailProducto');
 Route::get('/puestos/all', 'PublicController@puestoAll');
@@ -95,6 +95,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/categoria/store', 'Administrador\CategoriaController@store');
     Route::get('/categoria/{categoria}/edit', 'Administrador\CategoriaController@edit');
     Route::put('/categoria/{categoria}/update', 'Administrador\CategoriaController@update');
+
+    // CentrosComerciales
+    Route::get('/cccc', 'Administrador\CentroComercialController@index');
+    Route::get('/cccc/create', 'Administrador\CentroComercialController@create');
+    Route::post('/cccc/store', 'Administrador\CentroComercialController@store');
+    Route::get('/cccc/{cc}/edit', 'Administrador\CategoriaController@edit');
+    Route::put('/cccc/{cc}/update', 'Administrador\CategoriaController@update');
 
     // Codificación
     Route::get('/codificacion', 'Administrador\CodificacionController@index');

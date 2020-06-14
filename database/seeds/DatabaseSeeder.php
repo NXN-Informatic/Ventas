@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'feriatacna4@gmail.com',
             'password' => bcrypt('secret@@**7!!@#$4444feria!!'),
             'address' => '',
-            'role' => 'Cliente'
+            'role' => 'Administrador'
         ]);
     }
 }

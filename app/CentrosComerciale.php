@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Centroscomerciale extends Model
 {
+    public $timestamps = false;
      /**
      * The attributes that are mass assignable.
      *
@@ -15,6 +16,7 @@ class Centroscomerciale extends Model
         'nombre',
         'longitud',
         'latitud',
+        'decripcion',
     ];
     
     public function puestos() {

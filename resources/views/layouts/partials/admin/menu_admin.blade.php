@@ -20,6 +20,15 @@
         </ul>
     </li>
     <li class="sidebar-item">
+        <a href="#centrocomercial" data-toggle="collapse" class="sidebar-link collapsed">
+            <i class="align-middle mr-2 fas fa-fw fa-user-cog"></i> <span class="align-middle">{{ __('Centro Comercial') }}</span>
+        </a>
+        <ul id="centrocomercial" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('cccc') }}">{{ __('Lista de CC CC') }}</a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('cccc/create') }}">{{ __('Crear Centro Comercial') }}</a></li>
+        </ul>
+    </li>
+    <li class="sidebar-item">
         <a href="#entrega" data-toggle="collapse" class="sidebar-link collapsed">
             <i class="align-middle mr-2 fas fa-fw fa-user-cog"></i> <span class="align-middle">{{ __('Entregas') }}</span>
         </a>
