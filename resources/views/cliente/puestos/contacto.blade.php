@@ -64,7 +64,7 @@
                             @endif
                             
                             <div class="form-group">
-                                <strong><label class="form-label" for="contacto">¿A qué numero(s) llamarán tus clientes?</label></strong>
+                                <strong><label class="form-label" for="contacto">¿A qué número(s) llamarán tus clientes?</label></strong>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Celular 1') }}</small>
@@ -78,9 +78,7 @@
                             </div>
                             <div class="form-group">
                                 <strong><label class="form-label" for="contacto">¿A qué número te contactarán por WhatsApp?</label></strong>
-                                <div class="row">
-                                        <input type="text" class="form-control form-control-lg" name="wsp" value="{{ old('wsp', $puesto->wsp) }}">
-                                </div>
+                                <input type="text" class="form-control form-control-lg" name="wsp" value="{{ old('wsp', $puesto->wsp) }}">
                             </div>
                             <div class="form-group">
                                 <strong><label class="form-label">Página de Facebook</label></strong>
@@ -96,20 +94,20 @@
                                     <div class="modal-dialog modal-sm" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title">Active el Chat de Messenger en su Tienda en solo 2 pasos!</h5>
+                                                <h5 class="modal-title">Active el Chat de Messenger en solo 2 pasos!</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
+                                                    <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
                                             <div class="modal-body m-3">
                                                 <div class="form-group">
                                                     @if($puesto->fbpage)
-                                                    <label class="form-label">Paso 1: Visita éste <a href="{{url($puesto->fbpage.'/settings/?tab=messenger_platform')}}" target="_blank"><span style="font-size: 18px"><u>enlace</u></span></a> y en <strong>"Dominios Admitidos"</strong> agrega <strong>"https://www.feriatacna.com"</strong></label>
+                                                        <label class="form-label">Paso 1: Visita éste <a href="{{url($puesto->fbpage.'/settings/?tab=messenger_platform')}}" target="_blank"><span style="font-size: 18px"><u>enlace</u></span></a> y en <strong>"Dominios Admitidos"</strong> agrega <strong>"https://www.feriatacna.com"</strong></label>
                                                     @else
-                                                    <label class="form-label">Paso 1: Ingresa como Administrador a tu página de FB. Ve a <strong><i>Configuración de Página / Mensajería avanzada</i></strong> y en <strong><i>"Dominios Admitidos"</i></strong> agrega <strong>"https://www.feriatacna.com"</strong></label>
+                                                        <label class="form-label">Paso 1: Ingresa como Administrador a tu página de FB. Ve a <strong><i>Configuración de Página / Mensajería avanzada</i></strong> y en <strong><i>"Dominios Admitidos"</i></strong> agrega <strong>"https://www.feriatacna.com" (sin comillas)</strong></label>
                                                     @endif
-                                                    
-                                                    <label class="form-label">Paso 2: Ingresa tu Page-Id de Facebook. Si no lo tienes, consíguelo<strong><a href="https://www.bufa.es/id-pagina-facebook/" target="_blank">AQUÍ</a></strong></label>
+                                                    <br>
+                                                    <label class="form-label">Paso 2: Ingresa tu Page-Id de Facebook. Si no lo tienes, consíguelo <strong><a href="https://www.bufa.es/id-pagina-facebook/" target="_blank">AQUÍ</a></strong></label>
                                                     <input style="margin-top:7px" type="text" class="form-control form-control-lg" name="fbpageid" value="{{ old('fbpageid', $puesto->fbpageid) }}">
                                                 </div>
                                             </div>

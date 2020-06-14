@@ -221,11 +221,11 @@
     <div class="signleProduct__content">
       <div class="product dflex" >
           <div class="col-lg-8 col-12">
-                <label style="font-size: 25px; font-weight: bold;">¿Porque Elegirnos?</label><br><br>
+                <label style="font-size: 25px; font-weight: bold;">¿Por qué elegirnos?</label><br><br>
                 @if( strlen($puesto->elegirnos) > 0)
                 <p style="font-size:18px">{{ $puesto->elegirnos }}</p>
                 @else
-                <p style="font-size:18px">Porque Somos una Tienda Mejor que otra</p>
+                <p style="font-size:18px">Porque somos ...</p>
                 @endif`
                 <br><br><br><br><br>
                 <div class="row">
@@ -265,7 +265,7 @@
                 <br>
                 <h1 style="font-weight: normal;">{{ $puesto->direccion }}</h1>  
                 <br><br><br>
-                 <h1 class="title" style="font-size: 20px">Número de Contacto</h1><br>
+                 <h1 class="title" style="font-size: 20px">Número de contacto</h1><br>
           <h1 class="title" style="font-size:25px;font-weight: normal;"><i class="fab fa-whatsapp" style="margin-right: 8px"></i>{{ $puesto->phone }} </h1>  
           <br><br>
                 @if(count($puesto->pago_puestos) > 0)
