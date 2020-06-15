@@ -2,16 +2,20 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Categoria;
+use App\Subcategoria;
+use App\CentrosComerciale;
 use App\Producto;
 use App\Puesto;
 
 Route::get('/', function () {
     $puestos = collect();
-    $pst = Puesto::orderBy('id','desc')->get();
+    $pst = Puesto::orderBy('id','desc')->limit(5)->get();
     $productos = Producto::limit(8)->get();
     $tiendas = collect();
     $categorias = Categoria::all();
-    return view('welcome', compact('puestos', 'productos', 'categorias', 'tiendas','pst'));
+    $subcategorias = Subcategoria::all();
+    $cccc = CentrosComerciale::orderBy('id','desc')->limit(10)->get();
+    return view('welcome', compact('puestos', 'productos', 'categorias', 'tiendas','pst','subcategorias','cccc'));
 });
 
 Auth::routes();

@@ -45,21 +45,20 @@ class CentroComercialController extends Controller
             'descripcion' => $request->input('descripcion')
         ]);
 
-        $imagen1 = $request->file('imagena');
-            dd($imagen1);
-        $imagen2 = $request->file('imagenb');
+        $imagena = $request->file('imagena');
+        $imagenb = $request->file('imagenb');
 
-            if($imagen1 != null) {
-                $name = $imagen1->getClientOriginalName();
+            if($imagena != null) {
+                $name = $imagena->getClientOriginalName();
                 $fileName = 'public/'.$cc->id.'/'.$name;
-                \Storage::disk('local')->put($fileName,  \File::get($imagen1));
-                $cc->imagen1 = $name;
+                \Storage::disk('local')->put($fileName,  \File::get($imagena));
+                $cc->banner = $name;
             }
-            if($imagen2 != null) {
-                $name = $imagen2->getClientOriginalName();
+            if($imagenb != null) {
+                $name = $imagenb->getClientOriginalName();
                 $fileName = 'public/'.$cc->id.'/'.$name;
-                \Storage::disk('local')->put($fileName,  \File::get($imagen2));
-                $cc->imagen2 = $name;
+                \Storage::disk('local')->put($fileName,  \File::get($imagenb));
+                $cc->logo = $name;
             }
             $cc->save();
 

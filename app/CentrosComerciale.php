@@ -17,6 +17,8 @@ class Centroscomerciale extends Model
         'longitud',
         'latitud',
         'decripcion',
+        'banner',
+        'logo',
     ];
     
     public function puestos() {
