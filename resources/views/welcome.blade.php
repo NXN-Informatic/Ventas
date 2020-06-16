@@ -73,7 +73,7 @@
             <div class="row">
                 @foreach($pst as $ps)
                     @if($ps->banner != null and $ps->perfil != null)
-                        <div class="blog__item col-lg-3" style="margin-left: auto; background:#fff">
+                        <div class="blog__item col-lg-3" style="margin: auto; background:#fff">
                             
                             <div class="blog__image">
                                 <img src="{{ url('storage/'.$ps->id.'/banner/'.$ps->banner) }}" alt="" height="100px" style="position: relative; z-index: 5; top: 0px">
