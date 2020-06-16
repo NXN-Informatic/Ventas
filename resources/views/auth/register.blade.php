@@ -1,7 +1,30 @@
 @extends('layouts.app')
 @section('title','Registro')
+
+@section('styles')
+<style>
+    .backgroundFeria{
+        background: url('{{ asset('img/registro.jpg')}}');
+        background-repeat: no-repeat;
+        background-size: cover
+    }
+    .colorFeria{
+        color: #fff;
+    }
+    @media (max-width: 600px) {
+        .backgroundFeria {
+            background: #f3f3f3;
+        }
+        .colorFeria{
+            color: #000;
+        }
+    }
+</style>
+@endsection
+
 @section('content')
-<div style="background: url('{{ asset('img/registro.jpg')}}'); background-repeat: no-repeat">
+<div style="background: #000" style="margin:0px;padding:0px">
+<div class="backgroundFeria">
     <main class="main h-200 w-100">
         <div class="container h-200">
             <div class="row h-200">
@@ -10,8 +33,8 @@
                     <div class="d-table-cell ">
 
                         <div class="text-center mt-5">
-                            <h1 class="h2" style="color: #fff">{{ __('Comience con una cuenta gratuita!') }}</h1>
-                            <p class="lead" style="color: #fff">
+                            <h1 class="h2 colorFeria">{{ __('Comience con una cuenta gratuita!') }}</h1>
+                            <p class="lead colorFeria" >
                             {{ __('Cree su Tienda en línea') }}
                             </p>
                         </div>
@@ -74,5 +97,6 @@
             </div>
         </div>
     </main>
+</div>
 </div>
 @endsection
