@@ -210,7 +210,7 @@
         
         $mostrarcategoria = $('#categoria');
         $resultado.hide();
-        onloadPuesto('feriaTacna');
+        //onloadPuesto('feriaTacna');
         $('#mostrar').hide();
         $('ul#tags li').click( function() {
             const cateogiraId = $(this).attr('value');
@@ -300,7 +300,7 @@
             $.getJSON(url, onPuestos);    
         }
 
-        /*function onPuestos(data) {
+        function onPuestos(data) {
             
             let htmlOptions = '';
             data.forEach(puestos => {
@@ -331,7 +331,7 @@
                 }
             });
             $addtienda.html(htmlOptions);
-        }*/
+        }
 
         function mostrarload(name){
             const url = `/productos/${name}/all`;
