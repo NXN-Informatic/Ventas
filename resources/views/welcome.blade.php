@@ -72,28 +72,31 @@
         <div class="blog__wrap dflex">
             <div class="row">
                 @foreach($pst as $ps)
-                <div class="blog__item col-lg-3" style="margin-left: auto; background:#fff">
-                    <div class="blog__image">
-                        <img src="{{ url('storage/'.$ps->id.'/banner/'.$ps->banner) }}" alt="" height="100px" style="position: relative; z-index: 5; top: 0px">
-                    </div>
-                    <div>
-                        <img src="{{ url('storage/'.$ps->id.'/logo/'.$ps->perfil) }}" alt="" height="80px" width="80px" style="position: relative; z-index: 6; top: -50px">
-                    </div>
-                    <div class="blog__content" style="margin-top: -60px">
-                        <a class="heading" href="#">{{ $ps->name}}</a><br><br>
-                        <div class="row">
-                            @if ($ps->puestosubcategorias->first())
-                                @foreach ($ps->puestosubcategorias->first()->grupos as $grupos)
-                                <?php $imagen = null; ?>
-                                <?php $imagen = $grupos->productos->random(1)->first()->imagen_productos->first(); //solo una imagen x producto?>
-                                <img src="{{ asset('storage/'.$ps->id.'/'.$grupos->productos->first()->id.'/'.$imagen->imagen) }}" alt="" height="60px" style="margin: auto">
-                                @endforeach
-                            @endif
+                    @if($ps->banner != null and $ps->perfil != null)
+                        <div class="blog__item col-lg-3" style="margin-left: auto; background:#fff">
                             
+                            <div class="blog__image">
+                                <img src="{{ url('storage/'.$ps->id.'/banner/'.$ps->banner) }}" alt="" height="100px" style="position: relative; z-index: 5; top: 0px">
+                            </div>
+                            <div>
+                                <img src="{{ url('storage/'.$ps->id.'/logo/'.$ps->perfil) }}" alt="" height="80px" width="80px" style="position: relative; z-index: 6; top: -50px">
+                            </div>
+                            <div class="blog__content" style="margin-top: -60px">
+                                <a class="heading" href="#">{{ $ps->name}}</a><br><br>
+                                <div class="row">
+                                    @if ($ps->puestosubcategorias->first())
+                                        @foreach ($ps->puestosubcategorias->first()->grupos as $grupos)
+                                        <?php $imagen = null; ?>
+                                        <?php $imagen = $grupos->productos->random(1)->first()->imagen_productos->first(); //solo una imagen x producto?>
+                                        <img src="{{ asset('storage/'.$ps->id.'/'.$grupos->productos->first()->id.'/'.$imagen->imagen) }}" alt="" height="60px" style="margin: auto">
+                                        @endforeach
+                                    @endif
+                                    
+                                </div>
+                                <!--<p> substr($ps->description,0,60)}...</p> -->
+                            </div>
                         </div>
-                        <!--<p> substr($ps->description,0,60)}...</p> -->
-                    </div>
-                </div>
+                    @endif
                 @endforeach
             </div>
         </div>
