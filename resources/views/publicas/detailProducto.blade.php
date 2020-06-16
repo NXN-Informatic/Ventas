@@ -52,7 +52,7 @@
               <!-- Productos Descripción -->
               <div>
                 <h2 style="text-align: left;font-size: 20px">{{ __('Descripción') }}</h2><br>
-                <span style="color: #000; font-size: 16px">{{!! $producto->description !!}}</span>
+                <span style="color: #000; font-size: 16px">{!! $producto->description !!}</span>
                 <br>
               </div>
             <div class="fb-comments" data-href="{{ $producto->producto_url}}" data-numposts="5" data-width="100%"></div>

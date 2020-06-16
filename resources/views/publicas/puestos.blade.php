@@ -138,47 +138,44 @@
     </div>
   </div>
 </div> -->
-
-
-
 @foreach($puesto->puestosubcategorias as $puestosubcategorias)
     @foreach($puestosubcategorias->grupos as $grupos)
-        <div class="featureProduct singleProduct" id="tiendas" style="margin-top:-5px">
-            <div class="feature__wrap container">
-            <h4 class="title">{{ $grupos->name }}</h4>
-            <div class="feature__filter">
-                <div class="featureSlider">
-                <div class="sliderButton left"><i class="fas fa-angle-left"></i></div>
-                <div class="sliderButton right"><i class="fas fa-angle-right"></i></div>
-                <ul class="features__grid" id="wrap">
-                @foreach($grupos->productos as $productos)
-                    <?php $imagen = null; ?>
-                    <?php $imagen = $productos->imagen_productos->first(); //solo una imagen x producto?>
-                    @if($imagen != null)
-                    <li class="features__item col-lg-3 col-sm-6 col-12">
-                        <div class="features__image wood light5">
-                        <a href="{{ url('/producto/'.$productos->id.'/detailProd') }}">
-                        <img src="{{ asset('storage/'.$puesto->id.'/'.$productos->id.'/'.$imagen->imagen) }}" style="width: 200px; height: 200px"> 
-                        
-                        </a>
-                            <div class="image__tools"><i class="far fa-heart"></i>
-                                <i class="fas fa-cart-plus"></i>
-                                <i class="fas fa-search"></i>
+<div class="featureProduct" id="prod" style="background: #F3F3F3;padding:10px">
+    <div class="feature__wrap container">
+        <h4 class="title">{{ $grupos->name }}</h4>
+        <div class="feature__filter">
+            <div class="button-group filters-button-group feature__buttons">
+            </div>
+            <ul class="featureSlider container">
+                <li class="grid features__grid" >
+                    
+                    @foreach($grupos->productos as $producto)
+                        <?php $imagen = null; ?>
+                        <?php $imagen = $producto->imagen_productos->first(); //solo una imagen x producto?>
+                        @if($imagen != null)
+                        <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">
+                            <div class="features__image desk">
+                                <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank"><img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt=""></a>
+                                <div class="image__overlay">
+                                    <div class="color">
+                                        <div class="image" data-image="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="features__content">
+                                <span style="font-size: 20px; color:#bf0000"><strong>S/. {{$producto->precio}}</strong></span>
+                                <div class="content__overlay" style="margin-top: -15px; margin-bottom: 0px">
+                                <p style="color: #000">{{$producto->name }}</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="features__content">
-                            <a class="link" href="#"></a>
-                            <a class="sub-link" href="{{ url('/producto/'.$productos->id.'/detailProd') }}">{{ $productos->name }}</a>
-                            <p class="price">S./ {{$productos->precio}}</p>
-                        </div>
-                    </li>
-                    @endif
-                @endforeach
-                </ul>
-                </div>
-            </div>
-            </div>
+                        @endif
+                    @endforeach
+                </li>
+            </ul>
         </div>
+    </div>
+</div>
     @endforeach
 @endforeach
 
@@ -221,11 +218,11 @@
     <div class="signleProduct__content">
       <div class="product dflex" >
           <div class="col-lg-8 col-12">
-                <label style="font-size: 25px; font-weight: bold;">¿Por qué elegirnos?</label><br><br>
+                <label style="font-size: 25px; font-weight: bold;">¿Porque Elegirnos?</label><br><br>
                 @if( strlen($puesto->elegirnos) > 0)
                 <p style="font-size:18px">{{ $puesto->elegirnos }}</p>
                 @else
-                <p style="font-size:18px">Porque somos ...</p>
+                <p style="font-size:18px">Porque Somos una Tienda Mejor que otra</p>
                 @endif`
                 <br><br><br><br><br>
                 <div class="row">
@@ -265,7 +262,7 @@
                 <br>
                 <h1 style="font-weight: normal;">{{ $puesto->direccion }}</h1>  
                 <br><br><br>
-                 <h1 class="title" style="font-size: 20px">Número de contacto</h1><br>
+                 <h1 class="title" style="font-size: 20px">Número de Contacto</h1><br>
           <h1 class="title" style="font-size:25px;font-weight: normal;"><i class="fab fa-whatsapp" style="margin-right: 8px"></i>{{ $puesto->phone }} </h1>  
           <br><br>
                 @if(count($puesto->pago_puestos) > 0)
@@ -316,15 +313,6 @@
     </div>
 </div>
 <!--End Footer-->
-@if ($puesto->fbpageid)
-    <div class="fb-customerchat"
-        attribution=setup_tool
-        page_id="{{ $puesto->fbpageid}}"
-        theme_color="#bf0000"
-        logged_in_greeting="¡Hola!, ¿Tienes una consulta?"
-        logged_out_greeting="¡Hola!, ¿Tienes una consulta?">
-    </div>
-@endif
 
 @endsection
 
@@ -542,23 +530,6 @@
           $mostrarcategoria.html(htmlOptions);
         }
       });
-    </script>
-
-    <script>
-        window.fbAsyncInit = function() {
-        FB.init({
-            xfbml            : true,
-            version          : 'v7.0'
-        });
-        };
-
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = 'https://connect.facebook.net/es_ES/sdk/xfbml.customerchat.js';
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
     </script>
 @endsection
 
