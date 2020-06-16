@@ -82,11 +82,14 @@
                     <div class="blog__content" style="margin-top: -60px">
                         <a class="heading" href="#">{{ $ps->name}}</a><br><br>
                         <div class="row">
-                            @foreach ($ps->puestosubcategorias->first()->grupos as $grupos)
+                            @if ($ps->puestosubcategorias->first())
+                                @foreach ($ps->puestosubcategorias->first()->grupos as $grupos)
                                 <?php $imagen = null; ?>
                                 <?php $imagen = $grupos->productos->random(1)->first()->imagen_productos->first(); //solo una imagen x producto?>
                                 <img src="{{ asset('storage/'.$ps->id.'/'.$grupos->productos->first()->id.'/'.$imagen->imagen) }}" alt="" height="60px" style="margin: auto">
-                            @endforeach
+                                @endforeach
+                            @endif
+                            
                         </div>
                         <!--<p> substr($ps->description,0,60)}...</p> -->
                     </div>
