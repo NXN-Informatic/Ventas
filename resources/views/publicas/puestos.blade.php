@@ -151,7 +151,7 @@
                     
                     @foreach($grupos->productos as $producto)
                         <?php $imagen = null; ?>
-                        <?php $imagen = $productos->imagen_productos->first(); //solo una imagen x producto?>
+                        <?php $imagen = $producto->imagen_productos->first(); //solo una imagen x producto?>
                         @if($imagen != null)
                         <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">
                             <div class="features__image desk">
@@ -178,6 +178,43 @@
 </div>
     @endforeach
 @endforeach
+
+
+        <div class="featureProduct singleProduct" id="tiendas" style="margin-top:-5px">
+            <div class="feature__wrap container">
+            <div class="feature__filter">
+                <div class="featureSlider">
+                <div class="sliderButton left"><i class="fas fa-angle-left"></i></div>
+                <div class="sliderButton right"><i class="fas fa-angle-right"></i></div>
+                <ul class="features__grid" id="wrap">
+                @foreach($grupos->productos as $productos)
+                    <?php $imagen = null; ?>
+                    <?php $imagen = $productos->imagen_productos->first(); //solo una imagen x producto?>
+                    @if($imagen != null)
+                    <li class="features__item col-lg-3 col-sm-6 col-12">
+                        <div class="features__image wood light5">
+                        <a href="{{ url('/producto/'.$productos->id.'/detailProd') }}">
+                        <img src="{{ asset('storage/'.$puesto->id.'/'.$productos->id.'/'.$imagen->imagen) }}" style="width: 200px; height: 200px"> 
+                        
+                        </a>
+                            <div class="image__tools"><i class="far fa-heart"></i>
+                                <i class="fas fa-cart-plus"></i>
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                        <div class="features__content">
+                            <a class="link" href="#"></a>
+                            <a class="sub-link" href="{{ url('/producto/'.$productos->id.'/detailProd') }}">{{ $productos->name }}</a>
+                            <p class="price">S./ {{$productos->precio}}</p>
+                        </div>
+                    </li>
+                    @endif
+                @endforeach
+                </ul>
+                </div>
+            </div>
+            </div>
+        </div>
 
 <!-- Mostrar Productos -->
 <div class="shopProduct">
