@@ -138,89 +138,44 @@
     </div>
   </div>
 </div> -->
-
-<div id="tiendas" >
 @foreach($puesto->puestosubcategorias as $puestosubcategorias)
     @foreach($puestosubcategorias->grupos as $grupos)
-        <div class="featureProduct singleProduct" style="margin-top:-5px;">
-            <div class="feature__wrap container">
-            <h4 class="title">{{ $grupos->name }} <a onclick="changeColor('<?php echo $grupos->id ?>');" href="#">Mostrar más</a></h4>
-            <h4>Mostrar Menos</h4>
-            <div class="feature__filter">
-                <div class="featureSlider">
-                <div class="sliderButton left"><i class="fas fa-angle-left"></i></div>
-                <div class="sliderButton right"><i class="fas fa-angle-right"></i></div>
-                <ul class="features__grid" id="wrap">
-                @foreach($grupos->productos as $productos)
-                    <?php $imagen = null; ?>
-                    <?php $imagen = $productos->imagen_productos->first(); //solo una imagen x producto?>
-                    @if($imagen != null)
-                    <li class="features__item col-lg-3 col-sm-6 col-12">
-                        <div class="features__image wood light5">
-                        <a href="{{ url('/producto/'.$productos->id.'/detailProd') }}">
-                        <img src="{{ asset('storage/'.$puesto->id.'/'.$productos->id.'/'.$imagen->imagen) }}" style="width: 200px; height: 200px"> 
-                        
-                        </a>
-                            <div class="image__tools"><i class="far fa-heart"></i>
-                                <i class="fas fa-cart-plus"></i>
-                                <i class="fas fa-search"></i>
-                            </div>
-                        </div>
-                        <div class="features__content">
-                            <a class="link" href="#"></a>
-                            <a class="sub-link" href="{{ url('/producto/'.$productos->id.'/detailProd') }}">{{ $productos->name }}</a>
-                            <p class="price">S./ {{$productos->precio}}</p>
-                        </div>
-                    </li>
-                    @endif
-                @endforeach
-                </ul>
-                </div>
+<div class="featureProduct" id="prod" style="background: #F3F3F3;padding:10px">
+    <div class="feature__wrap container">
+        <h4 class="title">{{ $grupos->name }}</h4>
+        <div class="feature__filter">
+            <div class="button-group filters-button-group feature__buttons">
             </div>
-            </div>
-        </div>
-
-        
-
-    @endforeach
-@endforeach
-</div>
-
-@foreach($puesto->puestosubcategorias as $puestosubcategorias)
-    @foreach($puestosubcategorias->grupos as $grupos)
-<div class="featureProduct" id="mostrar_<?php echo $grupos->id ?>" style="background: #F3F3F3;padding:10px;display: none">
-            <div class="feature__wrap container">
-                <div class="feature__filter">
-                    <ul class="featureSlider container">
-                        <li class="grid features__grid" >
-                            
-                            @foreach($grupos->productos as $producto)
-                                @foreach($producto->imagen_productos as $imagen) @endforeach
-                                @if($imagen)
-                                <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">
-                                    <div class="features__image desk">
-                                        <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank"><img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt=""></a>
-                                        <div class="image__overlay">
-                                            <div class="color">
-                                                <div class="image" data-image="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="features__content">
-                                        <span style="font-size: 20px; color:#bf0000"><strong>S/. {{$producto->precio}}</strong></span>
-                                        <div class="content__overlay" style="margin-top: -15px; margin-bottom: 0px">
-                                        <p style="color: #000">{{$producto->name }}</p>
-                                        </div>
+            <ul class="featureSlider container">
+                <li class="grid features__grid" >
+                    
+                    @foreach($grupos->productos as $producto)
+                        <?php $imagen = null; ?>
+                        <?php $imagen = $productos->imagen_productos->first(); //solo una imagen x producto?>
+                        @if($imagen != null)
+                        <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">
+                            <div class="features__image desk">
+                                <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank"><img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt=""></a>
+                                <div class="image__overlay">
+                                    <div class="color">
+                                        <div class="image" data-image="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px"></div>
                                     </div>
                                 </div>
-                                @endif
-                            @endforeach
-                        </li>
-                    </ul>
-                </div>
-            </div>
+                            </div>
+                            <div class="features__content">
+                                <span style="font-size: 20px; color:#bf0000"><strong>S/. {{$producto->precio}}</strong></span>
+                                <div class="content__overlay" style="margin-top: -15px; margin-bottom: 0px">
+                                <p style="color: #000">{{$producto->name }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+                    @endforeach
+                </li>
+            </ul>
         </div>
-
+    </div>
+</div>
     @endforeach
 @endforeach
 
@@ -289,7 +244,7 @@
   </div>
 </div>
 
-<div class="featureProduct" id="ocultar16" style="margin-top: -8%">
+<div class="featureProduct" id="ocultar1" style="margin-top: -8%">
     <div class="feature__filter">
         <div class="button-group filters-button-group feature__buttons">
         </div>
@@ -327,7 +282,7 @@
 </div>
 
 <!--Start Footer-->
-<div class="footer" id="ocultar54" style="background:#F5F5F5;color:#000; border: 1px solid #ccc; padding: 0px;margin: 0px;" >
+<div class="footer" style="background:#F5F5F5;color:#000; border: 1px solid #ccc; padding: 0px;margin: 0px;" >
     <div class="footer__wrap dflex">
 
         <div class="footer__item col-lg-1 col-sm-6 col-12"></div>
@@ -417,21 +372,6 @@
             prevEl: '.swiper-button-prev',
             },
         });
-    </script>
-
-    <script type="text/javascript">
-            $resultado = $('#mostrar_1');
-        function changeColor(id) {
-            $('#tiendas').hide();
-            $('#ocultar1').hide();
-            $('#ocultar54').hide();
-            $('#ocultar16').hide();
-
-            console.log(id);
-            var name = 'mostrar_'+id;
-            $resultado = $('#mostrar_'+id);
-            $resultado.css({"display": "block"});
-        }
     </script>
 
     <script>
