@@ -35,6 +35,8 @@ Route::get('/puestos/all', 'PublicController@puestoAll');
 Route::get('/produc/{puesto}/all', 'PublicController@apiproductos');
 Route::post('/tienda/create', 'PublicController@create');
 
+Route::get('/Centropuestos/{id}', 'PublicController@Centropuestos');
+
 /**
  * api rest Publicas
  */ 
@@ -101,7 +103,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/categoria/{categoria}/update', 'Administrador\CategoriaController@update');
 
     // CentrosComerciales
-    Route::get('/cccc', 'Administrador\CentroComercialController@index');
+    Route::get('/cccc/{cc}/index', 'Administrador\CentroComercialController@index');
     Route::get('/cccc/create', 'Administrador\CentroComercialController@create');
     Route::post('/cccc/store', 'Administrador\CentroComercialController@store');
     Route::get('/cccc/{cc}/edit', 'Administrador\CategoriaController@edit');

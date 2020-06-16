@@ -9,6 +9,7 @@ use App\Puesto;
 use App\ImagenProducto;
 use App\UsuarioPuesto;
 use App\PuestoSubcategoria;
+use App\Centroscomerciale;
 
 class PublicController extends Controller
 {
@@ -96,5 +97,10 @@ class PublicController extends Controller
         }
 
         return redirect('/home')->with(compact('notification'));
+    }
+
+    public function Centropuestos(Centroscomerciale $centroComerciales){
+        $categorias = Categoria::all();
+        return view('publicas.centro', compact('centroComerciales', 'categorias'));
     }
 }

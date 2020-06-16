@@ -45,13 +45,13 @@
             @foreach($cccc as $cc)
             <li class="features__item col-lg-3 col-sm-6 col-12">
                 <div class="features__image wood light5">
-                    <a href="{{ url('/centroscomerciales/'.$cc->id.'/puestos') }}">
+                    <a href="{{ url('/Centropuestos/'.$cc->id) }}">
                     <img src="{{ asset('storage/'.$cc->id.'/'.$cc->banner) }}" style="width: 200px; height: 200px"> 
                     </a>
                 </div>
                 <div class="features__content">
                     <div class="content__overlay">
-                        <a href="{{ url('/centroscomerciales/'.$cc->id.'/puestos') }}"><span style="font-size: 16px; color:#000">{{ $cc->nombre }}</span></a>
+                        <a href="{{ url('/Centropuestos/'.$cc->id) }}"><span style="font-size: 16px; color:#000">{{ $cc->nombre }}</span></a>
                     </div>
                 </div>
             </li>
