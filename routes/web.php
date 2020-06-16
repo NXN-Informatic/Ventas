@@ -9,8 +9,8 @@ use App\Puesto;
 
 Route::get('/', function () {
     $puestos = collect();
-    $pst = Puesto::orderBy('id','desc')->limit(5)->get();
-    $productos = Producto::limit(8)->get();
+    $pst = Puesto::orderBy('id','desc')->limit(4)->get();
+    $productos = Producto::orderBy('id','desc')->limit(8)->get();
     $tiendas = collect();
     $categorias = Categoria::all();
     $subcategorias = Subcategoria::all();

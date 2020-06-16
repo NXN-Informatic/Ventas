@@ -69,7 +69,7 @@
   --><!--End Elements Page-->
 
   <!--Start Header-->
-  <header style="background:#fff">
+  <header style="background: #F3F3F3">
     <div class="header__wrap container dflex">
         <ul class="header__item dflex left">
           <div class="ocultar">

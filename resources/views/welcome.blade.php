@@ -4,6 +4,7 @@
     <!-- Swiper -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
     <link rel="stylesheet" href="{{ asset('css/publicas/welcome.css') }}">
+    
 @endsection
 
 @section('content')
@@ -33,8 +34,8 @@
 </div>
 <!-- start centros comerciales OJO "cccc=centros comerciales"-->
 
-<div class="featureProduct singleProduct" style="margin-top:-5px; padding-bottom:0px">
-    <div class="feature__wrap container">
+<div class="featureProduct singleProduct" style="margin-top:-5px; padding-bottom:0px; background: #F3F3F3" >
+    <div class="feature__wrap container" style="background: #F3F3F3">
         <h4 class="title">Centros Comerciales <a href="{{ url('centroscomerciales/all') }}"> Ver todos</a></h4>
     <div class="feature__filter">
         <div class="featureSlider">
@@ -44,14 +45,14 @@
             @foreach($cccc as $cc)
             <li class="features__item col-lg-3 col-sm-6 col-12">
                 <div class="features__image wood light5">
-                <a href="{{ url('/centroscomerciales/'.$cc->id.'/puestos') }}">
-                <img src="{{ asset('storage/'.$cc->id.'/'.$cc->banner) }}" style="width: 200px; height: 200px"> 
-                </a>
+                    <a href="{{ url('/centroscomerciales/'.$cc->id.'/puestos') }}">
+                    <img src="{{ asset('storage/'.$cc->id.'/'.$cc->banner) }}" style="width: 200px; height: 200px"> 
+                    </a>
                 </div>
                 <div class="features__content">
-                    <a class="link" href="#"></a>
-                    <a class="sub-link" href="{{ url('/centroscomerciales/'.$cc->id.'/puestos') }}"><h3><strong>{{ $cc->nombre }}</strong></h3></a>
-                    <p>{!! $cc->descripcion !!}</p>
+                    <div class="content__overlay">
+                        <a href="{{ url('/centroscomerciales/'.$cc->id.'/puestos') }}"><span style="font-size: 16px; color:#000">{{ $cc->nombre }}</span></a>
+                    </div>
                 </div>
             </li>
         @endforeach
@@ -65,27 +66,33 @@
 
 <!--Start Feature Product-->
 
-<div class="blog">
+<div class="blog" style="background: #F3F3F3">
     <h4 class="title">Tiendas Recomendadas <a href="{{ url('puestos/all') }}"> Ver tiendas</a></h4>
-    <div class="blog__wrap dflex">
-        <div class="row">
-            @foreach($pst as $ps)
-            <div class="blog__item col-lg-3">
-                <div class="blog__image">
-                    <img src="{{ url('storage/'.$ps->id.'/banner/'.$ps->banner) }}" alt="" height="120px" style="position: relative; z-index: -1; top: 0px">
+    <div class="feature__wrap container" >
+        <div class="blog__wrap dflex">
+            <div class="row">
+                @foreach($pst as $ps)
+                <div class="blog__item col-lg-3" style="margin-left: auto; background:#fff">
+                    <div class="blog__image">
+                        <img src="{{ url('storage/'.$ps->id.'/banner/'.$ps->banner) }}" alt="" height="100px" style="position: relative; z-index: 5; top: 0px">
+                    </div>
+                    <div>
+                        <img src="{{ url('storage/'.$ps->id.'/logo/'.$ps->perfil) }}" alt="" height="80px" width="80px" style="position: relative; z-index: 6; top: -50px">
+                    </div>
+                    <div class="blog__content" style="margin-top: -60px">
+                        <a class="heading" href="#">{{ $ps->name}}</a><br><br>
+                        <div class="row">
+                            @foreach ($ps->puestosubcategorias->first()->grupos as $grupos)
+                                <?php $imagen = null; ?>
+                                <?php $imagen = $grupos->productos->random(1)->first()->imagen_productos->first(); //solo una imagen x producto?>
+                                <img src="{{ asset('storage/'.$ps->id.'/'.$grupos->productos->first()->id.'/'.$imagen->imagen) }}" alt="" height="60px" style="margin: auto">
+                            @endforeach
+                        </div>
+                        <!--<p> substr($ps->description,0,60)}...</p> -->
+                    </div>
                 </div>
-                <div>
-                    <img src="{{ url('storage/'.$ps->id.'/logo/'.$ps->perfil) }}" alt="" height="100px" width="100px" style="position: relative; top: -50px; margin-bottom: -50px">
-                </div>
-                <div class="blog__content">
-                    <a class="heading" href="#">{{ $ps->name}}</a>
-                    <p>{{ $ps->description}}</p>
-                    <a class="link active" href="{{ url('/puesto/'.$ps->id.'/detail') }}">
-                        <strong><span style="color: #bf0000; font-size:14px">Visitar</span></strong>
-                    </a>
-                </div>
+                @endforeach
             </div>
-            @endforeach
         </div>
     </div>
 </div>
@@ -106,36 +113,17 @@
                         @if($imagen)
                         <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">
                             <div class="features__image desk">
-                                <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="black"><img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="200px" height="300px" alt=""></a>
+                                <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank"><img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt=""></a>
                                 <div class="image__overlay">
                                     <div class="color">
-                                        <div class="image" data-image="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="200px" height="300px"></div>
+                                        <div class="image" data-image="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px"></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="features__content"><a class="link" href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="black">{{$producto->name}}</a>
-                                <p class="price">S./ {{$producto->precio}}</p>
-                                <div class="content__overlay">
-                                    <p>{!! $producto->description !!}</p>
-                                    <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="black">Ver Producto</a><a href="{{ url('/producto/'. $producto->id.'/detailProd') }}"><i class="fas fa-search"></i></a></div>
-                                </div>
-                            </div>
-                        </div>
-                        @else
-                        <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">
-                            <div class="features__image desk">
-                                <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="black"><img src="{{ asset('img/defaultProducto.jpg') }}"  width="200px" height="300px" alt=""></a>
-                                <div class="image__overlay">
-                                    <div class="color">
-                                        <div class="image" data-image="{{ asset('img/defaultProducto.jpg') }}"  width="200px" height="300px"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="features__content"><a class="link" href="#">{{$producto->name}}</a>
-                                <p class="price">S./ {{$producto->precio}}</p>
-                                <div class="content__overlay">
-                                    <p>{!! $producto->description !!}</p>
-                                    <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="black">Ver Producto</a><a href="{{ url('/producto/'. $producto->id.'/detailProd') }}"><i class="fas fa-search"></i></a></div>
+                            <div class="features__content">
+                                <span style="font-size: 20px; color:#bf0000"><strong>S/. {{$producto->precio}}</strong></span>
+                                <div class="content__overlay" style="margin-top: -15px; margin-bottom: 0px">
+                                <p style="color: #000">{{$producto->name }}</p>
                                 </div>
                             </div>
                         </div>
