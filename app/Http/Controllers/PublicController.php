@@ -90,6 +90,18 @@ class PublicController extends Controller
                     'puesto_id'  => $puesto->id
                 ]);
             }
+            
+            $contents = file_get_contents('./img/logost.jpg');
+            $fileName = 'public/'.$puesto->id.'/logo/logoxdefecto.jpg';
+            \Storage::disk('local')->put($fileName,  $contents);
+            $puesto->perfil = 'logoxdefecto.jpg';
+        
+            $contents = file_get_contents('./img/registro.jpg');
+            $fileName = 'public/'.$puesto->id.'/banner/bannerxdefecto.jpg';
+            \Storage::disk('local')->put($fileName, $contents);
+            $puesto->banner = 'bannerxdefecto.jpg';
+            
+            $puesto->save();
     
             $notification = 'Su Tienda ha sido creada correctamente.';
         }else {

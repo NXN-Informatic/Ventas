@@ -73,29 +73,30 @@
             <div class="row">
                 @foreach($pst as $ps)
                     @if($ps->banner != null and $ps->perfil != null)
-                        <div class="blog__item col-lg-3" style="margin: auto; background:#fff">
-                            
-                            <div class="blog__image">
-                                <img src="{{ url('storage/'.$ps->id.'/banner/'.$ps->banner) }}" alt="" height="100px" style="position: relative; z-index: 5; top: 0px">
-                            </div>
-                            <div>
-                                <img src="{{ url('storage/'.$ps->id.'/logo/'.$ps->perfil) }}" alt="" height="80px" width="80px" style="position: relative; z-index: 6; top: -50px">
-                            </div>
-                            <div class="blog__content" style="margin-top: -60px">
-                                <a class="heading" href="#">{{ $ps->name}}</a><br><br>
-                                <div class="row">
-                                    @if ($ps->puestosubcategorias->first())
-                                        @foreach ($ps->puestosubcategorias->first()->grupos as $grupos)
-                                        <?php $imagen = null; ?>
-                                        <?php $imagen = $grupos->productos->random(1)->first()->imagen_productos->first(); //solo una imagen x producto?>
-                                        <img src="{{ asset('storage/'.$ps->id.'/'.$grupos->productos->first()->id.'/'.$imagen->imagen) }}" alt="" height="60px" style="margin: auto">
-                                        @endforeach
-                                    @endif
-                                    
+                        <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank">
+                            <div class="blog__item col-lg-3" style="margin: auto; background:#fff">
+                                <div class="blog__image">
+                                    <img src="{{ url('storage/'.$ps->id.'/banner/'.$ps->banner) }}" alt="" height="100px" style="position: relative; z-index: 5; top: 0px">
                                 </div>
-                                <!--<p> substr($ps->description,0,60)}...</p> -->
+                                <div>
+                                    <img src="{{ url('storage/'.$ps->id.'/logo/'.$ps->perfil) }}" alt="" height="80px" width="80px" style="position: relative; z-index: 6; top: -50px">
+                                </div>
+                                <div class="blog__content" style="margin-top: -60px">
+                                    <a class="heading" href="#">{{ $ps->name}}</a><br><br>
+                                    <div class="row">
+                                        @if ($ps->puestosubcategorias->first())
+                                            @foreach ($ps->puestosubcategorias->first()->grupos as $grupos)
+                                            <?php $imagen = null; ?>
+                                            <?php $imagen = $grupos->productos->random(1)->first()->imagen_productos->first(); //solo una imagen x producto?>
+                                            <img src="{{ asset('storage/'.$ps->id.'/'.$grupos->productos->first()->id.'/'.$imagen->imagen) }}" alt="" height="60px" style="margin: auto">
+                                            @endforeach
+                                        @endif
+                                        
+                                    </div>
+                                    <!--<p> substr($ps->description,0,60)}...</p> -->
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     @endif
                 @endforeach
             </div>
@@ -117,24 +118,26 @@
                     @foreach($productos as $producto)
                         @foreach($producto->imagen_productos as $imagen) @endforeach
                         @if($imagen)
-                        <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">
-                            <div class="features__image desk">
-                                <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank"><img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt=""></a>
-                                <div class="image__overlay">
-                                    <div class="color">
-                                        <div class="image" data-image="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px"></div>
+                            <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank">
+                                <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">
+                                    <div class="features__image desk">
+                                        <img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt="">
+                                        <div class="image__overlay">
+                                            <div class="color">
+                                                <div class="image" data-image="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="features__content">
+                                        <span style="font-size: 20px; color:#bf0000"><strong>S/. {{$producto->precio}}</strong></span>
+                                        <div class="content__overlay" style="margin-top: -15px; margin-bottom: 0px">
+                                        <p style="color: #000">{{$producto->name }}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="features__content">
-                                <span style="font-size: 20px; color:#bf0000"><strong>S/. {{$producto->precio}}</strong></span>
-                                <div class="content__overlay" style="margin-top: -15px; margin-bottom: 0px">
-                                <p style="color: #000">{{$producto->name }}</p>
-                                </div>
-                            </div>
-                        </div>
+                            </a>
                         @endif
-                    @endforeach
+                    @endforeach         
                 </li>
             </ul>
         </div>
