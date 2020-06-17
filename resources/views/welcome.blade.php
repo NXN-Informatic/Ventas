@@ -82,7 +82,7 @@
                                     <img src="{{ url('storage/'.$ps->id.'/logo/'.$ps->perfil) }}" alt="" height="80px" width="80px" style="position: relative; z-index: 6; top: -50px">
                                 </div>
                                 <div class="blog__content" style="margin-top: -60px">
-                                    <a class="heading" href="#">{{ $ps->name}}</a><br><br>
+                                    {{ $ps->name}}<br><br>
                                     <div class="row">
                                         @if ($ps->puestosubcategorias->first())
                                             @foreach ($ps->puestosubcategorias->first()->grupos as $grupos)
