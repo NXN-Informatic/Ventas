@@ -216,15 +216,14 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="col-12 text-center mt-2">
-                                <h5>Amplía tu catálogo de 20 a 35 productos:</h5>
+                                <h5>Amplía tu catálogo de 20 a 50 productos:</h5>
                             </div>
                             <div class="col-12" style="margin-top: 15px">
                                 <div class="col-12 text-center mt-2">
-                                    <span style="margin-bottom: 7px" class="form-text text-muted">{{ __('Comparte FeriaTacna y etiqueta a 2 vendedores.') }}</span>
-                                    <a target="_blank" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com">
+                                    <span style="margin-bottom: 7px" class="form-text text-muted">{{ __('Comparte FeriaTacna y etiqueta a 3 vendedores.') }}</span>
+                                    <a target="_blank" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com/register">
                                         <button class="btn mb-1 btn-facebook btn-lg"><i class="align-left fab fa-facebook" title="Compartir"></i><span style="margin-left:20px; margin-right:20px">{{ __('    Compartir    ') }}</span></button>
                                     </a>
-                                    
                                 </div>
                             </div>
                         </div>
@@ -236,8 +235,8 @@
                             </div>
                             <div class="col-12" style="margin-top: 15px">
                                 <div class="col-12 text-center mt-2">
-                                    <a target="_blank" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com/puesto/{{ $usuarios_puesto->puesto->id }}/detail">
-                                        <button class="btn mb-1 btn-success btn-lg"><i class="align-left fab fa-whatsapp" title="Compartir"></i><span style="margin-left:20px; margin-right:20px">{{ __('    948588436    ') }}</span></button>
+                                    <a target="_blank" href="https://api.whatsapp.com/send?phone=51948588436&text=Hola%20FeriaTacna!%20Tengo%20la%20siguiente consulta...">
+                                        <button class="btn mb-1 btn-success btn-lg"><i class="align-left fab fa-whatsapp" title="Compartir"></i><span style="margin-left:20px; margin-right:20px">{{ __('    Feria Tacna    ') }}</span></button>
                                     </a>
                                     <small class="form-text text-muted">{{ __('Estamos dispuestos a ayudarte') }}</small>
                                 </div>

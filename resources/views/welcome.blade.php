@@ -32,37 +32,6 @@
         </div>
     </div>
 </div>
-<!-- start centros comerciales OJO "cccc=centros comerciales"-->
-
-<div class="featureProduct singleProduct" style="margin-top:-5px; padding-bottom:0px; background: #F3F3F3" >
-    <div class="feature__wrap container" style="background: #F3F3F3">
-        <h4 class="title">Centros Comerciales <a href="{{ url('centroscomerciales/all') }}"> Ver todos</a></h4>
-    <div class="feature__filter">
-        <div class="featureSlider">
-        <div class="sliderButton left"><i class="fas fa-angle-left"></i></div>
-        <div class="sliderButton right"><i class="fas fa-angle-right"></i></div>
-        <ul class="features__grid" id="wrap">
-            @foreach($cccc as $cc)
-            <li class="features__item col-lg-3 col-sm-6 col-12">
-                <div class="features__image wood light5">
-                    <a href="{{ url('/Centropuestos/'.$cc->id) }}">
-                    <img src="{{ asset('storage/'.$cc->id.'/'.$cc->banner) }}" style="width: 200px; height: 200px"> 
-                    </a>
-                </div>
-                <div class="features__content">
-                    <div class="content__overlay">
-                        <a href="{{ url('/Centropuestos/'.$cc->id) }}"><span style="font-size: 16px; color:#000">{{ $cc->nombre }}</span></a>
-                    </div>
-                </div>
-            </li>
-        @endforeach
-        </ul>
-        </div>
-    </div>
-    </div>
-</div>
-<!-- end centros comerciales -->
-
 
 <!--Start Feature Product-->
 
@@ -144,6 +113,36 @@
     </div>
 </div>
 
+
+<!-- start centros comerciales OJO "cccc=centros comerciales"-->
+<div class="featureProduct singleProduct" style="margin-top:-5px; padding-bottom:0px; background: #F3F3F3" >
+    <div class="feature__wrap container" style="background: #F3F3F3">
+        <h4 class="title">Centros Comerciales <a href="{{ url('centroscomerciales/all') }}"> Ver todos</a></h4>
+    <div class="feature__filter">
+        <div class="featureSlider">
+        <div class="sliderButton left"><i class="fas fa-angle-left"></i></div>
+        <div class="sliderButton right"><i class="fas fa-angle-right"></i></div>
+        <ul class="features__grid" id="wrap">
+            @foreach($cccc as $cc)
+            <li class="features__item col-lg-3 col-sm-6 col-12">
+                <div class="features__image wood light5">
+                    <a href="{{ url('/Centropuestos/'.$cc->id) }}">
+                    <img src="{{ asset('storage/'.$cc->id.'/'.$cc->banner) }}" style="width: 200px; height: 200px"> 
+                    </a>
+                </div>
+                <div class="features__content">
+                    <div class="content__overlay">
+                        <a href="{{ url('/Centropuestos/'.$cc->id) }}"><span style="font-size: 16px; color:#000">{{ $cc->nombre }}</span></a>
+                    </div>
+                </div>
+            </li>
+        @endforeach
+        </ul>
+        </div>
+    </div>
+    </div>
+</div>
+<!-- end centros comerciales -->
 <!--Start Product-->
 <div class="shopProduct" style="background: #F3F3F3;z-index: -1">
     <div class="shopProduct__wrap dflex container" >
