@@ -15,19 +15,19 @@
 
 <!--Start Feature Product-->
 <div class="featureProduct singleProduct" id="tiendas" style="background: #F3F3F3">
-    <div class="feature__wrap container" style="margin-top: 15px; padding-left: 50px; padding-right: 50px">
-        <div class="row" style="border: 1px solid; padding: 14px; border-color:#c5c5c5; background: #fff">
+    <div class="feature__wrap container" style="margin-top: 15px; padding-left: 40px; padding-right: 40px">
+        <div class="row shad" style="border: 1px ; padding: 16px; background: #fff">
             <div class="col-lg-4 col-12">
                 <h3 style="color: #bf0000; font-size: 16px">BUSCA</h3>
-                <span style="margin-top: 1px; font-size: 14px; color:#000">Productos y tiendas de tacna, ahorra tiempo y dinero</span>
+                <span style="margin-top: 1px; font-size: 16px; color:rgb(63, 63, 63)">Productos y tiendas de tacna, ahorra tiempo y dinero</span>
             </div>
             <div class="col-lg-4 col-12">
                 <h3 style="color: #bf0000; font-size: 16px">COMPARA</h3>
-                <span style="margin-top: 1px; font-size: 14px; color:#000">Precios y caracteristicas, de tus tiendas locales de siempre</span>
+                <span style="margin-top: 1px; font-size: 16px; color:rgb(63, 63, 63)">Precios y caracteristicas, de tus tiendas locales de siempre</span>
             </div>
             <div class="col-lg-4 col-12">
                 <h3 style="color: #bf0000; font-size: 16px">COMPRA</h3>
-                <span style="margin-top: 1px; font-size: 14px; color:#000">Sin comisiones ni tarjetas, trato directo con tiendas</span>
+                <span style="margin-top: 1px; font-size: 16px; color:rgb(63, 63, 63)">Sin comisiones ni tarjetas, trato directo con tiendas</span>
             </div>
         </div>
     </div>
@@ -35,37 +35,53 @@
 
 <!--Start Feature Product-->
 
-<div class="blog" style="background: #F3F3F3">
+<div class="blog" style="background: #F3F3F3; margin-top:-5px; padding-top: 0px">
     <h4 class="title">Tiendas Recomendadas <a href="{{ url('puestos/all') }}"> Ver tiendas</a></h4>
     <div class="feature__wrap container" >
         <div class="blog__wrap dflex">
             <div class="row">
+                <?php $paux = 0;?>
                 @foreach($pst as $ps)
-                    @if($ps->banner != null and $ps->perfil != null)
-                        <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank">
-                            <div class="blog__item col-lg-3" style="margin: auto; background:#fff">
-                                <div class="blog__image">
-                                    <img src="{{ url('storage/'.$ps->id.'/banner/'.$ps->banner) }}" alt="" height="100px" style="position: relative; z-index: 5; top: 0px">
-                                </div>
-                                <div>
-                                    <img src="{{ url('storage/'.$ps->id.'/logo/'.$ps->perfil) }}" alt="" height="80px" width="80px" style="position: relative; z-index: 6; top: -50px">
-                                </div>
-                                <div class="blog__content" style="margin-top: -60px">
-                                    {{ $ps->name}}<br><br>
-                                    <div class="row">
-                                        @if ($ps->puestosubcategorias->first())
-                                            @foreach ($ps->puestosubcategorias->first()->grupos as $grupos)
-                                            <?php $imagen = null; ?>
-                                            <?php $imagen = $grupos->productos->random(1)->first()->imagen_productos->first(); //solo una imagen x producto?>
-                                            <img src="{{ asset('storage/'.$ps->id.'/'.$grupos->productos->first()->id.'/'.$imagen->imagen) }}" alt="" height="60px" style="margin: auto">
-                                            @endforeach
-                                        @endif
-                                        
-                                    </div>
-                                    <!--<p> substr($ps->description,0,60)}...</p> -->
-                                </div>
-                            </div>
-                        </a>
+                    @if ($paux < 4)
+                        @if($ps->banner != null and $ps->perfil != null)
+                            <?php $puestosubcategorias = $ps->puestosubcategorias->random(1)->first(); ?>
+                                @if($puestosubcategorias != null)
+                                    @if(count($puestosubcategorias->grupos) > 0)
+                                        <?php $aux=0; ?>
+                                        <?php $paux = $paux + 1; ?>
+                                        <div class="blog__item col-lg-3" style="background:#fff">
+                                            <div class="blog__image">
+                                                <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank">
+                                                    <img src="{{ url('storage/'.$ps->id.'/banner/'.$ps->banner) }}" alt="" height="100px" style="position: relative; z-index: 5; top: 0px">
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank">
+                                                    <img src="{{ url('storage/'.$ps->id.'/logo/'.$ps->perfil) }}" alt="" height="80px" width="80px" style="position: relative; z-index: 6; top: -50px">
+                                                </a>
+                                            </div>
+                                            <div class="blog__content" style="margin-top: -60px">
+                                                {{ $ps->name}}<br><br>
+                                                <div class="row">
+                                                    @foreach ($puestosubcategorias->grupos as $grupos)
+                                                        @if (count($grupos->productos) > 0)
+                                                            @if($aux < 3)  
+                                                                <?php $imagen = null; ?>
+                                                                <?php $imagen = $grupos->productos->random(1)->first()->imagen_productos->first(); //solo una imagen x producto?>
+                                                                @if($imagen != null)
+                                                                    <img src="{{ asset('storage/'.$ps->id.'/'.$grupos->productos->first()->id.'/'.$imagen->imagen) }}" alt="" height="60px" style="margin: auto">
+                                                                    <?php $aux= $aux+1; ?>
+                                                                @endif
+                                                            @endif
+                                                        @endif
+                                                    @endforeach
+                                                </div>
+                                                <!--<p> substr($ps->description,0,60)}...</p> -->
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endif
+                        @endif
                     @endif
                 @endforeach
             </div>
