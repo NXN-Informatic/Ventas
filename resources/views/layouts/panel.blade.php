@@ -42,9 +42,15 @@
       .style{
         height: 300px !important;
       }
+      .ocultarimg2{
+        display: none;
+      }
     @media (max-width: 600px) {
       .ocultar {
           display: : none;
+      }
+      .ocultarimg2{
+        display: block;
       }
       .ocultarimg{
         display: none;
@@ -75,6 +81,7 @@
           <div class="ocultar">
             <a href="/">
               <img src="{{ asset('img/logo.png') }}" class="ocultarimg" style="width: 120px; margin-right: 20px">    
+              <img src="{{ asset('img/logoenJPG.jpg') }}" class="ocultarimg2" style="width: 40px;">  
             </a>
           </div>
             <li class="header__list"><span style="color: #000">CATEGORIAS</span><i class="fas fa-angle-down"></i>
