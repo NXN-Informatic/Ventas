@@ -15,7 +15,7 @@
 
 <!--Start Feature Product-->
 <div class="featureProduct singleProduct" id="tiendas" style="background: #F3F3F3">
-    <div class="feature__wrap container" style="margin-top: 15px; padding-left: 40px; padding-right: 40px">
+    <div class="feature__wrap container" style="margin-top: 30px; padding-left: 40px; padding-right: 40px">
         <div class="row shad" style="border: 1px ; padding: 16px; background: #fff">
             <div class="col-lg-4 col-12">
                 <h3 style="color: #bf0000; font-size: 16px">BUSCA</h3>
@@ -35,11 +35,10 @@
 
 <!--Start Feature Product-->
 
-<div class="blog" style="background: #F3F3F3; margin-top:-5px; padding-top: 0px">
+<div class="blog" style="background: #F3F3F3; margin-top:-10px; padding-top: 0px">
     <h4 class="title">Tiendas Recomendadas <a href="{{ url('puestos/all') }}"> Ver tiendas</a></h4>
-    <div class="feature__wrap container" >
+    <div class="feature__wrap container" style="margin-top: -20px" >
         <div class="blog__wrap dflex">
-            <div class="row">
                 <?php $paux = 0;?>
                 @foreach($pst as $ps)
                     @if ($paux < 4)
@@ -49,28 +48,31 @@
                                     @if(count($puestosubcategorias->grupos) > 0)
                                         <?php $aux=0; ?>
                                         <?php $paux = $paux + 1; ?>
-                                        <div class="blog__item col-lg-3" style="background:#fff">
-                                            <div class="blog__image">
+                                        <div class="blog__item col-lg-3" style="background:#fff; height: 350px; padding: 0px">
+                                            <div class="blog__image" style="margin-left: 0px;">
                                                 <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank">
-                                                    <img src="{{ url('storage/'.$ps->id.'/banner/'.$ps->banner) }}" alt="" height="100px" style="position: relative; z-index: 5; top: 0px">
+                                                    <img src="{{ url('storage/'.$ps->id.'/banner/'.$ps->banner) }}" width="100%" alt="" height="120px" style="position: relative; z-index: 5; top: 0px; border: 3px solid #fff" class="shad">
                                                 </a>
                                             </div>
                                             <div>
                                                 <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank">
-                                                    <img src="{{ url('storage/'.$ps->id.'/logo/'.$ps->perfil) }}" alt="" height="80px" width="80px" style="position: relative; z-index: 6; top: -50px">
+                                                    <img src="{{ url('storage/'.$ps->id.'/logo/'.$ps->perfil) }}" alt="" height="90px" width="90px" class="shad" style="position: relative; z-index: 6; top: -50px; border: 3px solid #fff; background: #fff; border-radius: 5%">
                                                 </a>
                                             </div>
                                             <div class="blog__content" style="margin-top: -60px">
-                                                {{ $ps->name}}<br><br>
+                                                <h1 style="color: #bf0000">{{ $ps->name}}</h1><br><br>
                                                 <div class="row">
                                                     @foreach ($puestosubcategorias->grupos as $grupos)
                                                         @if (count($grupos->productos) > 0)
                                                             @if($aux < 3)  
-                                                                <?php $imagen = null; ?>
-                                                                <?php $imagen = $grupos->productos->random(1)->first()->imagen_productos->first(); //solo una imagen x producto?>
+                                                                <?php $imagen = null; 
+                                                                        $gp = $grupos->productos->random(1)->first();?>
+                                                                <?php $imagen = $gp->imagen_productos->first(); //solo una imagen x producto?>
                                                                 @if($imagen != null)
-                                                                    <img src="{{ asset('storage/'.$ps->id.'/'.$grupos->productos->first()->id.'/'.$imagen->imagen) }}" alt="" height="60px" style="margin: auto">
-                                                                    <?php $aux= $aux+1; ?>
+                                                                                                                                 
+                                                                        <img src="{{ asset('storage/'.$ps->id.'/'.$gp->id.'/'.$imagen->imagen) }}" alt="" height="100px" width="70px" style="border: 3px solid #fff; margin: auto; border-radius: 10%" class="shad">
+                                                                    
+                                                                    <?php $aux = $aux+1; ?>
                                                                 @endif
                                                             @endif
                                                         @endif
@@ -84,7 +86,6 @@
                         @endif
                     @endif
                 @endforeach
-            </div>
         </div>
     </div>
 </div>
@@ -95,23 +96,16 @@
     <div class="feature__wrap container">
         <h4 class="title">Productos para ti <a href="{{ url('all/productos') }}"> Ver productos</a></h4> 
         <div class="feature__filter">
-            <div class="button-group filters-button-group feature__buttons">
-            </div>
+            
             <ul class="featureSlider container">
-                <li class="grid features__grid" >
-                    
+                <li class="grid features__grid">
                     @foreach($productos as $producto)
                         @foreach($producto->imagen_productos as $imagen) @endforeach
                         @if($imagen)
                             <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank">
                                 <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">
-                                    <div class="features__image desk">
-                                        <img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt="">
-                                        <div class="image__overlay">
-                                            <div class="color">
-                                                <div class="image" data-image="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px"></div>
-                                            </div>
-                                        </div>
+                                    <div class="features__image desk sale">
+                                        <img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt="" style="border: 5px solid #fff" class="shad">
                                     </div>
                                     <div class="features__content">
                                         <span style="font-size: 20px; color:#bf0000"><strong>S/. {{$producto->precio}}</strong></span>
@@ -136,24 +130,24 @@
         <h4 class="title">Centros Comerciales <a href="{{ url('centroscomerciales/all') }}"> Ver todos</a></h4>
     <div class="feature__filter">
         <div class="featureSlider">
-        <div class="sliderButton left"><i class="fas fa-angle-left"></i></div>
-        <div class="sliderButton right"><i class="fas fa-angle-right"></i></div>
-        <ul class="features__grid" id="wrap">
-            @foreach($cccc as $cc)
-            <li class="features__item col-lg-3 col-sm-6 col-12">
-                <div class="features__image wood light5">
-                    <a href="{{ url('/Centropuestos/'.$cc->id) }}">
-                    <img src="{{ asset('storage/'.$cc->id.'/'.$cc->banner) }}" style="width: 200px; height: 200px"> 
-                    </a>
-                </div>
-                <div class="features__content">
-                    <div class="content__overlay">
-                        <a href="{{ url('/Centropuestos/'.$cc->id) }}"><span style="font-size: 16px; color:#000">{{ $cc->nombre }}</span></a>
+            <div class="sliderButton left"><i class="fas fa-angle-left"></i></div>
+            <div class="sliderButton right"><i class="fas fa-angle-right"></i></div>
+            <ul class="features__grid" id="wrap">
+                @foreach($cccc as $cc)
+                <li class="features__item col-lg-3 col-sm-6 col-12">
+                    <div class="features__image wood light5">
+                        <a href="{{ url('/Centropuestos/'.$cc->id) }}">
+                        <img src="{{ asset('storage/'.$cc->id.'/'.$cc->banner) }}" style="width: 98%; height: 200px; border: 5px solid #fff" class="shad"> 
+                        </a>
                     </div>
-                </div>
-            </li>
-        @endforeach
-        </ul>
+                    <div class="features__content">
+                        <div class="content__overlay">
+                            <a href="{{ url('/Centropuestos/'.$cc->id) }}"><span style="font-size: 16px; color:#000">{{ $cc->nombre }}</span></a>
+                        </div>
+                    </div>
+                </li>
+                @endforeach
+            </ul>
         </div>
     </div>
     </div>
