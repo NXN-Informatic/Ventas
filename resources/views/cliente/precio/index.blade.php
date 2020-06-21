@@ -11,8 +11,8 @@
 
         <div class="row mt-n3">
             <div class="col-md-11 col-lg- col-xl-12 col-xxl-8 mx-auto">
-                <h1 class="text-center header-title">¡Renueve su plan hoy!</h1>
-                <p class="lead text-center mb-4 header-subtitle">Whether you're a business or an individual, 14-day trial no credit card required.
+                <h1 class="text-center header-title" style="font-size: 30px">¡Renueve su plan hoy!</h1>
+                <p class="lead text-center mb-4 header-subtitle">
                 </p>
 
                 <div class="row justify-content-center mt-3 mb-2">
@@ -37,7 +37,7 @@
                                         </div>
                                         <ul class="list-unstyled">
                                             <li class="mb-2">
-                                                Hasta 35 productos
+                                                <h6>Hasta 50 productos</h6>
                                             </li>
                                         </ul>
                                         <h6>Incluye:</h6>
@@ -66,7 +66,7 @@
                                         </div>
                                         <ul class="list-unstyled">
                                             <li class="mb-2">
-                                                100 productos
+                                                <h6>100 productos</h6>
                                             </li>
                                         </ul>
                                         <h6>Incluye:</h6>
@@ -98,7 +98,7 @@
                                         </div>
                                         <ul class="list-unstyled">
                                             <li class="mb-2">
-                                                400 productos
+                                                <h6>400 productos</h6>
                                             </li>
                                         </ul>
                                         <h6>Incluye:</h6>
@@ -136,7 +136,7 @@
                                         </div>
                                         <ul class="list-unstyled">
                                             <li class="mb-2">
-                                                Productos ilimitados
+                                                <h6>Productos ilimitados</h6>
                                             </li>
                                         </ul>
                                         <h6>Incluye:</h6>
@@ -183,7 +183,7 @@
                                         </div>
                                         <ul class="list-unstyled">
                                             <li class="mb-2">
-                                                Hasta 35 productos
+                                                <h6>Hasta 50 productos</h6>
                                             </li>
                                         </ul>
                                         <h6>Incluye:</h6>
@@ -212,7 +212,7 @@
                                         </div>
                                         <ul class="list-unstyled">
                                             <li class="mb-2">
-                                                100 productos
+                                                <h6>100 productos</h6>
                                             </li>
                                         </ul>
                                         <h6>Incluye:</h6>
@@ -244,7 +244,7 @@
                                         </div>
                                         <ul class="list-unstyled">
                                             <li class="mb-2">
-                                                400 productos
+                                                <h6>400 productos</h6>
                                             </li>
                                         </ul>
                                         <h6>Incluye:</h6>
@@ -282,7 +282,7 @@
                                         </div>
                                         <ul class="list-unstyled">
                                             <li class="mb-2">
-                                                Productos ilimitados
+                                                <h6>Productos ilimitados</h6>
                                             </li>
                                         </ul>
                                         <h6>Incluye:</h6>

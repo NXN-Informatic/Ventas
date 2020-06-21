@@ -13,7 +13,11 @@
 }
 
 /* Informacion de Contacto*/
-
+.shad {
+    -moz-box-shadow: 0 2px 3px rgb(139, 139, 139);
+    -webkit-box-shadow: 0 0 3px rgb(139, 139, 139);
+    box-shadow: 0 2 3px rgb(139, 139, 139);
+}
 .cantact_info::before{
     content: '';
     width: 100%;
