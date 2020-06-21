@@ -116,19 +116,6 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <strong><label class="form-label" for="contacto">Información de contacto</label></strong>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Celular 1') }}</small>
-                                        <input type="text" class="form-control form-control-lg" name="phone" value="{{ old('phone', $puesto->phone) }}">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Celular 2') }}</small>
-                                        <input type="text" class="form-control form-control-lg" name="phone2" value="{{ old('phone2', $puesto->phone2) }}">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
                             <strong><label class="form-label" for="description">Resumen de tu Tienda</label></strong>
                                 <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Describe brevemente qué encontrarán tus clientes dentro de tu Tienda. (Máx 2 líneas o 40 palabras)') }}</small>
                                 <textarea name="description" maxlength="250" data-provide="markdown" rows="6">{{ old('description', $puesto->description) }}</textarea>
@@ -200,18 +187,6 @@
                                     </optgroup>
                                     </select>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title mb-0">{{ __('Información de Redes Sociales') }}</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <strong><label class="form-label">Id de Página de Facebook</label></strong>
-                                <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Ingrese el Page-Id de su página de Facebook. (Ej. 100771198324876)') }}</small>
-                                <input style="margin-top:7px" type="text" class="form-control form-control-lg" name="fbpageid" value="{{ old('name', $puesto->fbpageid) }}" required>
                             </div>
                         </div>
                     </div>

@@ -133,7 +133,7 @@ class PuestoController extends Controller
         $rules = [
             'phone2'        =>  'max:14',
             'phone'         =>  'max:14',
-            'fbpageid'  => 'min:15|max:15',
+            'fbpageid'  => 'max:15',
             'wsp' => 'max:15',
             'fbpage' => 'min:18',
         ];
@@ -229,7 +229,6 @@ class PuestoController extends Controller
         $puesto->description = $request->input('description');
         $puesto->phone2 = $request->input('phone2');
         $puesto->phone = $request->input('phone');
-        $puesto->fbpageid = $request->input('fbpageid');
         if($request->input('elegirnos') != null){
             $puesto->elegirnos = $request->input('elegirnos');
         }

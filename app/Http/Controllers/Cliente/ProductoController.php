@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Cliente;
 
 use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
+use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
 use App\Grupo;
 use App\UsuarioPuesto;
@@ -37,7 +38,7 @@ class ProductoController extends Controller
         return view('cliente.producto.grupo', compact('usuarioPuesto', 'puestoSubcategorias'));
     }
 
-    public function create() {
+    public function create(Producto $producto) {
         $usuarioPuesto = UsuarioPuesto::where('usuario_id', auth()->user()->id)->first();
         $puestoSubcategorias = PuestoSubcategoria::where('puesto_id', $usuarioPuesto->puesto_id)->get();
         $id = Producto::orderBy('id', 'desc')->first();
@@ -70,10 +71,12 @@ class ProductoController extends Controller
         foreach($files as $file){
             $name = $file->getClientOriginalName();
             $fileName = 'public/'.$puesto.'/'.$producto.'/'.$name;
+            $fname = 'storage/'.$puesto.'/'.$producto.'/'.$name;
             $imagenurl = 'https://feriatacna.com/storage/'.$puesto.'/'.$producto.'/'.$name;
             //indicamos que queremos guardar un nuevo archivo en el disco local
             \Storage::disk('local')->put($fileName,  \File::get($file));
-
+            Image::make($fname)->resize(1200, 1000)->save($fname);
+           
             ImagenProducto::create(
                 [
                     'producto_id'    => $producto,
@@ -90,25 +93,49 @@ class ProductoController extends Controller
     }
 
     public function editar(UsuarioPuesto $usuarioPuesto, Producto $producto) {
-        return view('cliente.producto.edit', compact('usuarioPuesto', 'producto'));
+        $usuarioPuesto = UsuarioPuesto::where('usuario_id', auth()->user()->id)->first();
+        $puestoSubcategorias = PuestoSubcategoria::where('puesto_id', $usuarioPuesto->puesto_id)->get();
+        return view('cliente.producto.editar', compact('usuarioPuesto', 'producto', 'puestoSubcategorias'));
     }
 
     public function update(Request $request, Producto $producto) {
         $rules = [
-            'name'          =>  'required|min:3|max:100|regex:/^[\pL\s\-]+$/u',
+            'name'          =>  'required|min:3|max:100',
             'description'   =>  'max:1000',
             'precio'        =>  'required'
         ];
         $this->validate($request, $rules);
-
+        
+        $puesto = $request->input('puesto');
         $producto->name = $request->input('name');
         $producto->description = $request->input('description');
         $producto->precio = $request->input('precio');
-        $producto->stock = $request->input('stock');
-        $producto->save();
-
+        
+        $files = $request->file('attachment');
+        //dd($files);
+        if($files){
+            foreach($files as $file){
+                $name = $file->getClientOriginalName();
+                $fileName = 'public/'.$puesto.'/'.$producto->id.'/'.$name;
+                $fname = 'storage/'.$puesto.'/'.$producto->id.'/'.$name;
+                $imagenurl = 'https://feriatacna.com/storage/'.$puesto.'/'.$producto->id.'/'.$name;
+                //indicamos que queremos guardar un nuevo archivo en el disco local
+                \Storage::disk('local')->put($fileName,  \File::get($file));
+                Image::make($fname)->resize(1200, 1000)->save($fname);
+               
+                ImagenProducto::create(
+                    [
+                        'producto_id'    => $producto->id,
+                        'imagen'   => $name,
+                        'imagen_url'    => $imagenurl
+                    ]
+                );
+            }
+            $producto->save();
+        }
+        
         $notification = 'El producto se actualizó correctamente.';
-        return back()->with(compact('notification'));
+        return  redirect('/producto/lista')->with(compact('notification'));
         
     }
 

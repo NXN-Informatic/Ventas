@@ -53,6 +53,24 @@
             <div class="col-xxl-12">
                 <div class="card">
                     <div class="card-header">
+                        <h5 class="card-title mb-0">{{ __('Sincroniza tu Tienda con tu Página de Facebook!') }}</h5>
+                        <div class="col-12">
+                            <div class="col-12 custom-control custom-switch text-right">
+                                <input type="checkbox" class="custom-control-input" disabled id="customSwitch2" >
+                                <label class="custom-control-label" for="customSwitch2">Muy Pronto!</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Los productos de tu Tienda se subirán automáticamente en tu Página de Facebook. Tus clientes de FB serán dirigidos a tu Tienda en Feriatacna</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-12" style="display: none">
+                <div class="card">
+                    <div class="card-header">
                         <h5 class="card-title mb-0">{{ __('Conecta tu Puesto con tu Página de Facebook!') }}</h5>
                     </div>
                     <div class="card-body">
