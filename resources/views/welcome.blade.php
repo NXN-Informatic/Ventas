@@ -35,7 +35,7 @@
 
 <!--Start Feature Product-->
 
-<div class="blog" style="background: #F3F3F3; margin-top:-10px; padding-top: 0px">
+<div class="blog" style="background: #F3F3F3; margin-top:-10px; padding-top: 0px" id="ocultar89">
     <h4 class="title">Tiendas Recomendadas <a href="{{ url('puestos/all') }}"> Ver tiendas</a></h4>
     <div class="feature__wrap container" style="margin-top: -20px" >
         <div class="blog__wrap dflex">
@@ -125,7 +125,7 @@
 
 
 <!-- start centros comerciales OJO "cccc=centros comerciales"-->
-<div class="featureProduct singleProduct" style="margin-top:-5px; padding-bottom:0px; background: #F3F3F3" >
+<div class="featureProduct singleProduct" style="margin-top:-5px; padding-bottom:0px; background: #F3F3F3" id="oculto56" >
     <div class="feature__wrap container" style="background: #F3F3F3">
         <h4 class="title">Centros Comerciales <a href="{{ url('centroscomerciales/all') }}"> Ver todos</a></h4>
     <div class="feature__filter">
@@ -232,6 +232,8 @@
                 $('#ocultarBanner2').show();
                 $('#ocultarBanner3').show();
                 $('#ocultarBanner4').show();
+                $('#ocultar89').show();
+                $('#oculto56').show();
                 $tiendas.show();
                 $tiendas2.show();
                 $('#prod').show();
@@ -245,6 +247,8 @@
                 $tiendas2.hide();
                 $('#prod').hide();
                 $('#ocultarBanner3').hide();
+                $('#ocultar89').hide();
+                $('#oculto56').hide();
                 $('#ocultarBanner4').hide();
                 const url = `/categoria/${cateogiraId}/apiProductosCategoria`;
                 $.getJSON(url, onProducCateg);
@@ -255,7 +259,9 @@
             if(valor.length === 0) {
                 $('#ocultarBanner').show();
                 $('#ocultarBanner2').show();
+                $('#oculto56').show();
                 $('#ocultarBanner3').show();
+                $('#ocultar89').show();
                 $('#ocultarBanner4').show();
                 $tiendas.show();
                 $tiendas2.show();
@@ -268,7 +274,9 @@
                 $tiendas2.hide();
                 $('#ocultarBanner').hide();
                 $('#ocultarBanner2').hide();
+                $('#ocultar89').hide();
                 $('#ocultarBanner3').hide();
+                $('#oculto56').hide();
                 $('#ocultarBanner4').hide();
                 $('#categoria').hide();
                 $('#prod').hide();
