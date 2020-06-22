@@ -69,9 +69,9 @@
                                                                         $gp = $grupos->productos->random(1)->first();?>
                                                                 <?php $imagen = $gp->imagen_productos->first(); //solo una imagen x producto?>
                                                                 @if($imagen != null)
-                                                                                                                                 
-                                                                        <img src="{{ asset('storage/'.$ps->id.'/'.$gp->id.'/'.$imagen->imagen) }}" alt="" height="100px" width="70px" style="border: 3px solid #fff; margin: auto; border-radius: 10%" class="shad">
-                                                                    
+                                                                        <a href="{{ url('producto/'.$gp->id.'/detailProd')}}" style="margin:auto">                                       
+                                                                            <img src="{{ asset('storage/'.$ps->id.'/'.$gp->id.'/'.$imagen->imagen) }}" alt="" height="100px" width="70px" style="border: 3px solid #fff; margin: auto; border-radius: 10%" class="shad">
+                                                                        </a>
                                                                     <?php $aux = $aux+1; ?>
                                                                 @endif
                                                             @endif
@@ -103,8 +103,8 @@
                         @foreach($producto->imagen_productos as $imagen) @endforeach
                         @if($imagen)
                             <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank">
-                                <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">
-                                    <div class="features__image desk sale">
+                                <div class="element-item features__item col-lg-3 col-sm-6 col-12">
+                                    <div class="features__image desk">
                                         <img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt="" style="border: 5px solid #fff" class="shad">
                                     </div>
                                     <div class="features__content">

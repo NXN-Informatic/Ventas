@@ -62,9 +62,8 @@
     </style>
 
 </head>
-<body>
     
-<body>
+<body background="#f3f3f3">
   <div id="onTop"></div>
 
   @yield('load')

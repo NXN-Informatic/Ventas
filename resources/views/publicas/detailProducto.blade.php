@@ -11,6 +11,12 @@
         -webkit-box-shadow: 0 0 10px rgb(4, 182, 34);
         box-shadow: 0 0 10px rgb(4, 182, 34);
       }
+      .shad2
+      {
+        -moz-box-shadow: 0 0 10px #c5c5c5;
+        -webkit-box-shadow: 0 0 10px #c5c5c5;
+        box-shadow: 0 0 10px #c5c5c5;
+      }
     </style>
 @endsection
 
@@ -19,145 +25,116 @@
 @section('title','Bienvenido')
 <div id="fb-root"></div>
 <!--Start Single Product-->
-<div class="singleProduct container" id="ocultar1">
-  <div class="singleProduct__wrap container">
-    <div class="signleProduct__content">
-      <div class="product dflex">
-          <div class="col-lg-7 col-12">
-            <div class="swiper-container" style="border: solid;border-color: #ccc;">
-              <div class="swiper-wrapper" >
-              <!-- Imagen Productos -->
-              @foreach($producto->imagen_productos as $imagenes)
-                <div class="swiper-slide">
-                    <a href="#">
-                        <img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagenes->imagen) }}" 
-                        class="card-img-top" alt="" height="400px" width="400px">
-                    </a>
+<div class="singleProduct" id="ocultar1" style="background-color: #f3f3f3">
+    <div class="singleProduct__wrap container">
+        <div class="signleProduct__content">
+            <div class="product dflex">
+                <div class="col-lg-7 col-12">
+                    <div class="swiper-container shad2" style="background-color: #fff">
+                        <div class="swiper-wrapper" >
+                            <!-- Imagen Productos -->
+                            @foreach($producto->imagen_productos as $imagenes)
+                              <div class="swiper-slide">
+                                  <a href="#">
+                                      <img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagenes->imagen) }}" 
+                                      class="card-img-top" alt="" height="500px" width="100%" style="border: 5px solid #fff">
+                                  </a>
+                              </div>
+                            @endforeach
+                            @if(count($producto->imagen_productos) < 1)
+                                <div class="swiper-slide">
+                                    <a href="#">
+                                        <img src="{{ asset('/img/defaultProducto.jpg') }}" 
+                                        class="card-img-top" alt="" height="400px" width="400px">
+                                    </a>
+                                </div>
+                            @endif 
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                    <!-- Productos Descripción -->
+                    <div class="shad2" style="background-color: #fff">
+                        <h2 style="text-align: left;font-size: 20px; padding: 10px">{{ __('Descripción') }}</h2><br>
+                        <p style="color: #0e0e0ebe; font-size: 16px">{!! substr($producto->description,3) !!}
+                        <br>
+                    </div>
+                    <div class="shad2" style="background-color: #fff">
+                        <div class="fb-comments" data-href="{{ $producto->producto_url}}" data-numposts="5" data-width="100%"></div>
+                    </div>
+                    
                 </div>
-              @endforeach
-              @if(count($producto->imagen_productos) < 1)
-                  <div class="swiper-slide">
-                    <a href="#">
-                        <img src="{{ asset('/img/defaultProducto.jpg') }}" 
-                        class="card-img-top" alt="" height="400px" width="400px">
-                    </a>
-                </div>
-              @endif 
-              </div>
-                  <div class="swiper-pagination"></div>
-                  <div class="swiper-button-prev"></div>
-                  <div class="swiper-button-next"></div>
-              </div>
-              <br>
-              <!-- Productos Descripción -->
-              <div>
-                <h2 style="text-align: left;font-size: 20px">{{ __('Descripción') }}</h2><br>
-                <span style="color: #000; font-size: 16px">{!! $producto->description !!}</span>
-                <br>
-              </div>
-            <div class="fb-comments" data-href="{{ $producto->producto_url}}" data-numposts="5" data-width="100%"></div>
-        </div>
-        
-        <div class="content col-lg-5 col-12">
-          <div style="border-style: ridge;padding:5px">
-            <div class="row">
-                <div class="col-lg-6 col-12">
-                <!-- Productos Precio -->
-                <div class="precio color" style="color: #bf0000">S/.{{ $producto->precio }}</div>
-                </div>
-                <div class="col-lg-6 col-12">
-                  <!-- Productos Creación -->
-                  <p style="text-align:right">{{ $producto->created_at }}</p>
+                <div class="content col-lg-5 col-12">
+                    <div class="shad2" style="background-color: #fff">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-lg-6 col-12">
+                                    <!-- Productos Precio -->
+                                    <div class="precio color" style="padding: 10px; color: #bf0000">S/.{{ $producto->precio }}
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-12" style="text-align: right">
+                                    <!-- Productos Creación -->
+                                    <a href="#"><i class="far fa-heart" style="font-size: 3rem; padding: 10px"></i></a>
+                                </div>
+                            </div>
+                            <h1 class="text-left" style="font-size: 24px; color: #000; padding: 10px">{{ $producto->name }}</h1>  
+                        </div>
+                        <hr style="color: #f2f2f2"> 
+                        <div class="col-lg-12 text-center" style="padding-left: 10px">
+                            <h1 class="text-left" style="font-size: 24px; color: #000; padding-left: 10px">{{ $usuario_puestos->puesto->name }} <a href="{{ url('puesto/'.$usuario_puestos->puesto->id.'/detail')}}"><span style="color: #bf0000; font-size: 16px; margin-left: 10px">Visitar ></span></a></h1>  
+                                <div class="row" style="padding-left: 20px; margin-top: -20px; margin-bottom: 10px">
+                                    @for ($i = 0; $i < $usuario_puestos->puesto->calification; $i++)   
+                                        <i class="fas fa-star" style="color: #bf0000"></i>
+                                    @endfor
+                                    @for ($i = 0; $i < (5 - $usuario_puestos->puesto->calification); $i++)
+                                        <i class="far fa-star text-dark" style="color: #bf0000"></i> 
+                                    @endfor
+                                </div>
+                            @if(1)
+                                <button href="{{ url('https://api.whatsapp.com/send?phone=51'.$usuario_puestos->puesto->wsp.'&text=Hola!%20Me%20interesa%20este%20producto:%20'.$producto->producto_url.'%20¿Está disponible?') }}" target="_blank" class="btn btn-primary" style="background-color: #000; border-radius: 5%; border-color: #bf0000; border 2px solid"><i class="fas icofont-brand-whatsapp" style="font-size: 2rem; color: #fff"></i><span style="color: #fff; margin-left: 10px">Enviar un mensaje</span></button>
+                            @endif
+                            @if($usuario_puestos->puesto->phone)
+                                <h1 style="color: #000; font-size: 24px"><i class="fas icofont-smart-phone" style="font-size: 24px; padding: 10px; color: #000"></i> {{ $usuario_puestos->puesto->phone }}</span>
+                            @endif
+                            <br>
+                            @if($usuario_puestos->puesto->phone2)
+                                <h1 style="color: #000; font-size: 24px"><i class="fas icofont-smart-phone" style="font-size: 24px; padding: 10px; color: #000"></i> {{ $usuario_puestos->puesto->phone2 }}</span>
+                            @endif
+                        </div>
+                        <hr style="color: #f2f2f2"> 
+                        <div class="col-12">
+                            <h1 class="text-left" style="font-size: 24px; color: #000; padding-left: 10px">Formas de entrega</h1>
+                            @foreach($usuario_puestos->puesto->entrega_puestos as $entrega_puestos)
+                                <button href="#" target="_blank" class="btn btn-primary" style="background-color: #fff; border-radius: 5%; border-color: #000; border 3px solid"><span style="color: #000; margin: auto">{{ $entrega_puestos->entrega->name }}</span></button>
+                            @endforeach
+                        </div>
+                        <hr style="margin-top: 15px; color: #f2f2f2">
+                        <div class="col-12">
+                          <h1 class="text-left" style="font-size: 24px; color: #000; padding-left: 10px">Métodos de pago aceptado</h1>
+                          @foreach($usuario_puestos->puesto->pago_puestos as $pago_puestos)
+                              <button href="#" target="_blank" class="btn btn-primary" style="background-color: #fff; border-radius: 5%; border-color: #000; border 3px solid"><span style="color: #000; margin: auto">{{ $pago_puestos->pago->name }}</span></button>
+                          @endforeach
+                        </div>
+                        <hr style="margin-top: 15px; color: #f2f2f2">
+                        <div class="col-12">
+                            <h1 class="text-left" style="font-size: 24px; color: #000; padding-left: 10px">Ubicación</h1>
+                            <span class="text-left" style="font-size: 18px; color: #000; padding-left: 10px">{{$usuario_puestos->puesto->direccion}}</span>
+                            <input type="hidden" id="latitud" name="latitud" value="{{ $usuario_puestos->user->latitud }}">
+                            <input type="hidden" id="longitud" name="longitud" value="{{ $usuario_puestos->user->longitud }}">
+                            <div id="map" style="height: 300px;"></div>
+                        </div>
+                      </div>
+                    </div>
                 </div>
             </div>
-            <!-- Productos Name -->
-            <h1 class="text-left" style="font-size: 20px; color: #000; font-weight: normal;">{{ $producto->name }}</h1>  
-            
-          </div>
-          <br>
-          <div style="border-style: ridge;padding:5px; border-color: #000;">
-            <!-- Descripción Vendedor -->
-            <h2 class="precio color" style="font-size:25px">{{ __('Tienda') }}</h2>
-            <br>
-            @foreach($producto->grupo->puestosubcategoria->puesto->usuario_puestos as $usuario_puestos)
-              <!-- Imagen Vendedor -->
-              <img src="{{ asset('/img/user.png') }}" style="float: left;margin-right: 10px" width="50px"><br>
-              <!-- Nombre Vendedor -->
-              <h3 style="text-align: left;font-size: 20px; font-weight: bold">{{ $usuario_puestos->puesto->name }}</h3>
-              <input type="hidden" id="latitud" name="latitud" value="{{ $usuario_puestos->user->latitud }}">
-              <input type="hidden" id="longitud" name="longitud" value="{{ $usuario_puestos->user->longitud }}">
-              <!-- Email Vendedor -->
-              <!-- <label style="font-size:20px; color:#F0C908">
-                  @for ($i = 0; $i < $usuario_puestos->puesto->calification; $i++)   
-                      <i class="fas fa-star"></i>
-                  @endfor
-                  @for ($i = 0; $i < (5 - $usuario_puestos->puesto->calification); $i++)
-                      <i class="far fa-star text-dark"></i> 
-                  @endfor
-              </label><br><br> -->
-              <!-- Fecha Vendedor -->
-              <!-- <p style="text-align: right;"><span style="font-size: 15px; color:#000">{{ __('Miembro desde:') }} </span> {{ $usuario_puestos->user->created_at }}</p> -->
-              <!-- Chatea con el  Vendedor -->
-              <br>
-              <a href="{{ url('/puesto/'.$usuario_puestos->puesto->id.'/detail') }}" target="black">
-                <button class="btn btn-primary" style="background:#000">{{ __('Chatea con el Vendedor') }}</button>
-              </a><br><br>
-              @if($usuario_puestos->puesto->phone)
-                <!-- Phone Vendedor -->
-                <h2 style="font-size: 20px"><i class="fas fa-phone-volume"></i> {{ $usuario_puestos->puesto->phone }}</h2>
-              @endif
-              <br>
-              @if($usuario_puestos->puesto->phone2)
-                <!-- Phone 2 Vendedor -->
-                <h2 style="font-size: 20px"><i class="fas fa-phone-volume"></i> {{ $usuario_puestos->puesto->phone2 }}</h2>
-              @endif
-
-              <br>
-             
-            @endforeach
-          </div>
-          <br>
-          <div style="border-style: ridge;padding:5px">
-            <!-- Productos Precio -->
-            <h2 class="precio color" style="font-size:18px">{{ __('Tipo de Entrega') }}</h2>
-            @foreach($usuario_puestos->puesto->entrega_puestos as $entrega_puestos)
-              <h2 style="font-size: 20px"> {{ $entrega_puestos->entrega->name }} </h2>
-            @endforeach
-          </div>
-          <br>
-          <div style="border-style: ridge;padding:5px">
-            <!-- Lugar de Publicación -->
-            <h2 style="text-align: left;font-size: 20px" class="color">{{ __('Ubicación') }}</h2>
-            <br>
-              <!-- Mapa -->
-             <div id="map" style="height: 300px;"></div>
-             <br>
-             <!-- Visitar Tiendas -->
-             <div style="background:#000">
-                <br>
-                <a href="{{ url('/puesto/'.$usuario_puestos->puesto->id.'/detail') }}" 
-                    target="black" style="color: #fff; font-size: 20px;">{{ __('Visitar Tienda') }}</a>
-                <br><br>
-             </div>
-          </div>
-          <br>
-          <br>
-          <!-- Redes Sociales -->
-          <div class="share dflex">
-            <i class="fab fa-facebook-f" style="font-size: 25px"></i>
-            <i class="fab fa-twitter" style="font-size: 25px"></i>
-            <i class="fab fa-pinterest" style="font-size: 25px"></i>
-            <i class="fab fa-linkedin-in" style="font-size: 25px"></i>
-            <i class="fas fa-paper-plane" style="font-size: 25px"></i>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 
 <!--Start Featured Products-->
-<div class="featureProduct" id="ocultarProd">
+<div class="featureProduct" id="ocultarProd" style="background-color: #f3f3f3">
     <h4 class="title">Otros Productos de esta tienda<a href="" style="margin-left:10px">{{ __('Mostrar Más') }}</a></h4>
     <div class="feature__filter">
         <div class="button-group filters-button-group feature__buttons">
@@ -203,7 +180,10 @@
                             <p class="price">{{$productos->precio}}</p>
                             <div class="content__overlay">
                                 <p>{!! $productos->description !!}</p>
-                                <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="black">Ver Producto</a><a href="{{ url('/producto/${ productos.id }/detailProd') }}"><i class="fas fa-search"></i></a></div>
+                                <div class="control dflex">
+                                  <a href="#"><i class="far fa-heart"></i></a>
+                                  <a class="btn active" href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="black">Ver Producto</a><a href="{{ url('/producto/${ productos.id }/detailProd') }}"><i class="fas fa-search"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -223,7 +203,7 @@
 </div>
 
 <!-- Mostrar Productos -->
-<div class="shopProduct">
+<div class="shopProduct" style="background-color: #f3f3f3">
     <div class="shopProduct__wrap dflex container">
         <div class="product__item col-lg-12 col-12">
 
@@ -235,7 +215,7 @@
 </div>
 
 <!-- No se Encontraron Productos -->
-<div class="shopProduct" id="resultado">
+<div class="shopProduct" id="resultado" style="background-color: #f3f3f3">
     <div class="shopProduct__wrap dflex container">
         <div class="product__item col-lg-12 col-12">
             <div class="conatiner" style="background:#FF1643;text-align: center;padding:5px">
@@ -246,7 +226,7 @@
 </div>
 
 <!-- Mostrar Productos -->
-<div class="shopProduct">
+<div class="shopProduct" style="background-color: #f3f3f3">
     <div class="shopProduct__wrap dflex container">
         <div class="product__item col-lg-12 col-12">
             <ul class="filterProduct gridRow" id="mostrar">     
@@ -259,23 +239,21 @@
 
 
 @if ($usuario_puestos->puesto->fbpageid)
-<div class="fb-customerchat"
-    attribution=setup_tool
-    page_id="{{ $usuario_puestos->puesto->fbpageid }}"
-    theme_color="#bf0000"
-    ref="hhhhhhhh"
-    logged_in_greeting="¡Hola!, ¿Tienes una consulta?"
-    logged_out_greeting="¡Hola!, ¿Tienes una consulta?">
-</div>
+  <div class="fb-customerchat"
+      attribution=setup_tool
+      page_id="{{ $usuario_puestos->puesto->fbpageid }}"
+      theme_color="#bf0000"
+      ref="hhhhhhhh"
+      logged_in_greeting="¡Hola!, ¿Tienes una consulta?"
+      logged_out_greeting="¡Hola!, ¿Tienes una consulta?">
+  </div>
 @endif
 @include('layouts.components.footer')
 @endsection
 @if($usuario_puestos->puesto->wsp)
-<a style="position: fixed; right: 25px; bottom: 90px; width: 60px; z-index: 1000" href="{{ url('https://api.whatsapp.com/send?phone=51'.$usuario_puestos->puesto->wsp.'&text=Hola!%20Me%20interesa%20este%20producto:%20'.$producto->producto_url.'%20¿Está disponible?') }}" target="_blank">
-<img class="wsp" src="{{ asset('img/wsp.png') }}" style="width: 60px; hight: auto; border-radius:50%" alt="whatsapp">
-</a>
-@else
-
+  <a style="position: fixed; right: 25px; bottom: 90px; width: 60px; z-index: 1000" href="{{ url('https://api.whatsapp.com/send?phone=51'.$usuario_puestos->puesto->wsp.'&text=Hola!%20Me%20interesa%20este%20producto:%20'.$producto->producto_url.'%20¿Está disponible?') }}" target="_blank">
+  <img class="wsp" src="{{ asset('img/wsp.png') }}" style="width: 60px; hight: auto; border-radius:50%" alt="whatsapp">
+  </a>
 @endif
 
 @section('scripts')

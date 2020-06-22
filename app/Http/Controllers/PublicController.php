@@ -21,12 +21,10 @@ class PublicController extends Controller
 
     public function detailProducto(Producto $producto) {
         $categorias = Categoria::all();
-        foreach($producto->grupo->puestosubcategoria->puesto->usuario_puestos as $usuario_puestos){
-
-        }
+        $usuario_puestos = $producto->grupo->puestosubcategoria->puesto->usuario_puestos->first();
         $latitud = $usuario_puestos->user->latitud;
         $longitud = $usuario_puestos->user->longitud;
-        return view('publicas.detailProducto', compact('producto', 'categorias', 'latitud', 'longitud'));
+        return view('publicas.detailProducto', compact('producto', 'categorias', 'latitud', 'longitud','usuario_puestos'));
     }
 
     public function puestoAll() {

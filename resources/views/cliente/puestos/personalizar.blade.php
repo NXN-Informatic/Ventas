@@ -54,6 +54,9 @@
                                             <option value="/img/defecto/modajovenes.jpg">Moda Jóvenes</option>
                                             <option value="/img/defecto/ropadormir.jpg">Ropa Dormir</option>
                                             <option value="/img/defecto/ropainterior.jpg">Ropa Interior/Baño</option>
+                                            <option value="/img/defecto/ropainterior.jpg">Ropa Interior/Baño</option>
+                                            <option value="/img/defecto/accesorios.jpg">Accesorios de Moda</option>
+                                            <option value="/img/defecto/bolsosmaletas.jpg">Bolsos/Equipaje</option>
                                         </optgroup>
                                     </select>
                                 </div>
