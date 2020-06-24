@@ -155,7 +155,7 @@
                                         @endif
                                     </li>
                                     <li class="list-group-item" style="padding: .2rem 1.25rem; border: 0px solid rgba(0, 0, 0, .125);">
-                                        @if($productocompletado->isNotEmpty() and $puestocompletado and $usercompletado->completado and $fbconectado)
+                                        @if($productocompletado->isNotEmpty() and $puestocompletado and $usercompletado->completado and $personalizado)
                                             <div class="alert alert-success alert-outline-coloured alert-dismissible" style="margin-top: 0px; margin-bottom: 0px" role="alert">
                                                 <div class="alert-icon">
                                                     <i class="fas fa-fw fa-check"></i>
@@ -220,7 +220,7 @@
                             </div>
                             <div class="col-12" style="margin-top: 15px">
                                 <div class="col-12 text-center mt-2">
-                                    <span style="margin-bottom: 7px" class="form-text text-muted">{{ __('Comparte FeriaTacna y etiqueta a 3 vendedores.') }}</span>
+                                    <span style="margin-bottom: 7px" class="form-text text-muted">{{ __('Comparte FeriaTacna a 3 vendedores.') }}</span>
                                     <a target="_blank" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com/register">
                                         <button class="btn mb-1 btn-facebook btn-lg"><i class="align-left fab fa-facebook" title="Compartir"></i><span style="margin-left:20px; margin-right:20px">{{ __('    Compartir    ') }}</span></button>
                                     </a>

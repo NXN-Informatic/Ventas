@@ -100,7 +100,7 @@ class PuestoController extends Controller
             $cen = $puesto->cencom_id;
         }
         
-        $subcategorias = Subcategoria::all();
+        $subcategorias = Subcategoria::where('categoria_id', $categoria_id)->get();
         $cencom = CentrosComerciale::all();
         return view('cliente.puestos.edit', compact('categs','subcat','formapagosuser', 'formaentregasuser','latitud','longitud','puesto', 'categorias', 'subcategorias', 'formapagos', 'formaentregas','cencom','cen'));
     }
