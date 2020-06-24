@@ -84,12 +84,15 @@ class PuestoController extends Controller
         $longitud = auth()->user()->longitud;
 
         $categs = [];
+        $categsid = [];
         $subcat = [];
         foreach($puesto->puestosubcategorias as $subcategorias){
             $sub = $subcategorias->subcategoria->id;
             $name = $subcategorias->subcategoria->categoria->name;
+            $id = $subcategorias->subcategoria->categoria->id;
             if(!in_array($name, $categs)) {
                 $categs[] = $name;
+                $categsid[] = $id;
             }
             if(!in_array($sub, $subcat)){
                 $subcat[] = $sub;
@@ -100,7 +103,7 @@ class PuestoController extends Controller
             $cen = $puesto->cencom_id;
         }
         
-        $subcategorias = Subcategoria::where('categoria_id', $categoria_id)->get();
+        $subcategorias = Subcategoria::where('categoria_id', $categsid[0])->get();
         $cencom = CentrosComerciale::all();
         return view('cliente.puestos.edit', compact('categs','subcat','formapagosuser', 'formaentregasuser','latitud','longitud','puesto', 'categorias', 'subcategorias', 'formapagos', 'formaentregas','cencom','cen'));
     }
