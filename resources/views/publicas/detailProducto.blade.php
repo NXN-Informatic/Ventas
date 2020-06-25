@@ -57,11 +57,11 @@
                     <!-- Productos Descripción -->
                     <div class="shad2" style="background-color: #fff">
                         <h2 style="text-align: left;font-size: 20px; padding: 10px">{{ __('Descripción') }}</h2><br>
-                        <p style="color: #0e0e0ebe; font-size: 16px">{!! $producto->description !!}
+                        <p style="color: #0e0e0ebe; font-size: 16px; margin: 10px">{!! $producto->description !!}
                         <br>
                     </div>
                     <div class="shad2" style="background-color: #fff">
-                        <div class="fb-comments" data-href="{{ $producto->producto_url}}" data-numposts="5" data-width="100%"></div>
+                        <div class="fb-comments" data-href="{{ $producto->producto_url}}" data-numposts="5" data-width="100%" style="margin: 10px"></div>
                     </div>
                     
                 </div>
@@ -93,7 +93,7 @@
                                     @endfor
                                 </div>
                             @if(1)
-                                <button style="margin-bottom: 10px" href="{{ url('https://api.whatsapp.com/send?phone=51'.$usuario_puestos->puesto->wsp.'&text=Hola!%20Me%20interesa%20este%20producto:%20'.$producto->producto_url.'%20¿Está disponible?') }}" target="_blank" class="btn btn-primary" style="background-color: #000; border-radius: 5%; border-color: #bf0000; border 2px solid"><i class="fas icofont-brand-whatsapp" style="font-size: 2rem; color: #fff"></i><span style="color: #fff; margin-left: 10px">Enviar un mensaje</span></button>
+                                <button href="{{ url('https://api.whatsapp.com/send?phone=51'.$usuario_puestos->puesto->wsp.'&text=Hola!%20Me%20interesa%20este%20producto:%20'.$producto->producto_url.'%20¿Está disponible?') }}" target="_blank" class="btn btn-primary" style="background-color: #000; border-radius: 5%; border-color: #bf0000; border 2px solid; margin-bottom: 10px"><i class="fas icofont-brand-whatsapp" style="font-size: 2rem; color: #fff"></i><span style="color: #fff; margin-left: 10px">Enviar un mensaje</span></button>
                             @endif
                             @if($usuario_puestos->puesto->phone)
                                 <h1 style="color: #000; font-size: 24px"><i class="fas icofont-smart-phone" style="font-size: 24px; padding: 10px; color: #000"></i> {{ $usuario_puestos->puesto->phone }}</span>

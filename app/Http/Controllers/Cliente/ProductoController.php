@@ -56,7 +56,7 @@ class ProductoController extends Controller
             'grupo'         =>  'required',
         ];
         $this->validate($request, $rules);
-        
+
         $producto = Producto::create([
             'name' => $request->input('name'),
             'description' => $request->input('description'),
@@ -70,6 +70,9 @@ class ProductoController extends Controller
         $producto = $producto->id;
         foreach($files as $file){
             $name = $file->getClientOriginalName();
+            if(strlen($name)> 49){
+                $name = substr($name,40);
+            }
             $fileName = 'public/'.$puesto.'/'.$producto.'/'.$name;
             $fname = 'storage/'.$puesto.'/'.$producto.'/'.$name;
             $imagenurl = 'https://feriatacna.com/storage/'.$puesto.'/'.$producto.'/'.$name;
