@@ -4,13 +4,13 @@
         <i class="hamburger align-self-center"></i>
     </a>
     
-    <div class="form-control form-control-lite"><span style="color: #E5E5E5">Desplegar menú</span></div>
+    <div class="form-control form-control-lite"><span style="color: #f5f5f5; font-size: 18px">Desplegar menú</span></div>
     <div class="navbar-collapse collapse">
         <ul class="navbar-nav ml-auto">
             
             <li class="nav-item dropdown ml-lg-2">
                 <a class="nav-link dropdown-toggle position-relative" href="#" id="userDropdown" data-toggle="dropdown">
-                    <i class="align-middle fas fa-cog"></i>
+                    <i class="align-middle fas fa-power-off" style="color: #f5f5f5; font-size: 25px"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                     <!-- <a class="dropdown-item" href="#"><i class="align-middle mr-1 fas fa-fw fa-user"></i> View Profile</a>
