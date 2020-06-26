@@ -50,13 +50,13 @@ class CentroComercialController extends Controller
 
             if($imagena != null) {
                 $name = $imagena->getClientOriginalName();
-                $fileName = 'public/'.$cc->id.'/'.$name;
+                $fileName = 'public/cc/'.$cc->id.'/'.$name;
                 \Storage::disk('local')->put($fileName,  \File::get($imagena));
                 $cc->banner = $name;
             }
             if($imagenb != null) {
                 $name = $imagenb->getClientOriginalName();
-                $fileName = 'public/'.$cc->id.'/'.$name;
+                $fileName = 'public/cc/'.$cc->id.'/'.$name;
                 \Storage::disk('local')->put($fileName,  \File::get($imagenb));
                 $cc->logo = $name;
             }

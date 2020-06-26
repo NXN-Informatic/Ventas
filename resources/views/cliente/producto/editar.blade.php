@@ -156,7 +156,7 @@
         </div>
         <div class="row">
             <div class="col-12 text-center">
-                <button type="submit" class="btn btn-primary btn-lg"><span style="margin-left: 83px; margin-right: 83px">Añadir producto</span></button>
+                <button type="submit" class="btn btn-primary btn-lg"><span style="margin-left: 83px; margin-right: 83px">Actualizar producto</span></button>
             </div>
         </div>
         </form>

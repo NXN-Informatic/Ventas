@@ -9,48 +9,93 @@
 
 @section('content')
 @section('title','Bienvenido')
-
-<div class="featureProduct" id="prod" style="background: #F3F3F3;padding:10px">
+<div id="ocultar9">
+    @if($centrocomercial->banner != null)
+        <div class="bannerBlog headermax" style="background-image: url('{{ asset('storage/cc/'.$centrocomercial->id.'/'.$centrocomercial->banner)}}')">
+            <h1 class="title" style="margin-top:7%; text-shadow: 0px 0px 30px #000">{{ $centrocomercial->nombre }}</h1>
+        </div>
+    @else
+        <div class="bannerBlog headermax" style="background-image: url('{{ asset('img/registro.jpg')}}');height:400px">
+            <h1 class="title" style="margin-top:7%; text-shadow: 0px 0px 30px #000">{{ $centrocomercial->nombre }}</h1>
+        </div>
+    @endif    
+</div>
+<div class="feature" style="background: #F3F3F3;padding:10px">
+    <h4 class="title">¿A dónde quieres ir? </h4>
     <div class="feature__wrap container">
-        <div class="feature__filter">
-            <div class="button-group filters-button-group feature__buttons">
+        @foreach($categorias as $categoria)
+            <div class="feature__item"><a href="{{ url('/centrocomercial/'.$centrocomercial->id.'/'.$categoria->id) }}">
+                <img src="{{ asset('img/categorias/'.$categoria->name.'jpg') }}" style="width: 98%; height: 160px; border: 5px solid #fff" class="shad"> 
+                </a>
+                <div class="feature__content">
+                    <a href="{{ url('/centrocomercial/'.$centrocomercial->id.'/'.$categoria->id) }}"><h3 style="color: #fff; text-shadow: 0px 0px 15px #000; font-size: 18px">{{ $categoria->name }}</h3></a><span style="color: #fff; text-shadow: 0px 0px 30px #000; font-size: 18px">10 Tiendas</span>
+                </div>
             </div>
-            <ul class="featureSlider container">
-                <li class="grid features__grid" >
-                    
-                    @foreach($centroComerciales->puestos as $puestos)
-                        @foreach($puestos as $ps)
+        @endforeach    
+    </div>
+  </div>
+<h1 style="font-size: 28px; text-align: center; background-color: #f3f3f3; padding-top: 20px">Tiendas Recomendadas</h1>
+
+@foreach ($categorias as $categoria)
+    <?php $paux = 0; ?>
+    <div class="blog" style="background: #F3F3F3; margin-top: 0px; padding-top: 20px" id="ocultar89">
+        <h4 class="title" style="text-align: left; margin-left: 140px">{{$categoria->name}} <a href="{{ url('puestos/all') }}"> Ver Más</a></h4>
+        <div class="feature__wrap container" style="margin-top: -20px" >
+            <div class="blog__wrap dflex">
+                @foreach ($puestos as $ps)
+                    @if ($paux < 4)
+                        @if ($ps->puestosubcategorias->first()->subcategoria->categoria_id == $categoria->id)
                             @if($ps->banner != null and $ps->perfil != null)
-                                <div class="blog__item col-lg-3" style="margin: auto; background:#fff">
-                                    
-                                    <div class="blog__image">
-                                        <img src="{{ url('storage/'.$ps->id.'/banner/'.$ps->banner) }}" alt="" height="100px" style="position: relative; z-index: 5; top: 0px">
-                                    </div>
-                                    <div>
-                                        <img src="{{ url('storage/'.$ps->id.'/logo/'.$ps->perfil) }}" alt="" height="80px" width="80px" style="position: relative; z-index: 6; top: -50px">
-                                    </div>
-                                    <div class="blog__content" style="margin-top: -60px">
-                                        <a class="heading" href="#">{{ $ps->name}}</a><br><br>
-                                        <div class="row">
-                                            @if ($ps->puestosubcategorias->first())
-                                                @foreach ($ps->puestosubcategorias->first()->grupos as $grupos)
-                                                <?php $imagen = null; ?>
-                                                <?php $imagen = $grupos->productos->random(1)->first()->imagen_productos->first(); //solo una imagen x producto?>
-                                                <img src="{{ asset('storage/'.$ps->id.'/'.$grupos->productos->first()->id.'/'.$imagen->imagen) }}" alt="" height="60px" style="margin: auto">
-                                                @endforeach
-                                            @endif
-                                            
+                                <?php $puestosubcategorias = $ps->puestosubcategorias->random(1)->first(); ?>
+                                @if($puestosubcategorias != null)
+                                    @if(count($puestosubcategorias->grupos) > 0)
+                                        <?php $aux=0; ?>
+                                        <?php $paux = $paux + 1; ?>
+                                        <div class="blog__item col-lg-3" style="background:#fff; height: 350px; padding: 0px">
+                                            <div class="blog__image" style="margin-left: 0px;">
+                                                <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank">
+                                                    <img src="{{ url('storage/'.$ps->id.'/banner/'.$ps->banner) }}" width="100%" alt="" height="120px" style="position: relative; z-index: 5; top: 0px; border: 3px solid #fff" class="shad">
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank">
+                                                    <img src="{{ url('storage/'.$ps->id.'/logo/'.$ps->perfil) }}" alt="" height="90px" width="90px" class="shad" style="position: relative; z-index: 6; top: -50px; border: 3px solid #fff; background: #fff; border-radius: 5%">
+                                                </a>
+                                            </div>
+                                            <div class="blog__content" style="margin-top: -60px">
+                                                <h1 style="color: #bf0000">{{ $ps->name}}</h1><br><br>
+                                                <div class="row">
+                                                    @foreach ($puestosubcategorias->grupos as $grupos)
+                                                        @if (count($grupos->productos) > 0)
+                                                            @if($aux < 3)  
+                                                                <?php $imagen = null; 
+                                                                $gp = $grupos->productos->random(1)->first();?>
+                                                                @if ($gp->activo)
+                                                                    <?php $imagen = $gp->imagen_productos->first(); //solo una imagen x producto?>
+                                                                    @if($imagen != null)
+                                                                            <a href="{{ url('producto/'.$gp->id.'/detailProd')}}" style="margin:auto">                                       
+                                                                                <img src="{{ asset('storage/'.$ps->id.'/'.$gp->id.'/'.$imagen->imagen) }}" alt="" height="100px" width="75px" style="border: 3px solid #fff; margin: auto; border-radius: 10%" class="shad">
+                                                                            </a>
+                                                                        <?php $aux = $aux+1; ?>
+                                                                    @endif
+                                                                @endif
+                                                            @endif
+                                                        @endif
+                                                    @endforeach
+                                                </div>
+                                                <!--<p> substr($ps->description,0,60)}...</p> -->
+                                            </div>
                                         </div>
-                                        <!--<p> substr($ps->description,0,60)}...</p> -->
-                                    </div>
-                                </div>
+                                    @endif
+                                @endif
                             @endif
-                        @endforeach
-                    @endforeach
-                </li>
-            </ul>
+                        @endif
+                    @endif
+                @endforeach
+            </div>
         </div>
     </div>
-</div>
+@endforeach
+
 
 @endsection

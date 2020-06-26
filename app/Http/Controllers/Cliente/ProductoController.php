@@ -142,6 +142,13 @@ class ProductoController extends Controller
         
     }
 
+    public function switch(Request $request, Producto $producto) {
+        $producto->activo = $request->input('value');        
+        $producto->save();
+        $notification = 'El producto se actualizó correctamente.';
+        return  redirect('/producto/lista')->with(compact('notification'));
+    }
+
     public function grupo(Request $request) {
         $rules = [
             'name'              =>  'required|min:3|max:25',

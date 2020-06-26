@@ -43,7 +43,7 @@
                     </a>
             </div>
             <hr>
-            <div class="col-lg-12 col-sm-6" style="padding-top: 20px">
+            <div class="col-lg-12 col-sm-12" style="padding-top: 20px">
                 @foreach($puestoSubcategorias as $puestoSubcategoria)
                     <div class="card">
                         <div class="card-header">
@@ -86,18 +86,26 @@
                                                                     </div>
                                                                 @endif
                                                             </div>
-                                                            <div class="col-lg-7 col-sm-6">
-                                                                <div class="col-12 text-right">
-                                                                    <a href="{{ url('producto/'.$usuarioPuesto->id.'/editar/'.$producto->id) }}"><button type="button" class="btn mb-1 btn-secondary" style="margin-top: 7px">
-                                                                        <i class="fas fa-edit" title="Editar"></i><span style="margin-left: 7px; margin-right: 2px">Editar</span>
-                                                                    </button></a>
-                                                                    <a  href="javascript:void" onclick="$('{{'#delete-form'.$producto->id}}').submit();"><button type="button" class="btn btn-danger" style="margin-top: 7px">
-                                                                        <i class="fas fa-times" title="Eliminar"></i>
-                                                                    </button></a>
-                                                                </div>
+                                                            <div class="col-lg-7 col-sm-12">
+                                                                    <div class="col-lg-12 text-center">
+                                                                        <a href="{{ url('producto/'.$usuarioPuesto->id.'/editar/'.$producto->id) }}"><button type="button" class="btn mb-1 btn-secondary" style="margin-top: 7px; margin-left: 2px">
+                                                                            <i class="fas fa-edit" title="Editar"></i><span style="margin-left: 7px; margin-right: 2px">Editar</span>
+                                                                        </button></a>
+                                                                        <a  href="javascript:void" onclick="$('{{'#delete-form'.$producto->id}}').submit();"><button type="button" class="btn btn-danger" style="margin-top: 3px; margin-left: 4px">
+                                                                            <i class="fas fa-times" title="Eliminar"></i>
+                                                                        </button></a>
+                                                                    </div>
+                                                                        
                                                                 <div class="row">
                                                                     <table class="table table-sm my-2">
                                                                         <tbody>
+                                                                            <tr>
+                                                                                <th>Publicar</th>
+                                                                                <td class="custom-control custom-switch">
+                                                                                    <input id= "{{'prod'.$producto->id}}" data-id="{{$producto->id}}" onchange="myFunction({{$producto->id}})" value = {{$producto->activo}} class="custom-control-input" type="checkbox" {{ $producto->activo ? 'checked' : '' }}>
+                                                                                    <label class="custom-control-label" for="{{'prod'.$producto->id}}" style="margin-left: 10px"></label>
+                                                                                 </td>
+                                                                            </tr>
                                                                             <tr>
                                                                                 <th>Nombre</th>
                                                                                 <td>{{ $producto->name }}</td>
@@ -144,6 +152,10 @@
                                                         </div>
                                                         <div class="col-lg-7 col-sm-6">
                                                             <div class="col-12 text-right">
+                                                                <div class="custom-control custom-switch">
+                                                                    <input id= "{{'prod'.$producto->id}}" data-id="{{$producto->id}}" onchange="myFunction({{$producto->id}})" value = {{$producto->activo}} class="custom-control-input" type="checkbox" {{ $producto->activo ? 'checked' : '' }}>
+                                                                    <label class="custom-control-label" for="{{'prod'.$producto->id}}">Publicar</label>
+                                                                </div>
                                                                 <a href="{{ url('producto/'.$usuarioPuesto->id.'/editar/'.$producto->id) }}"><button type="button" class="btn mb-1 btn-secondary" style="margin-top: 7px">
                                                                     <i class="fas fa-edit" title="Editar"></i><span style="margin-left: 7px; margin-right: 2px">Editar</span>
                                                                 </button></a>
@@ -217,4 +229,41 @@
             },
         });
     </script>
+
+<script>
+    function myFunction(id) {
+   
+          var value = document.getElementById("prod" + id).value;
+          if (value == 1){
+              document.getElementById("prod" + id).value = 0;
+          }
+          if (value == 0){         
+              document.getElementById("prod" + id).value = 1;
+          }
+      
+          var producto_id = id;
+          var activo = document.getElementById("prod" + id).value;
+  
+  
+          $.ajax({
+              method: 'POST', // Type of response and matches what we said in the route
+              url: '/producto/switch/'+producto_id, // This is the url we gave in the route
+              data: {
+              'company_id' : producto_id, 
+              'value' : activo,
+              _token: '{{csrf_token()}}',
+              
+              },
+
+              success: function(response){ 
+                  console.log(response); 
+              },
+              error: function(jqXHR, textStatus, errorThrown) {
+                  console.log(JSON.stringify(jqXHR));
+                  console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+              }
+          });
+      }
+  </script>
+   
 @endsection

@@ -14,20 +14,22 @@
 
 
 <!--Start Feature Product-->
-<div class="featureProduct singleProduct" id="tiendas" style="background: #F3F3F3">
-    <div class="feature__wrap container" style="margin-top: 30px; padding-left: 40px; padding-right: 40px">
-        <div class="row shad" style="border: 1px ; padding: 16px; background: #fff">
-            <div class="col-lg-4 col-12">
-                <h3 style="color: #bf0000; font-size: 16px">BUSCA</h3>
-                <span style="margin-top: 1px; font-size: 16px; color:rgb(63, 63, 63)">Productos y tiendas de tacna, ahorra tiempo y dinero</span>
-            </div>
-            <div class="col-lg-4 col-12">
-                <h3 style="color: #bf0000; font-size: 16px">COMPARA</h3>
-                <span style="margin-top: 1px; font-size: 16px; color:rgb(63, 63, 63)">Precios y caracteristicas, de tus tiendas locales de siempre</span>
-            </div>
-            <div class="col-lg-4 col-12">
-                <h3 style="color: #bf0000; font-size: 16px">COMPRA</h3>
-                <span style="margin-top: 1px; font-size: 16px; color:rgb(63, 63, 63)">Sin comisiones ni tarjetas, trato directo con tiendas</span>
+<div class="blog" id="tiendas" style="background: #F3F3F3; padding-bottom: 30px; margin-top: -20px">
+    <div class="feature__wrap container" style="margin-top: 0px" >
+        <div style="margin-top: 0px; padding-left: 40px; padding-right: 40px">
+            <div class="row shad" style="border: 1px ; padding: 16px; background: #fff">
+                <div class="col-lg-4 col-12">
+                    <h3 style="color: #bf0000; font-size: 16px">BUSCA</h3>
+                    <span style="margin-top: 1px; font-size: 16px; color:rgb(63, 63, 63)">Productos y tiendas de tacna, ahorra tiempo y dinero</span>
+                </div>
+                <div class="col-lg-4 col-12">
+                    <h3 style="color: #bf0000; font-size: 16px">COMPARA</h3>
+                    <span style="margin-top: 1px; font-size: 16px; color:rgb(63, 63, 63)">Precios y caracteristicas, de tus tiendas locales de siempre</span>
+                </div>
+                <div class="col-lg-4 col-12">
+                    <h3 style="color: #bf0000; font-size: 16px">COMPRA</h3>
+                    <span style="margin-top: 1px; font-size: 16px; color:rgb(63, 63, 63)">Sin comisiones ni tarjetas, trato directo con tiendas</span>
+                </div>
             </div>
         </div>
     </div>
@@ -35,7 +37,7 @@
 
 <!--Start Feature Product-->
 
-<div class="blog" style="background: #F3F3F3; margin-top:-10px; padding-top: 0px" id="ocultar89">
+<div class="blog" style="background: #F3F3F3; margin-top: 0px; padding-top: 0px" id="ocultar89">
     <h4 class="title">Tiendas Recomendadas <a href="{{ url('puestos/all') }}"> Ver tiendas</a></h4>
     <div class="feature__wrap container" style="margin-top: -20px" >
         <div class="blog__wrap dflex">
@@ -66,13 +68,15 @@
                                                         @if (count($grupos->productos) > 0)
                                                             @if($aux < 3)  
                                                                 <?php $imagen = null; 
-                                                                        $gp = $grupos->productos->random(1)->first();?>
-                                                                <?php $imagen = $gp->imagen_productos->first(); //solo una imagen x producto?>
-                                                                @if($imagen != null)
-                                                                        <a href="{{ url('producto/'.$gp->id.'/detailProd')}}" style="margin:auto">                                       
-                                                                            <img src="{{ asset('storage/'.$ps->id.'/'.$gp->id.'/'.$imagen->imagen) }}" alt="" height="100px" width="70px" style="border: 3px solid #fff; margin: auto; border-radius: 10%" class="shad">
-                                                                        </a>
-                                                                    <?php $aux = $aux+1; ?>
+                                                                $gp = $grupos->productos->random(1)->first();?>
+                                                                @if ($gp->activo)
+                                                                    <?php $imagen = $gp->imagen_productos->first(); //solo una imagen x producto?>
+                                                                    @if($imagen != null)
+                                                                            <a href="{{ url('producto/'.$gp->id.'/detailProd')}}" style="margin:auto">                                       
+                                                                                <img src="{{ asset('storage/'.$ps->id.'/'.$gp->id.'/'.$imagen->imagen) }}" alt="" height="100px" width="75px" style="border: 3px solid #fff; margin: auto; border-radius: 10%" class="shad">
+                                                                            </a>
+                                                                        <?php $aux = $aux+1; ?>
+                                                                    @endif
                                                                 @endif
                                                             @endif
                                                         @endif
@@ -96,25 +100,26 @@
     <div class="feature__wrap container">
         <h4 class="title">Productos para ti <a href="{{ url('all/productos') }}"> Ver productos</a></h4> 
         <div class="feature__filter">
-            
             <ul class="featureSlider container">
                 <li class="grid features__grid">
                     @foreach($productos as $producto)
-                        @foreach($producto->imagen_productos as $imagen) @endforeach
-                        @if($imagen)
-                            <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank">
-                                <div class="element-item features__item col-lg-3 col-sm-6 col-12">
-                                    <div class="features__image desk">
-                                        <img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt="" style="border: 5px solid #fff" class="shad">
-                                    </div>
-                                    <div class="features__content">
-                                        <span style="font-size: 20px; color:#bf0000"><strong>S/. {{$producto->precio}}</strong></span>
-                                        <div class="content__overlay" style="margin-top: -15px; margin-bottom: 0px">
-                                        <p style="color: #000">{{$producto->name }}</p>
+                        @if ($producto->activo)
+                            @foreach($producto->imagen_productos as $imagen) @endforeach
+                            @if($imagen)
+                                <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank">
+                                    <div class="element-item features__item col-lg-3 col-sm-6 col-12">
+                                        <div class="features__image desk">
+                                            <img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt="" style="border: 5px solid #fff" class="shad">
+                                        </div>
+                                        <div class="features__content">
+                                            <span style="font-size: 20px; color:#bf0000"><strong>S/. {{$producto->precio}}</strong></span>
+                                            <div class="content__overlay" style="margin-top: -15px; margin-bottom: 0px">
+                                            <p style="color: #000">{{$producto->name }}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
+                            @endif
                         @endif
                     @endforeach         
                 </li>
@@ -123,35 +128,21 @@
     </div>
 </div>
 
-
+<div class="feature" style="background: #F3F3F3;padding:10px">
+    <h4 class="title">Centros Comerciales <a href="{{ url('centroscomerciales/all') }}"> Ver todos</a></h4>
+    <div class="feature__wrap container">
+        @foreach($cccc as $cc)
+            <div class="feature__item"><a href="{{ url('/centrocomercial/'.$cc->id) }}">
+                <img src="{{ asset('storage/cc/'.$cc->id.'/'.$cc->banner) }}" style="width: 98%; height: 160px; border: 5px solid #fff" class="shad"> 
+                </a>
+                <div class="feature__content">
+                    <a href="{{ url('/centrocomercial/'.$cc->id) }}"><h3 style="color: #fff; text-shadow: 0px 0px 15px #000; font-size: 18px">{{ $cc->nombre }}</h3></a><span style="color: #fff; text-shadow: 0px 0px 30px #000; font-size: 18px">10 Tiendas</span>
+                </div>
+            </div>
+        @endforeach    
+    </div>
+  </div>
 <!-- start centros comerciales OJO "cccc=centros comerciales"-->
-<div class="featureProduct singleProduct" style="margin-top:-5px; padding-bottom:0px; background: #F3F3F3" id="oculto56" >
-    <div class="feature__wrap container" style="background: #F3F3F3">
-        <h4 class="title">Centros Comerciales <a href="{{ url('centroscomerciales/all') }}"> Ver todos</a></h4>
-    <div class="feature__filter">
-        <div class="featureSlider">
-            <div class="sliderButton left"><i class="fas fa-angle-left"></i></div>
-            <div class="sliderButton right"><i class="fas fa-angle-right"></i></div>
-            <ul class="features__grid" id="wrap">
-                @foreach($cccc as $cc)
-                <li class="features__item col-lg-3 col-sm-6 col-12">
-                    <div class="features__image wood light5">
-                        <a href="{{ url('/Centropuestos/'.$cc->id) }}">
-                        <img src="{{ asset('storage/'.$cc->id.'/'.$cc->banner) }}" style="width: 98%; height: 200px; border: 5px solid #fff" class="shad"> 
-                        </a>
-                    </div>
-                    <div class="features__content">
-                        <div class="content__overlay">
-                            <a href="{{ url('/Centropuestos/'.$cc->id) }}"><span style="font-size: 16px; color:#000">{{ $cc->nombre }}</span></a>
-                        </div>
-                    </div>
-                </li>
-                @endforeach
-            </ul>
-        </div>
-    </div>
-    </div>
-</div>
 <!-- end centros comerciales -->
 <!--Start Product-->
 <div class="shopProduct" style="background: #F3F3F3;z-index: -1">

@@ -109,8 +109,10 @@ class PublicController extends Controller
         return redirect('/home')->with(compact('notification'));
     }
 
-    public function Centropuestos(Centroscomerciale $centroComerciales){
+    public function centrocomercial(Centroscomerciale $centrocomercial){
         $categorias = Categoria::all();
-        return view('publicas.centro', compact('centroComerciales', 'categorias'));
+        $puestos = Puesto::where('cencom_id',$centrocomercial->id)->get(); // where(plan = premium);
+       
+        return view('publicas.centro', compact('centrocomercial','puestos', 'categorias'));
     }
 }

@@ -150,25 +150,27 @@
                 <li class="grid features__grid" >
                     
                     @foreach($grupos->productos as $producto)
-                        <?php $imagen = null; ?>
-                        <?php $imagen = $producto->imagen_productos->first(); //solo una imagen x producto?>
-                        @if($imagen != null)
-                        <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">
-                            <div class="features__image desk">
-                                <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank"><img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt=""></a>
-                                <div class="image__overlay">
-                                    <div class="color">
-                                        <div class="image" data-image="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px"></div>
+                        @if ($producto->activo)
+                            <?php $imagen = null; ?>
+                            <?php $imagen = $producto->imagen_productos->first(); //solo una imagen x producto?>
+                            @if($imagen != null)
+                                <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">
+                                    <div class="features__image desk">
+                                        <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank"><img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt=""></a>
+                                        <div class="image__overlay">
+                                            <div class="color">
+                                                <div class="image" data-image="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="features__content">
+                                        <span style="font-size: 20px; color:#bf0000"><strong>S/. {{$producto->precio}}</strong></span>
+                                        <div class="content__overlay" style="margin-top: -15px; margin-bottom: 0px">
+                                        <p style="color: #000">{{$producto->name }}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="features__content">
-                                <span style="font-size: 20px; color:#bf0000"><strong>S/. {{$producto->precio}}</strong></span>
-                                <div class="content__overlay" style="margin-top: -15px; margin-bottom: 0px">
-                                <p style="color: #000">{{$producto->name }}</p>
-                                </div>
-                            </div>
-                        </div>
+                            @endif
                         @endif
                     @endforeach
                 </li>

@@ -9,12 +9,12 @@ use App\Puesto;
 
 Route::get('/', function () {
     $puestos = collect();
-    $pst = Puesto::orderBy('id','asc')->limit(6)->get();
-    $productos = Producto::orderBy('id','desc')->limit(8)->get();
+    $pst = Puesto::where('completado',1)->where('personalizado',1)->orderBy('id','desc')->limit(8)->get();
+    $productos = Producto::all()->random(8);
     $tiendas = collect();
     $categorias = Categoria::all();
     $subcategorias = Subcategoria::all();
-    $cccc = CentrosComerciale::orderBy('id','desc')->limit(10)->get();
+    $cccc = CentrosComerciale::all()->random(8);
     return view('welcome', compact('puestos', 'productos', 'categorias', 'tiendas','pst','subcategorias','cccc'));
 });
 
@@ -35,7 +35,7 @@ Route::get('/puestos/all', 'PublicController@puestoAll');
 Route::get('/produc/{puesto}/all', 'PublicController@apiproductos');
 Route::post('/tienda/create', 'PublicController@create');
 
-Route::get('/Centropuestos/{id}', 'PublicController@Centropuestos');
+Route::get('/centrocomercial/{centrocomercial}', 'PublicController@centrocomercial');
 
 /**
  * api rest Publicas
@@ -79,6 +79,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/producto/{usuarioPuesto}/editar/{producto}' , 'Cliente\ProductoController@editar');
     Route::put('/producto/update/{producto}', 'Cliente\ProductoController@update');
     Route::put('/producto/{producto}/delete', 'Cliente\ProductoController@delete');
+    Route::post('/producto/switch/{producto}', 'Cliente\ProductoController@switch');
 
     // Subida de Imagenes
     Route::post('/producto/dropzoneFrom', 'Cliente\ProductoController@dropzoneFrom');
