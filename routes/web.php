@@ -14,7 +14,7 @@ Route::get('/', function () {
     $tiendas = collect();
     $categorias = Categoria::all();
     $subcategorias = Subcategoria::all();
-    $cccc = CentrosComerciale::all()->random(8);
+    $cccc = CentrosComerciale::orderBy('id','desc')->limit(8)->get();
     return view('welcome', compact('puestos', 'productos', 'categorias', 'tiendas','pst','subcategorias','cccc'));
 });
 
