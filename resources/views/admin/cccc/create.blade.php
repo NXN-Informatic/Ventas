@@ -58,11 +58,11 @@
                                 <textarea name="descripcion" data-provide="markdown" rows="5"></textarea>
                             </div>
                             <div class="form-group">
-                                <label class="form-label" for="imagena">primera imagen</label>
+                                <label class="form-label" for="imagena">Banner</label>
                                 <input type="file" class="form-control-file" name="imagena">
                             </div>
                             <div class="form-group">
-                                <label class="form-label" for="imagenb">segunda imagen</label>
+                                <label class="form-label" for="imagenb">Logo</label>
                                 <input type="file" class="form-control-file" name="imagenb">
                             </div>
                             <button type="submit" class="btn btn-primary">Guardar</button>
