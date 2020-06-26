@@ -25,7 +25,7 @@
     <div class="feature__wrap container">
         @foreach($categorias as $categoria)
             <div class="feature__item"><a href="{{ url('/centrocomercial/'.$centrocomercial->id.'/'.$categoria->id) }}">
-                <img src="{{ asset('img/categorias/'.$categoria->name.'jpg') }}" style="width: 98%; height: 160px; border: 5px solid #fff" class="shad"> 
+                <img src="{{ asset('img/categorias/'.$categoria->name.'.jpg') }}" style="width: 98%; height: 160px; border: 5px solid #fff" class="shad"> 
                 </a>
                 <div class="feature__content">
                     <a href="{{ url('/centrocomercial/'.$centrocomercial->id.'/'.$categoria->id) }}"><h3 style="color: #fff; text-shadow: 0px 0px 15px #000; font-size: 18px">{{ $categoria->name }}</h3></a><span style="color: #fff; text-shadow: 0px 0px 30px #000; font-size: 18px">10 Tiendas</span>
