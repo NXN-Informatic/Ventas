@@ -31,24 +31,23 @@
             <div class="product dflex">
                 <div class="col-lg-7 col-12">
                     <div class="swiper-container shad2" style="background-color: #fff">
-                        <div class="swiper-wrapper" >
+                        <div class="swiper-wrapper">
                             <!-- Imagen Productos -->
                             @foreach($producto->imagen_productos as $imagenes)
-                              <div class="swiper-slide">
+                              <div class="swiper-slide" style="width: 100%; height: 500px;">
                                   <a href="#">
-                                      <img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagenes->imagen) }}" 
-                                      class="card-img-top" alt="" height="500px" width="100%" style="border: 5px solid #fff">
+                                      <img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagenes->imagen) }}" width="100%" height="auto" style="border: 5px solid #fff;max-height: 100%;
+                                      max-width: 100%;
+                                      height: auto;
+                                      position: absolute;
+                                      top: 0;
+                                      bottom: 0;
+                                      left: 0;
+                                      right: 0;
+                                      margin: auto;">
                                   </a>
                               </div>
                             @endforeach
-                            @if(count($producto->imagen_productos) < 1)
-                                <div class="swiper-slide">
-                                    <a href="#">
-                                        <img src="{{ asset('/img/defaultProducto.jpg') }}" 
-                                        class="card-img-top" alt="" height="400px" width="400px">
-                                    </a>
-                                </div>
-                            @endif 
                         </div>
                         <div class="swiper-pagination"></div>
                         <div class="swiper-button-prev"></div>

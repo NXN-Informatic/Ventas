@@ -78,7 +78,8 @@ class ProductoController extends Controller
             $imagenurl = 'https://feriatacna.com/storage/'.$puesto.'/'.$producto.'/'.$name;
             //indicamos que queremos guardar un nuevo archivo en el disco local
             \Storage::disk('local')->put($fileName,  \File::get($file));
-            Image::make($fname)->resize(1200, 1000)->save($fname);
+            Image::make($fname)->resize(1200, 1200, function ($constraint) {$constraint->aspectRatio(); $constraint->upsize();
+            })->save($fname);
            
             ImagenProducto::create(
                 [

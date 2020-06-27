@@ -21,14 +21,14 @@
     @endif    
 </div>
 <div class="feature" style="background: #F3F3F3;padding:10px">
-    <h4 class="title">¿A dónde quieres ir? </h4>
+    <h4 class="title"></h4>
     <div class="feature__wrap container">
         @foreach($categorias as $categoria)
-            <div class="feature__item"><a href="{{ url('/centrocomercial/'.$centrocomercial->id.'/'.$categoria->id) }}">
-                <img src="{{ asset('img/categorias/'.$categoria->name.'.jpg') }}" style="width: 98%; height: 160px; border: 5px solid #fff" class="shad"> 
+            <div class="feature__item">
+            <a href="{{'#'.$categoria->name}}"><img src="{{ asset('img/categorias/'.$categoria->name.'.jpg') }}" style="width: 98%; height: 160px; border: 5px solid #fff" class="shad"> 
                 </a>
                 <div class="feature__content">
-                    <a href="{{ url('/centrocomercial/'.$centrocomercial->id.'/'.$categoria->id) }}"><h3 style="color: #fff; text-shadow: 0px 0px 15px #000; font-size: 18px">{{ $categoria->name }}</h3></a><span style="color: #fff; text-shadow: 0px 0px 30px #000; font-size: 18px">10 Tiendas</span>
+                    <h3 style="color: #fff; text-shadow: 0px 0px 15px #000; font-size: 18px">{{ $categoria->name }}</h3><span style="color: #000; font-size: 1px">.</span>
                 </div>
             </div>
         @endforeach    
@@ -38,7 +38,7 @@
 
 @foreach ($categorias as $categoria)
     <?php $paux = 0; ?>
-    <div class="blog" style="background: #F3F3F3; margin-top: 0px; padding-top: 20px" id="ocultar89">
+<div class="blog" style="background: #F3F3F3; margin-top: 0px; padding-top: 20px" id="{{$categoria->name}}">
         <h4 class="title" style="text-align: left; margin-left: 140px">{{$categoria->name}} <a href="{{ url('puestos/all') }}"> Ver Más</a></h4>
         <div class="feature__wrap container" style="margin-top: -20px" >
             <div class="blog__wrap dflex">

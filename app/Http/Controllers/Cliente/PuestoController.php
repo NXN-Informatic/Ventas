@@ -240,7 +240,24 @@ class PuestoController extends Controller
         }
         
         $puesto->direccion = $request->input('direccion');
-        $puesto->cencom_id = $request->input('cencom');
+        if($request->input('cencom')){
+            if($request->input('cencom') != $puesto->cencom_id){
+                if($puesto->cencom_id){
+                    $ccantiguo = CentrosComerciale::find($puesto->cencom_id);
+                    $puesto->cencom_id = $request->input('cencom');
+                    $cc = CentrosComerciale::find($puesto->cencom_id);
+                    $ccantiguo->cantidad = $ccantiguo->cantidad - 1;
+                    $cc->cantidad = $cc->cantidad + 1;
+                    $cc->save();
+                    $ccantiguo->save();
+                }else{
+                    $puesto->cencom_id = $request->input('cencom');
+                    $cc = CentrosComerciale::find($request->input('cencom'));
+                    $cc->cantidad = 1;
+                    $cc->save();
+                }
+            }
+        }
         //$puesto->precio_min = $request->input('precio_min');
         $aux=0;
         $file = $request->file('logo');

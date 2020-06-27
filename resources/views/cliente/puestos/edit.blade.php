@@ -133,7 +133,7 @@
                             <div class="form-group">
                                 <strong><label class="form-label" for="direccion">Ubicación de tu Tienda o lugar de reparto (Dirección completa) </label></strong>
                                 <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Indique la ubicación como quiera que aparezca para sus clientes.') }}</small>
-                                <input style="margin-top: 7px" type="text" class="form-control form-control-lg" name="direccion" value="{{ old('direccion', $puesto->direccion) }}" required>
+                                <input style="margin-top: 7px" type="text" class="form-control form-control-lg" name="direccion" value="{{ old('direccion', $puesto->direccion) }}">
                             </div>
                             <div class="form-group">
                                 <strong><label class="form-label" for="mapa">Mapa de ubicación</label></strong>
