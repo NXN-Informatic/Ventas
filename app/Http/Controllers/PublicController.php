@@ -68,7 +68,8 @@ class PublicController extends Controller
                 'name' => $request->input('name'),
                 'phone' => $request->input('phone'),
                 'maxsubcategorias' => 2,
-                'plan_id' => 1
+                'plan_id' => 1,
+                'wsp' => $request->input('phone')
             ]);
             $subcategorias = $request->input('subcategoria_id');
 
