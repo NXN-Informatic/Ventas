@@ -60,7 +60,7 @@
                         <br>
                     </div>
                     <div class="shad2" style="background-color: #fff">
-                        <div class="fb-comments" data-href="{{ $producto->producto_url}}" data-numposts="5" data-width="100%" style="margin: 10px"></div>
+                        <div class="fb-comments" data-href="{{ $producto->producto_url}}" data-numposts="5" data-width="100%" style="margin: 7px"></div>
                     </div>
                     
                 </div>
@@ -133,72 +133,43 @@
 </div>
 
 <!--Start Featured Products-->
-<div class="featureProduct" id="ocultarProd" style="background-color: #f3f3f3">
-    <h4 class="title">Otros Productos de esta tienda<a href="" style="margin-left:10px">{{ __('Mostrar Más') }}</a></h4>
-    <div class="feature__filter">
-        <div class="button-group filters-button-group feature__buttons">
+<div class="featureProduct singleProduct" id="ocultarProd" style="background-color: #f3f3f3; padding: 10px">
+    <div class="feature__wrap container">
+        <h4 class="title">Otros Productos de esta tienda<a href="{{url('/puesto/'.$usuario_puestos->puesto->id.'/detail')}}" style="margin-left:10px">{{ __('Mostrar Más') }}</a></h4>
+        <div class="feature__filter">
+            <div class="featureSlider">
+                <div class="sliderButton left"><i class="fas fa-angle-left"></i></div>
+                <div class="sliderButton right"><i class="fas fa-angle-right"></i></div>
+                <ul class="features__grid" id="wrap">
+                    @foreach($producto->grupo->puestosubcategoria->puesto->puestosubcategorias as $puestosubcategoria)
+                        @foreach($puestosubcategoria->grupos as $grupo)
+                            @foreach($grupo->productos as $productos)
+                                <?php $imagen = null; ?>
+                                @foreach($productos->imagen_productos as $imagen) @endforeach
+                                @if($imagen)
+                                <a href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="_blank">
+                                    <li class="element-item  features__item col-lg-3 col-sm-6 col-12 shad2" style="position: relative; height: 302px;">
+                                        <div class="features__image desk">
+                                            <img src="{{ asset('/storage/'.$puestosubcategoria->puesto->id.'/'.$productos->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt="" style="border: 5px solid #fff">
+                                        </div>
+                                        <div class="features__content">
+                                            <span style="font-size: 20px; color:#bf0000"><strong>S/. {{$productos->precio}}</strong></span>
+                                            <div class="content__overlay" style="margin-top: -20px; margin-bottom: 0px">
+                                            <p style="color: #000">{{$productos->name }}</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </a>
+                                @endif
+                            @endforeach
+                        @endforeach
+                    @endforeach
+                </ul>
+            </div>
         </div>
-        <ul class="featureSlider container">
-            <li class="grid features__grid" id="prod">
-            @foreach($producto->grupo->puestosubcategoria->puesto->puestosubcategorias as $puestosubcategoria)
-              @foreach($puestosubcategoria->grupos as $grupo)
-                @foreach($grupo->productos as $productos)
-                  <?php $imagen = null; ?>
-                  @foreach($productos->imagen_productos as $imagen) @endforeach
-
-                  @if($imagen)
-                    <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">
-                        <div class="features__image desk">
-                        <a href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="black"><img src="{{ asset('/storage/'.$puestosubcategoria->puesto->id.'/'.$productos->id.'/'.$imagen->imagen) }}"
-                            width="200px" height="200px"></a>
-                            <div class="image__overlay">
-                                <div class="color">
-                                    <div class="image" data-image="{{ asset('/storage/'.$puestosubcategoria->puesto->id.'/'.$productos->id.'/'.$imagen->imagen) }}"  width="200px" height="300px"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="features__content"><a class="link" href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="black">{{$productos->name}}</a>
-                            <p class="price">{{$productos->precio}}</p>
-                            <div class="content__overlay">
-                                <p>{!! $productos->description !!}</p>
-                                <div class="control dflex"><a href="#"><i class="far fa-heart"></i></a><a class="btn active" href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="black">Ver Producto</a><a href="{{ url('/producto/${ productos.id }/detailProd') }}"><i class="fas fa-search"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-                @else
-                    <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">
-                        <div class="features__image desk">
-                            <a href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="black"><img src="{{ asset('img/defaultProducto.jpg') }}"  width="200px" height="300px" alt=""></a>
-                            <div class="image__overlay">
-                                <div class="color">
-                                    <div class="image" data-image="{{ asset('img/defaultProducto.jpg') }}"  width="200px" height="300px"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="features__content"><a class="link" href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="black">{{$productos->name}}</a>
-                            <p class="price">{{$productos->precio}}</p>
-                            <div class="content__overlay">
-                                <p>{!! $productos->description !!}</p>
-                                <div class="control dflex">
-                                  <a href="#"><i class="far fa-heart"></i></a>
-                                  <a class="btn active" href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="black">Ver Producto</a><a href="{{ url('/producto/${ productos.id }/detailProd') }}"><i class="fas fa-search"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endif
-
-                @endforeach
-              @endforeach
-            @endforeach
-            </li>
-        </ul>
-        
+        <!-- btn Mostrar Tienda -->
+         
     </div>
-    <!-- btn Mostrar Tienda -->
-    <a href="{{ url('/all/productos') }}">
-      <button type="submit" style="background:#153d77">{{ __('VER PRODUCTOS') }}</button>
-    </a> 
 </div>
 
 <!-- Mostrar Productos -->

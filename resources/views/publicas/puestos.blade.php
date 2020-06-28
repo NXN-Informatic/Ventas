@@ -9,6 +9,11 @@
 @section('styles')
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
     <style>
+    .shad {
+    -moz-box-shadow: 0 2px 5px rgb(139, 139, 139);
+    -webkit-box-shadow: 0 0 5px rgb(139, 139, 139);
+    box-shadow: 0 2 5px rgb(139, 139, 139);
+    }
     .swiper-button-prev,
     .swiper-button-next {
         display: none !important;
@@ -72,7 +77,7 @@
 </div> -->
 <div id="ocultar9">
 @if($puesto->banner != null)
-<div class="bannerBlog headermax" style="background-image: url('{{ asset('storage/'.$puesto->id.'/banner/'.$puesto->banner)}}')">
+<div class="bannerBlog headermax shad" style="background-image: url('{{ asset('storage/'.$puesto->id.'/banner/'.$puesto->banner)}}')">
     <h1 class="title" style="font-size:18px; text-align:right; margin-top:-5%; margin-right:10px"><i class="fab fa-whatsapp" style="margin-right: 8px"></i> {{ $puesto->phone }} </h1>
     <h1 class="title" style="margin-top:7%">{{ $puesto->name }}</h1>
     <div style="text-align:center;">
@@ -154,7 +159,7 @@
                             <?php $imagen = null; ?>
                             <?php $imagen = $producto->imagen_productos->first(); //solo una imagen x producto?>
                             @if($imagen != null)
-                                <div class="element-item features__item col-lg-3 col-sm-6 col-12 sale">
+                                <div class="element-item features__item col-lg-3 col-sm-6 col-12 shad">
                                     <div class="features__image desk">
                                         <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank"><img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt=""></a>
                                         <div class="image__overlay">
