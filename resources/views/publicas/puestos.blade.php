@@ -370,6 +370,7 @@
         $ocultar9 = $('#ocultar9');
         $ocultar5 = $('#ocultar5');
         $ocultar2 = $('#tiendas');
+        $ocultar99 = $('#prod');
         $resultado = $('#resultado');
         $mostrar = $('#mostrar');
 
@@ -386,6 +387,7 @@
 
             $mostrarcategoria.hide();
             $ocultar1.show();
+            $ocultar99.show();
             $ocultar9.show();
             $ocultar5.show();
             $resultado.hide();
@@ -394,6 +396,7 @@
             $mostrarcategoria.show();
             $ocultar1.hide();
             $ocultar2.hide();
+            $ocultar99.hide();
             $ocultar9.hide();
             $resultado.hide();
             $ocultar5.hide();
@@ -411,6 +414,7 @@
             $ocultar1.show();
             $resultado.hide();
             $ocultar2.show();
+            $ocultar99.show();
             $ocultar9.show();
             $ocultar5.hide();
             $mostrar.hide();
@@ -419,6 +423,7 @@
             $ocultar1.hide();
             $resultado.hide();
             $ocultar2.hide();
+            $ocultar99.hide();
             $ocultar5.hide();
             $ocultar9.hide();
             $mostrar.show();
