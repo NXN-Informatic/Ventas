@@ -143,9 +143,10 @@
     </div>
   </div>
 </div> -->
+<div id="prod">
 @foreach($puesto->puestosubcategorias as $puestosubcategorias)
     @foreach($puestosubcategorias->grupos as $grupos)
-        <div class="featureProduct singleProduct" id="prod" style="background: #F3F3F3; padding: 10px">
+        <div class="featureProduct singleProduct" style="background: #F3F3F3; padding: 10px">
             <div class="feature__wrap container">
                 <h4 class="title">{{ $grupos->name }}</h4>
                 <div class="feature__filter">
@@ -177,6 +178,7 @@
         </div>
     @endforeach
 @endforeach
+</div>
 
 <!-- Mostrar Productos -->
 <div class="shopProduct">
@@ -321,12 +323,12 @@
     function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 17,
-            center: new google.maps.LatLng(<?php echo $latitud; ?>, <?php echo $longitud; ?>),
+            center: new google.maps.LatLng(<?php echo ($latitud != null )? $latitud : '-18.0146500'; ?>, <?php echo ($longitud)? $longitud : '-70.2536200'; ?>),
         });
 
         marker = new google.maps.Marker({
           map: map,
-          position: new google.maps.LatLng(<?php echo $latitud; ?>, <?php echo $longitud; ?>)
+          position: new google.maps.LatLng(<?php echo ($latitud != null )? $latitud : '-18.0146500'; ?>, <?php echo ($longitud)? $longitud : '-70.2536200'; ?>)
         });
     }
     //initMap(); Esto es innecesario porque en el callback de la URL lo estás llamando.
