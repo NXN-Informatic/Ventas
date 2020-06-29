@@ -138,7 +138,6 @@ class PuestoController extends Controller
             'phone'         =>  'max:14',
             'fbpageid'  => 'max:15',
             'wsp' => 'max:15',
-            'fbpage' => 'min:18',
         ];
 
         $this->validate($request, $rules);
@@ -147,7 +146,7 @@ class PuestoController extends Controller
         $puesto->phone = $request->input('phone');
         $puesto->fbpageid = $request->input('fbpageid');
         $puesto->fbpage = $request->input('fbpage');
-        $puesto->wsp = $request->input('wsp');
+        $puesto->wsp = $request->input('wsp');  
         $puesto->save();
 
         $notification = 'Se ha actualizado los datos de su Tienda correctamente';
@@ -173,7 +172,8 @@ class PuestoController extends Controller
                 'phone' => $request->input('phone'),
                 'phone2' => $request->input('phone2'),
                 'maxsubcategorias' => 2,
-                'plan_id' => $request->input('planid')
+                'plan_id' => $request->input('planid'),
+                'wsp' => $request->input('phone')
             ]);
             $file = $request->file('logo');
 
@@ -181,12 +181,18 @@ class PuestoController extends Controller
 
             if($file != null) {
                 $name = $file->getClientOriginalName();
+                if(strlen($name)> 49){
+                    $name = substr($name,40);
+                }
                 $fileName = 'public/'.$puesto->id.'/logo/'.$name;
                 \Storage::disk('local')->put($fileName,  \File::get($file));
                 $puesto->perfil = $name;
             }
             if($banner != null) {
                 $name = $banner->getClientOriginalName();
+                if(strlen($name)> 49){
+                    $name = substr($name,40);   
+                }
                 $fileName = 'public/'.$puesto->id.'/banner/'.$name;
                 \Storage::disk('local')->put($fileName,  \File::get($banner));
                 $puesto->banner = $name;

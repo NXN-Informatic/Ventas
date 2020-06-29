@@ -107,7 +107,7 @@
                             @foreach($producto->imagen_productos as $imagen) @endforeach
                             @if($imagen)
                                 <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank">
-                                    <div class="element-item features__item col-lg-3 col-sm-6 col-12">
+                                    <div class="element-item features__item col-lg-3 col-sm-6 col-12 shad">
                                         <div class="features__image desk">
                                             <img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt="" style="border: 5px solid #fff" class="shad">
                                         </div>

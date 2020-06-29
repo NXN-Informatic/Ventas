@@ -25,7 +25,7 @@ class CreatePuestosTable extends Migration
             $table->string('banner', 50)->nullable();
             $table->integer('maxproductos')->default(20);
             $table->integer('maxsubcategorias')->default(5);
-            $table->string('nosotros', 1000)->nullable()->default('Deja que tus clientes te conozcan, Cuéntales un poco de ti y porque creaste este negocio. Demuestrales a tus clientes que hay personales reales y confiables con interesantes historias trabajando detrás de escena. Ayuda a los clientes a sentirse conectados ati y tu objetivo inspirará más consfianza en tu negocio.');
+            $table->string('nosotros', 1000)->nullable()->default('Deja que tus clientes te conozcan, Cuéntales un poco de ti y porque creaste este negocio. Demuestrales a tus clientes que hay personales reales y confiables con interesantes historias trabajando detrás de escena. Ayuda a los clientes a sentirse conectados ati y tu objetivo inspirará más confianza en tu negocio.');
             $table->string('elegirnos', 1000)->nullable()->default('Usa esta sección para generar confianza y una conexión personal con tus clientes. Mientras más te conozcan más posibilidades existen de que compren en tu tienda. Explica porqué es este el mejor sitio para comprar lo que vendes. Remarca sobretodo que hace especial a tus productos o servicios. Por ejemplo, si tus productos tienen un estilo único, son personalizados, nacionales, importados? Este es el lugar para decirles a tus clientes cuan bueno es tu servicio y productos. Déjales una impresión memorable.');
             $table->unsignedInteger('plan_id')->nullable();
             $table->foreign('plan_id')->references('id')->on('plans')->default(1);

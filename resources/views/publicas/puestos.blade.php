@@ -76,27 +76,27 @@
     @endif
 </div> -->
 <div id="ocultar9">
-@if($puesto->banner != null)
-<div class="bannerBlog headermax shad" style="background-image: url('{{ asset('storage/'.$puesto->id.'/banner/'.$puesto->banner)}}')">
-    <h1 class="title" style="font-size:18px; text-align:right; margin-top:-5%; margin-right:10px"><i class="fab fa-whatsapp" style="margin-right: 8px"></i> {{ $puesto->phone }} </h1>
-    <h1 class="title" style="margin-top:7%">{{ $puesto->name }}</h1>
-    <div style="text-align:center;">
-    <br>
-    <a id="boton" class="title clases btn btn-primary" style="background:#000;"><h1 class="title" style="font-size:15px">Comprar</h1></a>
+    @if($puesto->banner != null)
+    <div class="bannerBlog headermax shad" style="background-image: url('{{ asset('storage/'.$puesto->id.'/banner/'.$puesto->banner)}}')">
+        <h1 class="title" style="font-size:18px; text-align:right; margin-top:-5%; margin-right:10px"><i class="fab fa-whatsapp" style="margin-right: 8px"></i> {{ $puesto->phone }} </h1>
+        <h1 class="title" style="margin-top:7%">{{ $puesto->name }}</h1>
+        <div style="text-align:center;">
+        <br>
+        <a id="boton" class="title clases btn btn-primary" style="background:#000;"><h1 class="title" style="font-size:15px">Comprar</h1></a>
+        </div>
     </div>
-</div>
-@else
-<div class="bannerBlog" style="background-image: url('{{ asset('img/banner/fondo.jpg')}}');height:400px">
-    <h1 class="title" style="font-size:25px; text-align:right; margin-top:-5%; margin-right:10px"><i class="fab fa-whatsapp" style="margin-right: 8px"></i> {{ $puesto->phone }} </h1>
-    <br><br><br><br><br>
-    <h1 class="title">{{ $puesto->name }}</h1>
-    <div style="text-align:center;">
-    <br>
-    <a id="boton" class="title clases btn btn-primary" style="background:#000;"><h1 class="title" style="font-size:15px">Comprar</h1></a>
-    
+    @else
+    <div class="bannerBlog" style="background-image: url('{{ asset('img/banner/fondo.jpg')}}');height:400px">
+        <h1 class="title" style="font-size:25px; text-align:right; margin-top:-5%; margin-right:10px"><i class="fab fa-whatsapp" style="margin-right: 8px"></i> {{ $puesto->phone }} </h1>
+        <br><br><br><br><br>
+        <h1 class="title">{{ $puesto->name }}</h1>
+        <div style="text-align:center;">
+        <br>
+        <a id="boton" class="title clases btn btn-primary" style="background:#000;"><h1 class="title" style="font-size:15px">Comprar</h1></a>
+        
+        </div>
     </div>
-</div>
-@endif    
+    @endif    
 </div>
 
 <!--End Banner Slide-->
@@ -145,44 +145,36 @@
 </div> -->
 @foreach($puesto->puestosubcategorias as $puestosubcategorias)
     @foreach($puestosubcategorias->grupos as $grupos)
-<div class="featureProduct" id="prod" style="background: #F3F3F3;padding:10px">
-    <div class="feature__wrap container">
-        <h4 class="title">{{ $grupos->name }}</h4>
-        <div class="feature__filter">
-            <div class="button-group filters-button-group feature__buttons">
-            </div>
-            <ul class="featureSlider container">
-                <li class="grid features__grid" >
-                    
-                    @foreach($grupos->productos as $producto)
-                        @if ($producto->activo)
-                            <?php $imagen = null; ?>
-                            <?php $imagen = $producto->imagen_productos->first(); //solo una imagen x producto?>
-                            @if($imagen != null)
-                                <div class="element-item features__item col-lg-3 col-sm-6 col-12 shad">
-                                    <div class="features__image desk">
-                                        <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank"><img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt=""></a>
-                                        <div class="image__overlay">
-                                            <div class="color">
-                                                <div class="image" data-image="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px"></div>
+        <div class="featureProduct singleProduct" id="prod" style="background: #F3F3F3; padding: 10px">
+            <div class="feature__wrap container">
+                <h4 class="title">{{ $grupos->name }}</h4>
+                <div class="feature__filter">
+                    <ul class="featureSlider container">
+                        <li class="grid features__grid" >
+                            @foreach($grupos->productos as $producto)
+                                @if ($producto->activo)
+                                    <?php $imagen = null; ?>
+                                    <?php $imagen = $producto->imagen_productos->first(); //solo una imagen x producto?>
+                                    @if($imagen != null)
+                                        <div class="element-item features__item col-lg-3 col-sm-6 col-12 shad">
+                                            <div class="features__image desk">
+                                                <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank"><img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt=""></a>
+                                            </div>
+                                            <div class="features__content">
+                                                <span style="font-size: 20px; color:#bf0000"><strong>S/. {{$producto->precio}}</strong></span>
+                                                <div class="content__overlay" style="margin-top: -15px; margin-bottom: 0px">
+                                                <p style="color: #000">{{$producto->name }}</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="features__content">
-                                        <span style="font-size: 20px; color:#bf0000"><strong>S/. {{$producto->precio}}</strong></span>
-                                        <div class="content__overlay" style="margin-top: -15px; margin-bottom: 0px">
-                                        <p style="color: #000">{{$producto->name }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endif
-                        @endif
-                    @endforeach
-                </li>
-            </ul>
+                                    @endif
+                                @endif
+                            @endforeach
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
     @endforeach
 @endforeach
 
@@ -239,8 +231,7 @@
                       <p style="font-size:18px">{{ $puesto->nosotros }}</p>
                     </div>
                     <div class="col-lg-4 col-12" style="text-align: center;margin-top: 3%">
-                      <img src="{{ asset('/storage/usuarios/'.$usuario_puesto->user->id.'/'.$usuario_puesto->user->imagen) }}"
-                      style="border-radius: 50%" width="150px"><br><br>
+                      <img src="{{ asset('/storage/usuarios/'.$usuario_puesto->user->id.'/'.$usuario_puesto->user->imagen) }}" style="border-radius: 50%" width="150px"><br><br>
                       <h2>{{ $usuario_puesto->user->name }}</h2>
                     </div>
                 </div>
@@ -341,17 +332,7 @@
     //initMap(); Esto es innecesario porque en el callback de la URL lo estás llamando.
   </script>
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK7XD3i3cgtPV9SKcDff2IJc0O-WpNoNY&callback=initMap" async defer></script> 
-    <script>
-        (function() { // DON'T EDIT BELOW THIS LINE
-        setTimeout(cargar, 1000);
-        function cargar() {    
-            var d = document, s = d.createElement('script');
-            s.src = 'https://feriatacna.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', new Date());
-            (d.head || d.body).appendChild(s);
-        }
-        })();
-    </script>
+    
 
     <script>
         var mySwiper = new Swiper ('.swiper-container', {

@@ -36,7 +36,7 @@
                             @foreach($producto->imagen_productos as $imagenes)
                               <div class="swiper-slide" style="width: 100%; height: 500px;">
                                   <a href="#">
-                                      <img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagenes->imagen) }}" width="100%" height="auto" style="border: 5px solid #fff;max-height: 100%;
+                                      <img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagenes->imagen) }}" width="auto" height="auto" style="border: 5px solid #fff;max-height: 100%;
                                       max-width: 100%;
                                       height: auto;
                                       position: absolute;
@@ -91,7 +91,7 @@
                                         <i class="far fa-star text-dark" style="color: #bf0000"></i> 
                                     @endfor
                                 </div>
-                            @if(1)
+                            @if($usuario_puestos->puesto->wsp)
                                 <button href="{{ url('https://api.whatsapp.com/send?phone=51'.$usuario_puestos->puesto->wsp.'&text=Hola!%20Me%20interesa%20este%20producto:%20'.$producto->producto_url.'%20¿Está disponible?') }}" target="_blank" class="btn btn-primary" style="background-color: #000; border-radius: 5%; border-color: #bf0000; border 2px solid; margin-bottom: 10px"><i class="fas icofont-brand-whatsapp" style="font-size: 2rem; color: #fff"></i><span style="color: #fff; margin-left: 10px">Enviar un mensaje</span></button>
                             @endif
                             @if($usuario_puestos->puesto->phone)
