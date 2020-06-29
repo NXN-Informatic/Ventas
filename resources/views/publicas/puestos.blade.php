@@ -321,12 +321,12 @@
     function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 17,
-            center: new google.maps.LatLng(<?php echo $latitud; ?>, <?php echo $longitud; ?>),
+            center: new google.maps.LatLng(<?php echo ($latitud != null )? $latitud : '-18.0146500'; ?>, <?php echo ($longitud)? $longitud : '-70.2536200'; ?>),
         });
 
         marker = new google.maps.Marker({
           map: map,
-          position: new google.maps.LatLng(<?php echo $latitud; ?>, <?php echo $longitud; ?>)
+          position: new google.maps.LatLng(<?php echo ($latitud != null )? $latitud : '-18.0146500'; ?>, <?php echo ($longitud)? $longitud : '-70.2536200'; ?>)
         });
     }
     //initMap(); Esto es innecesario porque en el callback de la URL lo estás llamando.
