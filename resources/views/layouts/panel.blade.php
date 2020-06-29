@@ -16,7 +16,7 @@
     <meta property="og:description" content="@yield('ogDesc', 'La única feria online en Tacna 2020 , encuentre sus productos que usted requiera.')"/>
     <meta property="og:type" content="@yield('ogType', 'website')"/>
     <meta property="og:locale" content="es"/>
-    <meta property="og:image" content="@yield('ogImage', 'http://feriatacna.com/img/banner/banner.jpg')"/>
+    <meta property="og:image" content="@yield('ogImage', 'http://feriatacna.com/img/banner45.png')"/>
     <meta property="fb:app_id" content="xxxxxxxxx"/>
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/logo2.jpg">
