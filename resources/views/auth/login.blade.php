@@ -35,6 +35,13 @@
                                 <input id="password"  class="form-control form-control-lg" type="password" name="password" />
                                 <small class="form-text text-muted">{{ __('Su contraseña es personal.') }}</small>
                                 <input type="checkbox" name="check_mostrar" onclick='handleClick(this);'><span style="margin-left:10px">Mostrar contraseña</span><br>
+                                <a href="{{ url('password/reset') }}" class="text-center">
+                            <u>
+                                <h5 style="text-align:right">
+                                    {{ __('Olvidaste tu contraseña?') }}
+                                </h5>
+                            </u>
+                            </a>
                             </div>
                             <div class="text-center mt-3">
                                 <button type="submit" class="btn btn-lg btn-primary">{{ __('     Ingresa     ') }}</button>
