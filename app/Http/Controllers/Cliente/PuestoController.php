@@ -247,6 +247,7 @@ class PuestoController extends Controller
         
         $puesto->direccion = $request->input('direccion');
         if($request->input('cencom')){
+            $puesto->completado = 1;
             if($request->input('cencom') != $puesto->cencom_id){
                 if($puesto->cencom_id){
                     $ccantiguo = CentrosComerciale::find($puesto->cencom_id);
@@ -281,6 +282,7 @@ class PuestoController extends Controller
             $fileName = 'public/'.$puesto->id.'/logo/'.$name;
             \Storage::disk('local')->put($fileName,  \File::get($file));
             $puesto->perfil = $name;
+            $puesto->personalizado = 1;
         }
         
         if($aux==0){
@@ -289,12 +291,14 @@ class PuestoController extends Controller
                 $fileName = 'public/'.$puesto->id.'/banner/'.$name;
                 \Storage::disk('local')->put($fileName,  \File::get($banner));
                 $puesto->banner = $name;
+                $puesto->personalizado = 1;
             }
         }else{
             $contents = file_get_contents('.'.$banner2);
             $name = 'public/'.$puesto->id.'/banner/banerdef.jpg';
             \Storage::disk('local')->put($name, $contents);
             $puesto->banner= 'banerdef.jpg';
+            $puesto->personalizado = 1;
         }
         
         
@@ -302,6 +306,7 @@ class PuestoController extends Controller
 
         $subcategorias = $request->input('subcategoria_id');
         if($subcategorias != null) {
+            $puesto->completado = 1;
             for($i=0 ; $i < count($subcategorias); ++$i) {
                 $subcategoria = PuestoSubcategoria::where('subcategoria_id', $subcategorias[$i])->where('puesto_id', $puesto->id)->first();
                 if($subcategoria == null){
@@ -314,6 +319,7 @@ class PuestoController extends Controller
         }
         $formapagos = $request->input('formapago_id');
         if($formapagos != null) {
+            $puesto->completado = 1;
             for($i=0 ; $i < count($formapagos); ++$i) {
                 $formapago = PagoPuesto::where('pago_id', $formapagos[$i])->where('puesto_id',$puesto->id)->first();
                 if($formapago == null){
@@ -326,6 +332,7 @@ class PuestoController extends Controller
         }
         $formaentregas = $request->input('formaentrega_id');
         if($formaentregas != null) {
+            $puesto->completado = 1;
             for($i=0 ; $i < count($formaentregas); ++$i) {
                 $formaentrega = EntregaPuesto::where('entrega_id', $formaentregas[$i])->where('puesto_id',$puesto->id)->first();
                 if($formaentrega == null){
