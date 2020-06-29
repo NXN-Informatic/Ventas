@@ -143,9 +143,10 @@
     </div>
   </div>
 </div> -->
+<div id="prod">
 @foreach($puesto->puestosubcategorias as $puestosubcategorias)
     @foreach($puestosubcategorias->grupos as $grupos)
-        <div class="featureProduct singleProduct" id="prod" style="background: #F3F3F3; padding: 10px">
+        <div class="featureProduct singleProduct" style="background: #F3F3F3; padding: 10px">
             <div class="feature__wrap container">
                 <h4 class="title">{{ $grupos->name }}</h4>
                 <div class="feature__filter">
@@ -177,6 +178,7 @@
         </div>
     @endforeach
 @endforeach
+</div>
 
 <!-- Mostrar Productos -->
 <div class="shopProduct">
