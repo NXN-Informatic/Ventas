@@ -62,7 +62,7 @@
                                                 </a>
                                             </div>
                                             <div class="blog__content" style="margin-top: -60px">
-                                                <h1 style="color: #bf0000">{{ $ps->name}}</h1><br><br>
+                                                <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank"><span style="color: #bf0000; font-size: 17px; display: inline-block"><strong>{{ $ps->name}}</strong></span><br><br></a>
                                                 <div class="row">
                                                     @foreach ($puestosubcategorias->grupos as $grupos)
                                                         @if (count($grupos->productos) > 0)
@@ -133,7 +133,7 @@
     <div class="feature__wrap container">
         @foreach($cccc as $cc)
             <div class="feature__item"><a href="{{ url('/centrocomercial/'.$cc->id) }}">
-                <img src="{{ asset('storage/cc/'.$cc->id.'/'.$cc->banner) }}" style="width: 98%; height: 160px; border: 5px solid #fff" class="shad"> 
+                <img src="{{ asset('storage/cc/'.$cc->id.'/'.$cc->logo) }}" style="width: 98%; height: 160px; border: 5px solid #fff" class="shad"> 
                 </a>
                 <div class="feature__content">
                 <a href="{{ url('/centrocomercial/'.$cc->id) }}"><h3 style="color: #fff; text-shadow: 0px 0px 15px #000; font-size: 18px">{{ $cc->nombre }}</h3></a><span style="color: #fff; text-shadow: 0px 0px 30px #000; font-size: 18px">{{$cc->cantidad}} Tiendas</span>

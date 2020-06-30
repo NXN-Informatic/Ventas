@@ -57,7 +57,7 @@ class PublicController extends Controller
     public function create(Request $request) {
         // dd($request->only('name','categoria_id', 'phone'));
         $rules = [
-            'name'          =>  'required|min:3|max:100|unique:puestos',
+            'name'          =>  'required|min:3|max:28|unique:puestos',
             'phone'         =>  'min:9|max:12',
             'subcategoria_id' => 'required'
         ];

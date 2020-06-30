@@ -151,7 +151,7 @@
                 <h4 class="title">{{ $grupos->name }}</h4>
                 <div class="feature__filter">
                     <ul class="featureSlider container">
-                        <li class="grid features__grid" >
+                        <li class="features__grid" >
                             @foreach($grupos->productos as $producto)
                                 @if ($producto->activo)
                                     <?php $imagen = null; ?>
