@@ -10,6 +10,7 @@ use App\Pago;
 use App\PagoPuesto;
 use App\EntregaPuesto;
 use App\CentrosComerciale;
+use App\Bannercat;
 use App\Entrega;
 use App\Categoria;
 use App\Subcategoria;
@@ -114,16 +115,20 @@ class PuestoController extends Controller
         $categorias = Categoria::all();
         $categoria_id = old('categoria_id');
         if ($categoria_id) {
+            $banners = Bannercat::where('categoria_id',$categoria_id)->get();
             $categoria = Categoria::find($categoria_id);
             $subcategorias = $categoria->subcategorias;
-        } else $subcategorias = collect();
-
+        } else {
+            $subcategorias = collect();
+            $categoria_id = $puesto->puestosubcategorias->first()->subcategoria->categoria->id;
+            $banners = Bannercat::where('categoria_id',$categoria_id)->get();
+        }
         $formapagos = Pago::all();
         //$pago_id = old('pago_id');
         $formaentregas = Entrega::all();
         //$entrega_id = old('entrega_id');
         
-        return view('cliente.puestos.personalizar', compact('puesto', 'categorias', 'subcategorias', 'formapagos', 'formaentregas'));
+        return view('cliente.puestos.personalizar', compact('puesto', 'categorias', 'subcategorias', 'formapagos', 'formaentregas','banners'));
     }
 
     public function contacto(){

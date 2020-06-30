@@ -21,4 +21,9 @@ class Categoria extends Model
     {
         return $this->hasMany(Subcategoria::class);
     }
+    Public function bannercats()
+    {
+        return $this->hasMany(Bannercat::class);
+    }
+    
 }
