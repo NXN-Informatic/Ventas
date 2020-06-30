@@ -128,7 +128,7 @@
     </div>
 </div>
 
-<div class="feature" style="background: #F3F3F3;padding:10px">
+<div class="feature" style="background: #F3F3F3;padding:10px" id="ella">
     <h4 class="title">Centros Comerciales <a href="{{ url('centroscomerciales/all') }}"> Ver todos</a></h4>
     <div class="feature__wrap container">
         @foreach($cccc as $cc)
@@ -209,6 +209,7 @@
         $tiendas = $('#tiendas');
         $tiendas2 = $('#tiendas2');
         $addtienda = $('#wrap');
+        $ella = $('#ella');
         $resultado = $('#resultado');
         
         $mostrarcategoria = $('#categoria');
@@ -227,6 +228,7 @@
                 $('#oculto56').show();
                 $tiendas.show();
                 $tiendas2.show();
+                $ella.show();
                 $('#prod').show();
                 $('#categoria').hide();
                 $('#mostrar').hide();
@@ -236,6 +238,7 @@
                 $('#ocultarBanner2').hide();
                 $tiendas.hide();
                 $tiendas2.hide();
+                $ella.hide();
                 $('#prod').hide();
                 $('#ocultarBanner3').hide();
                 $('#ocultar89').hide();
@@ -255,6 +258,7 @@
                 $('#ocultar89').show();
                 $('#ocultarBanner4').show();
                 $tiendas.show();
+                $ella.show();
                 $tiendas2.show();
                 $('#categoria').hide();
                 $('#mostrar').hide();
@@ -271,6 +275,7 @@
                 $('#ocultarBanner4').hide();
                 $('#categoria').hide();
                 $('#prod').hide();
+                $ella.hide();
                 $('#mostrar').show();
             }
         });
