@@ -133,7 +133,7 @@
     <div class="feature__wrap container">
         @foreach($cccc as $cc)
             <div class="feature__item"><a href="{{ url('/centrocomercial/'.$cc->id) }}">
-                <img src="{{ asset('storage/cc/'.$cc->id.'/'.$cc->banner) }}" style="width: 98%; height: 160px; border: 5px solid #fff" class="shad"> 
+                <img src="{{ asset('storage/cc/'.$cc->id.'/'.$cc->logo) }}" style="width: 98%; height: 160px; border: 5px solid #fff" class="shad"> 
                 </a>
                 <div class="feature__content">
                 <a href="{{ url('/centrocomercial/'.$cc->id) }}"><h3 style="color: #fff; text-shadow: 0px 0px 15px #000; font-size: 18px">{{ $cc->nombre }}</h3></a><span style="color: #fff; text-shadow: 0px 0px 30px #000; font-size: 18px">{{$cc->cantidad}} Tiendas</span>
