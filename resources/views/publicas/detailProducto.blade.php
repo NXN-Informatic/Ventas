@@ -92,7 +92,7 @@
                         <div class="col-lg-12 text-center" style="padding-left: 10px">
                             <h1 class="text-left" style="font-size: 15px; color: #000; padding-left: 10px; margin-bottom:-5px">Tienda</h1>  
                             
-                            <h1 class="text-left" style="font-size: 24px; color: #000; padding-left: 10px"><img src="{{ asset('storage/'.$usuario_puestos->puesto->id.'/logo/'.$usuario_puestos->puesto->logo) }}" alt="" width="30px"> {{ $usuario_puestos->puesto->name }} <a href="{{ url('puesto/'.$usuario_puestos->puesto->id.'/detail')}}"><span style="color: #bf0000; font-size: 16px; margin-left: 10px">Visitar ></span></a></h1>  
+                            <h1 class="text-left" style="font-size: 24px; color: #000; padding-left: 10px"><img src="{{ asset('/img/logoenJPG.jpg') }}" alt="" width="30px"> {{ $usuario_puestos->puesto->name }} <a href="{{ url('puesto/'.$usuario_puestos->puesto->id.'/detail')}}"><span style="color: #bf0000; font-size: 16px; margin-left: 10px">Visitar ></span></a></h1>  
                                 <div class="row" style="padding-left: 20px; margin-top: -20px; margin-bottom: 10px">
                                     @for ($i = 0; $i < $usuario_puestos->puesto->calification; $i++)   
                                         <i class="fas fa-star" style="color: #bf0000"></i>
