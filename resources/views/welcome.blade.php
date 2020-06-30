@@ -62,7 +62,7 @@
                                                 </a>
                                             </div>
                                             <div class="blog__content" style="margin-top: -60px">
-                                                <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank"><h1 style="color: #bf0000">{{ $ps->name}}</h1><br><br></a>
+                                                <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank"><span style="color: #bf0000; font-size: 17px; display: inline-block"><strong>{{ $ps->name}}</strong></span><br><br></a>
                                                 <div class="row">
                                                     @foreach ($puestosubcategorias->grupos as $grupos)
                                                         @if (count($grupos->productos) > 0)
