@@ -20,9 +20,15 @@
       .ocultarFacebook{
           display:block;
       }
+      .ocultarphone{
+          display:none;
+      }
       @media (max-width: 600px) {
         .ocultarFacebook {
             display:none;
+        }
+        .ocultarphone{
+            display:block;
         }
       }
     </style>
@@ -133,8 +139,10 @@
                             <input type="hidden" id="latitud" name="latitud" value="{{ $usuario_puestos->user->latitud }}">
                             <input type="hidden" id="longitud" name="longitud" value="{{ $usuario_puestos->user->longitud }}">
                             <div id="map" style="height: 300px;"></div>
+                            <div class="ocultarphone">
                             
-                        <div class="fb-comments" data-href="{{ $producto->producto_url}}" data-numposts="5" data-width="100%" style="margin: 7px"></div>
+                                <div class="fb-comments" data-href="{{ $producto->producto_url}}" data-numposts="5" data-width="100%" style="margin: 7px"></div>
+                            </div>
                         </div>
                       </div>
                     </div>
