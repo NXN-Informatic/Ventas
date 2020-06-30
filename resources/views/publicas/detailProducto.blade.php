@@ -123,6 +123,8 @@
                             <input type="hidden" id="latitud" name="latitud" value="{{ $usuario_puestos->user->latitud }}">
                             <input type="hidden" id="longitud" name="longitud" value="{{ $usuario_puestos->user->longitud }}">
                             <div id="map" style="height: 300px;"></div>
+                            
+                        <div class="fb-comments" data-href="{{ $producto->producto_url}}" data-numposts="5" data-width="100%" style="margin: 7px"></div>
                         </div>
                       </div>
                     </div>
@@ -234,12 +236,12 @@
     function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 17,
-            center: new google.maps.LatLng(<?php echo $latitud; ?>, <?php echo $longitud; ?>),
+            center: new google.maps.LatLng(<?php echo ($latitud != null )? $latitud : '-18.0146500'; ?>, <?php echo ($longitud)? $longitud : '-70.2536200'; ?>),
         });
 
         marker = new google.maps.Marker({
           map: map,
-          position: new google.maps.LatLng(<?php echo $latitud; ?>, <?php echo $longitud; ?>)
+          position: new google.maps.LatLng(<?php echo ($latitud != null )? $latitud : '-18.0146500'; ?>, <?php echo ($longitud)? $longitud : '-70.2536200'; ?>)
         });
     }
   </script>
