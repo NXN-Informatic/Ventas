@@ -109,6 +109,7 @@
                                 </div>
                             @if($usuario_puestos->puesto->wsp)
                                 <button href="{{ url('https://api.whatsapp.com/send?phone=51'.$usuario_puestos->puesto->wsp.'&text=Hola!%20Me%20interesa%20este%20producto:%20'.$producto->producto_url.'%20¿Está disponible?') }}" target="_blank" class="btn btn-primary" style="background-color: #bf0000; border-radius: 5%; border-color: #bf0000; border 2px solid; margin-bottom: 10px"><i class="fas icofont-brand-whatsapp" style="font-size: 2rem; color: #fff"></i><span style="color: #fff; margin-left: 10px">Enviar un mensaje</span></button>
+                                
                             @endif
                             @if($usuario_puestos->puesto->phone)
                                 <h1 style="color: #000; font-size: 24px"><i class="fas icofont-smart-phone" style="font-size: 24px; padding: 10px; color: #000"></i> {{ $usuario_puestos->puesto->phone }}</span>
@@ -168,8 +169,8 @@
                                 @foreach($productos->imagen_productos as $imagen) @endforeach
                                 @if($imagen)
                                 <a href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="_blank">
-                                    <li class="element-item  features__item col-lg-3 col-sm-6 col-12 shad2" style="position: relative; height: 302px;">
-                                        <div class="features__image desk">
+                                    <li class="features__item col-lg-3 col-sm-6 col-12 shad2" style="position: relative; height: 302px;">
+                                        <div class="features__image wood light5">
                                             <img src="{{ asset('/storage/'.$puestosubcategoria->puesto->id.'/'.$productos->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt="" style="border: 5px solid #fff">
                                         </div>
                                         <div class="features__content">
@@ -187,8 +188,6 @@
                 </ul>
             </div>
         </div>
-        <!-- btn Mostrar Tienda -->
-         
     </div>
 </div>
 
