@@ -17,6 +17,14 @@
         -webkit-box-shadow: 0 0 10px #c5c5c5;
         box-shadow: 0 0 10px #c5c5c5;
       }
+      .ocultarFacebook{
+          display:block;
+      }
+      @media (max-width: 600px) {
+        .ocultarFacebook {
+            display:none;
+        }
+      }
     </style>
 @endsection
 
@@ -55,11 +63,11 @@
                     </div>
                     <!-- Productos Descripción -->
                     <div class="shad2" style="background-color: #fff">
-                        <h2 style="text-align: left;font-size: 20px; padding: 10px">{{ __('Descripción') }}</h2><br>
+                        <h2 style="text-align: left;font-size: 15px; padding: 10px">{{ __('Descripción') }}</h2><br>
                         <p style="color: #0e0e0ebe; font-size: 16px; margin: 10px">{!! $producto->description !!}
                         <br>
                     </div>
-                    <div class="shad2" style="background-color: #fff">
+                    <div class="shad2 ocultarFacebook" style="background-color: #fff" >
                         <div class="fb-comments" data-href="{{ $producto->producto_url}}" data-numposts="5" data-width="100%" style="margin: 7px"></div>
                     </div>
                     
@@ -104,21 +112,21 @@
                         </div>
                         <hr style="color: #f2f2f2"> 
                         <div class="col-12">
-                            <h1 class="text-left" style="font-size: 24px; color: #000; padding-left: 10px">Formas de entrega</h1>
+                            <h1 class="text-left" style="font-size: 15px; color: #000; padding-left: 10px">Formas de entrega</h1>
                             @foreach($usuario_puestos->puesto->entrega_puestos as $entrega_puestos)
                                 <button href="#" target="_blank" class="btn btn-primary" style="background-color: #fff; border-radius: 5%; border-color: #000; border 3px solid"><span style="color: #000; margin: auto">{{ $entrega_puestos->entrega->name }}</span></button>
                             @endforeach
                         </div>
                         <hr style="margin-top: 15px; color: #f2f2f2">
                         <div class="col-12">
-                          <h1 class="text-left" style="font-size: 24px; color: #000; padding-left: 10px">Métodos de pago aceptado</h1>
+                          <h1 class="text-left" style="font-size: 15px; color: #000; padding-left: 10px">Métodos de pago aceptado</h1>
                           @foreach($usuario_puestos->puesto->pago_puestos as $pago_puestos)
                               <button href="#" target="_blank" class="btn btn-primary" style="background-color: #fff; border-radius: 5%; border-color: #000; border 3px solid"><span style="color: #000; margin: auto">{{ $pago_puestos->pago->name }}</span></button>
                           @endforeach
                         </div>
                         <hr style="margin-top: 15px; color: #f2f2f2">
                         <div class="col-12">
-                            <h1 class="text-left" style="font-size: 24px; color: #000; padding-left: 10px">Ubicación</h1>
+                            <h1 class="text-left" style="font-size: 15px; color: #000; padding-left: 10px">Ubicación</h1>
                             <span class="text-left" style="font-size: 18px; color: #000; padding-left: 10px">{{$usuario_puestos->puesto->direccion}}</span>
                             <input type="hidden" id="latitud" name="latitud" value="{{ $usuario_puestos->user->latitud }}">
                             <input type="hidden" id="longitud" name="longitud" value="{{ $usuario_puestos->user->longitud }}">
