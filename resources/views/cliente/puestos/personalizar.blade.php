@@ -46,17 +46,9 @@
                                     <select class="form-control select2 form-control-lg" id="bannerdefault" name="bannerdefault" data-toggle="select2">
                                         <optgroup label="Banners disponibles">
                                             <option value=""></option>
-                                            <option value="/img/defecto/ropadamas.jpg">Moda Dama</option>
-                                            <option value="/img/defecto/ropabebe.jpg">Ropa Bebe</option>
-                                            <option value="/img/defecto/modaninos.jpg">Moda Niños</option>
-                                            <option value="/img/defecto/modacaballeros.jpg">Moda Caballeros</option>
-                                            <option value="/img/defecto/modadeportiva.jpg">Ropa Deportiva</option>
-                                            <option value="/img/defecto/modajovenes.jpg">Moda Jóvenes</option>
-                                            <option value="/img/defecto/ropadormir.jpg">Ropa Dormir</option>
-                                            <option value="/img/defecto/ropainterior.jpg">Ropa Interior/Baño</option>
-                                            <option value="/img/defecto/ropainterior.jpg">Ropa Interior/Baño</option>
-                                            <option value="/img/defecto/accesorios.jpg">Accesorios de Moda</option>
-                                            <option value="/img/defecto/bolsosmaletas.jpg">Bolsos/Equipaje</option>
+                                            @foreach($banners as $banner)
+                                                <option value="{{ '/img/defecto/'.$banner->imagen}}">{{ $banner->name }}</option>
+                                            @endforeach
                                         </optgroup>
                                     </select>
                                 </div>

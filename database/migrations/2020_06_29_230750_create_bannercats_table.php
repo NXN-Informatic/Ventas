@@ -13,13 +13,12 @@ class CreateBannercatsTable extends Migration
      */
     public function up()
     {
-        Schema::table('bannercats', function (Blueprint $table) {
+        Schema::create('bannercats', function (Blueprint $table) {
             $table->increments('id');
-            
             $table->unsignedInteger('categoria_id');
-            $table->foreign('categoria_id')->references('id')->on('categorias');
             $table->string('name', 100)->nullable();
             $table->string('imagen', 100)->nullable();
+            $table->foreign('categoria_id')->references('id')->on('categorias');
         });
     }
 
