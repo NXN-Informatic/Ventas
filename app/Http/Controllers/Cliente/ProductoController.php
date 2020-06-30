@@ -114,7 +114,7 @@ class ProductoController extends Controller
         $producto->name = $request->input('name');
         $producto->description = $request->input('description');
         $producto->precio = $request->input('precio');
-        
+        $producto->save();
         $files = $request->file('attachment');
         //dd($files);
         if($files){
