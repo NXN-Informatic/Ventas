@@ -108,7 +108,7 @@
                                     @endfor
                                 </div>
                             @if($usuario_puestos->puesto->wsp)
-                                <button href="{{ url('https://api.whatsapp.com/send?phone=51'.$usuario_puestos->puesto->wsp.'&text=Hola!%20Me%20interesa%20este%20producto:%20'.$producto->producto_url.'%20¿Está disponible?') }}" target="_blank" class="btn btn-primary" style="background-color: #bf0000; border-radius: 5%; border-color: #bf0000; border 2px solid; margin-bottom: 10px"><i class="fas icofont-brand-whatsapp" style="font-size: 2rem; color: #fff"></i><span style="color: #fff; margin-left: 10px">Enviar un mensaje</span></button>
+                                <a href="{{ url('https://api.whatsapp.com/send?phone=51'.$usuario_puestos->puesto->wsp.'&text=Hola!%20Me%20interesa%20este%20producto:%20'.$producto->producto_url.'%20¿Está disponible?') }}" target="_blank" class="btn btn-primary" style="background-color: #bf0000; border-radius: 5%; border-color: #bf0000; border 2px solid; margin-bottom: 10px"><i class="fas icofont-brand-whatsapp" style="font-size: 2rem; color: #fff"></i><span style="color: #fff; margin-left: 10px">Enviar un mensaje</span></a>
                                 
                             @endif
                             @if($usuario_puestos->puesto->phone)
@@ -140,6 +140,7 @@
                             <input type="hidden" id="latitud" name="latitud" value="{{ $usuario_puestos->user->latitud }}">
                             <input type="hidden" id="longitud" name="longitud" value="{{ $usuario_puestos->user->longitud }}">
                             <div id="map" style="height: 300px;"></div>
+                            <br>
                             <div class="ocultarphone">
                             
                                 <div class="fb-comments" data-href="{{ $producto->producto_url}}" data-numposts="5" data-width="100%" style="margin: 7px"></div>
