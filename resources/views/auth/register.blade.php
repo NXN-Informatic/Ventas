@@ -77,10 +77,11 @@
                                     </form>
                                     <br>
                                     <label>
-                                        <a href="{{ route('login') }}"><u>
-                                        <h4 style="text-align:right" class="link">
-                                            {{ __('Ya tienes una cuenta? Inicie Sesión') }}
-                                        </h4>
+                                        <a href="{{ route('login') }}">
+                                        <u>
+                                            <p style="text-align:right;font-size:12px" class="link">
+                                                {{ __('Ya tienes una cuenta? Inicie Sesión') }}
+                                            </p>
                                         </u></a>
                                     </label>
                                     <label>
