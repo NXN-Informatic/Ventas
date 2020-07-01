@@ -38,10 +38,10 @@
                 <div class="col-lg-5">
                     <div class="d-table-cell ">
                         <div class="text-center mostrar" style="margin:auto">
-                            <img class="mt-2" src="{{ asset('img/logo.PNG') }}"  width="200px">
+                            <img class="mt-2" src="{{ asset('img/logo.png') }}"  width="140px">
                         </div>
                         <div class="text-center mt-3">
-                            <h1 class="h2 colorFeria">{{ __('Comience con una cuenta gratuita!') }}</h1>
+                            <h1 class="h2 colorFeria textop">{{ __('Cuenta gratuita!') }}</h1>
                             <p class="lead colorFeria" >
                             {{ __('Cree su Tienda en línea') }}
                             </p>
@@ -81,8 +81,6 @@
                                         </h4>
                                         </u></a>
                                     </label>
-                                
-                                    <hr>
                                     <label>
                                         {{ __('O registrese con sus redes sociales') }}
                                     </label>
@@ -90,7 +88,7 @@
                                         <!-- <a href="" class="btn btn-facebook btn-lg mt-2">
                                             {{ __("Facebook") }} <i class="align-middle mr-2 fab fa-fw fa-facebook"></i>
                                         </a> -->
-                                        <div class="row">
+                                        <div class="row" style="margin-top:-5%">
                                             <div class="col-12">
                                                 <a href="{{ route('social_auth' , ['driver' => 'facebook']) }}" class="btn btn-facebook btn-lg mt-2 btn-block">
                                                     {{ __("Facebook") }} <i class="align-middle mr-2 fab fa-fw fa-facebook"></i>
