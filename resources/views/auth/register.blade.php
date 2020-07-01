@@ -40,7 +40,7 @@
                         <div class="text-center mostrar" style="margin:auto">
                             <img class="mt-2" src="{{ asset('img/logo.png') }}"  width="140px">
                         </div>
-                        <div class="text-center mt-3">
+                        <div class="text-center mt-2">
                             <h1 class="h2 colorFeria textop">{{ __('Cuenta gratuita!') }}</h1>
                             <p class="lead colorFeria" >
                             {{ __('Cree su Tienda en línea') }}
