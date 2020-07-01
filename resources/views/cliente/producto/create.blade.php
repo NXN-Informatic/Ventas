@@ -123,7 +123,7 @@
                     </div>
                     <div class="card-body">
                             <input type="hidden" name="puesto" value="{{ $usuarioPuesto->puesto->id }}">
-                            <input type="file" id="attachment" accept="image/*" capture="camera" name="attachment[]" multiple>
+                            <input type="file" id="attachment" accept="image/png,image/jpeg*" capture="gallery" name="attachment[]" multiple>
                             <hr>
                             <div class="row" id="preview_img">
                                 
