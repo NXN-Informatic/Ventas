@@ -191,7 +191,9 @@ class ProductoController extends Controller
         }
         $this->storeExcel($puesto);
     }
-
+    public function deleteimagen(Request $request,ImagenProducto $ip) {
+        ImagenProducto::destroy($ip->id);
+    }
     public function dropzonedelete(Request $request) {
         $name = $request->input('name');
         $producto_id = $request->input('producto');

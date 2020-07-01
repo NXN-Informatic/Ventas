@@ -243,6 +243,8 @@ class PuestoController extends Controller
         $puesto->description = $request->input('description');
         $puesto->phone2 = $request->input('phone2');
         $puesto->phone = $request->input('phone');
+        $puesto->nombrebanner = $request->input('nombrebanner');
+        $puesto->colornombre = $request->input('colornombre');
         if($request->input('elegirnos') != null){
             $puesto->elegirnos = $request->input('elegirnos');
         }

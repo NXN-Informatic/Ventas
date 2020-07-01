@@ -39,7 +39,7 @@
                             <div class="row">
                                 <div class=" col-sm-6">
                                     <small class="form-text text-muted" style="margin-bottom: 7px; margin-top:-10px" >{{ __('Suba desde su equipo:') }}</small>
-                                    <input type="file" class="form-control-file" name="banner" id="banner">
+                                    <input type="file" class="form-control-file" accept="image/jpeg,image/png" capture="gallery" name="banner" id="banner">
                                 </div>
                                 <div class=" col-sm-6">
                                     <small class="form-text text-muted" style="margin-bottom: 7px; margin-top:-10px" >{{ __('O elija una de estas:') }}</small>
@@ -60,6 +60,21 @@
                                     <img src="{{ asset('img/imagen.png') }}" class="img-thumbnail rounded mr-2 mb-2" alt="Sin imagen">
                                 @endif
                             </div>
+                            <div class="row">
+                                <div class="form-group col-sm-6 col-lg-6 col-6">
+                                    <strong><label class="form-label" for="name"></label></strong>
+                                    <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Mostrar nombre de tienda sobre Portada') }}</small>
+                                    <div class="custom-control custom-switch">
+                                        <input id="mostrarnombre" name="nombrebanner" data-id="{{$puesto->nombrebanner}}" onclick="$(this).attr('value',$(this).val()? 0 : 1)" value = "{{$puesto->nombrebanner}}"  class="custom-control-input" type="checkbox" {{ $puesto->nombrebanner ? 'checked' : '' }}>
+                                        <label class="custom-control-label" for="mostrarnombre" style="margin-left: 10px">Si/No</label>
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-6 col-lg-6 col-6">
+                                    <strong><label class="form-label" for="name"></label></strong>
+                                    <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Color del texto') }}</small>
+                                    <input type="color" name="colornombre" id="colornombre" value="{{$puesto->colornombre}}">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -74,12 +89,12 @@
                                 <div class="row" id="preview_logo">
                                     <img src="{{ asset('storage/'.$puesto->id.'/logo/'.$puesto->perfil) }}" class="img-thumbnail rounded mr-2 mb-2" alt="Angelica Ramos">
                                 </div>
-                                <input type="file" class="form-control-file" name="logo" id="logo">
+                                <input type="file" class="form-control-file" accept="image/jpeg,image/png" capture="gallery" name="logo" id="logo">
                             @else
                                 <div class="row" id="preview_logo">
                                     <img src="{{ asset('default\perfil.png') }}" class="img-thumbnail rounded mr-2 mb-2" alt="Sin imagen">
                                 </div>
-                                <input type="file" class="form-control-file" name="logo" id="logo">
+                                <input type="file" class="form-control-file" accept="image/jpeg,image/png" capture="gallery" name="logo" id="logo">
                             @endif
                         </div>
                     </div>

@@ -82,6 +82,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/producto/switch/{producto}', 'Cliente\ProductoController@switch');
 
     // Subida de Imagenes
+    Route::post('/imagen/{ip}/delete', 'Cliente\ProductoController@deleteimagen');
     Route::post('/producto/dropzoneFrom', 'Cliente\ProductoController@dropzoneFrom');
     Route::post('/producto/dropzonedelete', 'Cliente\ProductoController@dropzonedelete');
 

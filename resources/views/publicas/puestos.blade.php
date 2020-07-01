@@ -79,7 +79,7 @@
     @if($puesto->banner != null)
     <div class="bannerBlog headermax shad" style="background-image: url('{{ asset('storage/'.$puesto->id.'/banner/'.$puesto->banner)}}')">
         <h1 class="title" style="font-size:18px; text-align:right; margin-top:-5%; margin-right:10px"><i class="fab fa-whatsapp" style="margin-right: 8px"></i> {{ $puesto->phone }} </h1>
-        <h1 class="title" style="margin-top:7%">{{ $puesto->name }}</h1>
+        <h1 class="title" style="color: {{$puesto->colornombre}}; margin-top:7%">{{ ($puesto->nombrebanner) ? $puesto->name : '' }}</h1>
         <div style="text-align:center;">
         <br>
         <a id="boton" class="title clases btn btn-primary" style="background:#000;"><h1 class="title" style="font-size:15px">Comprar</h1></a>
@@ -89,7 +89,7 @@
     <div class="bannerBlog" style="background-image: url('{{ asset('img/banner/fondo.jpg')}}');height:400px">
         <h1 class="title" style="font-size:25px; text-align:right; margin-top:-5%; margin-right:10px"><i class="fab fa-whatsapp" style="margin-right: 8px"></i> {{ $puesto->phone }} </h1>
         <br><br><br><br><br>
-        <h1 class="title">{{ $puesto->name }}</h1>
+    <h1 class="title" style="color: {{$puesto->colornombre}}">{{ ($puesto->nombrebanner) ? $puesto->name : '' }}</h1>
         <div style="text-align:center;">
         <br>
         <a id="boton" class="title clases btn btn-primary" style="background:#000;"><h1 class="title" style="font-size:15px">Comprar</h1></a>
@@ -151,7 +151,7 @@
                 <h4 class="title">{{ $grupos->name }}</h4>
                 <div class="feature__filter">
                     <ul class="featureSlider container">
-                        <li class="features__grid" >
+                        <li class="grid features__grid" >
                             @foreach($grupos->productos as $producto)
                                 @if ($producto->activo)
                                     <?php $imagen = null; ?>

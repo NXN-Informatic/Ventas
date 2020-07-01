@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Nuevo Producto')
+@section('title','Editar Producto')
 @section('styles')
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css">
@@ -128,11 +128,14 @@
                     </div>
                     <div class="card-body">
                             <input type="hidden" name="puesto" value="{{ $usuarioPuesto->puesto->id }}">
-                            <input type="file" id="attachment" name="attachment[]" multiple>
+                            <input type="file" id="attachment" name="attachment[]" accept="image/jpeg,image/png" capture="gallery" multiple>
                             <hr>
                             <div class="row" id="preview_img">
                                 @foreach($producto->imagen_productos as $ip)
                                     <img src="{{ url('storage/'.$usuarioPuesto->puesto->id.'/'.$producto->id.'/'.$ip->imagen)}}" width="200px" height="">
+                                    <a><button onclick="deleteimagen({{$ip->id}})" type="button" class="btn btn-danger" style="margin-top: 3px; margin-left: -37px">
+                                        <i class="fas fa-times" title="Eliminar"></i>
+                                    </button></a>
                                 @endforeach
                             </div>
                     </div>
@@ -170,6 +173,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
     <script src="https://cdn.tiny.cloud/1/z3fq59r5g34njc4c1xr6o53d6go75rgc5p8wojlzgqkc3n8j/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>tinymce.init({selector:'textarea'});</script>
+    <script>
+        function deleteimagen(id) {
+              var value = id;
+              $.ajax({
+                  method: 'POST', // Type of response and matches what we said in the route
+                  url: '/imagen/'+id+'/delete', // This is the url we gave in the route
+                  data: {
+                  _token: '{{csrf_token()}}',
+                  },
+                  success: function(response){ 
+                      console.log(response);
+                      location.reload();
+                  },
+                  error: function(jqXHR, textStatus, errorThrown) {
+                      console.log(JSON.stringify(jqXHR));
+                      console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+                  }
+              });
+        }
+    </script>
     <script>
         $(function() {
             $subcategoria = $('#subcategoria');
