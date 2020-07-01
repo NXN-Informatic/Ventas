@@ -38,7 +38,9 @@
                 <div class="col-lg-5">
                     <div class="d-table-cell ">
                         <div class="text-center mostrar" style="margin:auto">
-                            <img class="mt-2" src="{{ asset('img/logo.png') }}"  width="140px">
+                            <a href="{{ url('/') }}">
+                                <img class="mt-2" src="{{ asset('img/logo.png') }}"  width="140px">
+                            </a>
                         </div>
                         <div class="text-center mt-2">
                             <h1 class="h2 colorFeria textop">{{ __('Cuenta gratuita!') }}</h1>
