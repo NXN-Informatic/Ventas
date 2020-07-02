@@ -62,7 +62,7 @@
                                         </div>
                                     </li>
                                     <li class="list-group-item" style="padding: .2rem 1.25rem; border: 0px solid rgba(0, 0, 0, .125);">
-                                        @if ($productocompletado))
+                                        @if ($productocompletado)
                                         <div class="alert alert-success alert-outline-coloured alert-dismissible" style="margin-top: 0px; margin-bottom: 0px"  role="alert">
                                             <div class="alert-icon">
                                                 <i class="fas fa-fw fa-check"></i>
@@ -154,7 +154,7 @@
                                         @endif
                                     </li>
                                     <li class="list-group-item" style="padding: .2rem 1.25rem; border: 0px solid rgba(0, 0, 0, .125);">
-                                        @if($productocompletado->isNotEmpty() and $puestocompletado and $usercompletado->completado and $personalizado)
+                                        @if($productocompletado and $puestocompletado and $usercompletado->completado and $personalizado)
                                             <div class="alert alert-success alert-outline-coloured alert-dismissible" style="margin-top: 0px; margin-bottom: 0px" role="alert">
                                                 <div class="alert-icon">
                                                     <i class="fas fa-fw fa-check"></i>
