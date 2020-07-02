@@ -35,14 +35,14 @@
                         <div class="card-header">
                             <strong><label class="form-label" for="name">Portada de su Tienda</label></strong>
                             </div>
-                        <div class="card-body">
+                        <div class="card-body" style="margin-top: -15px">
                             <div class="row">
-                                <div class=" col-sm-6">
-                                    <small class="form-text text-muted" style="margin-bottom: 7px; margin-top:-10px" >{{ __('Suba desde su equipo:') }}</small>
+                                <div class=" col-lg-6 col-12 col-sm-12">
+                                    <small class="form-text text-muted" style="margin-bottom: 7px; margin-top:0px" >{{ __('Suba desde su equipo:') }}</small>
                                     <input type="file" class="form-control-file" accept="image/jpeg,image/png" capture="gallery" name="banner" id="banner">
                                 </div>
-                                <div class=" col-sm-6">
-                                    <small class="form-text text-muted" style="margin-bottom: 7px; margin-top:-10px" >{{ __('O elija una de estas:') }}</small>
+                                <div class=" col-lg-6 col-12 col-sm-12">
+                                    <small class="form-text text-muted" style="margin-bottom: 7px; margin-top:0px" >{{ __('O elija una de estas:') }}</small>
                                     <select class="form-control select2 form-control-lg" id="bannerdefault" name="bannerdefault" data-toggle="select2">
                                         <optgroup label="Banners disponibles">
                                             <option value=""></option>
