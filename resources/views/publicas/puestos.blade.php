@@ -147,25 +147,34 @@
     @foreach($puesto->puestosubcategorias as $puestosubcategorias)
         @foreach($puestosubcategorias->grupos as $grupos)
             @if(count($grupos->productos))
-                <div class="feature" style="background: #F3F3F3;padding:10px">
-                    <h4 class="title">{{ $grupos->name }}</h4>
+                <div class="featureProduct singleProduct" style="background: #F3F3F3; padding: 10px">
                     <div class="feature__wrap container">
-                        @foreach($grupos->productos as $producto)
-                            @if ($producto->activo)
-                                <?php $imagen = null; ?>
-                                <?php $imagen = $producto->imagen_productos->first(); //solo una imagen x producto?>
-                                @if($imagen != null)
-                                    <div class="feature__item"><a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank">
-                                        <a class="btn btn-primary" href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank" style="height: 30px; width:80px; background-color:#bf0000; margin-left:180px; margin-top:10px; position:absolute"><h3 style="color: #fff; font-size: 18px; margin-top:-10px; margin-left:-20px; margin-right:-20px; z-index:100;">S/. {{$producto->precio}}</h3></a>
-                                        <img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt="" style="border: 5px solid #fff">
-                                        </a>
-                                        <div class="feature__content">
-                                            <span style="background-color:#00000050;text-shadow: 0px 0px 15px #000;color: #fff; font-size: 20px">{{$producto->name }}</span>
-                                        </div>
-                                    </div>
-                                @endif
-                            @endif
-                        @endforeach
+                        <h4 class="title">{{ $grupos->name }}</h4>
+                        <div class="feature__filter">
+                            <ul class="featureSlider container">
+                                <li class="grid features__grid" >
+                                    @foreach($grupos->productos as $producto)
+                                        @if ($producto->activo)
+                                            <?php $imagen = null; ?>
+                                            <?php $imagen = $producto->imagen_productos->first(); //solo una imagen x producto?>
+                                            @if($imagen != null)
+                                                <div class="element-item features__item col-lg-3 col-sm-6 col-12 shad">
+                                                    <div class="features__image desk">
+                                                        <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank"><img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt=""></a>
+                                                    </div>
+                                                    <div class="features__content">
+                                                        <span style="font-size: 20px; color:#bf0000"><strong>S/. {{$producto->precio}}</strong></span>
+                                                        <div class="content__overlay" style="margin-top: -15px; margin-bottom: 0px">
+                                                        <p style="color: #000">{{$producto->name }}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        @endif
+                                    @endforeach
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             @endif
