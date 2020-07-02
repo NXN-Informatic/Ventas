@@ -240,19 +240,35 @@ class PuestoController extends Controller
 
         $this->validate($request, $rules);
         $puesto->name = $request->input('name');
-        $puesto->description = $request->input('description');
-        $puesto->phone2 = $request->input('phone2');
-        $puesto->phone = $request->input('phone');
-        $puesto->nombrebanner = $request->input('nombrebanner');
-        $puesto->colornombre = $request->input('colornombre');
+        
+        if($request->input('description')){
+            $puesto->description = $request->input('description');
+        }
+        if($request->input('phone')){
+            $puesto->phone = $request->input('phone');
+        }
+        if($request->input('phone2')){
+            $puesto->phone2 = $request->input('phone2');
+        }
+        if($request->input('nombrebanner')){
+            $puesto->nombrebanner = $request->input('nombrebanner');
+        }
+        if($request->input('colornombre')){
+            $puesto->colornombre = $request->input('colornombre');
+        }
         if($request->input('elegirnos') != null){
             $puesto->elegirnos = $request->input('elegirnos');
         }
         if($request->input('nosotros') != null){
             $puesto->nosotros = $request->input('nosotros');
         }
-        
-        $puesto->direccion = $request->input('direccion');
+        if($request->input('direccion')){
+            $puesto->direccion = $request->input('direccion');
+        }
+        if($request->input('wsp')){
+            $puesto->wsp = $request->input('wsp');
+        }
+
         if($request->input('cencom')){
             $puesto->completado = 1;
             if($request->input('cencom') != $puesto->cencom_id){

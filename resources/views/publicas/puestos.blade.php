@@ -223,7 +223,7 @@
           <div class="col-lg-8 col-12">
                 <label style="font-size: 25px; font-weight: bold;">¿Porque Elegirnos?</label><br><br>
                 @if( strlen($puesto->elegirnos) > 0)
-                <p style="font-size:18px">{{ $puesto->elegirnos }}</p>
+                    <p style="font-size:18px">{{ $puesto->elegirnos }}</p>
                 @else
                 <p style="font-size:18px">Porque Somos una Tienda Mejor que otra</p>
                 @endif`
@@ -239,7 +239,6 @@
                       <h2>{{ $usuario_puesto->user->name }}</h2>
                     </div>
                 </div>
-                
           </div>
       </div>
     </div>
@@ -258,25 +257,26 @@
               <div id="map" style="height: 400px;"></div>
             </div>
             <div class="col-lg-6 col-12">
-              <div style="text-align: left;">
-                <br><br>
-                <h1>Dirección</h1>
-                <br>
-                <h1 style="font-weight: normal;">{{ $puesto->direccion }}</h1>  
-                <br><br><br>
-                 <h1 class="title" style="font-size: 20px">Número de Contacto</h1><br>
-          <h1 class="title" style="font-size:25px;font-weight: normal;"><i class="fab fa-whatsapp" style="margin-right: 8px"></i>{{ $puesto->phone }} </h1>  
-          <br><br>
-                @if(count($puesto->pago_puestos) > 0)
-                <label style="font-size: 20px; font-weight: bold;">Tipos de pago</label><br><br>
-                <p style="font-size: 20px ; margin-left: 5px; color: #545353">
-                    @foreach($puesto->pago_puestos as $pago_puestos)
-                        {{ $pago_puestos->pago->name.' ' }} 
-                    @endforeach  
-                  </p>
-                  <br>
-                @endif
-              </div>
+                <div style="text-align: left;">
+                    <br><br>
+                    <h1>Dirección</h1>
+                    <br>
+                    <h1 style="font-weight: normal;">{{ $puesto->direccion }}</h1>  
+                    <br><br><br>
+                    <h1 class="title" style="font-size: 20px">Número de Contacto</h1>
+                    <br>
+                    <h1 class="title" style="font-size:25px;font-weight: normal;"><i class="fab fa-whatsapp" style="margin-right: 8px"></i>{{ $puesto->phone }}</h1>  
+                    <br><br>
+                    @if(count($puesto->pago_puestos) > 0)
+                        <label style="font-size: 20px; font-weight: bold;">Tipos de pago</label><br><br>
+                        <p style="font-size: 20px ; margin-left: 5px; color: #545353">
+                            @foreach($puesto->pago_puestos as $pago_puestos)
+                                {{ $pago_puestos->pago->name.' ' }} 
+                            @endforeach  
+                        </p>
+                    <br>
+                    @endif
+                </div>
             </div>
           </div>
         </ul>
