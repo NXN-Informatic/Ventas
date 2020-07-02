@@ -95,7 +95,7 @@ class PublicController extends Controller
             \Storage::disk('local')->put($fileName,  $contents);
             $puesto->perfil = 'logoxdefecto.jpg';
         
-            $contents = file_get_contents('./img/registro.jpg');
+            $contents = file_get_contents('./img/defecto/bannerdefecto.jpg');
             $fileName = 'public/'.$puesto->id.'/banner/bannerxdefecto.jpg';
             \Storage::disk('local')->put($fileName, $contents);
             $puesto->banner = 'bannerxdefecto.jpg';

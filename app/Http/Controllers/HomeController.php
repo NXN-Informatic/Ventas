@@ -50,13 +50,13 @@ class HomeController extends Controller
             $personalizado = 0;
         }
         $prods = Puesto::find($up->first()->puesto_id)->puestosubcategorias()->get();
-        $grupos = Grupo::where('puestosubcategoria_id',$prods->first()->id)->get();
-        if($grupos->isNotEmpty()) {
-            $productocompletado = Producto::where('grupo_id',$grupos->first()->id)->get();
-        } else {
-            $productocompletado = collect();
+        $productocompletado = 0;
+        foreach ($prods as $prod) {
+            $grupos = Grupo::where('puestosubcategoria_id',$prod->id)->get();
+            if($grupos->isNotEmpty()) {
+                $productocompletado = 1;
+            }
         }
-        
         $usuarios_puestos = UsuarioPuesto::where('usuario_id', auth()->user()->id)->get();
         $fbconectado = \Storage::exists('public/'.$up->first()->puesto_id.'/fb_catalog.csv');
         //$pc = new Puesto;

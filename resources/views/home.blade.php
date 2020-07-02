@@ -62,7 +62,7 @@
                                         </div>
                                     </li>
                                     <li class="list-group-item" style="padding: .2rem 1.25rem; border: 0px solid rgba(0, 0, 0, .125);">
-                                        @if ($productocompletado->isNotEmpty())
+                                        @if ($productocompletado))
                                         <div class="alert alert-success alert-outline-coloured alert-dismissible" style="margin-top: 0px; margin-bottom: 0px"  role="alert">
                                             <div class="alert-icon">
                                                 <i class="fas fa-fw fa-check"></i>
@@ -92,7 +92,7 @@
                                             </div>
                                             <div class="alert-message">
                                                 <div class="row"><a href="{{url('puesto/personalizar') }}"><h5 style="margin-left:10px"><strong>  Diseñe su Tienda</strong></h5> </a><small style="margin-left:10px; margin-top: 0px" class="form-text text-muted">{{ __('2 min') }}</small></div>
-                                                Ir a <strong><a href="{{url('producto/lista') }}" style="color: #0645AD">Personalizar</a></strong>
+                                                Ir a <strong><a href="{{url('puesto/personalizar') }}" style="color: #0645AD">Personalizar</a></strong>
                                             </div>
                                         </div>
                                         @else
@@ -102,7 +102,7 @@
                                             </div>
                                             <div class="alert-message">
                                                 <div class="row"><a href="{{url('puesto/personalizar') }}"><h5 style="margin-left:10px"><strong>  Diseñe su Tienda</strong></h5> </a><small style="margin-left:10px; margin-top: 0px" class="form-text text-muted">{{ __('2 min') }}</small></div>
-                                                Ir a <strong><a href="{{url('producto/lista') }}" style="color: #0645AD">Personalizar</a></strong>
+                                                Ir a <strong><a href="{{url('puesto/personalizar') }}" style="color: #0645AD">Personalizar</a></strong>
                                             </div>
                                         </div>
                                         @endif
@@ -115,7 +115,7 @@
                                             </div>
                                             <div class="alert-message">
                                                 <div class="row"><a href="{{url('puesto/editar') }}"><h5 style="margin-left:10px"><strong>  Configure su Tienda</strong></h5> </a><small style="margin-left:10px; margin-top: 0px" class="form-text text-muted">{{ __('1 min') }}</small></div>
-                                                Ir a <strong><a href="{{url('producto/lista') }}" style="color: #0645AD">Configuración</a></strong>
+                                                Ir a <strong><a href="{{url('puesto/editar') }}" style="color: #0645AD">Configuración</a></strong>
                                             </div>
                                         </div>
                                         @else
@@ -125,7 +125,7 @@
                                             </div>
                                             <div class="alert-message">
                                                 <div class="row"><a href="{{url('puesto/editar') }}"><h5 style="margin-left:10px"><strong>  Configure su Tienda</strong></h5> </a><small style="margin-left:10px; margin-top: 0px" class="form-text text-muted">{{ __('1 min') }}</small></div>
-                                                Ir a <strong><a href="{{url('producto/lista') }}" style="color: #0645AD">Configuración</a></strong>
+                                                Ir a <strong><a href="{{url('puesto/editar') }}" style="color: #0645AD">Configuración</a></strong>
                                             </div>
                                         </div>
                                         @endif
@@ -138,7 +138,7 @@
                                             </div>
                                             <div class="alert-message">
                                                 <div class="row"><a href="{{url('/user') }}"><h5 style="margin-left:10px;"><strong>Complete sus Datos</strong></h5> </a><small style="margin-left:10px; margin-top: 0px" class="form-text text-muted">{{ __('1 min') }}</small></div>
-                                                Ir a <strong><a href="{{url('producto/lista') }}" style="color: #0645AD">Mi Perfil</a></strong>
+                                                Ir a <strong><a href="{{url('/user') }}" style="color: #0645AD">Mi Perfil</a></strong>
                                             </div>
                                         </div>        
                                         @else
@@ -148,7 +148,7 @@
                                             </div>
                                             <div class="alert-message">
                                                 <div class="row"><a href="{{url('/user') }}"><h5 style="margin-left:10px;"><strong>Complete sus Datos</strong></h5> </a><small style="margin-left:10px; margin-top: 0px" class="form-text text-muted">{{ __('1 min') }}</small></div>
-                                                Ir a <strong><a href="{{url('producto/lista') }}" style="color: #0645AD">Mi Perfil</a></strong>
+                                                Ir a <strong><a href="{{url('/user') }}" style="color: #0645AD">Mi Perfil</a></strong>
                                             </div>
                                         </div>         
                                         @endif
@@ -161,7 +161,7 @@
                                                 </div>
                                                 <div class="alert-message">
                                                     <div class="row"><a href="#"><h5 style="margin-left:10px"><strong>¡Listo! Empiece a vender</strong></h5> </a></div>
-                                                    Ir a <strong><a href="{{url('producto/lista') }}" style="color: #0645AD">Ver mi Tienda</a></strong>
+                                                    Ir a <strong><a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" style="color: #0645AD">Ver mi Tienda</a></strong>
                                                 </div>
                                             </div>
                                         @else
@@ -171,7 +171,7 @@
                                                 </div>
                                                 <div class="alert-message">
                                                     <div class="row"><a href="#"><h5 style="margin-left:10px"><strong>¡Listo! Empiece a vender.</strong></h5> </a></div>
-                                                    Ir a <strong><a href="{{url('producto/lista') }}" style="color: #0645AD">Ver mi Tienda</a></strong>
+                                                    Ir a <strong><a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" style="color: #0645AD">Ver mi Tienda</a></strong>
                                                 </div>
                                             </div>
                                         @endif
