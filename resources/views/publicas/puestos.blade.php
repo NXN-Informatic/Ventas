@@ -146,36 +146,38 @@
 <div id="prod">
 @foreach($puesto->puestosubcategorias as $puestosubcategorias)
     @foreach($puestosubcategorias->grupos as $grupos)
-        <div class="featureProduct singleProduct" style="background: #F3F3F3; padding: 10px">
-            <div class="feature__wrap container">
-                <h4 class="title">{{ $grupos->name }}</h4>
-                <div class="feature__filter">
-                    <ul class="featureSlider container">
-                        <li class="grid features__grid" >
-                            @foreach($grupos->productos as $producto)
-                                @if ($producto->activo)
-                                    <?php $imagen = null; ?>
-                                    <?php $imagen = $producto->imagen_productos->first(); //solo una imagen x producto?>
-                                    @if($imagen != null)
-                                        <div class="element-item features__item col-lg-3 col-sm-6 col-12 shad">
-                                            <div class="features__image desk">
-                                                <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank"><img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt=""></a>
-                                            </div>
-                                            <div class="features__content">
-                                                <span style="font-size: 20px; color:#bf0000"><strong>S/. {{$producto->precio}}</strong></span>
-                                                <div class="content__overlay" style="margin-top: -15px; margin-bottom: 0px">
-                                                <p style="color: #000">{{$producto->name }}</p>
+        @if(count($grupos->productos))
+            <div class="featureProduct singleProduct" style="background: #F3F3F3; padding: 10px">
+                <div class="feature__wrap container">
+                    <h4 class="title">{{ $grupos->name }}</h4>
+                    <div class="feature__filter">
+                        <ul class="featureSlider container">
+                            <li class="grid features__grid" >
+                                @foreach($grupos->productos as $producto)
+                                    @if ($producto->activo)
+                                        <?php $imagen = null; ?>
+                                        <?php $imagen = $producto->imagen_productos->first(); //solo una imagen x producto?>
+                                        @if($imagen != null)
+                                            <div class="element-item features__item col-lg-3 col-sm-6 col-12 shad">
+                                                <div class="features__image desk">
+                                                    <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank"><img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt=""></a>
+                                                </div>
+                                                <div class="features__content">
+                                                    <span style="font-size: 20px; color:#bf0000"><strong>S/. {{$producto->precio}}</strong></span>
+                                                    <div class="content__overlay" style="margin-top: -15px; margin-bottom: 0px">
+                                                    <p style="color: #000">{{$producto->name }}</p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        @endif
                                     @endif
-                                @endif
-                            @endforeach
-                        </li>
-                    </ul>
+                                @endforeach
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
+        @endif
     @endforeach
 @endforeach
 </div>
@@ -269,7 +271,7 @@
                 <label style="font-size: 20px; font-weight: bold;">Tipos de pago</label><br><br>
                 <p style="font-size: 20px ; margin-left: 5px; color: #545353">
                     @foreach($puesto->pago_puestos as $pago_puestos)
-                        {{ $pago_puestos->pago->name }} - 
+                        {{ $pago_puestos->pago->name.' ' }} 
                     @endforeach  
                   </p>
                   <br>

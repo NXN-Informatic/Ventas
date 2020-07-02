@@ -68,7 +68,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xxl-12" style="display: none">
+            <div class="col-xxl-12" style="">
                 <div class="card">
                     <div class="card-header">
                         <h5 class="card-title mb-0">{{ __('Conecta tu Puesto con tu Página de Facebook!') }}</h5>
