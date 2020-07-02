@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-@section('title','Bienvenido')
+@section('title','Feria Tacna')
 @include('layouts.components.navbar')
 @include('layouts.components.banner')
 
