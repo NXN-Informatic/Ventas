@@ -104,22 +104,25 @@
                 <li class="grid features__grid">
                     @foreach($productos as $producto)
                         @if ($producto->activo)
-                            @foreach($producto->imagen_productos as $imagen) @endforeach
-                            @if($imagen)
-                                <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank">
-                                    <div class="element-item features__item col-lg-3 col-sm-6 col-12 shad">
-                                        <div class="features__image desk">
-                                            <img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt="" style="border: 5px solid #fff" class="shad">
-                                        </div>
-                                        <div class="features__content">
-                                            <span style="font-size: 20px; color:#bf0000"><strong>S/. {{$producto->precio}}</strong></span>
-                                            <div class="content__overlay" style="margin-top: -15px; margin-bottom: 0px">
-                                            <p style="color: #000">{{$producto->name }}</p>
+                            <?php $aux = 1; ?>
+                            @foreach ($producto->imagen_productos as $imagen)
+                                @if($imagen != null and $aux==1)
+                                    <?php $aux=0; ?>
+                                    <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank">
+                                        <div class="element-item features__item col-lg-3 col-sm-6 col-12 shad">
+                                            <div class="features__image desk">
+                                                <img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt="" style="border: 5px solid #fff" class="shad">
+                                            </div>
+                                            <div class="features__content">
+                                                <span style="font-size: 20px; color:#bf0000"><strong>S/. {{$producto->precio}}</strong></span>
+                                                <div class="content__overlay" style="margin-top: -15px; margin-bottom: 0px">
+                                                <p style="color: #000">{{$producto->name }}</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </a>
-                            @endif
+                                    </a>
+                                @endif
+                            @endforeach
                         @endif
                     @endforeach         
                 </li>
