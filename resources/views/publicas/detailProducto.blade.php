@@ -2,7 +2,7 @@
 
 @section('styles')
     <!-- Swiper -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.min.css">
     <link rel="stylesheet" href="{{ asset('css/publicas/detailProduc.css') }}">
     <style type="text/css">
       .wsp:hover
@@ -248,7 +248,7 @@
 
 @section('scripts')
   
-  <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js"></script>
   <script src="{{ asset('js/publicas/detailProduc.js') }}"></script>
   <script>
     function initMap() {
