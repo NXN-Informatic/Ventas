@@ -38,6 +38,9 @@
                     <a href="{{ url('producto/creargrupo') }}" class="btn btn-primary btn-lg mt-2">
                         <i class="fa fa-star"></i>  <span style="margin-left:20px; margin-right:20px">{{ __('    Crear Categorías    ') }}</span>
                     </a>
+                    <a href="{{ url('categoria/editar') }}" class="btn btn-info btn-lg mt-2">
+                        <i class="fa fa-edit"></i>  <span style="margin-left:20px; margin-right:20px">{{ __('    Editar Categorías    ') }}</span>
+                    </a>
                     <a href="{{ url('producto/add')  }}" class="btn btn-secondary btn-lg mt-2 ">
                         <i class="fa fa-plus"></i> <span style="margin-left:20px; margin-right:20px">{{ __('    Añadir Productos    ') }}</span> 
                     </a>

@@ -80,6 +80,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/producto/update/{producto}', 'Cliente\ProductoController@update');
     Route::put('/producto/{producto}/delete', 'Cliente\ProductoController@delete');
     Route::post('/producto/switch/{producto}', 'Cliente\ProductoController@switch');
+    
+    // categorias
+    Route::get('/categoria/editar', 'Cliente\ProductoController@editargrupo');
+    Route::post('/categoria/update', 'Cliente\ProductoController@updategrupo');
 
     // Subida de Imagenes
     Route::post('/imagen/{ip}/delete', 'Cliente\ProductoController@deleteimagen');
