@@ -9,7 +9,7 @@ use App\Puesto;
 
 Route::get('/', function () {
     $puestos = collect();
-    $pst = Puesto::where('completado',1)->where('personalizado',1)->get()->random(4);
+    $pst = Puesto::where('completado',1)->where('personalizado',1)->limit(8)->get();
     $productos = Producto::all()->random(8);
     $tiendas = collect();
     $categorias = Categoria::all();
