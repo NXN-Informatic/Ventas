@@ -79,7 +79,7 @@
                                     <label>
                                         <a href="{{ route('login') }}">
                                         <u>
-                                            <p style="text-align:right;font-size:12px" class="link">
+                                            <p style="text-align:right;font-size:12px;margin-bottom:-10px" class="link">
                                                 {{ __('Ya tienes una cuenta? Inicie Sesión') }}
                                             </p>
                                         </u></a>

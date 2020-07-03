@@ -2,7 +2,7 @@
 
 @section('styles')
     <!-- Swiper -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.min.css">
     <link rel="stylesheet" href="{{ asset('css/publicas/welcome.css') }}">
     
 @endsection
@@ -185,7 +185,7 @@
 @endsection
 
 @section('scripts')
-<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js"></script>
 <script>
     var mySwiper = new Swiper ('.swiper-container', {
       slidesPerView: 1,

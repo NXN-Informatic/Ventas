@@ -141,7 +141,9 @@
   </div>
 	@yield('content')
 	<!--Isotope-->
-	<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+	<script src=""></script>
+  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
   <!--JavaScript-->
   <script src="{{ asset('js/main.js') }}"></script>
   @yield('scripts')
