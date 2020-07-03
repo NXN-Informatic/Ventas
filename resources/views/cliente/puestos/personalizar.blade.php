@@ -18,9 +18,9 @@
                 </ol>
                 <div class="row">
                     <div class="col-12">
-                        <a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="black"><button class="btn btn-info btn-lg" style="margin-bottom: 4px"><span style="margin-left:20px; margin-right:20px">Ver mi Tienda</span></button></a>
+                        <a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="black"><button class="btn btn-primary btn-lg" style="margin-bottom: 4px"><span style="margin-left:10px; margin-right:10px">Ver Mi Tienda</span></button></a>
                         <a target="_blank" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com/puesto/{{ auth()->user()->usuario_puestos->first()->puesto_id }}/detail">
-                            <button class="btn mb-1 btn-facebook btn-lg" style="margin-bottom: 4px"><i class="align-left fab fa-facebook" title="Compartir"></i><span style="margin-left:20px; margin-right:20px">{{ __('Compartir') }}</span></button>
+                            <button class="btn mb-1 btn-facebook btn-lg" style="margin-bottom: 4px"><i class="align-left fab fa-facebook" title="Compartir"></i><span style="margin-left:10px; margin-right:10px">{{ __('Compartir') }}</span></button>
                         </a>
                     </div>
                 </div>
@@ -35,14 +35,14 @@
                         <div class="card-header">
                             <strong><label class="form-label" for="name">Portada de su Tienda</label></strong>
                             </div>
-                        <div class="card-body">
+                        <div class="card-body" style="margin-top: -15px">
                             <div class="row">
-                                <div class=" col-sm-6">
-                                    <small class="form-text text-muted" style="margin-bottom: 7px; margin-top:-10px" >{{ __('Suba desde su equipo:') }}</small>
-                                    <input type="file" class="form-control-file" name="banner" id="banner">
+                                <div class=" col-lg-6 col-12 col-sm-12">
+                                    <small class="form-text text-muted" style="margin-bottom: 7px; margin-top:0px" >{{ __('Suba desde su equipo:') }}</small>
+                                    <input type="file" class="form-control-file" accept="image/jpeg,image/png" capture="gallery" name="banner" id="banner">
                                 </div>
-                                <div class=" col-sm-6">
-                                    <small class="form-text text-muted" style="margin-bottom: 7px; margin-top:-10px" >{{ __('O elija una de estas:') }}</small>
+                                <div class=" col-lg-6 col-12 col-sm-12">
+                                    <small class="form-text text-muted" style="margin-bottom: 7px; margin-top:0px" >{{ __('O elija una de estas:') }}</small>
                                     <select class="form-control select2 form-control-lg" id="bannerdefault" name="bannerdefault" data-toggle="select2">
                                         <optgroup label="Banners disponibles">
                                             <option value=""></option>
@@ -60,6 +60,21 @@
                                     <img src="{{ asset('img/imagen.png') }}" class="img-thumbnail rounded mr-2 mb-2" alt="Sin imagen">
                                 @endif
                             </div>
+                            <div class="row">
+                                <div class="form-group col-sm-6 col-lg-6 col-6">
+                                    <strong><label class="form-label" for="name"></label></strong>
+                                    <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Mostrar nombre de tienda sobre Portada') }}</small>
+                                    <div class="custom-control custom-switch">
+                                        <input id="mostrarnombre" name="nombrebanner" data-id="{{$puesto->nombrebanner}}" onclick="$(this).attr('value',$(this).val()? 0 : 1)" value = "{{$puesto->nombrebanner}}"  class="custom-control-input" type="checkbox" {{ $puesto->nombrebanner ? 'checked' : '' }}>
+                                        <label class="custom-control-label" for="mostrarnombre" style="margin-left: 10px">Si/No</label>
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-6 col-lg-6 col-6">
+                                    <strong><label class="form-label" for="name"></label></strong>
+                                    <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Color del texto') }}</small>
+                                    <input type="color" name="colornombre" id="colornombre" value="{{$puesto->colornombre}}">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -74,12 +89,12 @@
                                 <div class="row" id="preview_logo">
                                     <img src="{{ asset('storage/'.$puesto->id.'/logo/'.$puesto->perfil) }}" class="img-thumbnail rounded mr-2 mb-2" alt="Angelica Ramos">
                                 </div>
-                                <input type="file" class="form-control-file" name="logo" id="logo">
+                                <input type="file" class="form-control-file" accept="image/jpeg,image/png" capture="gallery" name="logo" id="logo">
                             @else
                                 <div class="row" id="preview_logo">
                                     <img src="{{ asset('default\perfil.png') }}" class="img-thumbnail rounded mr-2 mb-2" alt="Sin imagen">
                                 </div>
-                                <input type="file" class="form-control-file" name="logo" id="logo">
+                                <input type="file" class="form-control-file" accept="image/jpeg,image/png" capture="gallery" name="logo" id="logo">
                             @endif
                         </div>
                     </div>

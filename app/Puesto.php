@@ -26,7 +26,12 @@ class Puesto extends Model
         'plan_id',
         'elegirnos',
         'nosotros',
-        'direccion'
+        'direccion',
+        'wsp',
+        'personalizado',
+        'completado',
+        'nombrebanner',
+        'colornombre'
     ];
 
     public function puestosubcategorias() {

@@ -37,6 +37,11 @@ class ProductoController extends Controller
         $puestoSubcategorias = PuestoSubcategoria::where('puesto_id', $usuarioPuesto->puesto_id)->get();
         return view('cliente.producto.grupo', compact('usuarioPuesto', 'puestoSubcategorias'));
     }
+    public function editargrupo() {
+        $usuarioPuesto = UsuarioPuesto::where('usuario_id', auth()->user()->id)->first();
+        $puestoSubcategorias = PuestoSubcategoria::where('puesto_id', $usuarioPuesto->puesto_id)->get();
+        return view('cliente.grupo.editar', compact('usuarioPuesto', 'puestoSubcategorias'));
+    }
 
     public function create(Producto $producto) {
         $usuarioPuesto = UsuarioPuesto::where('usuario_id', auth()->user()->id)->first();
@@ -168,6 +173,21 @@ class ProductoController extends Controller
         $notification = 'Se ha creado su Grupo Correctamente';
         return redirect('/producto/creargrupo')->with(compact('notification'));
     }
+    public function updategrupo(Request $request) {
+        $grupo = Grupo::find($request->input('grupo'));
+        if($grupo){
+            if($request->input('name')){
+                $grupo->name = $request->input('name');
+            }
+            
+            $grupo->activo = $request->input('activo');
+            $grupo->save();
+            $notification = 'La categoria ha sido actualizada';    
+        }else{
+            $notification = 'La categoria no fue actualizada';    
+        }
+        return redirect('/producto/lista')->with(compact('notification'));
+    }
 
     public function dropzoneFrom(Request $request)
     {
@@ -191,7 +211,9 @@ class ProductoController extends Controller
         }
         $this->storeExcel($puesto);
     }
-
+    public function deleteimagen(Request $request,ImagenProducto $ip) {
+        ImagenProducto::destroy($ip->id);
+    }
     public function dropzonedelete(Request $request) {
         $name = $request->input('name');
         $producto_id = $request->input('producto');

@@ -9,12 +9,12 @@ use App\Puesto;
 
 Route::get('/', function () {
     $puestos = collect();
-    $pst = Puesto::where('completado',1)->where('personalizado',1)->orderBy('id','desc')->limit(8)->get();
-    $productos = Producto::orderBy('id','desc')->limit(8)->get();
+    $pst = Puesto::where('completado',1)->where('personalizado',1)->get()->random(5);
+    $productos = Producto::all()->random(8);
     $tiendas = collect();
     $categorias = Categoria::all();
     $subcategorias = Subcategoria::all();
-    $cccc = CentrosComerciale::orderBy('id','desc')->limit(8)->get();
+    $cccc = CentrosComerciale::all()->random(8);
     return view('welcome', compact('puestos', 'productos', 'categorias', 'tiendas','pst','subcategorias','cccc'));
 });
 
@@ -80,8 +80,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/producto/update/{producto}', 'Cliente\ProductoController@update');
     Route::put('/producto/{producto}/delete', 'Cliente\ProductoController@delete');
     Route::post('/producto/switch/{producto}', 'Cliente\ProductoController@switch');
+    
+    // categorias
+    Route::get('/categoria/editar', 'Cliente\ProductoController@editargrupo');
+    Route::post('/categoria/update', 'Cliente\ProductoController@updategrupo');
 
     // Subida de Imagenes
+    Route::post('/imagen/{ip}/delete', 'Cliente\ProductoController@deleteimagen');
     Route::post('/producto/dropzoneFrom', 'Cliente\ProductoController@dropzoneFrom');
     Route::post('/producto/dropzonedelete', 'Cliente\ProductoController@dropzonedelete');
 

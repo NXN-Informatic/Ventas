@@ -79,7 +79,7 @@
     @if($puesto->banner != null)
     <div class="bannerBlog headermax shad" style="background-image: url('{{ asset('storage/'.$puesto->id.'/banner/'.$puesto->banner)}}')">
         <h1 class="title" style="font-size:18px; text-align:right; margin-top:-5%; margin-right:10px"><i class="fab fa-whatsapp" style="margin-right: 8px"></i> {{ $puesto->phone }} </h1>
-        <h1 class="title" style="margin-top:7%">{{ $puesto->name }}</h1>
+        <h1 class="title" style="color: {{$puesto->colornombre}}; margin-top:7%">{{ ($puesto->nombrebanner) ? $puesto->name : '' }}</h1>
         <div style="text-align:center;">
         <br>
         <a id="boton" class="title clases btn btn-primary" style="background:#000;"><h1 class="title" style="font-size:15px">Comprar</h1></a>
@@ -89,7 +89,7 @@
     <div class="bannerBlog" style="background-image: url('{{ asset('img/banner/fondo.jpg')}}');height:400px">
         <h1 class="title" style="font-size:25px; text-align:right; margin-top:-5%; margin-right:10px"><i class="fab fa-whatsapp" style="margin-right: 8px"></i> {{ $puesto->phone }} </h1>
         <br><br><br><br><br>
-        <h1 class="title">{{ $puesto->name }}</h1>
+    <h1 class="title" style="color: {{$puesto->colornombre}}">{{ ($puesto->nombrebanner) ? $puesto->name : '' }}</h1>
         <div style="text-align:center;">
         <br>
         <a id="boton" class="title clases btn btn-primary" style="background:#000;"><h1 class="title" style="font-size:15px">Comprar</h1></a>
@@ -144,40 +144,42 @@
   </div>
 </div> -->
 <div id="prod">
-@foreach($puesto->puestosubcategorias as $puestosubcategorias)
-    @foreach($puestosubcategorias->grupos as $grupos)
-        <div class="featureProduct singleProduct" style="background: #F3F3F3; padding: 10px">
-            <div class="feature__wrap container">
-                <h4 class="title">{{ $grupos->name }}</h4>
-                <div class="feature__filter">
-                    <ul class="featureSlider container">
-                        <li class="features__grid" >
-                            @foreach($grupos->productos as $producto)
-                                @if ($producto->activo)
-                                    <?php $imagen = null; ?>
-                                    <?php $imagen = $producto->imagen_productos->first(); //solo una imagen x producto?>
-                                    @if($imagen != null)
-                                        <div class="element-item features__item col-lg-3 col-sm-6 col-12 shad">
-                                            <div class="features__image desk">
-                                                <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank"><img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt=""></a>
-                                            </div>
-                                            <div class="features__content">
-                                                <span style="font-size: 20px; color:#bf0000"><strong>S/. {{$producto->precio}}</strong></span>
-                                                <div class="content__overlay" style="margin-top: -15px; margin-bottom: 0px">
-                                                <p style="color: #000">{{$producto->name }}</p>
+    @foreach($puesto->puestosubcategorias as $puestosubcategorias)
+        @foreach($puestosubcategorias->grupos as $grupos)
+            @if(count($grupos->productos))
+                <div class="featureProduct singleProduct" style="background: #F3F3F3; padding: 10px">
+                    <div class="feature__wrap container">
+                        <h4 class="title">{{ $grupos->name }}</h4>
+                        <div class="feature__filter">
+                            <ul class="featureSlider container">
+                                <li class="grid features__grid" >
+                                    @foreach($grupos->productos as $producto)
+                                        @if ($producto->activo)
+                                            <?php $imagen = null; ?>
+                                            <?php $imagen = $producto->imagen_productos->first(); //solo una imagen x producto?>
+                                            @if($imagen != null)
+                                                <div class="element-item features__item col-lg-3 col-sm-6 col-12 shad">
+                                                    <div class="features__image desk">
+                                                        <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank"><img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt=""></a>
+                                                    </div>
+                                                    <div class="features__content">
+                                                        <span style="font-size: 20px; color:#bf0000"><strong>S/. {{$producto->precio}}</strong></span>
+                                                        <div class="content__overlay" style="margin-top: -15px; margin-bottom: 0px">
+                                                        <p style="color: #000">{{$producto->name }}</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    @endif
-                                @endif
-                            @endforeach
-                        </li>
-                    </ul>
+                                            @endif
+                                        @endif
+                                    @endforeach
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            @endif
+        @endforeach
     @endforeach
-@endforeach
 </div>
 
 <!-- Mostrar Productos -->
@@ -221,7 +223,7 @@
           <div class="col-lg-8 col-12">
                 <label style="font-size: 25px; font-weight: bold;">¿Porque Elegirnos?</label><br><br>
                 @if( strlen($puesto->elegirnos) > 0)
-                <p style="font-size:18px">{{ $puesto->elegirnos }}</p>
+                    <p style="font-size:18px">{{ $puesto->elegirnos }}</p>
                 @else
                 <p style="font-size:18px">Porque Somos una Tienda Mejor que otra</p>
                 @endif`
@@ -237,7 +239,6 @@
                       <h2>{{ $usuario_puesto->user->name }}</h2>
                     </div>
                 </div>
-                
           </div>
       </div>
     </div>
@@ -256,25 +257,26 @@
               <div id="map" style="height: 400px;"></div>
             </div>
             <div class="col-lg-6 col-12">
-              <div style="text-align: left;">
-                <br><br>
-                <h1>Dirección</h1>
-                <br>
-                <h1 style="font-weight: normal;">{{ $puesto->direccion }}</h1>  
-                <br><br><br>
-                 <h1 class="title" style="font-size: 20px">Número de Contacto</h1><br>
-          <h1 class="title" style="font-size:25px;font-weight: normal;"><i class="fab fa-whatsapp" style="margin-right: 8px"></i>{{ $puesto->phone }} </h1>  
-          <br><br>
-                @if(count($puesto->pago_puestos) > 0)
-                <label style="font-size: 20px; font-weight: bold;">Tipos de pago</label><br><br>
-                <p style="font-size: 20px ; margin-left: 5px; color: #545353">
-                    @foreach($puesto->pago_puestos as $pago_puestos)
-                        {{ $pago_puestos->pago->name }} - 
-                    @endforeach  
-                  </p>
-                  <br>
-                @endif
-              </div>
+                <div style="text-align: left;">
+                    <br><br>
+                    <h1>Dirección</h1>
+                    <br>
+                    <h1 style="font-weight: normal;">{{ $puesto->direccion }}</h1>  
+                    <br><br><br>
+                    <h1 class="title" style="font-size: 20px">Número de Contacto</h1>
+                    <br>
+                    <h1 class="title" style="font-size:25px;font-weight: normal;"><i class="fab fa-whatsapp" style="margin-right: 8px"></i>{{ $puesto->phone }}</h1>  
+                    <br><br>
+                    @if(count($puesto->pago_puestos) > 0)
+                        <label style="font-size: 20px; font-weight: bold;">Tipos de pago</label><br><br>
+                        <p style="font-size: 20px ; margin-left: 5px; color: #545353">
+                            @foreach($puesto->pago_puestos as $pago_puestos)
+                                {{ $pago_puestos->pago->name.' ' }} 
+                            @endforeach  
+                        </p>
+                    <br>
+                    @endif
+                </div>
             </div>
           </div>
         </ul>

@@ -15,7 +15,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="_blank">Tablero</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Crear Categorías</li>
+                    <li class="breadcrumb-item active" aria-current="page">Editar Categorías</li>
                 </ol>
                 <div class="row">
                     <div class="col-12">
@@ -33,7 +33,7 @@
                     <div class="card-header">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h4>{{ __('Crear categoría') }}</h4>
+                                <h4>{{ __('Editar categoría') }}</h4>
                             </div>
                             <div class="col text-right">
                                 <a href="{{ url('producto/lista') }}" class="btn btn-secondary">Regresar</a>
@@ -49,24 +49,30 @@
                             </div>
                         </div>
                         @endif
-                        <form action="{{ url('producto/grupo/') }}" method="post">
+                        <form action="{{ url('categoria/update') }}" method="post">
                             @csrf
                             <div class="form-group">
-                                <label class="form-label" for="name">Nombre de la categoría</label>
-                                <input type="text" class="form-control" name="name" value="{{ old('name') }}" required>
-                                <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Incluir en</label>
+                                <label class="form-label">Seleccione la categoria</label>
                                 <div class="mb-3">
-								<select class="form-control select2" name="subcategoria_id" data-toggle="select2">
-                                <optgroup label="Subcategorias Disponibles">
+								<select class="form-control select2" name="grupo" data-toggle="select2">
+                                <optgroup label="Grupos disponibles">
                                     @foreach($puestoSubcategorias as $subcategorias)
-                                        <option value="{{ $subcategorias->id }}">{{ $subcategorias->subcategoria->name }}</option>
+                                        @foreach ($subcategorias->grupos as $grupo)
+                                        <option value="{{ $grupo->id }}">{{ $grupo->name }}</option>
+                                        @endforeach
                                     @endforeach
                                 </optgroup>
                                 </select>
                                 </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="name">Nuevo nombre</label>
+                                <input id="nombre" type="text" class="form-control" name="name" value="{{ old('name') }}">
+                                <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
+                            </div>
+                            <div class="form-group custom-control custom-switch">
+                                <input id="mostrargrupo" name="activo" data-id="{{$grupo->activo}}" onclick="$(this).attr('value',$(this).val()? 0 : 1)" value = "{{$grupo->activo}}"  class="custom-control-input" type="checkbox" {{ $grupo->activo ? 'checked' : '' }}>
+                                <label class="custom-control-label" for="mostrargrupo" style="margin-left: 10px">Publicar en mi Tienda (Si/No)</label>
                             </div>
                             <div class="form-group">
                                 <input type ="hidden" class="form-control" name="description" value="{{ old('description') }}">
