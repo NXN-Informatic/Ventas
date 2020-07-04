@@ -3,7 +3,7 @@
 
 @section('styles')
     <!-- Swiper -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.min.css">
 @endsection
 
 @section('content')
