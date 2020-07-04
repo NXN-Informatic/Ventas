@@ -31,7 +31,20 @@
                     </div>
                 </div>
             </nav>
-		</div>
+        </div>
+        @if (session('notification'))
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <div class="alert-icon">
+                    <i class="far fa-fw fa-bell"></i>
+                </div>
+                <div class="alert-message">
+                    <strong>{{ session('notification') }}</strong>
+                </div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+                </button>
+            </div>
+        @endif
         <div class="row">
             <h2>Cree categorías y añada sus productos.</h2>
             <div class="col-sm-12">

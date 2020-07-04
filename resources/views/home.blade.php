@@ -8,7 +8,6 @@
   
 <main class="content">
     <div class="container-fluid">
-
         <div class="header">
             <h1 style="font-size: 50px" class="header-title">
                 {{ __('¡Saludos!') }}
@@ -36,7 +35,6 @@
                 <div class="alert-message">
                     <strong>{{ session('notification') }}</strong>
                 </div>
-
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">×</span>
                 </button>
