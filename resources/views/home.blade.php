@@ -8,7 +8,6 @@
   
 <main class="content">
     <div class="container-fluid">
-
         <div class="header">
             <h1 style="font-size: 50px" class="header-title">
                 {{ __('¡Saludos!') }}
@@ -36,7 +35,6 @@
                 <div class="alert-message">
                     <strong>{{ session('notification') }}</strong>
                 </div>
-
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">×</span>
                 </button>
@@ -84,8 +82,8 @@
                                                 <i class="fas fa-fw fa-check"></i>
                                             </div>
                                             <div class="alert-message">
-                                                <div class="row"><a href="{{url('producto/lista') }}"><h5 style="margin-left:10px"><strong>  Añada sus productos</strong></h5></a><small style="margin-left:10px; margin-top: 0px" class="form-text text-muted">{{ __('1 min') }}</small></div>
-                                                Ir a <strong><a href="{{url('producto/lista') }}" style="color: #0645AD">Mi catálogo</a></strong>
+                                                <div class="row"><a href="{{url('producto/lista') }}"><h5 style="margin-left:10px"><strong>  Añada sus productos</strong></h5> </a><small style="margin-left:10px; margin-top: 0px" class="form-text text-muted">{{ __('1 min') }}</small></div>
+                                                Cree <strong><a href="{{url('producto/grupo') }}" style="color: #0645AD">Categorias</a></strong> y añada <strong><a href="{{url('producto/create') }}" style="color: #0645AD">Productos</a></strong> 
                                             </div>
                                         </div>
                                         @else
@@ -95,7 +93,7 @@
                                             </div>
                                             <div class="alert-message">
                                                 <div class="row"><a href="{{url('producto/lista') }}"><h5 style="margin-left:10px"><strong>  Añada sus productos</strong></h5> </a><small style="margin-left:10px; margin-top: 0px" class="form-text text-muted">{{ __('1 min') }}</small></div>
-                                                Ir a <strong><a href="{{url('producto/lista') }}" style="color: #0645AD">Mi catálogo</a></strong>
+                                                Cree <strong><a href="{{url('producto/grupo') }}" style="color: #0645AD">Categorias</a></strong> y añada <strong><a href="{{url('producto/create') }}" style="color: #0645AD">Productos</a></strong> 
                                             </div>
                                         </div>
                                         @endif

@@ -26,7 +26,20 @@
                     </div>
                 </div>
             </nav>
-		</div>
+        </div>
+        @if (session('notification'))
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <div class="alert-icon">
+                    <i class="far fa-fw fa-bell"></i>
+                </div>
+                <div class="alert-message">
+                    <strong>{{ session('notification') }}</strong>
+                </div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+                </button>
+            </div>
+        @endif
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -36,7 +49,10 @@
                                 <h4>{{ __('Crear categoría') }}</h4>
                             </div>
                             <div class="col text-right">
-                                <a href="{{ url('producto/lista') }}" class="btn btn-secondary">Regresar</a>
+                                <a href="{{ url('categoria/editar') }}" class="btn btn-info btn-lg mt-2">
+                                    <i class="fa fa-edit"></i>  <span>{{ __('    Editar') }}</span>
+                                </a>
+                                <a href="{{ url('producto/lista') }}" class="btn btn-secondary btn-lg mt-2"><i class="fa fa-reply"></i> Regresar</a>
                             </div>
                         </div>
                         

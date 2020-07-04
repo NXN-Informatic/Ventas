@@ -170,7 +170,7 @@ class ProductoController extends Controller
             'puestosubcategoria_id' => $request->input('subcategoria_id') 
         ]);
 
-        $notification = 'Se ha creado su Grupo Correctamente';
+        $notification = 'Categoria creada con éxito';
         return redirect('/producto/creargrupo')->with(compact('notification'));
     }
     public function updategrupo(Request $request) {
@@ -184,7 +184,8 @@ class ProductoController extends Controller
             $grupo->save();
             $notification = 'La categoria ha sido actualizada';    
         }else{
-            $notification = 'La categoria no fue actualizada';    
+            $notification = 'La categoria no fue actualizada';
+                
         }
         return redirect('/producto/lista')->with(compact('notification'));
     }
