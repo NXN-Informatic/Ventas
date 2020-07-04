@@ -83,7 +83,7 @@
                                             </div>
                                             <div class="alert-message">
                                                 <div class="row"><a href="{{url('producto/lista') }}"><h5 style="margin-left:10px"><strong>  Añada sus productos</strong></h5> </a><small style="margin-left:10px; margin-top: 0px" class="form-text text-muted">{{ __('1 min') }}</small></div>
-                                                Cree <strong><a href="{{url('producto/creargrupo') }}" style="color: #0645AD">Categorias</a></strong> y añada <strong><a href="{{url('producto/create') }}" style="color: #0645AD">Productos</a></strong> 
+                                                Ir a <strong><a href="{{url('producto/lista') }}" style="color: #0645AD">Mi catálogo</a></strong>
                                             </div>
                                         </div>
                                         @else
@@ -93,7 +93,7 @@
                                             </div>
                                             <div class="alert-message">
                                                 <div class="row"><a href="{{url('producto/lista') }}"><h5 style="margin-left:10px"><strong>  Añada sus productos</strong></h5> </a><small style="margin-left:10px; margin-top: 0px" class="form-text text-muted">{{ __('1 min') }}</small></div>
-                                                Cree <strong><a href="{{url('producto/creargrupo') }}" style="color: #0645AD">Categorias</a></strong> y añada <strong><a href="{{url('producto/create') }}" style="color: #0645AD">Productos</a></strong> 
+                                                Ir a <strong><a href="{{url('producto/lista') }}" style="color: #0645AD">Mi catálogo</a></strong>
                                             </div>
                                         </div>
                                         @endif
