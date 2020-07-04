@@ -85,7 +85,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/categoria/editar', 'Cliente\ProductoController@editargrupo');
     Route::post('/categoria/update', 'Cliente\ProductoController@updategrupo');
 
-    // Subida de Imagenes
+    // Subida de Imagenesgitpu
     Route::post('/imagen/{ip}/delete', 'Cliente\ProductoController@deleteimagen');
     Route::post('/producto/dropzoneFrom', 'Cliente\ProductoController@dropzoneFrom');
     Route::post('/producto/dropzonedelete', 'Cliente\ProductoController@dropzonedelete');
