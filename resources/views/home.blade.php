@@ -40,6 +40,22 @@
                 </button>
             </div>
         @endif
+        
+        <div class="card">
+            <div class="card-body">
+                <div class="col-12 text-center mt-2">
+                    <h5>¡Tutorial de inicio en 3 minutos!</h5>
+                </div>
+                <div class="col-12" style="margin-top: 15px">
+                    <div class="col-12 text-center mt-2">
+                        <video id="myVideo" width="80%" controls>
+                            <source src="{{ asset('img/tutorial.mp4') }}" type="video/mp4">
+                            <source src="{{ asset('img/tutorial.mp4') }}" type="video/ogg">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row" >
             <div class="col-lg-7 col-12">
                 <div class="card">

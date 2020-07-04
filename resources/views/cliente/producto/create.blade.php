@@ -3,6 +3,16 @@
 @section('styles')
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css">
+    <style>
+    .botonBtn{
+        width:50%;
+    }
+    @media (max-width: 600px) {
+        .botonBtn{
+            width:100%;
+        }
+      }
+    </style>
 @endsection
 
 @section('content')
@@ -149,7 +159,7 @@
         </div>
         <div class="row">
             <div class="col-12 text-center">
-                <button type="submit" class="btn btn-primary btn-lg"><span style="margin-left: 83px; margin-right: 83px">Añadir producto</span></button>
+                <button type="submit" class="btn btn-primary botonBtn btn-lg"><span style="text-align:center">Añadir producto</span></button>
             </div>
         </div>
         </form>
