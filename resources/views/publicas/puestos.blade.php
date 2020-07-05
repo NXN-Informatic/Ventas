@@ -163,6 +163,8 @@
                                                         <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank"><img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt=""></a>
                                                     </div>
                                                     <div class="features__content">
+                                                        
+                                                        <p style="color: #000">{{$producto->name }}</p> 
                                                         <span style="font-size: 20px; color:#bf0000"><strong>S/. {{$producto->precio}}</strong></span>
                                                         <div class="content__overlay" style="margin-top: -15px; margin-bottom: 0px">
                                                         <p style="color: #000">{{$producto->name }}</p>
