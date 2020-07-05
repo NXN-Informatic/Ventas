@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Nuevo Grupo')
+@section('title','Editar categoria')
 @section('content')
 @include('layouts.partials.fbchat')
 @include('layouts.partials.menu')

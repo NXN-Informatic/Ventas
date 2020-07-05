@@ -19,9 +19,9 @@
                 </ol>
                 <div class="row">
                     <div class="col-12">
-                        <a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="black"><button class="btn btn-primary btn-lg" style="margin-bottom: 4px"><span style="margin-left:10px; margin-right:10px">Ver Mi Tienda</span></button></a>
+                        <a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="black"><button class="btn btn-primary btn-lg" style="margin-bottom: 4px"><span>Ver Mi Tienda</span></button></a>
                         <a target="_blank" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com/puesto/{{ auth()->user()->usuario_puestos->first()->puesto_id }}/detail">
-                            <button class="btn mb-1 btn-facebook btn-lg" style="margin-bottom: 4px"><i class="align-left fab fa-facebook" title="Compartir"></i><span style="margin-left:10px; margin-right:10px">{{ __('Compartir') }}</span></button>
+                            <button class="btn mb-1 btn-facebook btn-lg" style="margin-bottom: 4px"><i class="align-left fab fa-facebook" title="Compartir"></i><span>{{ __('Compartir') }}</span></button>
                         </a>
                     </div>
                 </div>
@@ -40,24 +40,23 @@
                 </button>
             </div>
         @endif
-        
-        <div class="card">
-            <div class="card-body">
-                <div class="col-12 text-center mt-2">
-                    <h5>¡Tutorial de inicio en 3 minutos!</h5>
-                </div>
-                <div class="col-12" style="margin-top: 15px">
-                    <div class="col-12 text-center mt-2">
-                        <video id="myVideo" width="80%" controls>
-                            <source src="{{ asset('img/tutorial.mp4') }}" type="video/mp4">
-                            <source src="{{ asset('img/tutorial.mp4') }}" type="video/ogg">
-                        </video>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="row" >
             <div class="col-lg-7 col-12">
+                <div class="card" style="height: 460px">
+                    <div class="card-body">
+                        <div class="col-12 text-center mt-2">
+                            <h5>¡Tutorial de inicio en 3 minutos!</h5>
+                        </div>
+                        <div class="col-12" style="margin-top: 15px">
+                            <div class="col-12 text-center mt-2">
+                                <video id="myVideo" height="400px" controls>
+                                    <source src="{{ asset('img/tutorial.mp4') }}" type="video/mp4">
+                                    <source src="{{ asset('img/tutorial.mp4') }}" type="video/ogg">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="card">
                     <div class="card-header">
                         <h4>Prepárese para su primera venta! Siga los siguientes pasos</h4>
@@ -83,7 +82,7 @@
                                             </div>
                                             <div class="alert-message">
                                                 <div class="row"><a href="{{url('producto/lista') }}"><h5 style="margin-left:10px"><strong>  Añada sus productos</strong></h5> </a><small style="margin-left:10px; margin-top: 0px" class="form-text text-muted">{{ __('1 min') }}</small></div>
-                                                Cree <strong><a href="{{url('producto/grupo') }}" style="color: #0645AD">Categorias</a></strong> y añada <strong><a href="{{url('producto/create') }}" style="color: #0645AD">Productos</a></strong> 
+                                                Ir a <strong><a href="{{url('producto/lista') }}" style="color: #0645AD">Mi catálogo</a></strong>
                                             </div>
                                         </div>
                                         @else
@@ -93,7 +92,7 @@
                                             </div>
                                             <div class="alert-message">
                                                 <div class="row"><a href="{{url('producto/lista') }}"><h5 style="margin-left:10px"><strong>  Añada sus productos</strong></h5> </a><small style="margin-left:10px; margin-top: 0px" class="form-text text-muted">{{ __('1 min') }}</small></div>
-                                                Cree <strong><a href="{{url('producto/grupo') }}" style="color: #0645AD">Categorias</a></strong> y añada <strong><a href="{{url('producto/create') }}" style="color: #0645AD">Productos</a></strong> 
+                                                Ir a <strong><a href="{{url('producto/lista') }}" style="color: #0645AD">Mi catálogo</a></strong>
                                             </div>
                                         </div>
                                         @endif
@@ -231,11 +230,11 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="col-12 text-center mt-2">
-                                <h5>Amplía tu catálogo de 20 a 50 productos:</h5>
+                                <h5>Amplía tu catálogo de 10 a 20 productos:</h5>
                             </div>
                             <div class="col-12" style="margin-top: 15px">
                                 <div class="col-12 text-center mt-2">
-                                    <span style="margin-bottom: 7px" class="form-text text-muted">{{ __('Comparte FeriaTacna a 3 vendedores.') }}</span>
+                                    <span style="margin-bottom: 7px" class="form-text text-muted">{{ __('Comparte FeriaTacna a 2 vendedores.') }}</span>
                                     <a target="_blank" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com/register">
                                         <button class="btn mb-1 btn-facebook btn-lg"><i class="align-left fab fa-facebook" title="Compartir"></i><span style="margin-left:20px; margin-right:20px">{{ __('    Compartir    ') }}</span></button>
                                     </a>
