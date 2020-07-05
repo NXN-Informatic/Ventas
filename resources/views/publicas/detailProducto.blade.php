@@ -175,7 +175,9 @@
                                             <img src="{{ asset('/storage/'.$puestosubcategoria->puesto->id.'/'.$productos->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt="" style="border: 5px solid #fff">
                                         </div>
                                         <div class="features__content">
-                                            <span style="font-size: 20px; color:#bf0000"><strong>S/. {{$productos->precio}}</strong></span>
+                                            <span style="font-size: 20px; color:#bf0000">   
+                                                <strong>S/. {{$productos->precio}}</strong>
+                                            </span>
                                             <div class="content__overlay" style="margin-top: -20px; margin-bottom: 0px">
                                             <p style="color: #000">{{$productos->name }}</p>
                                             </div>
