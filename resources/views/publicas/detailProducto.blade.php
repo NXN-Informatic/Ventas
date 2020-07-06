@@ -82,17 +82,18 @@
                     <div class="shad2" style="background-color: #fff">
                         <div class="col-12">
                             <div class="row">
-                                <div class="col-lg-6 col-12">
+                                <div class="col-lg-6 col-6">
                                     <!-- Productos Precio -->
                                     <div class="precio color" style="padding: 10px; color: #bf0000">S/.{{ $producto->precio }}
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-12" style="text-align: right">
+                                <div class="col-lg-6 col-6" style="text-align: right">
                                     <!-- Productos Creación -->
                                     <a href="#"><i class="far fa-heart" style="font-size: 3rem; padding: 10px"></i></a>
                                 </div>
                             </div>
-                            <h1 class="text-left" style="font-size: 24px; color: #000; padding: 10px">{{ $producto->name }}</h1>  
+                            <h1 class="text-left" style="font-size: 24px; color: #000; padding-left: 10px; margin-top:-10pxgit add .
+                            ">{{ $producto->name }}</h1>  
                         </div>
                         <hr style="color: #f2f2f2"> 
                         <div class="col-lg-12 text-center" style="padding-left: 10px">
