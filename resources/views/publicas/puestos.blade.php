@@ -34,6 +34,32 @@
         height: 250px;
     }
     }
+    .imgh{
+        height: 250px;
+    }
+    @media (max-width: 800px) {
+    .imgh {
+        height: 200px;
+    }
+    }
+    @media (max-width: 600px) {
+    .imgh {
+        height: 150px;
+    }
+    }
+    .imgb{
+        height:240px;
+    }
+    @media (max-width: 800px) {
+    .imgb {
+        height:150px;
+    }
+    }
+    @media (max-width: 600px) {
+    .imgb {
+        height:80px;
+    }
+    }
     </style>
 @endsection
 
@@ -75,28 +101,14 @@
         @endif
     @endif
 </div> -->
-<div id="ocultar9">
+<div id="ocultar9" style="background: #F3F3F3">
     @if($puesto->banner != null)
-    <div class="bannerBlog headermax shad" style="background-image: url('{{ asset('storage/'.$puesto->id.'/banner/'.$puesto->banner)}}')">
-        <h1 class="title" style="font-size:18px; text-align:right; margin-top:-5%; margin-right:10px"><i class="fab fa-whatsapp" style="margin-right: 8px"></i> {{ $puesto->phone }} </h1>
-        <h1 class="title" style="color: {{$puesto->colornombre}}; margin-top:7%">{{ ($puesto->nombrebanner) ? $puesto->name : '' }}</h1>
-        <div style="text-align:center;">
-        <br>
-        <a id="boton" class="title clases btn btn-primary" style="background:#000;"><h1 class="title" style="font-size:15px">Comprar</h1></a>
+        <div class="bannerBlog headermax shad imgb" style="background-image: url('{{ asset('storage/'.$puesto->id.'/banner/'.$puesto->banner)}}'); ">
+            <!--<h1 class="title" style="font-size:18px; text-align:right; margin-top:-5%; margin-right:10px"><i class="fab fa-whatsapp" style="margin-right: 8px"></i> {{ $puesto->phone }} </h1> -->
+            <h1 class="title" style="color: {{$puesto->colornombre}}">{{ ($puesto->nombrebanner) ? $puesto->name : '' }}</h1>
         </div>
-    </div>
-    @else
-    <div class="bannerBlog" style="background-image: url('{{ asset('img/banner/fondo.jpg')}}');height:400px">
-        <h1 class="title" style="font-size:25px; text-align:right; margin-top:-5%; margin-right:10px"><i class="fab fa-whatsapp" style="margin-right: 8px"></i> {{ $puesto->phone }} </h1>
-        <br><br><br><br><br>
-    <h1 class="title" style="color: {{$puesto->colornombre}}">{{ ($puesto->nombrebanner) ? $puesto->name : '' }}</h1>
-        <div style="text-align:center;">
-        <br>
-        <a id="boton" class="title clases btn btn-primary" style="background:#000;"><h1 class="title" style="font-size:15px">Comprar</h1></a>
-        
-        </div>
-    </div>
     @endif    
+
 </div>
 
 <!--End Banner Slide-->
@@ -143,49 +155,56 @@
     </div>
   </div>
 </div> -->
-<div id="prod">
+<div id="prod" style="background: #f3f3f3; padding-top: 20px">
     @foreach($puesto->puestosubcategorias as $puestosubcategorias)
         @foreach($puestosubcategorias->grupos as $grupos)
             @if(count($grupos->productos))
-                <div class="featureProduct singleProduct" style="background: #F3F3F3; padding: 10px">
-                    <div class="feature__wrap container">
-                        <h4 class="title">{{ $grupos->name }}</h4>
-                        <div class="feature__filter">
-                            <ul class="featureSlider container">
-                                <li class="grid features__grid" >
-                                    @foreach($grupos->productos as $producto)
-                                        @if ($producto->activo)
-                                            <?php $imagen = null; ?>
-                                            <?php $imagen = $producto->imagen_productos->first(); //solo una imagen x producto?>
-                                            @if($imagen != null)
-                                                <div class="element-item features__item col-lg-3 col-sm-6 col-12 shad">
-                                                    <div class="features__image desk">
-                                                        <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank"><img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt=""></a>
-                                                    </div>
-                                                    <div class="features__content">
-                                                        
-                                                        <p style="color: #000">{{$producto->name }}</p> 
-                                                        <span style="font-size: 20px; color:#bf0000"><strong>S/. {{$producto->precio}}</strong></span>
-                                                        <div class="content__overlay" style="margin-top: -15px; margin-bottom: 0px">
-                                                        <p style="color: #000">{{$producto->name }}</p>
-                                                        </div>
-                                                    </div>
+            <div class="singleProduct ajaxProduct featureProduct {{'section'.$grupos->id}}" style="background: #f3f3f3">
+                <div class="feature__filter container">
+                    <h4 class="title">{{ $grupos->name }}</h4>
+                  <div class="tab__control dflex">
+                  </div>
+                  <div class="tabs">
+                    <ul class="featureSlider">
+                      <li class="features__grid active">
+                        @foreach($grupos->productos as $producto)
+                            @if ($producto->activo)
+                                <?php $imagen = null; ?>
+                                <?php $imagen = $producto->imagen_productos->first(); //solo una imagen x producto?>
+                                @if($imagen != null)
+                                        <div class="features__item col-lg-2 col-sm-4 col-6 shad">
+                                            <div class="features__image">
+                                                <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank">
+                                                <img class="imgh shad" src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="100%" alt="" style="border: 5px solid #fff">
+                                                </a>
+                                                <div class="image__tools">
+                                                    <i class="far fa-heart"></i>
+                                                    <i class="fas fa-cart-plus"></i>
+                                                    <i class="fas fa-search"></i>
                                                 </div>
-                                            @endif
-                                        @endif
-                                    @endforeach
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                                            </div>
+                                            <div class="features__content">
+                                                <span style="font-size: 20px; color:#bf0000"><strong>S/. {{$producto->precio}}</strong></span>
+                                                <p style="color: #000">{{$producto->name }}</p>
+                                                <div class="content__overlay" style="margin-top: -20px; margin-bottom: 0px">
+                                                <p style="color: #000">{{$producto->name }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                @endif
+                            @endif
+                        @endforeach
+                      </li>
+                    </ul>
+                  </div>
                 </div>
+            </div>
             @endif
         @endforeach
     @endforeach
 </div>
-
 <!-- Mostrar Productos -->
-<div class="shopProduct">
+<div class="shopProduct" style="background: #f3f3f3">
     <div class="shopProduct__wrap dflex container">
         <div class="product__item col-lg-12 col-12">
 
@@ -197,7 +216,7 @@
 </div>
 
 <!-- No se Encontraron Productos -->
-<div class="shopProduct" id="resultado">
+<div class="shopProduct" id="resultado" style="background: #f3f3f3">
     <div class="shopProduct__wrap dflex container">
         <div class="product__item col-lg-12 col-12">
             <div class="conatiner" style="background:#FF1643;text-align: center;padding:5px">
@@ -208,7 +227,7 @@
 </div>
 
 <!-- Mostrar Productos -->
-<div class="shopProduct">
+<div class="shopProduct" style="background: #f3f3f3">
     <div class="shopProduct__wrap dflex container">
         <div class="product__item col-lg-12 col-12">
             <ul class="filterProduct gridRow" id="mostrar">     

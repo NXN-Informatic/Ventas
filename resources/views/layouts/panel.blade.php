@@ -126,7 +126,7 @@
         </ul>
     </div>
   </header>
-  <div class="nav" id="ocultarBanner">
+  <div class="nav" style="background: #fff" id="ocultarBanner">
       <div style="text-align: right; margin-top: -5px; margin-bottom:-20px">    
         <a href="{{ url('register') }}">
             <button class="btn" style="background:#bf0000; border-radius:10px; font-weight: bold; border-color:#bf0000"><strong>Crea tu tienda GRATUITA</strong></button>  

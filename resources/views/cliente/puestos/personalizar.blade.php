@@ -37,11 +37,11 @@
                             </div>
                         <div class="card-body" style="margin-top: -15px">
                             <div class="row">
-                                <div class=" col-lg-6 col-12 col-sm-12">
+                                <div class=" col-lg-6 col-sm-12 col-12">
                                     <small class="form-text text-muted" style="margin-bottom: 7px; margin-top:0px" >{{ __('Suba desde su equipo:') }}</small>
                                     <input type="file" class="form-control-file" accept="image/jpeg,image/png" capture="gallery" name="banner" id="banner">
                                 </div>
-                                <div class=" col-lg-6 col-12 col-sm-12">
+                                <div class=" col-lg-6 col-sm-12 col-12 ">
                                     <small class="form-text text-muted" style="margin-bottom: 7px; margin-top:0px" >{{ __('O elija una de estas:') }}</small>
                                     <select class="form-control select2 form-control-lg" id="bannerdefault" name="bannerdefault" data-toggle="select2">
                                         <optgroup label="Banners disponibles">
@@ -213,7 +213,7 @@
                     var fRead = new FileReader(); //new filereader
                     fRead.onload = (function(file){ //trigger function on successful read
                     return function(e) {
-                        var img = $('<img/>').addClass('img-thumbnail rounded mr-2 mb-2').attr('src', e.target.result).attr('height', '100%').attr('width', '100%'); //create image element 
+                        var img = $('<img/>').addClass('img-thumbnail rounded mr-2 mb-2').attr('src', e.target.result).attr('height', 'auto').attr('width', '100%'); //create image element 
                         $('#preview_banner').append(img); //append image to output element
                     };
                     })(file);
