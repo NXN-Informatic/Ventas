@@ -57,6 +57,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/position/{latitud}/{longitud}','Cliente\UserController@position');
 
     Route::get('/movil', 'Cliente\UserController@movil');
+    Route::get('/completar', 'PublicController@completar');
 
     // Rutas de Cliente => Puesto
     Route::get('/puesto', 'Cliente\PuestoController@index');

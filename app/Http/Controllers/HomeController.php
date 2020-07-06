@@ -8,6 +8,7 @@ use App\UsuarioPuesto;
 use App\Producto;
 use App\PuestoSubcategoria;
 use App\Puesto;
+use App\CentrosComerciale;
 use App\Categoria;
 use App\Grupo;
 class HomeController extends Controller
@@ -38,7 +39,8 @@ class HomeController extends Controller
                 $categoria = Categoria::find($categoria_id);
                 $subcategorias = $categoria->subcategorias;
             } else $subcategorias = collect();
-            return view('publicas.tienda', compact('categorias','subcategorias'));
+            $cencom = CentrosComerciale::all();
+            return view('publicas.tienda', compact('categorias','subcategorias','cencom'));
         }
         $usercompletado = User::find(auth()->user()->id);
         $up = UsuarioPuesto::where('usuario_id', $usercompletado->id)->get();

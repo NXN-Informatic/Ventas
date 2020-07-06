@@ -19,9 +19,9 @@
                 </ol>
                 <div class="row">
                     <div class="col-12">
-                        <a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="black"><button class="btn btn-primary btn-lg" style="margin-bottom: 4px"><span>Ver Mi Tienda</span></button></a>
+                        <a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="black"><button class="btn btn-primary" style="margin-bottom: 4px"><span>Ver Mi Tienda</span></button></a>
                         <a target="_blank" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com/puesto/{{ auth()->user()->usuario_puestos->first()->puesto_id }}/detail">
-                            <button class="btn mb-1 btn-facebook btn-lg" style="margin-bottom: 4px"><i class="align-left fab fa-facebook" title="Compartir"></i><span>{{ __('Compartir') }}</span></button>
+                            <button class="btn mb-1 btn-facebook" style="margin-bottom: 4px"><i class="align-left fab fa-facebook" title="Compartir"></i><span>{{ __('Compartir') }}</span></button>
                         </a>
                     </div>
                 </div>
@@ -116,29 +116,6 @@
                                             <div class="alert-message">
                                                 <div class="row"><a href="{{url('puesto/personalizar') }}"><h5 style="margin-left:10px"><strong>  Diseñe su Tienda</strong></h5> </a><small style="margin-left:10px; margin-top: 0px" class="form-text text-muted">{{ __('2 min') }}</small></div>
                                                 Ir a <strong><a href="{{url('puesto/personalizar') }}" style="color: #0645AD">Personalizar</a></strong>
-                                            </div>
-                                        </div>
-                                        @endif
-                                    </li>
-                                    <li class="list-group-item" style="padding: .2rem 1.25rem; border: 0px solid rgba(0, 0, 0, .125);">
-                                        @if ($puestocompletado)
-                                        <div class="alert alert-success alert-outline-coloured alert-dismissible" style="margin-top: 0px; margin-bottom: 0px"  role="alert">
-                                            <div class="alert-icon">
-                                                <i class="fas fa-fw fa-check"></i>
-                                            </div>
-                                            <div class="alert-message">
-                                                <div class="row"><a href="{{url('puesto/editar') }}"><h5 style="margin-left:10px"><strong>  Configure su Tienda</strong></h5> </a><small style="margin-left:10px; margin-top: 0px" class="form-text text-muted">{{ __('1 min') }}</small></div>
-                                                Ir a <strong><a href="{{url('puesto/editar') }}" style="color: #0645AD">Configuración</a></strong>
-                                            </div>
-                                        </div>
-                                        @else
-                                        <div class="alert alert-success alert-outline-coloured alert-dismissible" style="margin-top: 0px; margin-bottom: 0px"  role="alert">
-                                            <div class="alert-icon" style="background-color: #999999">
-                                                <i class="fas fa-fw fa-check"></i>
-                                            </div>
-                                            <div class="alert-message">
-                                                <div class="row"><a href="{{url('puesto/editar') }}"><h5 style="margin-left:10px"><strong>  Configure su Tienda</strong></h5> </a><small style="margin-left:10px; margin-top: 0px" class="form-text text-muted">{{ __('1 min') }}</small></div>
-                                                Ir a <strong><a href="{{url('puesto/editar') }}" style="color: #0645AD">Configuración</a></strong>
                                             </div>
                                         </div>
                                         @endif

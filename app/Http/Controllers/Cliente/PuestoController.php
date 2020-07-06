@@ -232,15 +232,16 @@ class PuestoController extends Controller
 
     public function update(Request $request, Puesto $puesto) {
         $rules = [
-            'name'          =>  'required|min:3|max:100',
+            'name'          =>  'min:3|max:100',
             'description'   =>  'max:256',
             'phone2'        =>  'max:14',
             'phone'         =>  'max:14'
         ];
 
         $this->validate($request, $rules);
-        $puesto->name = $request->input('name');
-        
+        if($request->input('name')){
+            $puesto->name = $request->input('name');
+        }
         if($request->input('description')){
             $puesto->description = $request->input('description');
         }

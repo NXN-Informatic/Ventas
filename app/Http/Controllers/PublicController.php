@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Producto;
 use App\Categoria;
 use App\Puesto;
+use App\Pago;
+use App\Entrega;
 use App\ImagenProducto;
 use App\UsuarioPuesto;
 use App\PuestoSubcategoria;
@@ -58,7 +60,7 @@ class PublicController extends Controller
         // dd($request->only('name','categoria_id', 'phone'));
         $rules = [
             'name'          =>  'required|min:3|max:28|unique:puestos',
-            'phone'         =>  'min:9|max:12',
+            'phone'         =>  'min:9|max:12|required',
             'subcategoria_id' => 'required'
         ];
         $this->validate($request, $rules);
@@ -67,12 +69,15 @@ class PublicController extends Controller
             $puesto = Puesto::create([
                 'name' => $request->input('name'),
                 'phone' => $request->input('phone'),
-                'maxsubcategorias' => 2,
+                'phone2' => $request->input('phone2'),
+                'maxsubcategorias' => 10,
                 'plan_id' => 1,
-                'wsp' => $request->input('phone')
             ]);
             $subcategorias = $request->input('subcategoria_id');
-
+            if($request->input('wsp')) {
+                $puesto->wsp=$request->input('phone');
+            }
+            $puesto->cencom_id = $request->input('cencom');
             if($subcategorias != null) {
                 $total =  ($puesto->maxsubcategorias >= count($subcategorias))? count($subcategorias) : $puesto->maxsubcategorias;
                 $puesto->maxsubcategorias = $puesto->maxsubcategorias - $total;
@@ -102,14 +107,18 @@ class PublicController extends Controller
             
             $puesto->save();
     
-            $notification = 'Su Tienda ha sido creada correctamente.';
-        }else {
-            $notification = 'Usted no Tiene acceso para crear más Productos.';
         }
-
-        return redirect('/home')->with(compact('notification'));
+        return redirect('/completar');
     }
+    public function completar(){
+        $up = UsuarioPuesto::where('usuario_id', auth()->user()->id)->first();
+        $puesto=$up->puesto_id;
+        $formapagos = Pago::all();
+        //$pago_id = old('pago_id');
+        $formaentregas = Entrega::all();
 
+        return view('publicas.tienda2', compact('formaentregas','formapagos','puesto'));
+    }
     public function centrocomercial(Centroscomerciale $centrocomercial){
         $categorias = Categoria::all();
         $puestos = Puesto::where('cencom_id',$centrocomercial->id)->get(); // where(plan = premium);

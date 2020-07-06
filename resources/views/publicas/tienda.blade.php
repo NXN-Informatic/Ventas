@@ -35,7 +35,6 @@
                                 <small class="form-text text-muted">{{ __('Introduzca el nombre de la Tienda como quiera que aparezca para sus clientes. Puede cambiar el nombre de su tienda en cualquier momento.') }}</small>
                                 
                                 <input style="margin-top:7px" class="form-control form-control-lg" type="text" name="name" value="{{ old('name') }}" required />
-                                
                             </div>
                             <div class="form-group">
                                <strong><label class="form-label">¿A qué sector pertenece?</label></strong>
@@ -63,15 +62,39 @@
                                 </select>
                                 </div>
                             </div>
-                            
                             <div class="form-group">
-                            <strong><label>{{ __('¿A qué número llamarán sus clientes?') }}</label></strong>
-                                <small class="form-text text-muted">{{ __('Este es su número principal y se mostrará a sus potenciales clientes.') }}</small>
-                                <input style="margin-top:7px" class="form-control form-control-lg" type="text" name="phone" value="{{ old('phone') }}"/>
-                                
+                                <strong><label class="form-label">¿Perteneces a un CentroComercial/Asociación/Galería?</label></strong>
+                                <small class="form-text text-muted">{{ __('Ésta información deberá ser corroborada.') }}</small>
+                                <div class="mb-3" style="margin-top:7px">
+                                <select class="form-control select2 form-control-lg" id="cencom" name="cencom" data-toggle="select2">
+                                <optgroup label="Opciones Disponibles">
+                                    <option value=""></option>
+                                    @foreach($cencom as $cenc)
+                                        <option value="{{ $cenc->id }}">{{ $cenc->nombre }}</option>
+                                    @endforeach
+                                </optgroup>
+                                </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <strong><label class="form-label" for="contacto">¿A qué número(s) llamarán tus clientes?</label></strong>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-6">
+                                        <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Celular 1') }}</small>
+                                        <input type="text" class="form-control form-control-lg" name="phone" value="">
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-6">
+                                        <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Celular 2') }}</small>
+                                        <input type="text" class="form-control form-control-lg" name="phone2" placeholder="Opcional" value="">
+                                    </div>
+                                </div>
+                                <label class="custom-control custom-checkbox" style="margin-top: 10px">
+                                    <input type="checkbox" class="custom-control-input" name="wsp" checked>
+                                    <span class="custom-control-label">Habilitar WhatsApp</span>
+                                </label>
                             </div>
                             <div class="text-center mt-3">
-                                <button type="submit" class="btn btn-lg btn-primary">{{ __('     Finalizar y seguir al Tablero     ') }}</button>
+                                <button type="submit" class="btn btn-lg btn-primary">{{ __('     Siguiente: Personalizar     ') }}</button>
                             </div>
                         </form>
                     </div>

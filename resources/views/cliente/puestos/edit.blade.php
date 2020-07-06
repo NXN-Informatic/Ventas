@@ -302,7 +302,7 @@
     }
     }
     //initMap(); Esto es innecesario porque en el callback de la URL lo estás llamando.
-  </script>
+</script>
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK7XD3i3cgtPV9SKcDff2IJc0O-WpNoNY&callback=initMap" async defer></script> 
   
 <script>
@@ -311,7 +311,7 @@
             $(this)
                 .wrap("<div class=\"position-relative\"></div>")
                 .select2({
-                    placeholder: "Select value",
+                    placeholder: "Seleccione",
                     dropdownParent: $(this).parent()
                 });
         })
