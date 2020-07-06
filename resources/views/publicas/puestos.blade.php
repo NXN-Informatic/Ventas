@@ -60,6 +60,14 @@
         height:80px;
     }
     }
+    .fontn{
+        font-size: 14px;
+    }
+    @media (max-width: 600px) {
+    .fontn {
+        font-size: 12px;
+    }
+    }
     </style>
 @endsection
 
@@ -184,10 +192,10 @@
                                                 </div>
                                             </div>
                                             <div class="features__content">
-                                                <span style="font-size: 20px; color:#bf0000"><strong>S/. {{$producto->precio}}</strong></span>
-                                                <p style="color: #000">{{$producto->name }}</p>
+                                                <span style="font-size: 16px; color:#bf0000"><strong>S/. {{$producto->precio}}</strong></span>
+                                                <p class="fontn" style="color: #000">{{$producto->name }}</p>
                                                 <div class="content__overlay" style="margin-top: -20px; margin-bottom: 0px">
-                                                <p style="color: #000">{{$producto->name }}</p>
+                                                <p class="fontn" style="color: #000">{{$producto->name }}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -242,22 +250,22 @@
     <div class="signleProduct__content">
       <div class="product dflex" >
           <div class="col-lg-8 col-12">
-                <label style="font-size: 25px; font-weight: bold;">¿Porque Elegirnos?</label><br><br>
+                <label style="font-size: 18px; font-weight: bold;">¿Porque Elegirnos?</label><br><br>
                 @if( strlen($puesto->elegirnos) > 0)
-                    <p style="font-size:18px">{{ $puesto->elegirnos }}</p>
+                    <p class="fontn">{{ $puesto->elegirnos }}</p>
                 @else
-                <p style="font-size:18px">Porque Somos una Tienda Mejor que otra</p>
+                <p class="fontn">Porque Somos una Tienda Mejor que otra</p>
                 @endif`
                 <br><br><br><br><br>
                 <div class="row">
                     <div class="col-lg-8 col-12">
-                      <label style="font-size: 25px; font-weight: bold;">Sobre Nosotros</label><br><br>
+                      <label style="font-size: 18px; font-weight: bold;">Sobre Nosotros</label><br><br>
                       @foreach($puesto->usuario_puestos as $usuario_puesto) @endforeach
-                      <p style="font-size:18px">{{ $puesto->nosotros }}</p>
+                      <p class="fontn">{{ $puesto->nosotros }}</p>
                     </div>
                     <div class="col-lg-4 col-12" style="text-align: center;margin-top: 3%">
                       <img src="{{ asset('/storage/usuarios/'.$usuario_puesto->user->id.'/'.$usuario_puesto->user->imagen) }}" style="border-radius: 50%" width="150px"><br><br>
-                      <h2>{{ $usuario_puesto->user->name }}</h2>
+                      <h2 class="fontn">{{ $usuario_puesto->user->name }}</h2>
                     </div>
                 </div>
           </div>
