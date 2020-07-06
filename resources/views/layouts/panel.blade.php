@@ -120,7 +120,7 @@
             <a><i class="fas fa-search" style="margin-left: 10px; margin-right:10px"></i></a>
           </div>
         <ul class="header__item dflex right">
-            <li class="header__list"><span><a href="{{ url('login') }}" style="color:#000">LOGIN</a></span></li>
+            <li class="header__list"><span><a href="{{ url('login') }}" style="color:#000">Ingresar</a></span></li>
             <li class="header__list"><i style="color: #000" class="fa fa-heart" aria-hidden="true"></i></li>
             <li class="header__list"><i style="color: #000" class="fa fa-user" aria-hidden="true"></i></li>
         </ul>
