@@ -4,7 +4,53 @@
     <!-- Swiper -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.min.css">
     <link rel="stylesheet" href="{{ asset('css/publicas/welcome.css') }}">
-    
+    <style>
+        .headermax{
+            height: 400px;
+        }
+        @media (max-width: 600px) {
+        .headermax {
+            height: 250px;
+        }
+        }
+        .imgh{
+            height: 250px;
+        }
+        @media (max-width: 800px) {
+        .imgh {
+            height: 200px;
+        }
+        }
+        @media (max-width: 600px) {
+        .imgh {
+            height: 150px;
+        }
+        }
+        .imgp{
+            height: 100px;
+            width: 80px;
+        }
+        @media (max-width: 800px) {
+        .imgp {
+            height: 95px;
+            width: 73px;
+        }
+        }
+        @media (max-width: 600px) {
+        .imgp {
+            height: 85px;
+            width: 65px;
+        }
+        }
+        .tiendah{
+            height: 320px;
+        }
+        @media (max-width: 600px) {
+        .tiendah {
+            height: 300px;
+        }
+        }
+        </style>
 @endsection
 
 @section('content')
@@ -50,19 +96,19 @@
                                     @if(count($puestosubcategorias->grupos) > 0)
                                         <?php $aux=0; ?>
                                         <?php $paux = $paux + 1; ?>
-                                        <div class="blog__item col-lg-3" style="background:#fff; height: 350px; padding: 0px">
+                                        <div class="blog__item col-lg-3 col-sm-6 col-12 tiendah" style="background:#fff; padding: 0px;border-radius:5%">
                                             <div class="blog__image" style="margin-left: 0px;">
                                                 <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank">
-                                                    <img src="{{ url('storage/'.$ps->id.'/banner/'.$ps->banner) }}" width="100%" alt="" height="120px" style="position: relative; z-index: 5; top: 0px; border: 3px solid #fff" class="shad">
+                                                    <img src="{{ url('storage/'.$ps->id.'/banner/'.$ps->banner) }}" width="100%" alt="" height="100px" style="position: relative; z-index: 5; top: 0px; border: 3px solid #fff" class="shad">
                                                 </a>
                                             </div>
                                             <div>
                                                 <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank">
-                                                    <img src="{{ url('storage/'.$ps->id.'/logo/'.$ps->perfil) }}" alt="" height="90px" width="90px" class="shad" style="position: relative; z-index: 6; top: -50px; border: 3px solid #fff; background: #fff; border-radius: 5%">
+                                                    <img src="{{ url('storage/'.$ps->id.'/logo/'.$ps->perfil) }}" alt="" height="80px" width="80px" class="shad" style="position: relative; z-index: 6; top: -50px; border: 3px solid #fff; background: #fff; border-radius: 10%">
                                                 </a>
                                             </div>
                                             <div class="blog__content" style="margin-top: -60px">
-                                                <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank"><span style="color: #bf0000; font-size: 17px; display: inline-block"><strong>{{ $ps->name}}</strong></span><br><br></a>
+                                                <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank"><span style="color: #bf0000; font-size: 18px; display: inline-block"><strong>{{ $ps->name}}</strong></span><br><br></a>
                                                 <div class="row">
                                                     @foreach ($puestosubcategorias->grupos as $grupos)
                                                         @if (count($grupos->productos) > 0)
@@ -73,7 +119,7 @@
                                                                     <?php $imagen = $gp->imagen_productos->first(); //solo una imagen x producto?>
                                                                     @if($imagen != null)
                                                                             <a href="{{ url('producto/'.$gp->id.'/detailProd')}}" style="margin:auto">                                       
-                                                                                <img src="{{ asset('storage/'.$ps->id.'/'.$gp->id.'/'.$imagen->imagen) }}" alt="" height="100px" width="75px" style="border: 3px solid #fff; margin: auto; border-radius: 10%" class="shad">
+                                                                                <img src="{{ asset('storage/'.$ps->id.'/'.$gp->id.'/'.$imagen->imagen) }}" alt="" style="border: 2px solid #fff; margin: auto; border-radius: 5%" class="imgp shad">
                                                                             </a>
                                                                         <?php $aux = $aux+1; ?>
                                                                     @endif
@@ -100,7 +146,7 @@
     <div class="feature__wrap container">
         <h4 class="title">Productos para ti <a href="{{ url('all/productos') }}"> Ver productos</a></h4> 
         <div class="feature__filter">
-            <ul class="featureSlider container">
+            <ul class="featureSlider ">
                 <li class="grid features__grid">
                     @foreach($productos as $producto)
                         @if ($producto->activo)
@@ -109,9 +155,9 @@
                                 @if($imagen != null and $aux==1)
                                     <?php $aux=0; ?>
                                     <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank">
-                                        <div class="element-item features__item col-lg-3 col-sm-6 col-6 shad">
+                                        <div class="element-item features__item col-lg-3 col-sm-4 col-6 shad">
                                             <div class="features__image desk">
-                                            <img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt="" style="border: 5px solid #fff" class="shad">
+                                                <img class="imgh shad" src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}" width="100%" alt="" style="border: 5px solid #fff">
                                             </div>
                                             <div class="features__content">
                                                 <span style="font-size: 20px; color:#bf0000"><strong>S/. {{$producto->precio}}</strong></span>
@@ -131,7 +177,7 @@
     </div>
 </div>
 
-<div class="feature" style="background: #F3F3F3;padding:10px" id="ella">
+<div class="feature container" style="background: #F3F3F3;padding:10px" id="ella">
     <h4 class="title">Centros Comerciales <a href="{{ url('centroscomerciales/all') }}"> Ver todos</a></h4>
     <div class="feature__wrap container">
         @foreach($cccc as $cc)
@@ -139,7 +185,7 @@
                 <img src="{{ asset('storage/cc/'.$cc->id.'/'.$cc->logo) }}" style="width: 98%; height: 160px; border: 5px solid #fff" class="shad"> 
                 </a>
                 <div class="feature__content">
-                <a href="{{ url('/centrocomercial/'.$cc->id) }}"><h3 style="color: #fff; text-shadow: 0px 0px 15px #000; font-size: 18px">{{ $cc->nombre }}</h3></a><span style="color: #fff; text-shadow: 0px 0px 30px #000; font-size: 18px">{{$cc->cantidad}} Tiendas</span>
+                <a href="{{ url('/centrocomercial/'.$cc->id) }}"><h3 style="color: #fff; text-shadow: 0px 0px 15px #000; font-size: 14px">{{ $cc->nombre }}</h3></a><span style="color: #fff; text-shadow: 0px 0px 30px #000; font-size: 18px">{{$cc->cantidad}} Tiendas</span>
                 </div>
             </div>
         @endforeach    
