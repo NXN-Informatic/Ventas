@@ -245,7 +245,7 @@
 </div>
 
 <!--Start Single Product-->
-<div class="singleProduct" style="margin-top: -5%" id="ocultar1">
+<div class="singleProduct" style="margin-top: -5%; padding-top:0px" id="ocultar1">
   <div class="singleProduct__wrap container">
     <div class="signleProduct__content">
       <div class="product dflex" >
