@@ -16,6 +16,45 @@
     <link href="{{ asset('css/modern.css') }}" type="text/css" rel="stylesheet">
 
     @yield('styles')
+    <style>
+
+    .moblie-navBottom {
+        display: none;
+        height:60px;
+        position: fixed;
+        z-index: 998;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        box-shadow: 0 0 9px rgba(0, 0, 0, .12);
+        padding: 7px 15px;
+        text-align: center;
+        background: #fff;
+        justify-content: space-between
+    }
+
+    @media (max-width:991px) {
+        .moblie-navBottom {
+            display: flex
+        }
+    }
+
+    .moblie-navBottom .link i,
+    .moblie-navBottom .link p {
+        color: #333;
+        transition: .3s ease-out;
+        text-transform: capitalize
+    }
+
+    .moblie-navBottom .link p {
+        font-size: 11px
+    }
+
+    .moblie-navBottom .link:hover i,
+    .moblie-navBottom .link:hover p {
+        color: #bf0000
+    }
+    </style>
     <!-- Fonts -->
     <script src="https://kit.fontawesome.com/882059baa9.js" crossorigin="anonymous"></script>
 </head>
@@ -36,6 +75,12 @@
         </symbol>
     </defs>
     </svg>
+    <div class="moblie-navBottom dflex">
+        <a class="link" href="{{ url('/puestos/all') }}" style="margin-top:10px"><i class="fas fa-store"></i><p>Tiendas</p></a>
+        <a class="link" href="{{ url('/all/productos') }}" style="margin-top:10px"><i class="fas fa-heart"></i><p>Productos</p></a>
+        <a class="link" href="{{ url('/login') }}" style="margin-top:10px"><i class="fas fa-user"></i><p>Mi cuenta</p></a>
+        <a class="link" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com" style="margin-top:10px"><i class="fas fa-random"></i><p>Compartir</p></a>
+    </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="{{ asset('js/admin.js') }}" defer></script>
     <script>
