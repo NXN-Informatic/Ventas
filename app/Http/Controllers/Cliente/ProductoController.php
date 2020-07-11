@@ -111,7 +111,8 @@ class ProductoController extends Controller
         $rules = [
             'name'          =>  'required|min:3|max:100',
             'description'   =>  'max:1000',
-            'precio'        =>  'required'
+            'precio'        =>  'required',
+            'grupo'         =>  'required'
         ];
         $this->validate($request, $rules);
         
@@ -119,6 +120,7 @@ class ProductoController extends Controller
         $producto->name = $request->input('name');
         $producto->description = $request->input('description');
         $producto->precio = $request->input('precio');
+        $producto->grupo_id = $request->input('grupo');
         $producto->save();
         $files = $request->file('attachment');
         //dd($files);

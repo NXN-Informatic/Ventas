@@ -75,12 +75,27 @@
         </symbol>
     </defs>
     </svg>
+
+    @if(auth()->user())
     <div class="moblie-navBottom dflex">
-        <a class="link" href="{{ url('/puestos/all') }}" style="margin-top:10px"><i class="fas fa-store"></i><p>Tiendas</p></a>
-        <a class="link" href="{{ url('/all/productos') }}" style="margin-top:10px"><i class="fas fa-heart"></i><p>Productos</p></a>
-        <a class="link" href="{{ url('/login') }}" style="margin-top:10px"><i class="fas fa-user"></i><p>Mi cuenta</p></a>
-        <a class="link" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com" style="margin-top:10px"><i class="fas fa-random"></i><p>Compartir</p></a>
+        <a class="link" href="{{ url('/home') }}"><i class="fas fa-home" style="font-size: 20px"></i><p>Inicio</p></a>
+        <a class="link" href="{{ url('#') }}"><i class="fas fa-heart" style="font-size: 20px"></i><p>Favoritos</p></a>
+        <a class="link sidebar-toggle">
+            <i class="fas fa-bars" style="font-size: 20px"></i><p>Menú</p>
+        </a>
+        <a class="link" href="{{ url('/puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}"><i class="fas fa-store" style="font-size: 20px"></i><p>Mi Tienda</p></a>
     </div>
+@else
+    <div class="moblie-navBottom dflex">
+        <a class="link" href="{{ url('/') }}"><i class="fas fa-home" style="font-size: 20px"></i><p>Inicio</p></a>
+        <a class="link" href="{{ url('#') }}"><i class="fas fa-heart" style="font-size: 20px"></i><p>Favoritos</p></a>
+        <a class="link nav">
+            <div class="nav__button"><i class="fas fa-bars" style="font-size: 20px"></i><p>Menú</p>
+            </div>
+        </a>
+        <a class="link" href="{{url('/login')}}"><i class="fas fa-store" style="font-size: 20px"></i><p>Mi Tienda</p></a>
+    </div>
+@endif
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="{{ asset('js/admin.js') }}" defer></script>
     <script>

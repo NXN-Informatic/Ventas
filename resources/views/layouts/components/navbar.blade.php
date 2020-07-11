@@ -28,17 +28,23 @@
 </div>
 @if(auth()->user())
     <div class="moblie-navBottom dflex">
-        <a class="link" href="{{ url('/puestos/all') }}"><i class="fas fa-store"></i><p>Tiendas</p></a>
-        <a class="link" href="{{ url('/all/productos') }}"><i class="fas fa-heart"></i><p>Productos</p></a>
-        <a class="link" href="{{ url('/login') }}"><i class="fas fa-user"></i><p>Mi cuenta</p></a>
-        <a class="link" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com"><i class="fas fa-random"></i><p>Compartir</p></a>
+        <a class="link" href="{{ url('/home') }}"><i class="fas fa-home" style="font-size: 20px"></i><p>Inicio</p></a>
+        <a class="link" href="{{ url('#') }}"><i class="fas fa-heart" style="font-size: 20px"></i><p>Favoritos</p></a>
+        <a class="link nav">
+            <div class="nav__button"><i class="fas fa-bars" style="font-size: 20px"></i><p>Menú</p>
+            </div>
+        </a>
+        <a class="link" href="{{ url('/puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}"><i class="fas fa-store style="font-size: 20px""></i><p>Mi Tienda</p></a>
     </div>
 @else
     <div class="moblie-navBottom dflex">
-        <a class="link" href="{{ url('/puestos/all') }}"><i class="fas fa-store"></i><p>Tiendas</p></a>
-        <a class="link" href="{{ url('/all/productos') }}"><i class="fas fa-heart"></i><p>Productos</p></a>
-        <a class="link" href="{{ url('/login') }}"><i class="fas fa-user"></i><p>Mi cuenta</p></a>
-        <a class="link" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com"><i class="fas fa-random"></i><p>Compartir</p></a>
+        <a class="link" href="{{ url('/') }}"><i class="fas fa-home" style="font-size: 20px"></i><p>Inicio</p></a>
+        <a class="link" href="{{ url('#') }}"><i class="fas fa-heart" style="font-size: 20px"></i><p>Favoritos</p></a>
+        <a class="link nav">
+            <div class="nav__button"><i class="fas fa-bars" style="font-size: 20px"></i><p>Menú</p>
+            </div>
+        </a>
+        <a class="link" href="{{url('/login')}}"><i class="fas fa-store" style="font-size: 20px"></i><p>Mi Tienda</p></a>
     </div>
 @endif
 <!--End Menu Mobile-->

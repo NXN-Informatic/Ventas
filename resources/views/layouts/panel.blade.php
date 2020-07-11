@@ -39,6 +39,9 @@
       .ocultar{
           display: block;
       }
+      .ocultar1{
+          display: block;
+      }
       .ocultarimg{
         display: block;
       }
@@ -51,6 +54,9 @@
     @media (max-width: 600px) {
       .ocultar {
           display: : none;
+      }
+      .ocultar1{
+          display: none;
       }
       .ocultarimg2{
         display: block;
@@ -97,12 +103,12 @@
   --><!--End Elements Page-->
 
   <!--Start Header-->
-  <header style="background: #fff">
-    <div class="header__wrap container dflex">
+  <header style="background: #fff"><br>
+    <div class="header__wrap container dflex" style="height: 40px">
         <ul class="header__item dflex left">
           <div class="ocultar">
             <a href="/">
-              <img src="{{ asset('img/logo.png') }}" class="ocultarimg" style="width: 120px; margin-right: 20px">    
+              <img src="{{ asset('img/logo.png') }}" class="ocultarimg" style="width: 120px; margin-right: 10px">    
               <img src="{{ asset('img/logoenJPG.jpg') }}" class="ocultarimg2" style="width: 40px;">  
             </a>
           </div>
@@ -115,30 +121,22 @@
                 </ul>
             </li>
         </ul>
-        <div class="nav__search dflex">
-            <input type="text" id="buscar" name="buscar" placeholder="Busque su producto" style="border: 1px"/>
-            <a><i class="fas fa-search" style="margin-left: 10px; margin-right:10px"></i></a>
+        <div class="nav__search dflex" style="border-radius:10px">
+            <input type="text" id="buscar" name="buscar" placeholder="Busque su producto" style="border: 1px; "/>
+            <a><i class="fas fa-search" style="margin-right:10px"></i></a>
           </div>
         <ul class="header__item dflex right">
             <li class="header__list"><span><a href="{{ url('login') }}" style="color:#000">Ingresar</a></span></li>
-            <li class="header__list"><i style="color: #000" class="fa fa-heart" aria-hidden="true"></i></li>
-            <li class="header__list"><i style="color: #000" class="fa fa-user" aria-hidden="true"></i></li>
         </ul>
-    </div>
-  </header>
-  <div class="nav" style="background: #fff" id="ocultarBanner">
-      <div style="text-align: right; margin-top: -5px; margin-bottom:-20px">    
-        <a href="{{ url('register') }}">
-            <button class="btn" style="background:#bf0000; border-radius:10px; font-weight: bold; border-color:#bf0000"><strong>Crea tu tienda GRATUITA</strong></button>  
-        </a>
-      </div>
-      <div class="nav__wrap container dflex">
-          <div class="nav__button"><i class="fas fa-bars"></i>MENU</div>
-          <a class="nav__logo" href="/">
+        <div class="ocultar1" style="text-align: right;">    
+          <a href="{{ url('register') }}">
+              <button class="btn" style="background:#bf0000; border-radius:10px; font-weight: bold; border-color:#bf0000"><strong>Crea tu tienda</strong></button>  
           </a>
+        </div>
+    </div>
+    <br>
+  </header>
 
-      </div>
-  </div>
 	@yield('content')
 	<!--Isotope-->
 	<script src=""></script>

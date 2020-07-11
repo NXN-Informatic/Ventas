@@ -281,19 +281,20 @@
       $mostrar = $('#mostrar');
 
       $resultado.hide();
-      $mostrar.hide();function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 10,
-            position: new google.maps.LatLng(<?php echo $latitud; ?>, <?php echo $longitud; ?>)
-        });
+      $mostrar.hide();
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 10,
+                position: new google.maps.LatLng(<?php echo $latitud; ?>, <?php echo $longitud; ?>)
+            });
 
-        var markerx = new google.maps.Marker({
-            position: new google.maps.LatLng(<?php echo $latitud; ?>, <?php echo $longitud; ?>),
-            map: map,
-            title: response[i].sucursal
-        });
-    }
-    //initMap(); Esto es innecesario porque en el callback de la URL lo estás llamando.
+            var markerx = new google.maps.Marker({
+                position: new google.maps.LatLng(<?php echo $latitud; ?>, <?php echo $longitud; ?>),
+                map: map,
+                title: response[i].sucursal
+            });
+        }
+        //initMap(); Esto es innecesario porque en el callback de la URL lo estás llamando.
       $mostrarcategoria.hide();
       
       $('ul#tags li').click( function() {

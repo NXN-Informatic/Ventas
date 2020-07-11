@@ -14,23 +14,27 @@
     <div class="container-fluid">
 
         <div class="header">
-            <h1 style="font-size: 50px" class="header-title">
-                {{ __('Catálogo') }}
-            </h1>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="black">Tablero</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Añadir Producto</li>
-                </ol>
-                <div class="row">
-                    <div class="col-12">
-                        <a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="black"><button class="btn btn-primary btn-lg" style="margin-bottom: 4px"><span style="margin-left:10px; margin-right:10px">Ver Mi Tienda</span></button></a>
-                        <a target="_blank" href="http://www.facebook.com/sharer.php?u=https://feriatacna.com/puesto/{{ auth()->user()->usuario_puestos->first()->puesto_id }}/detail">
-                            <button class="btn mb-1 btn-facebook btn-lg" style="margin-bottom: 4px"><i class="align-left fab fa-facebook" title="Compartir"></i><span style="margin-left:10px; margin-right:10px">{{ __('Compartir') }}</span></button>
-                        </a>
-                    </div>
+            <div class="row">
+                <div class="col-lg-2 col-sm-2 col-4">
+                    @if(auth()->user()->usuario_puestos->first()->puesto->perfil)
+                        <img src="{{ asset('storage/'.auth()->user()->usuario_puestos->first()->puesto_id.'/logo/'.auth()->user()->usuario_puestos->first()->puesto->perfil)  }}" width="100" height="100" class="img-fluid rounded-circle mb-2" style="border: 6px solid #fff">
+                    @else
+                        <img src="{{ asset('img/defecto/avatar-159236_1280.png') }}" width="100" height="100" class="rounded-circle mt-2" style="border: 6px solid #fff">
+                    @endif
                 </div>
-            </nav>
+                <div class="col-lg-10 col-sm-10 col-8">
+                    <a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="black">
+                    <h1 style="font-size: 20px" class="header-title">
+                        {{ auth()->user()->usuario_puestos->first()->puesto->name }}
+                    </h1>
+                    </a>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><span style="color: #ffffff70">{{'Miembro desde '.auth()->user()->usuario_puestos->first()->puesto->created_at->format('M, Y')}}</span></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
 		</div>
         <form action="{{ url('producto/update/'.$producto->id) }}" method="post" enctype="multipart/form-data">
         @csrf

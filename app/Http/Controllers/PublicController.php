@@ -79,15 +79,22 @@ class PublicController extends Controller
             }
             $puesto->cencom_id = $request->input('cencom');
             if($subcategorias != null) {
-                $total =  ($puesto->maxsubcategorias >= count($subcategorias))? count($subcategorias) : $puesto->maxsubcategorias;
-                $puesto->maxsubcategorias = $puesto->maxsubcategorias - $total;
-                $puesto->save();
-                
-                for($i=0 ; $i < $total; ++$i) {
-                    PuestoSubcategoria::create([
+                             
+                foreach($subcategorias as $subcategoria) {
+                    $ps = PuestoSubcategoria::create([
                         "puesto_id"         =>  $puesto->id,
-                        "subcategoria_id"   =>  $subcategorias[$i]
+                        "subcategoria_id"   =>  $subcategoria
                     ]);
+                    $aux = 1;
+                    if($aux>0){
+                        Grupo::create([
+                            "name" => "Nuestros productos",
+                            'descripcion' => "Categoria por defecto",
+                            'puestosubcategoria_id' => $ps->id,
+                            'activo' => 1
+                        ]);
+                        $aux=$aux-1;
+                    }
                 }
                 UsuarioPuesto::create([
                     'usuario_id' => auth()->user()->id,
