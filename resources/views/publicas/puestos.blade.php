@@ -19,14 +19,14 @@
         <div class="bannerBlog headermax shad imgb row" style="position: relative;background: linear-gradient(85deg, rgba(143,51,172,1) 0%, #ff1a00 100%); padding:0px " >
             <div class="col-lg-5 col-sm-4 col-4">
                 <img src="{{ asset('storage/'.auth()->user()->usuario_puestos->first()->puesto_id.'/logo/'.auth()->user()->usuario_puestos->first()->puesto->perfil)  }}" class="logo" style="border: 4px solid #fff;max-height: 100%;
-                max-width: 100%;
-                height: auto;
-                top: 0;
-                position: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                margin: 10px 50px;">
+                    max-width: 100%;
+                    height: auto;
+                    top: 0;
+                    position: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    margin: 10px 50px;">
             </div>
             <div class="col-lg-7 col-sm-8 col-8" style="position: relative">
                 <div class="divnombre" style="margin-left:10px; position: absolute">
@@ -56,7 +56,7 @@
         </div>
     </div>
 </div>
-<div class="singleProduct" id="ocultar1" style="background-color: #f3f3f3; padding:0px; margin-bottom:0px">
+<div class="singleProduct" id="ocultar1" style="background-color: #f3f3f3; padding:0px; margin-bottom:0px; margin-top:-100px">
     <div class="singleProduct__wrap container">
         <div class="signleProduct__content">
             <div class="product dflex">
@@ -126,7 +126,7 @@
                         </div>
                     </div>
                 </div> 
-                <div class="col-lg-8 col-12 shad3" style="background-color: #fff; border-radius: 20px;margin-top: 20px">
+                <div class="col-lg-8 col-12 shad3" style="background-color: #fff; border-radius: 20px;margin-top: 120px">
                     <div id="prod" style="background: #fff; padding-top: 20px; border-radius: 20px">
                         <div class="singleProduct ajaxProduct featureProduct section6" style="background: #fff; border-radius: 20px; padding-top:0px">
                             <div class="feature__filter container">
