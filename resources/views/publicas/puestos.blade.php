@@ -16,7 +16,7 @@
 
 <div id="ocultar9" style="background: #F3F3F3" style="position: relative;">
     @if($puesto->banner != null)
-        <div class="bannerBlog headermax shad imgb row" style="position: relative;background: linear-gradient(85deg, rgba(143,51,172,1) 0%, #ff1a00 100%); padding:0px " >
+        <div class="bannerBlog headermax shad imgb row" style="position: relative;background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%); padding:0px " >
             <div class="col-lg-5 col-sm-4 col-4">
                 <img src="{{ asset('storage/'.auth()->user()->usuario_puestos->first()->puesto_id.'/logo/'.auth()->user()->usuario_puestos->first()->puesto->perfil)  }}" class="logo" style="border: 4px solid #fff;max-height: 100%;
                 max-width: 100%;
