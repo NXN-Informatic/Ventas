@@ -80,7 +80,7 @@
     }
     }
     .nombre{
-        font-size: 60px;
+        font-size: 50px;
         font-weight: bold
     }
     @media (max-width: 800px) {
@@ -97,19 +97,22 @@
     }
     }
     .divnombre{
-        top: 15%;
+        top: 25%;
         bottom: 0;
+        margin-left: -120px
     }
     @media (max-width: 800px) {
     .divnombre {
         top: 30%;
         bottom: 0;
+        margin-left: 10px
     }
     }
     @media (max-width: 600px) {
     .divnombre {
         top: 30%;
         bottom: 0;
+        margin-left: 10px
     }
     }
     .infobanner{

@@ -60,7 +60,7 @@
 
 
 <!--Start Feature Product-->
-<div class="blog" id="tiendas" style="background: #F3F3F3; padding-bottom: 30px; margin-top: -20px">
+<div class="blog" id="tiendas" style="background: #F9F9F9; padding-bottom: 30px; margin-top: -20px">
     <div class="feature__wrap container" style="margin-top: 0px" >
         <div style="margin-top: 0px; padding-left: 40px; padding-right: 40px">
             <div class="row shad" style="border: 1px ; padding: 16px; background: #fff">
@@ -83,7 +83,7 @@
 
 <!--Start Feature Product-->
 
-<div class="blog" style="background: #F3F3F3; margin-top: 0px; padding-top: 0px" id="ocultar89">
+<div class="blog" style="background: #F9F9F9; margin-top: 0px; padding-top: 0px" id="ocultar89">
     <h4 class="title">Tiendas Recomendadas <a href="{{ url('puestos/all') }}"> Ver tiendas</a></h4>
     <div class="feature__wrap container" style="margin-top: -20px" >
         <div class="blog__wrap dflex">
@@ -142,7 +142,7 @@
 <!--End Feature Product-->
 
 <!--Start Featured Products-->
-<div class="featureProduct" id="prod" style="background: #F3F3F3;padding:10px">
+<div class="featureProduct" id="prod" style="background: #F9F9F9;padding:10px">
     <div class="feature__wrap container">
         <h4 class="title">Productos para ti <a href="{{ url('all/productos') }}"> Ver productos</a></h4> 
         <div class="feature__filter">
@@ -177,7 +177,7 @@
     </div>
 </div>
 
-<div class="feature container" style="background: #F3F3F3;padding:10px" id="ella">
+<div class="feature container" style="background: #F9F9F9;padding:10px" id="ella">
     <h4 class="title">Centros Comerciales <a href="{{ url('centroscomerciales/all') }}"> Ver todos</a></h4>
     <div class="feature__wrap container">
         @foreach($cccc as $cc)
@@ -194,7 +194,7 @@
 <!-- start centros comerciales OJO "cccc=centros comerciales"-->
 <!-- end centros comerciales -->
 <!--Start Product-->
-<div class="shopProduct" style="background: #F3F3F3;z-index: -1">
+<div class="shopProduct" style="background: #F9F9F9;z-index: -1">
     <div class="shopProduct__wrap dflex container" >
         <div class="product__item col-lg-12 col-12">
 
@@ -217,7 +217,7 @@
 </div>
 
 <!--Start Categorias-->
-<div class="shopProduct" style="background: #F3F3F3;z-index: -1">
+<div class="shopProduct" style="background: #F9F9F9;z-index: -1">
     <div class="shopProduct__wrap dflex container">
         <div class="product__item col-lg-12 col-12">
 

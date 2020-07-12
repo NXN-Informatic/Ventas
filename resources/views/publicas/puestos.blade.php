@@ -14,11 +14,11 @@
 @section('content')
 @include('layouts.components.navbar')
 
-<div id="ocultar9" style="background: #F3F3F3" style="position: relative;">
+<div id="ocultar9" style="background: #F9F9F9" style="position: relative;">
     @if($puesto->banner != null)
         <div class="bannerBlog headermax shad imgb row" style="position: relative;background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%); padding:0px " >
             <div class="col-lg-5 col-sm-4 col-4">
-                <img src="{{ asset('storage/'.auth()->user()->usuario_puestos->first()->puesto_id.'/logo/'.auth()->user()->usuario_puestos->first()->puesto->perfil)  }}" class="logo" style="border: 4px solid #fff;max-height: 100%;
+                <img src="{{ asset('storage/'.$puesto->id.'/logo/'.$puesto->perfil)  }}" class="logo" style="border: 4px solid #fff;max-height: 100%;
                     max-width: 100%;
                     height: auto;
                     top: 0;
@@ -29,7 +29,7 @@
                     margin: 10px 50px;">
             </div>
             <div class="col-lg-7 col-sm-8 col-8" style="position: relative">
-                <div class="divnombre" style="margin-left:10px; position: absolute">
+                <div class="divnombre" style="position: absolute">
                     <span class="nombre" style="color: {{$puesto->colornombre}}">{{ ($puesto->nombrebanner) ? $puesto->name : '' }}</span>
                 </div>
                 <div class="row" style="bottom: 0; right:15%; position: absolute">
@@ -56,7 +56,7 @@
         </div>
     </div>
 </div>
-<div class="singleProduct" id="ocultar1" style="background-color: #f3f3f3; padding:0px; margin-bottom:0px; margin-top:-100px">
+<div class="singleProduct container" id="ocultar1" style="background-color: #f9f9f9; padding:0px; margin-bottom:0px; margin-top:-100px">
     <div class="singleProduct__wrap container">
         <div class="signleProduct__content">
             <div class="product dflex">
@@ -119,8 +119,8 @@
                         <div class="col-12">
                             <h1 style="font-size: 15px; color: #000;text-align:left; margin: 10px"><i class="fas fa-map-marker-alt" style="color: #ff1a00"></i>  Dirección</h1>
                             <span class="text-left" style="font-size: 14px; color: #000; margin:10px">{{$puesto->direccion}}</span><br><br>
-                            <input type="hidden" id="latitud" name="latitud" value="{{ auth()->user()->latitud }}">
-                            <input type="hidden" id="longitud" name="longitud" value="{{ auth()->user()->longitud }}">
+                            <input type="hidden" id="latitud" name="latitud" value="{{ $puesto->usuario_puestos->first()->user->latitud }}">
+                            <input type="hidden" id="longitud" name="longitud" value="{{ $puesto->usuario_puestos->first()->user->longitud }}">
                             <div id="map" style="height: 300px;border-radius: 20px"></div>
                             <br>
                         </div>
@@ -156,7 +156,7 @@
                                                                 <?php $imagen = null; ?>
                                                                 <?php $imagen = $producto->imagen_productos->first(); //solo una imagen x producto?>
                                                                 @if($imagen != null)
-                                                                        <div class="features__item col-lg-4 col-sm-4 col-6 shad" style="margin:auto">
+                                                                        <div class="features__item col-lg-4 col-sm-4 col-6 shad" style="margin:auto; margin-bottom: 10px">
                                                                             <div class="features__image">
                                                                                 <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank">
                                                                                 <img class="imgh shad" src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="100%" alt="" style="border: 5px solid #fff">
@@ -186,7 +186,7 @@
                                                                 <?php $imagen = null; ?>
                                                                 <?php $imagen = $producto->imagen_productos->first(); //solo una imagen x producto?>
                                                                 @if($imagen != null)
-                                                                    <div class="features__item col-lg-4 col-sm-4 col-6 shad" style="margin:auto">
+                                                                    <div class="features__item col-lg-4 col-sm-4 col-6 shad" style="margin:auto; margin-bottom: 10px">
                                                                         <div class="features__image">
                                                                             <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank">
                                                                             <img class="imgh" src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="100%" alt="" style="border: 5px solid #fff">
@@ -225,7 +225,7 @@
 </div>
 
 <!-- Mostrar Productos -->
-<div class="shopProduct" style="background: #f3f3f3">
+<div class="shopProduct" style="background: #f9f9f9">
     <div class="shopProduct__wrap dflex container">
         <div class="product__item col-lg-12 col-12">
 
@@ -237,7 +237,7 @@
 </div>
 
 <!-- No se Encontraron Productos -->
-<div class="shopProduct" id="resultado" style="background: #f3f3f3">
+<div class="shopProduct" id="resultado" style="background: #f9f9f9">
     <div class="shopProduct__wrap dflex container">
         <div class="product__item col-lg-12 col-12">
             <div class="conatiner" style="background:#FF1643;text-align: center;padding:5px">
@@ -248,7 +248,7 @@
 </div>
 
 <!-- Mostrar Productos -->
-<div class="shopProduct" style="background: #f3f3f3">
+<div class="shopProduct" style="background: #f9f9f9">
     <div class="shopProduct__wrap dflex container">
         <div class="product__item col-lg-12 col-12">
             <ul class="filterProduct gridRow" id="mostrar">     

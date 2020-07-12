@@ -92,7 +92,7 @@
 
 </head>
     
-<body style="background-color:#f3f3f3">
+<body style="background-color:#f9f9f9">
   <div id="onTop"></div>
 
   @yield('load')
