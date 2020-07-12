@@ -50,11 +50,11 @@
     }
     }
     .fontn{
-        font-size: 14px;
+        font-size: 11px;
     }
     @media (max-width: 600px) {
     .fontn {
-        font-size: 12px;
+        font-size: 9px;
     }
     }
     .logo{
