@@ -14,6 +14,7 @@
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link href="{{ asset('css/modern.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('css/extras.css') }}" type="text/css" rel="stylesheet">
 
     @yield('styles')
     <style>

@@ -83,7 +83,7 @@
                                                 <i class="fas fa-fw fa-check"></i>
                                             </div>
                                             <div class="alert-message">
-                                                <div class="row"><a href="{{url('producto/lista') }}"><h5 style="margin-left:3px"><strong>  Añada productos</strong></h5> </a><small style="margin-left:10px; margin-top: 0px" class="form-text text-muted">{{ __('1 min') }}</small></div>
+                                                <div class="row"><a href="{{url('producto/lista') }}"><h5 class="montserrat" style="margin-left:3px"><strong>  Añada productos</strong></h5> </a><small style="margin-left:10px; margin-top: 0px" class="form-text text-muted">{{ __('1 min') }}</small></div>
                                                 
                                             </div>
                                         </div>

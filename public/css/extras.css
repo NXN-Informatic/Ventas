@@ -186,3 +186,7 @@
         -webkit-box-shadow: 0 0 10px #c5c5c5;
         box-shadow: 0 0 10px #c5c5c5;
       }
+
+      .montserrat{
+        font-family: 'Montserrat', sans-serif;
+      }
