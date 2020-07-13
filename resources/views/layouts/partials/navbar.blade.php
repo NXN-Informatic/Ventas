@@ -4,7 +4,7 @@
         <i class="hamburger align-self-center"></i>
     </a>
     
-    <div class="form-control form-control-lite"><span style="color: #f5f5f5; font-size: 18px">Abrir menú</span></div>
+    <div class="form-control form-control-lite"><span class="medium13" style="color: #f5f5f5">Abrir menú</span></div>
     <div class="navbar-collapse collapse">
         <ul class="navbar-nav ml-auto">
             

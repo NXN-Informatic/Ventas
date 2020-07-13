@@ -18,7 +18,7 @@
     @if($puesto->banner != null)
         <div class="bannerBlog headermax shad imgb row" style="position: relative;background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%); padding:0px " >
             <div class="col-lg-5 col-sm-4 col-4">
-                <img src="{{ asset('storage/'.$puesto->id.'/logo/'.$puesto->perfil)  }}" class="logo" style="border: 4px solid #fff;max-height: 100%;
+                <img src="{{ asset('storage/'.$puesto->id.'/logo/'.$puesto->perfil)  }}" class="logo" style="background-color: #fff; border: 4px solid #fff;max-height: 100%;
                     max-width: 100%;
                     height: auto;
                     top: 0;
@@ -46,11 +46,11 @@
         <div style="margin-top: 0px; padding-left: 0px; padding-right: 0px">
             <div class="row" style="border: 1px; background: #fff">
                 <div class="col-lg-4 col-sm-7 col-7" style="padding-top: 5px">
-                    <i class="fas fa-map-marker-alt" style="color: #ff1a00; font-size: 18px"></i><span style="margin-left: 5px; font-size: 14px;color:#000; font-weight: bold">{{$puesto->direccion}}</span>
+                    <i class="fas fa-map-marker-alt" style="color: #ff1a00; font-size: 12px"></i><span class="regular11" style="margin-left: 5px; color:#000;">{{$puesto->direccion}}</span>
                 </div>
                 <div class="col-lg-8 col-sm-5 col-5" style="padding-top: 5px">
-                    <i class="fas fa-mobile-alt" style="color: #ff1a00; font-size: 18px"></i><span style="margin-left: 5px; font-size: 14px;color:#000; font-weight: bold">{{$puesto->phone}}</span><br>
-                    <span style="margin-left: 15px; font-size: 14px;color:#000;font-weight: bold">{{$puesto->phone2}}</span>
+                    <i class="fas fa-mobile-alt" style="color: #ff1a00; font-size: 12px"></i><span class="regular11" style="margin-left: 5px;color:#000">{{$puesto->phone}}</span><br>
+                    <span class="regular11" style="margin-left: 15px;color:#000;">{{$puesto->phone2}}</span>
                 </div>
             </div>
         </div>
@@ -75,7 +75,7 @@
                             border-radius: 50%">
                         </div>
                         <div class="col-lg-12" style="padding-left: 10px"><br>
-                            <h1 style="font-size: 20px; color: #000; padding-left: 10px; text-align: left">{{ $puesto->name }} <a href="{{ url('puesto/'.$puesto->id.'/detail')}}"></a></h1>  
+                            <h1 class="bold20" style="color: #000; padding-left: 10px; text-align: left">{{ $puesto->name }} <a href="{{ url('puesto/'.$puesto->id.'/detail')}}"></a></h1>  
                             <div class="row" style="padding-left: 30px; margin-top: 0px; margin-bottom: 10px">
                                 @for ($i = 0; $i < $puesto->calification; $i++)   
                                     <i class="fas fa-star" style="color: #ff1a00"></i>
@@ -86,39 +86,39 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <h1 style="font-size: 15px; color: #000;text-align:left; margin: 10px"><i class="fas fa-store" style="color: #ff1a00"></i>  Descripción</h1>
-                            <p class="text-left" style="font-size: 14px; color: #000; margin:10px">{{$puesto->description}}</p>
+                            <h1 class="bold12" style="color: #000;text-align:left; margin: 10px"><i class="fas fa-store" style="color: #ff1a00"></i>  Descripción</h1>
+                            <p class="text-left xlight11" style="color: #000; margin:10px">{{$puesto->description}}</p>
                             <br>
                         </div>
                         <hr style="color: #f2f2f2"> 
                         <div class="col-lg-12" style="padding-left: 10px">
-                            <h1 style="font-size: 15px; color: #000;text-align:left; margin: 10px"><i class="fas fa-phone" style="color: #ff1a00"></i>  Contacto</h1>
+                            <h1 class="bold12" style=" color: #000;text-align:left; margin: 10px"><i class="fas fa-phone" style="color: #ff1a00"></i>  Contacto</h1>
                             @if($puesto->phone)
-                                <span style="color: #000; font-size: 16px"><i class="fas icofont-smart-phone" style="font-size: 16px; padding: 10px; color: #ff1a00"></i> {{ $puesto->phone }}</span>
+                                <span class="regular13" style="color: #000;"><i class="fas icofont-smart-phone" style="font-size: 16px; padding: 10px; color: #ff1a00"></i> {{ $puesto->phone }}</span>
                             @endif
                             <br>
                             @if($puesto->phone2)
-                                <span style="color: #000; font-size: 16px"><i class="fas icofont-smart-phone" style="font-size: 16px; padding: 10px; color: #ff1a00"></i> {{ $puesto->phone2 }}</span>
+                                <span class="regular13" style="color: #000;"><i class="fas icofont-smart-phone" style="font-size: 16px; padding: 10px; color: #ff1a00"></i> {{ $puesto->phone2 }}</span>
                             @endif
                         </div>
                         <hr style="color: #f2f2f2"> 
                         <div class="col-12">
-                            <h1 style="font-size: 15px; color: #000; margin: 10px; text-align:left"><i class="fas fa-truck" style="color: #ff1a00"></i>  Formas de entrega</h1>
+                            <h1 class="bold12" style=" color: #000; margin: 10px; text-align:left"><i class="fas fa-truck" style="color: #ff1a00"></i>  Formas de entrega</h1>
                             @foreach($puesto->entrega_puestos as $entrega_puestos)
-                                <button href="#" target="_blank" class="btn" style="background-color: #fff; border-radius: 10%; border-color: #ff1a00; border 1px solid; padding:5px"><span style="color: #000; margin: auto">{{ $entrega_puestos->entrega->name }}</span></button>
+                                <button href="#" target="_blank" class="btn" style="background-color: #fff; border-radius: 10%; border-color: #ff1a00; border 1px solid; padding:5px"><span class="xlight11" style="color: #000; margin: auto">{{ $entrega_puestos->entrega->name }}</span></button>
                             @endforeach
                         </div>
                         <hr style="margin-top: 15px; color: #f2f2f2">
                         <div class="col-12">
-                          <h1 class="text-left" style="font-size: 15px; color: #000; margin:10px; text-align:left"><i class="fas fa-dollar-sign" style="color: #ff1a00"></i>  Métodos de pago aceptado</h1>
+                          <h1 class="text-left bold12" style="color: #000; margin:10px; text-align:left"><i class="fas fa-dollar-sign" style="color: #ff1a00"></i>  Métodos de pago aceptado</h1>
                           @foreach($puesto->pago_puestos as $pago_puestos)
-                              <button href="#" target="_blank" class="btn" style="background-color: #fff; border-radius: 10%; border-color: #ff1a00; border 1px solid; padding:5px"><span style="color: #000; margin: auto">{{ $pago_puestos->pago->name }}</span></button>
+                              <button href="#" target="_blank" class="btn" style="background-color: #fff; border-radius: 10%; border-color: #ff1a00; border 1px solid; padding:5px"><span class="xlight11" style="color: #000; margin: auto">{{ $pago_puestos->pago->name }}</span></button>
                           @endforeach
                         </div>
                         <hr style="margin-top: 15px; color: #f2f2f2">
                         <div class="col-12">
-                            <h1 style="font-size: 15px; color: #000;text-align:left; margin: 10px"><i class="fas fa-map-marker-alt" style="color: #ff1a00"></i>  Dirección</h1>
-                            <span class="text-left" style="font-size: 14px; color: #000; margin:10px">{{$puesto->direccion}}</span><br><br>
+                            <h1 class="bold12" style=" color: #000;text-align:left; margin: 10px"><i class="fas fa-map-marker-alt" style="color: #ff1a00"></i>  Dirección</h1>
+                            <span class="text-left regular12" style=" color: #000; margin:10px">{{$puesto->direccion}}</span><br><br>
                             <input type="hidden" id="latitud" name="latitud" value="{{ $puesto->usuario_puestos->first()->user->latitud }}">
                             <input type="hidden" id="longitud" name="longitud" value="{{ $puesto->usuario_puestos->first()->user->longitud }}">
                             <div id="map" style="height: 300px;border-radius: 20px"></div>
@@ -130,15 +130,14 @@
                     <div id="prod" style="background: #fff; padding-top: 20px; border-radius: 20px">
                         <div class="singleProduct ajaxProduct featureProduct section6" style="background: #fff; border-radius: 20px; padding-top:0px">
                             <div class="feature__filter container">
-                                <h4 class="title" style="margin-bottom: 3px">Nuestros Productos</h4>
                                 <div class="tab__control dflex" style="margin-top: 0px;margin-bottom: 3px">
                                     <?php $gaux=1; ?>
                                     @foreach($puesto->puestosubcategorias as $puestosubcategorias)
                                         @foreach($puestosubcategorias->grupos as $grupos)
                                             @if ($gaux != 1)
-                                                <div class="tab__item">{{$grupos->name}}</div>
+                                                <div class="tab__item bold12">{{$grupos->name}}</div>
                                             @else
-                                                <div class="tab__item active">{{$grupos->name}}</div>
+                                                <div class="tab__item active bold12">{{$grupos->name}}</div>
                                                 <?php $gaux=0; ?>
                                             @endif
                                         @endforeach
@@ -168,10 +167,10 @@
                                                                                 </div>
                                                                             </div>
                                                                             <div class="features__content">
-                                                                                <span style="font-size: 16px; color:#ff1a00"><strong>S/. {{$producto->precio}}</strong></span>
-                                                                                <p class="fontn" style="color: #000">{{$producto->name }}</p>
+                                                                                <span class="medium13" style="color:#ff1a00">S/. {{$producto->precio}}</span>
+                                                                                <p class="fontn medium11" style="color: #000">{{$producto->name }}</p>
                                                                                 <div class="content__overlay" style="margin-top: -20px; margin-bottom: 0px">
-                                                                                <p class="fontn" style="color: #000">{{$producto->name }}</p>
+                                                                                <p class="fontn medium11" style="color: #000">{{$producto->name }}</p>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -198,10 +197,11 @@
                                                                             </div>
                                                                         </div>
                                                                         <div class="features__content">
-                                                                            <span style="font-size: 16px; color:#ff1a00"><strong>S/. {{$producto->precio}}</strong></span>
-                                                                            <p class="fontn" style="color: #000; text-align:left">{{$producto->name }}</p>
+                                                                            <p class="fontn medium11" style="color: #000; text-align:left">{{$producto->name }}</p>
+                                                                            <span class="medium13" style="color:#ff1a00"><strong>S/. {{$producto->precio}}</strong></span>
+                                                                            
                                                                             <div class="content__overlay" style="margin-top: -20px; margin-bottom: 0px">
-                                                                            <p class="fontn" style="color: #000; text-align:left">{{$producto->name }}</p>
+                                                                                <span class="medium13" style="color:#ff1a00"><strong>S/. {{$producto->precio}}</strong></span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -257,35 +257,6 @@
     </div>
 </div>
 
-<!--Start Single Product-->
-<div class="singleProduct" style="position: relative; padding-top:0px" id="ocultar1">
-  <div class="singleProduct__wrap container">
-    <div class="signleProduct__content">
-      <div class="product dflex" >
-          <div class="col-lg-8 col-12">
-                <label style="font-size: 18px; font-weight: bold;">¿Porque Elegirnos?</label><br><br>
-                @if( strlen($puesto->elegirnos) > 0)
-                    <p class="fontn">{{ $puesto->elegirnos }}</p>
-                @else
-                <p class="fontn">Porque Somos una Tienda Mejor que otra</p>
-                @endif`
-                <br><br><br><br><br>
-                <div class="row">
-                    <div class="col-lg-8 col-12">
-                      <label style="font-size: 18px; font-weight: bold;">Sobre Nosotros</label><br><br>
-                      @foreach($puesto->usuario_puestos as $usuario_puesto) @endforeach
-                      <p class="fontn">{{ $puesto->nosotros }}</p>
-                    </div>
-                    <div class="col-lg-4 col-12" style="text-align: center;margin-top: 3%">
-                      <img src="{{ asset('/storage/usuarios/'.$usuario_puesto->user->id.'/'.$usuario_puesto->user->imagen) }}" style="border-radius: 50%" width="150px"><br><br>
-                      <h2 class="fontn">{{ $usuario_puesto->user->name }}</h2>
-                    </div>
-                </div>
-          </div>
-      </div>
-    </div>
-  </div>
-</div>
 <!--
 <div class="featureProduct" id="ocultar1" style="margin-top: -8%">
     <div class="feature__filter">
@@ -325,34 +296,29 @@
 </div>-->
 
 <!--Start Footer-->
-<div class="footer" style="background:#F5F5F5;color:#000; border: 1px solid #ccc; padding: 0px;margin: 0px;" >
+<div class="footer" style="background:#505050;color:#000; border: 1px solid #ccc; padding: 20px;margin: 0px;" >
     <div class="footer__wrap dflex">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6 col-sm-12 col-12 text-center" style="padding:20px">
+                <div class="row">
+                    <img src="{{ asset('/img/logo.png') }}" alt="" style="display:block;width: 200px;margin:auto">
+                </div>
+                <br><br>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-12 col-12">
+                        <span class="bold12">¿Quiénes Somos?</span>
+                    </div>
+                    <div class="col-lg-4 col-sm-12 col-12">
+                        <span class="bold12">Vende en FeriaTacna</span>
+                    </div>
+                    <div class="col-lg-4 col-sm-12 col-12">
+                        <span class="bold12">Términos y condiciones</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+            </div>
 
-        <div class="footer__item col-lg-1 col-sm-6 col-12"></div>
-        <div class="footer__item col-lg-5 col-sm-6 col-12">
-            <h2 style="font-size: 20px">Contacto</h2><br>
-            <p style="color:#000;font-size: 17px">
-            feriaTacna@gmail.com</p>
-            <p style="color:#000">
-                Tacna, Perú</p>
-            
-            <li class="social" style="list-style: none;">
-                <a href="#" style="color:#000; font-size:20px"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" style="color:#000; font-size:20px; margin-left:5px"><i class="fab fa-twitter"></i></a>
-                <a href="#" style="color:#000; font-size:20px; margin-left:5px"><i class="fas fa-envelope"></i></a>
-            </li>
-        </div>
-        <div class="footer__item col-lg-1 col-sm-6 col-12">
-            
-        </div>
-        <div class="footer__item col-lg-5 col-sm-6 col-12">
-            <br>    
-            <img src="{{ asset('/img/logo.png') }}" alt="" style="display:block;width: 200px;margin:auto">
-            <br>    
-            <h2 style="text-align: center;">
-            © Comercio Local, todos los derechos reservados.
-            </h2>
-        </div>
     </div>
 </div>
 <!--End Footer-->

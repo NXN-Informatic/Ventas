@@ -15,49 +15,51 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link href="{{ asset('css/modern.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('css/extras.css') }}" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;700&display=swap" rel="stylesheet">
 
     @yield('styles')
     <style>
 
-    .moblie-navBottom {
-        display: none;
-        height:60px;
-        position: fixed;
-        z-index: 998;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        box-shadow: 0 0 9px rgba(0, 0, 0, .12);
-        padding: 7px 15px;
-        text-align: center;
-        background: #fff;
-        justify-content: space-between
-    }
-
-    @media (max-width:991px) {
         .moblie-navBottom {
-            display: flex
+            display: none;
+            height:60px;
+            position: fixed;
+            z-index: 998;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            box-shadow: 0 0 9px rgba(0, 0, 0, .12);
+            padding: 7px 15px;
+            text-align: center;
+            background: #fff;
+            justify-content: space-between
         }
-    }
 
-    .moblie-navBottom .link i,
-    .moblie-navBottom .link p {
-        color: #333;
-        transition: .3s ease-out;
-        text-transform: capitalize
-    }
+        @media (max-width:991px) {
+            .moblie-navBottom {
+                display: flex
+            }
+        }
 
-    .moblie-navBottom .link p {
-        font-size: 11px
-    }
+        .moblie-navBottom .link i,
+        .moblie-navBottom .link p {
+            color: #333;
+            transition: .3s ease-out;
+            text-transform: capitalize
+        }
 
-    .moblie-navBottom .link:hover i,
-    .moblie-navBottom .link:hover p {
-        color: #bf0000
-    }
+        .moblie-navBottom .link p {
+            font-size: 11px
+        }
+
+        .moblie-navBottom .link:hover i,
+        .moblie-navBottom .link:hover p {
+            color: #bf0000
+        }
     </style>
     <!-- Fonts -->
     <script src="https://kit.fontawesome.com/882059baa9.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
     

@@ -112,25 +112,25 @@
               <img src="{{ asset('img/logoenJPG.jpg') }}" class="ocultarimg2" style="width: 40px;">  
             </a>
           </div>
-            <li class="header__list"><span style="color: #000">CATEGORIAS</span><i class="fas fa-angle-down"></i>
+            <li class="header__list"><span class="regular11" style="color: #000">CATEGORIAS</span><i class="fas fa-angle-down"></i>
                 <ul class="sub" id="tags">
-                    <li value="0"><span>TODOS</span></li>
+                    <li value="0"><span class="regular10">TODOS</span></li>
                     @foreach($categorias as $categoria)
-                    <li value="{{ $categoria->id }}"><span>{{ $categoria->name }}</span></li>
+                    <li value="{{ $categoria->id }}"><span class="regular10">{{ $categoria->name }}</span></li>
                     @endforeach
                 </ul>
             </li>
         </ul>
         <div class="nav__search dflex" style="border-radius:10px">
-            <input type="text" id="buscar" name="buscar" placeholder="Busque su producto" style="border: 1px; "/>
+            <input type="text" id="buscar" name="buscar" class="xlight12" placeholder="Busque productos en Tacna" style="border: 1px; "/>
             <a><i class="fas fa-search" style="margin-right:10px"></i></a>
           </div>
         <ul class="header__item dflex right">
-            <li class="header__list"><span><a href="{{ url('login') }}" style="color:#000">Ingresar</a></span></li>
+            <li class="header__list"><a href="{{ url('login') }}" style="color:#000"><span class="regular11" style="color: #000">Ingresar</span></a></li>
         </ul>
         <div class="ocultar1" style="text-align: right;">    
           <a href="{{ url('register') }}">
-              <button class="btn" style="background:#bf0000; border-radius:10px; font-weight: bold; border-color:#bf0000"><strong>Crea tu tienda</strong></button>  
+              <button class="btn" style="background:#bf0000; border-radius:10px; font-weight: bold; border-color:#bf0000"><strong class="medium11">Crea tu tienda</strong></button>  
           </a>
         </div>
     </div>

@@ -36,6 +36,30 @@
         height: 150px;
     }
     }
+    .imgp{
+        height: 90px;
+        width: 70px;
+    }
+    @media (max-width: 800px) {
+    .imgp {
+        height: 80px;
+        width: 60px;
+    }
+    }
+    @media (max-width: 600px) {
+    .imgp {
+        height: 55px;
+        width: 40px;
+    }
+    }
+    .tiendah{
+        height: 320px;
+    }
+    @media (max-width: 600px) {
+    .tiendah {
+        height: 270px;
+    }
+    }
     .imgb{
         height:160px;
     }
@@ -75,6 +99,28 @@
     .logo {
         height: 75px;
         width: 75px;
+        border-radius:50%;
+        display:block
+    }
+    }
+    .logotienda{
+        height: 90px;
+        width: 90px;
+        border-radius:50%;
+        display:none
+    }
+    @media (max-width: 800px) {
+    .logotienda {
+        height: 80px;
+        width: 80px;
+        border-radius:50%;
+        display:block
+    }
+    }
+    @media (max-width: 600px) {
+    .logotienda {
+        height: 65px;
+        width: 65px;
         border-radius:50%;
         display:block
     }
@@ -190,3 +236,87 @@
       .montserrat{
         font-family: 'Montserrat', sans-serif;
       }
+      
+      *{
+        font-family: 'Montserrat', sans-serif;
+      }
+      .medium11{
+          font-weight: 500;
+          font-size: 11px;
+      }
+      .medium12{
+        font-weight: 500;
+        font-size: 12px;
+    }
+      .medium13{
+        font-weight: 500;
+        font-size: 13px;
+    }
+      .bold12{
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .bold15{
+        font-weight: 700;
+        font-size: 15px;
+      }
+      .bold16{
+        font-weight: 700;
+        font-size: 16px;
+      }
+      .bold20{
+        font-weight: 700;
+        font-size: 20px;
+      }
+      .xlight12{
+        font-weight:200;
+        font-size: 12px;
+    }
+    .xlight11{
+        font-weight:200;
+        font-size: 11px;
+    }
+    .light11{
+        font-weight: 300;
+        font-size: 11px;
+    }
+    .xlight10{
+        font-weight: 200;
+        font-size: 10px;
+    }
+    .light12{
+        font-weight: 300;
+        font-size: 12px;
+    }
+      .regular11{
+        font-weight: 400;
+        font-size: 11px;
+    }
+    .regular12{
+        font-weight: 400;
+        font-size: 12px;
+    }
+    .regular9{
+        font-weight: 400;
+        font-size: 9px;
+    }
+    .regular10{
+        font-weight: 400;
+        font-size: 10px;
+    }
+    .regular13{
+        font-weight: 400;
+        font-size: 13px;
+    }
+    @media (max-width: 800px) {
+    .regular13 {
+        font-weight: 400;
+        font-size: 11px;
+    }
+    }
+    @media (max-width: 600px) {
+    .regular13 {
+        font-weight: 400;
+        font-size: 11px;
+    }
+    }

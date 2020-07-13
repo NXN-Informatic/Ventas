@@ -3,7 +3,7 @@
 <div class="closeMenu"></div>
 <div class="mobile">
     <div class="search dflex">
-        <input type="text" placeholder="Buscar Tiendas"><i class="fas fa-search"></i>
+        <input type="text" class="xlight12" placeholder="Buscar productos en Tacna"><i class="fas fa-search"></i>
     </div>
     <div class="mobile__tab-control dflex">
         <div class="tab__item col-6 active"><span class="buttonTab">Menu</span></div>
@@ -28,13 +28,13 @@
 </div>
 @if(auth()->user())
     <div class="moblie-navBottom dflex">
-        <a class="link" href="{{ url('/home') }}"><i class="fas fa-home" style="font-size: 20px"></i><p>Inicio</p></a>
+        <a class="link" href="{{ url('/') }}"><i class="fas fa-home" style="font-size: 20px"></i><p>Inicio</p></a>
         <a class="link" href="{{ url('#') }}"><i class="fas fa-heart" style="font-size: 20px"></i><p>Favoritos</p></a>
         <a class="link nav">
             <div class="nav__button"><i class="fas fa-bars" style="font-size: 20px"></i><p>Menú</p>
             </div>
         </a>
-        <a class="link" href="{{ url('/puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}"><i class="fas fa-store style="font-size: 20px""></i><p>Mi Tienda</p></a>
+        <a class="link" href="{{ url('/home')}}"><i class="fas fa-store" style="font-size: 20px"></i><p>Mi Tienda</p></a>
     </div>
 @else
     <div class="moblie-navBottom dflex">

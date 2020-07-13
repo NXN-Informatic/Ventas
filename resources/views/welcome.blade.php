@@ -4,53 +4,8 @@
     <!-- Swiper -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.min.css">
     <link rel="stylesheet" href="{{ asset('css/publicas/welcome.css') }}">
-    <style>
-        .headermax{
-            height: 400px;
-        }
-        @media (max-width: 600px) {
-        .headermax {
-            height: 250px;
-        }
-        }
-        .imgh{
-            height: 250px;
-        }
-        @media (max-width: 800px) {
-        .imgh {
-            height: 200px;
-        }
-        }
-        @media (max-width: 600px) {
-        .imgh {
-            height: 150px;
-        }
-        }
-        .imgp{
-            height: 100px;
-            width: 80px;
-        }
-        @media (max-width: 800px) {
-        .imgp {
-            height: 95px;
-            width: 73px;
-        }
-        }
-        @media (max-width: 600px) {
-        .imgp {
-            height: 85px;
-            width: 65px;
-        }
-        }
-        .tiendah{
-            height: 320px;
-        }
-        @media (max-width: 600px) {
-        .tiendah {
-            height: 300px;
-        }
-        }
-        </style>
+    <link rel="stylesheet" href="{{ asset('css/extras.css') }}">
+
 @endsection
 
 @section('content')
@@ -60,55 +15,34 @@
 
 
 <!--Start Feature Product-->
-<div class="blog" id="tiendas" style="background: #F9F9F9; padding-bottom: 30px; margin-top: -20px">
-    <div class="feature__wrap container" style="margin-top: 0px" >
-        <div style="margin-top: 0px; padding-left: 40px; padding-right: 40px">
-            <div class="row shad" style="border: 1px ; padding: 16px; background: #fff">
-                <div class="col-lg-4 col-12">
-                    <h3 style="color: #bf0000; font-size: 16px">BUSCA</h3>
-                    <span style="margin-top: 1px; font-size: 16px; color:rgb(63, 63, 63)">Productos y tiendas de tacna, ahorra tiempo y dinero</span>
-                </div>
-                <div class="col-lg-4 col-12">
-                    <h3 style="color: #bf0000; font-size: 16px">COMPARA</h3>
-                    <span style="margin-top: 1px; font-size: 16px; color:rgb(63, 63, 63)">Precios y caracteristicas, de tus tiendas locales de siempre</span>
-                </div>
-                <div class="col-lg-4 col-12">
-                    <h3 style="color: #bf0000; font-size: 16px">COMPRA</h3>
-                    <span style="margin-top: 1px; font-size: 16px; color:rgb(63, 63, 63)">Sin comisiones ni tarjetas, trato directo con tiendas</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
-<!--Start Feature Product-->
-
-<div class="blog" style="background: #F9F9F9; margin-top: 0px; padding-top: 0px" id="ocultar89">
-    <h4 class="title">Tiendas Recomendadas <a href="{{ url('puestos/all') }}"> Ver tiendas</a></h4>
+<div class="blog" style="background: #F9F9F9; margin-top: 30px; padding-top: 20px" id="ocultar89">
+    <span class="bold20" style="color: #000; text-align:left">Nuestras tiendas <a class="xlight12" style="color: #999999" href="{{ url('puestos/all') }}"> Ver tiendas</a></span>
     <div class="feature__wrap container" style="margin-top: -20px" >
-        <div class="blog__wrap dflex">
+        <div class="blog__wrap dflex" style="padding: 0px">
                 <?php $paux = 0;?>
                 @foreach($pst as $ps)
                     @if ($paux < 4)
-                        @if($ps->banner != null and $ps->perfil != null)
+                        @if($ps->perfil != null)
                             <?php $puestosubcategorias = $ps->puestosubcategorias->random(1)->first(); ?>
                                 @if($puestosubcategorias != null)
                                     @if(count($puestosubcategorias->grupos) > 0)
                                         <?php $aux=0; ?>
                                         <?php $paux = $paux + 1; ?>
-                                        <div class="blog__item col-lg-3 col-sm-6 col-12 tiendah" style="background:#fff; padding: 0px;border-radius:5%">
+                                        <div class="blog__item col-lg-3 col-sm-4 col-6 tiendah shad" style="background:#fff; padding: 3px;border-radius:15px; margin-bottom:5px;margin-top:5px">
                                             <div class="blog__image" style="margin-left: 0px;">
                                                 <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank">
-                                                    <img src="{{ url('storage/'.$ps->id.'/banner/'.$ps->banner) }}" width="100%" alt="" height="100px" style="position: relative; z-index: 5; top: 0px; border: 3px solid #fff" class="shad">
+                                                    <div style="background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%); width:100%; height:80px;border-radius:15px 15px 0px 0px"></div>   
+                                                    <!-- <img src="{ url('storage/'.$ps->id.'/banner/'.$ps->banner) }}" width="100%" alt="" height="100px" style="position: relative; z-index: 5; top: 0px; border: 3px solid #fff" class="shad"> -->
                                                 </a>
                                             </div>
                                             <div>
                                                 <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank">
-                                                    <img src="{{ url('storage/'.$ps->id.'/logo/'.$ps->perfil) }}" alt="" height="80px" width="80px" class="shad" style="position: relative; z-index: 6; top: -50px; border: 3px solid #fff; background: #fff; border-radius: 10%">
+                                                    <img src="{{ url('storage/'.$ps->id.'/logo/'.$ps->perfil) }}" alt="" height="90px" width="90px" class="shad" style="position: relative; z-index: 6; top: -50px; border: 3px solid #fff; background: #fff; border-radius: 50%">
                                                 </a>
                                             </div>
                                             <div class="blog__content" style="margin-top: -60px">
-                                                <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank"><span style="color: #bf0000; font-size: 18px; display: inline-block"><strong>{{ $ps->name}}</strong></span><br><br></a>
+                                                <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank"><span class="regular13" style="color: #000; display: inline-block"><strong>{{ $ps->name}}</strong></span><br><br></a>
                                                 <div class="row">
                                                     @foreach ($puestosubcategorias->grupos as $grupos)
                                                         @if (count($grupos->productos) > 0)
@@ -119,7 +53,7 @@
                                                                     <?php $imagen = $gp->imagen_productos->first(); //solo una imagen x producto?>
                                                                     @if($imagen != null)
                                                                             <a href="{{ url('producto/'.$gp->id.'/detailProd')}}" style="margin:auto">                                       
-                                                                                <img src="{{ asset('storage/'.$ps->id.'/'.$gp->id.'/'.$imagen->imagen) }}" alt="" style="border: 2px solid #fff; margin: auto; border-radius: 5%" class="imgp shad">
+                                                                                <img src="{{ asset('storage/'.$ps->id.'/'.$gp->id.'/'.$imagen->imagen) }}" alt="" style="border: 2px solid #fff; margin: auto; border-radius: 10%" class="imgp shad">
                                                                             </a>
                                                                         <?php $aux = $aux+1; ?>
                                                                     @endif
@@ -128,7 +62,8 @@
                                                         @endif
                                                     @endforeach
                                                 </div>
-                                                <!--<p> substr($ps->description,0,60)}...</p> -->
+                                                <br>
+                                                <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank"><span class="regular13" style="color: #ff1a00;">Ver tienda</span></a>
                                             </div>
                                         </div>
                                     @endif
@@ -141,51 +76,92 @@
 </div>
 <!--End Feature Product-->
 
-<!--Start Featured Products-->
-<div class="featureProduct" id="prod" style="background: #F9F9F9;padding:10px">
-    <div class="feature__wrap container">
-        <h4 class="title">Productos para ti <a href="{{ url('all/productos') }}"> Ver productos</a></h4> 
-        <div class="feature__filter">
-            <ul class="featureSlider ">
-                <li class="grid features__grid">
-                    @foreach($productos as $producto)
-                        @if ($producto->activo)
-                            <?php $aux = 1; ?>
-                            @foreach ($producto->imagen_productos as $imagen)
-                                @if($imagen != null and $aux==1)
-                                    <?php $aux=0; ?>
-                                    <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank">
-                                        <div class="element-item features__item col-lg-3 col-sm-4 col-6 shad">
-                                            <div class="features__image desk">
-                                                <img class="imgh shad" src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}" width="100%" alt="" style="border: 5px solid #fff">
-                                            </div>
-                                            <div class="features__content">
-                                                <span style="font-size: 20px; color:#bf0000"><strong>S/. {{$producto->precio}}</strong></span>
-                                                <div class="content__overlay" style="margin-top: 0px; margin-bottom: 0px">
-                                                <p style="color: #000">{{$producto->name }}</p>
+@foreach ($categorias as $categoria)
+    <div class="singleProduct ajaxProduct featureProduct section6" style="background: #f9f9f9; border-radius: 20px; margin-top: 20px; padding-top: 20px">
+        <div class="feature__filter container">
+            <span class="bold20" style="color: #000; text-align:left">{{$categoria->name}}<a class="xlight12" style="color: #999999" href="{{ url('puestos/all') }}"> Ver productos</a></span>
+            <br>
+            <br>
+            <br>
+            <div class="tabs">
+                <ul class="featureSlider">
+                    <li class="features__grid active">
+                        @php
+                            $cantidad=4;
+                            $intentos=0;
+                        @endphp
+                        @for ($i=0; $i<$cantidad and $intentos<10;$i)
+                            @php
+                                $subcategoria = $categoria->subcategorias->random(1)->first();
+                            @endphp
+                            @if($subcategoria->puestosubcategorias->first())
+                                @php
+                                    $ps = $subcategoria->puestosubcategorias->random(1)->first();
+                                @endphp
+                                @if($ps->grupos->first())
+                                    @php
+                                        $grupo = $ps->grupos->random(1)->first();
+                                    @endphp
+                                    @if($grupo->productos->first())
+                                        @php
+                                            $producto = $grupo->productos->random(1)->first();
+                                        @endphp
+                                        @if ($producto->activo)
+                                            <?php $imagen = null; ?>
+                                            <?php $imagen = $producto->imagen_productos->first(); //solo una imagen x producto?>
+                                            @if($imagen != null)
+                                                <?php $i = $i+1; ?>
+                                                <div class="features__item col-lg-3 col-sm-4 col-6 shad" style="margin:auto; margin-bottom: 10px; border-radius: 15px">
+                                                    <div class="features__image" style="border-radius: 15px">
+                                                        <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank">
+                                                        <img class="imgh" src="{{ asset('storage/'.$ps->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="100%" alt="" style="border: 5px solid #fff; border-radius: 15px">
+                                                        </a>
+                                                        <div class="image__tools">
+                                                            <i class="far fa-heart"></i>
+                                                            <i class="fas fa-cart-plus"></i>
+                                                            <i class="fas fa-search"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="features__content">
+                                                        <p class="fontn medium11" style="color: #000; text-align:left">{{$producto->name }}</p>
+                                                        <span class="medium13" style="color:#ff1a00"><strong>S/. {{$producto->precio}}</strong></span>
+                                                        
+                                                        <div class="content__overlay" style="margin-top: -20px; margin-bottom: 0px">
+                                                            <span class="medium13" style="color:#ff1a00"><strong>S/. {{$producto->precio}}</strong></span>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </a>
+                                            @endif
+                                        @else
+                                            <?php $intentos = $intentos+1; ?>
+                                        @endif
+                                    @else
+                                        <?php $intentos = $intentos+1; ?>
+                                    @endif
+                                @else
+                                    <?php $intentos = $intentos+1; ?>
                                 @endif
-                            @endforeach
-                        @endif
-                    @endforeach         
-                </li>
-            </ul>
+                            @else
+                                <?php $intentos = $intentos+1; ?>
+                            @endif
+                        @endfor
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
+@endforeach
+
 
 <div class="feature container" style="background: #F9F9F9;padding:10px" id="ella">
-    <h4 class="title">Centros Comerciales <a href="{{ url('centroscomerciales/all') }}"> Ver todos</a></h4>
-    <div class="feature__wrap container">
+    <span class="bold20" style="color: #000; text-align:left">Centros Comerciales<a class="xlight12" style="color: #999999" href="{{ url('centroscomerciales/all') }}">Ver todos</a></span>
+    <div class="feature__wrap" style="border-radius: 15px">
         @foreach($cccc as $cc)
-            <div class="feature__item"><a href="{{ url('/centrocomercial/'.$cc->id) }}">
-                <img src="{{ asset('storage/cc/'.$cc->id.'/'.$cc->logo) }}" style="width: 98%; height: 160px; border: 5px solid #fff" class="shad"> 
+            <div class="feature__item" style="border-radius: 15px"><a href="{{ url('/centrocomercial/'.$cc->id) }}">
+                <img src="{{ asset('storage/cc/'.$cc->id.'/'.$cc->logo) }}" style="width: 98%; height: 160px; border: 5px solid #fff;border-radius: 15px" class="shad"> 
                 </a>
                 <div class="feature__content">
-                <a href="{{ url('/centrocomercial/'.$cc->id) }}"><h3 style="color: #fff; text-shadow: 0px 0px 15px #000; font-size: 14px">{{ $cc->nombre }}</h3></a><span style="color: #fff; text-shadow: 0px 0px 30px #000; font-size: 18px">{{$cc->cantidad}} Tiendas</span>
+                <a href="{{ url('/centrocomercial/'.$cc->id) }}"><h3 style="color: #fff; text-shadow: 0px 0px 15px #000; font-size: 12px">{{ $cc->nombre }}</h3></a><span class="light11" style="color: #fff; text-shadow: 0px 0px 30px #000">{{$cc->cantidad}} Tiendas</span>
                 </div>
             </div>
         @endforeach    

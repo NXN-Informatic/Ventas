@@ -10,12 +10,11 @@ use App\Puesto;
 Route::get('/', function () {
     $puestos = collect();
     $pst = Puesto::where('completado',1)->where('personalizado',1)->get()->random(5);
-    $productos = Producto::all()->random(8);
     $tiendas = collect();
     $categorias = Categoria::all();
     $subcategorias = Subcategoria::all();
     $cccc = CentrosComerciale::all()->random(8);
-    return view('welcome', compact('puestos', 'productos', 'categorias', 'tiendas','pst','subcategorias','cccc'));
+    return view('welcome', compact('puestos', 'categorias', 'tiendas','pst','subcategorias','cccc'));
 });
 
 Auth::routes();
