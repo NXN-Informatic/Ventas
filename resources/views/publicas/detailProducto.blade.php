@@ -54,7 +54,7 @@
         </div>
     @endif    
 </div>
-<div class="singleProduct ontop" style="background-color: #f9f9f9 ;padding:0px">
+<div class="singleProduct ontop1" style="background-color: #f9f9f9 ;padding:0px">
     <div class="singleProduct__wrap container">
         <div class="signleProduct__content">
             <div class="product dflex">
@@ -65,7 +65,7 @@
                             @foreach($producto->imagen_productos as $imagenes)
                               <div class="swiper-slide prodh" style="width: 100%;">
                                   <a href="#">
-                                      <img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagenes->imagen) }}" width="auto" height="auto" style="border: 5px solid #fff;max-height: 100%;
+                                      <img src="{{ asset('storage/'.$puesto->id.'/'.$producto->id.'/'.$imagenes->imagen) }}" width="auto" height="auto" style="border: 5px solid #fff;max-height: 100%;
                                       max-width: 100%;
                                       height: auto;
                                       position: absolute;
@@ -112,7 +112,7 @@
                         </div>
                         <hr style="color: #f9f9f9">
                         <div class="col-lg-12" style="padding-left: 10px"><br>
-                            <h1 class="bold12" style=" color: #000;text-align:left; margin: 10px"><i class="fas fa-store" style="color: #ff1a00"></i> Tienda</h1>
+                            <h1 class="bold12" style=" color: #444;text-align:left; margin: 10px"><i class="fas fa-store" style="color: #ff1a00"></i> Tienda</h1>
                             <div class="row" style="padding-left:5px">
                                 <div class="col-lg-3 col-sm-4 col-4" style="padding:10px">
                                     <img src="{{ asset('storage/'.$puesto->id.'/logo/'.$puesto->perfil) }}" class="shad" style="border: 4px solid #fff;max-height: 100%;
@@ -128,7 +128,7 @@
                                 <div class="col-lg-9 col-sm-8 col-8" style="padding-left:0px">
                                     <br><br>
                                     <div class="row" style="margin-left:2px">
-                                        <h1 class="bold12" style="color: #000; text-align: left">{{ $puesto->name }} <a href="{{ url('puesto/'.$puesto->id.'/detail')}}"></a></h1>  
+                                        <h1 class="bold12" style="color: #444; text-align: left">{{ $puesto->name }} <a href="{{ url('puesto/'.$puesto->id.'/detail')}}"></a></h1>  
                                     </div>
                                     <div class="row" style="margin-left:2px">
                                         <span class="xlight11" style="color: rgb(126, 126, 126)">{{'Miembro desde '.$puesto->created_at->format('M, Y')}}</span>       
@@ -138,7 +138,7 @@
                         </div>
                         <hr style="color: #f9f9f9"> 
                         <div class="col-lg-12" style="padding-left: 10px">
-                            <h1 class="bold12" style=" color: #000;text-align:left; margin: 10px"><i class="fas fa-phone" style="color: #ff1a00"></i>  Contacto</h1>
+                            <h1 class="bold12" style=" color: #444;text-align:left; margin: 10px"><i class="fas fa-phone" style="color: #ff1a00"></i>  Contacto</h1>
                             <div class="row" style="align-items: center">
                                 <div class="col text-center">
                                     <a href="{{ url('https://api.whatsapp.com/send?phone=51'.$puesto->wsp.'&text=Hola!%20Pasé%20por%20tu%20tienda%20y%20tengo%20una%20consulta:%20') }}" target="_blank" class="btn btnb" style="background-color: #25d366; border-color: #25d366;margin:5px;width:60px; height:35px; padding:5px;"><i class="fas icofont-brand-whatsapp icono1" style="color: #fff"></i></a>
@@ -147,31 +147,31 @@
                                 </div>
                             </div>
                             @if($puesto->phone)
-                                <span class="regular13" style="color: #000;"><i class="fas icofont-smart-phone" style="font-size: 16px; padding: 10px; color: #ff1a00"></i> {{ $puesto->phone }}</span>
+                                <span class="regular13" style="color: #444;"><i class="fas icofont-smart-phone" style="font-size: 16px; padding: 10px; color: #ff1a00"></i> {{ $puesto->phone }}</span>
                             @endif
                             <br>
                             @if($puesto->phone2)
-                                <span class="regular13" style="color: #000;"><i class="fas icofont-smart-phone" style="font-size: 16px; padding: 10px; color: #ff1a00"></i> {{ $puesto->phone2 }}</span>
+                                <span class="regular13" style="color: #444;"><i class="fas icofont-smart-phone" style="font-size: 16px; padding: 10px; color: #ff1a00"></i> {{ $puesto->phone2 }}</span>
                             @endif
                         </div>
                         <hr style="color: #f9f9f9"> 
                         <div class="col-12">
-                            <h1 class="bold12" style=" color: #000; margin: 10px; text-align:left"><i class="fas fa-truck" style="color: #ff1a00"></i>  Formas de entrega</h1>
+                            <h1 class="bold12" style=" color: #444; margin: 10px; text-align:left"><i class="fas fa-truck" style="color: #ff1a00"></i>  Formas de entrega</h1>
                             @foreach($puesto->entrega_puestos as $entrega_puestos)
-                                <button href="#" target="_blank" class="btn" style="background-color: #fff; border-radius: 10%; border-color: #ff1a00; border 1px solid; padding:5px"><span class="xlight11" style="color: #000; margin: auto">{{ $entrega_puestos->entrega->name }}</span></button>
+                                <button href="#" target="_blank" class="btn" style="background-color: #fff; border-radius: 10%; border-color: #ff1a00; border 1px solid; padding:5px"><span class="xlight11" style="color: #444; margin: auto">{{ $entrega_puestos->entrega->name }}</span></button>
                             @endforeach
                         </div>
                         <hr style="margin-top: 15px; color: #f9f9f9">
                         <div class="col-12">
-                          <h1 class="text-left bold12" style="color: #000; margin:10px; text-align:left"><i class="fas fa-dollar-sign" style="color: #ff1a00"></i>  Métodos de pago</h1>
+                          <h1 class="text-left bold12" style="color: #444; margin:10px; text-align:left"><i class="fas fa-dollar-sign" style="color: #ff1a00"></i>  Métodos de pago</h1>
                           @foreach($puesto->pago_puestos as $pago_puestos)
-                              <button href="#" target="_blank" class="btn" style="background-color: #fff; border-radius: 10%; border-color: #ff1a00; border 1px solid; padding:5px"><span class="xlight11" style="color: #000; margin: auto">{{ $pago_puestos->pago->name }}</span></button>
+                              <button href="#" target="_blank" class="btn" style="background-color: #fff; border-radius: 10%; border-color: #ff1a00; border 1px solid; padding:5px"><span class="xlight11" style="color: #444; margin: auto">{{ $pago_puestos->pago->name }}</span></button>
                           @endforeach
                         </div>
                         <hr style="margin-top: 15px; color: #f9f9f9">
                         <div class="col-12">
-                            <h1 class="bold12" style=" color: #000;text-align:left; margin: 10px"><i class="fas fa-map-marker-alt" style="color: #ff1a00"></i>  Ubicación</h1>
-                            <span class="text-left regular12" style=" color: #000; margin:10px">{{$puesto->direccion}}</span><br><br>
+                            <h1 class="bold12" style=" color: #444;text-align:left; margin: 10px"><i class="fas fa-map-marker-alt" style="color: #ff1a00"></i>  Ubicación</h1>
+                            <span class="text-left regular12" style=" color: #444; margin:10px">{{$puesto->direccion}}</span><br><br>
                             <input type="hidden" id="latitud" name="latitud" value="{{ $puesto->usuario_puestos->first()->user->latitud }}">
                             <input type="hidden" id="longitud" name="longitud" value="{{ $puesto->usuario_puestos->first()->user->longitud }}">
                             <div id="map" style="height: 250px;border-radius: 20px"></div>
@@ -187,7 +187,7 @@
 <!--Start Featured Products-->
 <div class="featureProduct singleProduct container" id="ocultarProd" style="background-color: #f9f9f9; padding: 10px">
     <div class="feature__wrap ">
-        <span class="bold15" style="color: #000">Otros Productos de esta tienda<a class="xlight11" href="{{url('/puesto/'.$usuario_puestos->puesto->id.'/detail')}}" style="margin-left:10px">Ver más</a></span>
+        <span class="bold15" style="color: #444">Otros Productos de esta tienda<a class="xlight11" href="{{url('/puesto/'.$usuario_puestos->puesto->id.'/detail')}}" style="margin-left:10px">Ver más</a></span>
         <div class="feature__filter">
             <div class="featureSlider">
                 <div class="sliderButton left"><i class="fas fa-angle-left"></i></div>
@@ -213,9 +213,9 @@
                                         </div>
                                         <div class="features__content">
                                             <span class="bold15" style="color:#ff1a00">S/. {{$producto->precio}}</span>
-                                            <p class="fontn medium11" style="color: #000">{{$producto->name }}</p>
+                                            <p class="fontn medium11" style="color: #444">{{$producto->name }}</p>
                                             <div class="content__overlay" style="margin-top: -20px; margin-bottom: 0px">
-                                            <p class="fontn medium11" style="color: #000">{{$producto->name }}</p>
+                                            <p class="fontn medium11" style="color: #444">{{$producto->name }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -396,7 +396,7 @@
                   `</div>`+
                   `<div class="product__content" style="width:100%"><a class="link-title" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black" style="font-size:30px">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
                       `<p class="price" style="font-size:25px">S./${productos.precio}</p>`+
-                      `<div class="color"><span style="background: #f0deba" data-image="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"></span><span style="background: #000" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
+                      `<div class="color"><span style="background: #f0deba" data-image="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"></span><span style="background: #444" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
                       `<p style="font-size:15px">${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black">Ver Producto</a>`+
                   `</div>`+
               `</li>`;
@@ -411,7 +411,7 @@
                   `</div>`+
                   `<div class="product__content" style="width:100%"><a class="link-title" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black" style="font-size:30px">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
                       `<p class="price" style="font-size:25px">S./${productos.precio}</p>`+
-                      `<div class="color"><span style="background: #f0deba" data-image="{{ asset('img/defaultProducto.jpg') }}"></span><span style="background: #000" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
+                      `<div class="color"><span style="background: #f0deba" data-image="{{ asset('img/defaultProducto.jpg') }}"></span><span style="background: #444" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
                       `<p style="font-size:15px">${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black">Ver Producto</a>`+
                   `</div>`+
               `</li>`;
@@ -442,7 +442,7 @@
                 `</div>`+
                 `<div class="product__content" style="width:100%"><a class="link-title" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black" style="font-size:30px">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
                     `<p class="price" style="font-size:25px">S./${productos.precio}</p>`+
-                    `<div class="color"><span style="background: #f0deba" data-image="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"></span><span style="background: #000" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
+                    `<div class="color"><span style="background: #f0deba" data-image="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"></span><span style="background: #444" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
                     `<p style="font-size:15px">${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black">Ver Producto</a>`+
                 `</div>`+
             `</li>`;
@@ -457,7 +457,7 @@
                 `</div>`+
                 `<div class="product__content" style="width:100%"><a class="link-title" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black" style="font-size:30px">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
                     `<p class="price" style="font-size:25px">S./${productos.precio}</p>`+
-                    `<div class="color"><span style="background: #f0deba" data-image="{{ asset('img/defaultProducto.jpg') }}"></span><span style="background: #000" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
+                    `<div class="color"><span style="background: #f0deba" data-image="{{ asset('img/defaultProducto.jpg') }}"></span><span style="background: #444" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
                     `<p style="font-size:15px">${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black">Ver Producto</a>`+
                 `</div>`+
             `</li>`;

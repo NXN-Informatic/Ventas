@@ -378,16 +378,16 @@
     }
     }
 
-    .ontop{
+    .ontop1{
         margin-top:-60px;
     }
     @media (max-width: 800px) {
-    .ontop {
+    .ontop1 {
         margin-top:-45px;
     }
     }
     @media (max-width: 600px) {
-    .ontop {
+    .ontop1 {
         margin-top:-30px;
     }
     }
