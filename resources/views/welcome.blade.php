@@ -77,7 +77,7 @@
 <!--End Feature Product-->
 
 @foreach ($categorias as $categoria)
-    <div class="singleProduct ajaxProduct featureProduct section6" style="background: #f9f9f9; border-radius: 20px; margin-top: 20px; padding-top: 20px">
+    <div class="singleProduct ajaxProduct featureProduct section6" style="background: #f9f9f9; border-radius: 20px; margin-top: 20px; padding-top: 10px">
         <div class="feature__filter container colw">
             <span class="bold16" style="color: #444; text-align:left">{{$categoria->name}}<a class="xlight12" style="color: #444444" href="{{ url('puestos/all') }}"> Ver productos</a></span>
             <br>

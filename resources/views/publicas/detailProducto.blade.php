@@ -40,13 +40,13 @@
 @section('title','Bienvenido')
 <div id="fb-root"></div>
 <!--Start Single Product-->
-<div id="ocultar9" style="background: #F9F9F9" style="position: relative;">
+<div id="ocultar9" style="background: #F9F9F9" style="position: relative;z-index:1000">
     @if($puesto->banner != null)
         <div class="bannerBlog headermax shad imgb row" style="position: relative;background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%); padding:0px " >
             <div class="container">
                 <span class="bold20 leftnameprod" style="color: #fff; position:absolute; bottom:43%">{{ $producto->name }}</span>
             </div>
-            <div style="position: absolute; right:10%;bottom:43%">
+            <div class="btnbannerprod" style="position: absolute; ">
                 <a href="{{ url('puesto/'.$usuario_puestos->puesto->id.'/detail') }}">
                     <button class="btn" style="background:#ffffff2f; border-radius:10px; font-weight: bold; border-color:#ffffff70"><strong class="medium11">Visitar tienda</strong></button>  
                 </a>
@@ -55,7 +55,7 @@
     @endif    
 </div>
 <div class="singleProduct ontop1" style="background-color: #f9f9f9 ;padding:0px">
-    <div class="singleProduct__wrap container">
+    <div class="singleProduct__wrap container colw">
         <div class="signleProduct__content">
             <div class="product dflex">
                 <div class="col-lg-8 col-12 colw">

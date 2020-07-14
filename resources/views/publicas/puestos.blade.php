@@ -20,7 +20,6 @@
             <div class="col-lg-5 col-sm-4 col-4">
                 <img src="{{ asset('storage/'.$puesto->id.'/logo/'.$puesto->perfil)  }}" class="logo" style="background-color: #fff; border: 4px solid #fff;max-height: 100%;
                     max-width: 100%;
-                    height: auto;
                     top: 0;
                     position: 0;
                     bottom: 0;
@@ -55,7 +54,7 @@
         </div>
     </div>
 </div>
-<div class="singleProduct container" id="ocultar1" style="background-color: #f9f9f9; padding:0px; margin-bottom:0px; margin-top:-100px">
+<div class="singleProduct container ontop2" id="ocultar1" style="background-color: #f9f9f9; padding:0px; margin-bottom:0px; ">
     <div class="singleProduct__wrap">
         <div class="signleProduct__content">
             <div class="product dflex">
@@ -125,7 +124,7 @@
                         </div>
                     </div>
                 </div> 
-                <div class="col-lg-8 col-12 shad3" style="background-color: #fff; border-radius: 20px;margin-top: 120px">
+                <div class="col-lg-8 col-12 shad3 ontop3" style="background-color: #fff; border-radius: 20px;">
                     <div id="prod" style="background: #fff; padding-top: 20px; border-radius: 20px">
                         <div class="singleProduct ajaxProduct featureProduct section6" style="background: #fff; border-radius: 20px; padding-top:0px">
                             <div class="feature__filter">
@@ -154,10 +153,10 @@
                                                                 <?php $imagen = null; ?>
                                                                 <?php $imagen = $producto->imagen_productos->first(); //solo una imagen x producto?>
                                                                 @if($imagen != null)
-                                                                        <div class="features__item col-lg-4 col-sm-4 col-6 shad" style="margin:auto; margin-bottom: 10px">
-                                                                            <div class="features__image">
+                                                                        <div class="features__item col-lg-4 col-sm-4 col-6 shad" style="margin:auto; margin-bottom: 10px; border-radius: 15px">
+                                                                            <div class="features__image" style="border-radius: 15px">
                                                                                 <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank">
-                                                                                <img class="imgh shad" src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="100%" alt="" style="border: 5px solid #fff">
+                                                                                <img class="imgh shad" src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="100%" alt="" style="border: 5px solid #fff; border-radius: 15px">
                                                                                 </a>
                                                                                 <div class="image__tools">
                                                                                     <i class="far fa-heart"></i>
@@ -184,10 +183,10 @@
                                                                 <?php $imagen = null; ?>
                                                                 <?php $imagen = $producto->imagen_productos->first(); //solo una imagen x producto?>
                                                                 @if($imagen != null)
-                                                                    <div class="features__item col-lg-4 col-sm-4 col-6 shad" style="margin:auto; margin-bottom: 10px">
-                                                                        <div class="features__image">
+                                                                    <div class="features__item col-lg-4 col-sm-4 col-6 shad" style="margin:auto; margin-bottom: 10px;border-radius: 15px">
+                                                                        <div class="features__image" style="border-radius: 15px">
                                                                             <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank">
-                                                                            <img class="imgh" src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="100%" alt="" style="border: 5px solid #fff">
+                                                                            <img class="imgh" src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="100%" alt="" style="border: 5px solid #fff;border-radius: 15px">
                                                                             </a>
                                                                             <div class="image__tools">
                                                                                 <i class="far fa-heart"></i>
@@ -218,6 +217,61 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-12 col-12 infotienda1 colw" style="z-index:100 ;left:0;margin-top: 20px ">
+                    <div class="shad3" style="background-color: #fff; border-radius: 20px">
+                        <br>
+                        <div class="col-lg-12" style="padding-left: 10px"><br>
+                            <h1 class="bold20" style="color: #000; padding-left: 10px; text-align: left">{{ $puesto->name }} <a href="{{ url('puesto/'.$puesto->id.'/detail')}}"></a></h1>  
+                            <div class="row" style="padding-left: 30px; margin-top: 0px; margin-bottom: 10px">
+                                @for ($i = 0; $i < $puesto->calification; $i++)   
+                                    <i class="fas fa-star" style="color: #ff1a00"></i>
+                                @endfor
+                                @for ($i = 0; $i < (5 - $puesto->calification); $i++)
+                                    <i class="far fa-star text-dark" style="color: #ff1a00"></i> 
+                                @endfor
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <h1 class="bold12" style="color: #000;text-align:left; margin: 10px"><i class="fas fa-store" style="color: #ff1a00"></i>  Descripción</h1>
+                            <p class="text-left xlight11" style="color: #000; margin:10px">{{$puesto->description}}</p>
+                            <br>
+                        </div>
+                        <hr style="color: #f2f2f2"> 
+                        <div class="col-lg-12" style="padding-left: 10px">
+                            <h1 class="bold12" style=" color: #000;text-align:left; margin: 10px"><i class="fas fa-phone" style="color: #ff1a00"></i>  Contacto</h1>
+                            @if($puesto->phone)
+                                <span class="regular13" style="color: #000;"><i class="fas icofont-smart-phone" style="font-size: 16px; padding: 10px; color: #ff1a00"></i> {{ $puesto->phone }}</span>
+                            @endif
+                            <br>
+                            @if($puesto->phone2)
+                                <span class="regular13" style="color: #000;"><i class="fas icofont-smart-phone" style="font-size: 16px; padding: 10px; color: #ff1a00"></i> {{ $puesto->phone2 }}</span>
+                            @endif
+                        </div>
+                        <hr style="color: #f2f2f2"> 
+                        <div class="col-12">
+                            <h1 class="bold12" style=" color: #000; margin: 10px; text-align:left"><i class="fas fa-truck" style="color: #ff1a00"></i>  Formas de entrega</h1>
+                            @foreach($puesto->entrega_puestos as $entrega_puestos)
+                                <button href="#" target="_blank" class="btn" style="background-color: #fff; border-radius: 10%; border-color: #ff1a00; border 1px solid; padding:5px"><span class="xlight11" style="color: #000; margin: auto">{{ $entrega_puestos->entrega->name }}</span></button>
+                            @endforeach
+                        </div>
+                        <hr style="margin-top: 15px; color: #f2f2f2">
+                        <div class="col-12">
+                          <h1 class="text-left bold12" style="color: #000; margin:10px; text-align:left"><i class="fas fa-dollar-sign" style="color: #ff1a00"></i>  Métodos de pago aceptado</h1>
+                          @foreach($puesto->pago_puestos as $pago_puestos)
+                              <button href="#" target="_blank" class="btn" style="background-color: #fff; border-radius: 10%; border-color: #ff1a00; border 1px solid; padding:5px"><span class="xlight11" style="color: #000; margin: auto">{{ $pago_puestos->pago->name }}</span></button>
+                          @endforeach
+                        </div>
+                        <hr style="margin-top: 15px; color: #f2f2f2">
+                        <div class="col-12">
+                            <h1 class="bold12" style=" color: #000;text-align:left; margin: 10px"><i class="fas fa-map-marker-alt" style="color: #ff1a00"></i>  Dirección</h1>
+                            <span class="text-left regular12" style=" color: #000; margin:10px">{{$puesto->direccion}}</span><br><br>
+                            <input type="hidden" id="latitud" name="latitud" value="{{ $puesto->usuario_puestos->first()->user->latitud }}">
+                            <input type="hidden" id="longitud" name="longitud" value="{{ $puesto->usuario_puestos->first()->user->longitud }}">
+                            <div id="map" style="height: 300px;border-radius: 20px"></div>
+                            <br>
+                        </div>
+                    </div>
+                </div> 
             </div>
         </div>
     </div>
