@@ -4,6 +4,7 @@
     <!-- Swiper -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.min.css">
     <link rel="stylesheet" href="{{ asset('css/publicas/detailProduc.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/extras.css') }}">
     <style type="text/css">
       .wsp:hover
       {
@@ -39,16 +40,30 @@
 @section('title','Bienvenido')
 <div id="fb-root"></div>
 <!--Start Single Product-->
-<div class="singleProduct" id="ocultar1" style="background-color: #f3f3f3">
-    <div class="singleProduct__wrap container">
+<div id="ocultar9" style="background: #F9F9F9" style="position: relative;">
+    @if($puesto->banner != null)
+        <div class="bannerBlog headermax shad imgb row" style="position: relative;background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%); padding:0px " >
+            <div class="container">
+                <span class="bold20 leftnameprod" style="color: #fff; position:absolute; bottom:43%">{{ $producto->name }}</span>
+            </div>
+            <div style="position: absolute; right:10%;bottom:43%">
+                <a href="{{ url('puesto/'.$usuario_puestos->puesto->id.'/detail') }}">
+                    <button class="btn" style="background:#ffffff2f; border-radius:10px; font-weight: bold; border-color:#ffffff70"><strong class="medium11">Visitar tienda</strong></button>  
+                </a>
+            </div>
+        </div>
+    @endif    
+</div>
+<div class="singleProduct container ontop" style="background-color: #f9f9f9 ;padding:0px">
+    <div class="singleProduct__wrap">
         <div class="signleProduct__content">
             <div class="product dflex">
-                <div class="col-lg-7 col-12">
-                    <div class="swiper-container shad2" style="background-color: #fff">
+                <div class="col-lg-8 col-12 colw">
+                    <div class="swiper-container shad2" style="background-color: #fff;border-radius:20px;">
                         <div class="swiper-wrapper">
                             <!-- Imagen Productos -->
                             @foreach($producto->imagen_productos as $imagenes)
-                              <div class="swiper-slide" style="width: 100%; height: 500px;">
+                              <div class="swiper-slide prodh" style="width: 100%;">
                                   <a href="#">
                                       <img src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagenes->imagen) }}" width="auto" height="auto" style="border: 5px solid #fff;max-height: 100%;
                                       max-width: 100%;
@@ -58,7 +73,8 @@
                                       bottom: 0;
                                       left: 0;
                                       right: 0;
-                                      margin: auto;">
+                                      margin: auto;
+                                      border-radius:15px;">
                                   </a>
                               </div>
                             @endforeach
@@ -68,86 +84,99 @@
                         <div class="swiper-button-next"></div>
                     </div>
                     <!-- Productos Descripción -->
-                    <div class="shad2" style="background-color: #fff">
-                        <h2 style="text-align: left;font-size: 15px; padding: 10px">{{ __('Descripción') }}</h2><br>
-                        <p style="color: #0e0e0ebe; font-size: 16px; margin: 10px">{!! $producto->description !!}
-                        <br>
+                    <div class="shad2" style="background-color: #fff ; border-radius: 20px">
+                        <h1 class="bold12" style="text-align: left; padding: 10px"><i class="fas fa-clipboard-check" style="color: #ff1a00"></i>{{ __(' Características') }}</h1><br>
+                        <div class="desc" style="margin: 10px">{!! $producto->description !!}
+                            <br>
+                        </div>
                     </div>
-                    <div class="shad2 ocultarFacebook" style="background-color: #fff" >
+                    <br>
+                    <div class="shad2 ocultarFacebook" style="background-color: #fff; border-radius: 20px" >
                         <div class="fb-comments" data-href="{{ $producto->producto_url}}" data-numposts="5" data-width="100%" style="margin: 7px"></div>
                     </div>
-                    
                 </div>
-                <div class="content col-lg-5 col-12">
-                    <div class="shad2" style="background-color: #fff">
-                        <div class="col-12">
+                <div class="col-lg-4 col-12 tiendainfo colw">
+                    <div class="shad3" style="background-color: #fff; border-radius: 20px">
+                        <div class="col-lg-12">
                             <div class="row">
                                 <div class="col-lg-6 col-6">
                                     <!-- Productos Precio -->
-                                    <div class="precio color" style="padding: 10px; color: #bf0000">S/.{{ $producto->precio }}
+                                    <div class="bold20" style="text-align: left;padding: 10px; color: #ff1a00">S/.{{ $producto->precio }}
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-6" style="text-align: right">
                                     <!-- Productos Creación -->
-                                    <a href="#"><i class="far fa-heart" style="font-size: 3rem; padding: 10px"></i></a>
+                                    <a href="#"><i class="far fa-heart" style="font-size: 2rem; padding: 10px"></i></a>
                                 </div>
                             </div>
-                            <h1 class="text-left" style="font-size: 24px; color: #000; padding-left: 10px; margin-top:-10pxgit add .
-                            ">{{ $producto->name }}</h1>  
                         </div>
-                        <hr style="color: #f2f2f2"> 
-                        <div class="col-lg-12 text-center" style="padding-left: 10px">
-                            <h1 class="text-left" style="font-size: 15px; color: #000; padding-left: 10px; margin-bottom:-5px">Tienda</h1>  
-                            
-                            <h1 class="text-left" style="font-size: 24px; color: #000; padding-left: 10px"><img src="{{ asset('/img/logoenJPG.jpg') }}" alt="" width="30px"> {{ $usuario_puestos->puesto->name }} <a href="{{ url('puesto/'.$usuario_puestos->puesto->id.'/detail')}}"><span style="color: #bf0000; font-size: 16px; margin-left: 10px">Visitar Tienda ></span></a></h1>  
-                                <div class="row" style="padding-left: 20px; margin-top: -20px; margin-bottom: 10px">
-                                    @for ($i = 0; $i < $usuario_puestos->puesto->calification; $i++)   
-                                        <i class="fas fa-star" style="color: #bf0000"></i>
-                                    @endfor
-                                    @for ($i = 0; $i < (5 - $usuario_puestos->puesto->calification); $i++)
-                                        <i class="far fa-star text-dark" style="color: #bf0000"></i> 
-                                    @endfor
+                        <hr style="color: #f9f9f9">
+                        <div class="col-lg-12" style="padding-left: 10px"><br>
+                            <h1 class="bold12" style=" color: #000;text-align:left; margin: 10px"><i class="fas fa-store" style="color: #ff1a00"></i> Tienda</h1>
+                            <div class="row" style="padding-left:5px">
+                                <div class="col-lg-3 col-sm-4 col-4" style="padding:10px">
+                                    <img src="{{ asset('storage/'.$puesto->id.'/logo/'.$puesto->perfil) }}" class="shad" style="border: 4px solid #fff;max-height: 100%;
+                                        max-width: 100%;
+                                        height: auto;
+                                        position: relative;
+                                        top: 0;
+                                        bottom: 0;
+                                        left: 0;
+                                        right: 0;
+                                        border-radius: 50%">
                                 </div>
-                            @if($usuario_puestos->puesto->wsp)
-                                <a href="{{ url('https://api.whatsapp.com/send?phone=51'.$usuario_puestos->puesto->wsp.'&text=Hola!%20Me%20interesa%20este%20producto:%20'.$producto->producto_url.'%20¿Está disponible?') }}" target="_blank" class="btn btn-primary" style="background-color: #bf0000; border-radius: 5%; border-color: #bf0000; border 2px solid; margin-bottom: 10px"><i class="fas icofont-brand-whatsapp" style="font-size: 2rem; color: #fff"></i><span style="color: #fff; margin-left: 10px">Enviar un mensaje</span></a>
-                                
-                            @endif
-                            @if($usuario_puestos->puesto->phone)
-                                <h1 style="color: #000; font-size: 24px"><i class="fas icofont-smart-phone" style="font-size: 24px; padding: 10px; color: #000"></i> {{ $usuario_puestos->puesto->phone }}</span>
+                                <div class="col-lg-9 col-sm-8 col-8" style="padding-left:0px">
+                                    <br><br>
+                                    <div class="row" style="margin-left:2px">
+                                        <h1 class="bold12" style="color: #000; text-align: left">{{ $puesto->name }} <a href="{{ url('puesto/'.$puesto->id.'/detail')}}"></a></h1>  
+                                    </div>
+                                    <div class="row" style="margin-left:2px">
+                                        <span class="xlight11" style="color: rgb(126, 126, 126)">{{'Miembro desde '.$puesto->created_at->format('M, Y')}}</span>       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr style="color: #f9f9f9"> 
+                        <div class="col-lg-12" style="padding-left: 10px">
+                            <h1 class="bold12" style=" color: #000;text-align:left; margin: 10px"><i class="fas fa-phone" style="color: #ff1a00"></i>  Contacto</h1>
+                            <div class="row" style="align-items: center">
+                                <div class="col text-center">
+                                    <a href="{{ url('https://api.whatsapp.com/send?phone=51'.$puesto->wsp.'&text=Hola!%20Pasé%20por%20tu%20tienda%20y%20tengo%20una%20consulta:%20') }}" target="_blank" class="btn btnb" style="background-color: #25d366; border-color: #25d366;margin:5px;width:60px; height:35px; padding:5px;"><i class="fas icofont-brand-whatsapp icono1" style="color: #fff"></i></a>
+                                    <a href="{{ url('#') }}" target="_blank" class="btn btnb" style="background-color: #0084ff; border-color: #0084ff; margin:5px;width:60px; height:35px; padding:5px"><i class="fas icofont-facebook-messenger icono1" style="color: #fff"></i></a>
+                                    <a href="{{ $puesto->fbpage ? $puesto->fbpage:'#'}}" target="_blank" class="btn btnb" style="background-color: #3b5998; border-color: #3b5998; margin: 5px;width:60px; height:35px; padding:5px"><i class="fas icofont-facebook icono1" style="color: #fff"></i></a>
+                                </div>
+                            </div>
+                            @if($puesto->phone)
+                                <span class="regular13" style="color: #000;"><i class="fas icofont-smart-phone" style="font-size: 16px; padding: 10px; color: #ff1a00"></i> {{ $puesto->phone }}</span>
                             @endif
                             <br>
-                            @if($usuario_puestos->puesto->phone2)
-                                <h1 style="color: #000; font-size: 24px"><i class="fas icofont-smart-phone" style="font-size: 24px; padding: 10px; color: #000"></i> {{ $usuario_puestos->puesto->phone2 }}</span>
+                            @if($puesto->phone2)
+                                <span class="regular13" style="color: #000;"><i class="fas icofont-smart-phone" style="font-size: 16px; padding: 10px; color: #ff1a00"></i> {{ $puesto->phone2 }}</span>
                             @endif
                         </div>
-                        <hr style="color: #f2f2f2"> 
+                        <hr style="color: #f9f9f9"> 
                         <div class="col-12">
-                            <h1 class="text-left" style="font-size: 15px; color: #000; padding-left: 10px">Formas de entrega</h1>
-                            @foreach($usuario_puestos->puesto->entrega_puestos as $entrega_puestos)
-                                <button href="#" target="_blank" class="btn btn-primary" style="background-color: #fff; border-radius: 5%; border-color: #000; border 3px solid"><span style="color: #000; margin: auto">{{ $entrega_puestos->entrega->name }}</span></button>
+                            <h1 class="bold12" style=" color: #000; margin: 10px; text-align:left"><i class="fas fa-truck" style="color: #ff1a00"></i>  Formas de entrega</h1>
+                            @foreach($puesto->entrega_puestos as $entrega_puestos)
+                                <button href="#" target="_blank" class="btn" style="background-color: #fff; border-radius: 10%; border-color: #ff1a00; border 1px solid; padding:5px"><span class="xlight11" style="color: #000; margin: auto">{{ $entrega_puestos->entrega->name }}</span></button>
                             @endforeach
                         </div>
-                        <hr style="margin-top: 15px; color: #f2f2f2">
+                        <hr style="margin-top: 15px; color: #f9f9f9">
                         <div class="col-12">
-                          <h1 class="text-left" style="font-size: 15px; color: #000; padding-left: 10px">Métodos de pago aceptado</h1>
-                          @foreach($usuario_puestos->puesto->pago_puestos as $pago_puestos)
-                              <button href="#" target="_blank" class="btn btn-primary" style="background-color: #fff; border-radius: 5%; border-color: #000; border 3px solid"><span style="color: #000; margin: auto">{{ $pago_puestos->pago->name }}</span></button>
+                          <h1 class="text-left bold12" style="color: #000; margin:10px; text-align:left"><i class="fas fa-dollar-sign" style="color: #ff1a00"></i>  Métodos de pago</h1>
+                          @foreach($puesto->pago_puestos as $pago_puestos)
+                              <button href="#" target="_blank" class="btn" style="background-color: #fff; border-radius: 10%; border-color: #ff1a00; border 1px solid; padding:5px"><span class="xlight11" style="color: #000; margin: auto">{{ $pago_puestos->pago->name }}</span></button>
                           @endforeach
                         </div>
-                        <hr style="margin-top: 15px; color: #f2f2f2">
+                        <hr style="margin-top: 15px; color: #f9f9f9">
                         <div class="col-12">
-                            <h1 class="text-left" style="font-size: 15px; color: #000; padding-left: 10px">Ubicación</h1>
-                            <span class="text-left" style="font-size: 18px; color: #000; padding-left: 10px">{{$usuario_puestos->puesto->direccion}}</span>
-                            <input type="hidden" id="latitud" name="latitud" value="{{ $usuario_puestos->user->latitud }}">
-                            <input type="hidden" id="longitud" name="longitud" value="{{ $usuario_puestos->user->longitud }}">
-                            <div id="map" style="height: 300px;"></div>
+                            <h1 class="bold12" style=" color: #000;text-align:left; margin: 10px"><i class="fas fa-map-marker-alt" style="color: #ff1a00"></i>  Ubicación</h1>
+                            <span class="text-left regular12" style=" color: #000; margin:10px">{{$puesto->direccion}}</span><br><br>
+                            <input type="hidden" id="latitud" name="latitud" value="{{ $puesto->usuario_puestos->first()->user->latitud }}">
+                            <input type="hidden" id="longitud" name="longitud" value="{{ $puesto->usuario_puestos->first()->user->longitud }}">
+                            <div id="map" style="height: 250px;border-radius: 20px"></div>
                             <br>
-                            <div class="ocultarphone">
-                            
-                                <div class="fb-comments" data-href="{{ $producto->producto_url}}" data-numposts="5" data-width="100%" style="margin: 7px"></div>
-                            </div>
                         </div>
-                      </div>
                     </div>
                 </div>
             </div>
@@ -156,9 +185,9 @@
 </div>
 
 <!--Start Featured Products-->
-<div class="featureProduct singleProduct" id="ocultarProd" style="background-color: #f3f3f3; padding: 10px">
-    <div class="feature__wrap container">
-        <h4 class="title">Otros Productos de esta tienda<a href="{{url('/puesto/'.$usuario_puestos->puesto->id.'/detail')}}" style="margin-left:10px">{{ __('Mostrar Más') }}</a></h4>
+<div class="featureProduct singleProduct container" id="ocultarProd" style="background-color: #f9f9f9; padding: 10px">
+    <div class="feature__wrap ">
+        <span class="bold15" style="color: #000">Otros Productos de esta tienda<a class="xlight11" href="{{url('/puesto/'.$usuario_puestos->puesto->id.'/detail')}}" style="margin-left:10px">Ver más</a></span>
         <div class="feature__filter">
             <div class="featureSlider">
                 <div class="sliderButton left"><i class="fas fa-angle-left"></i></div>
@@ -171,19 +200,25 @@
                                 @foreach($productos->imagen_productos as $imagen) @endforeach
                                 @if($imagen)
                                 <a href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="_blank">
-                                    <li class="features__item col-lg-3 col-sm-6 col-12 shad2" style="position: relative; height: 302px;">
-                                        <div class="features__image wood light5">
-                                            <img src="{{ asset('/storage/'.$puestosubcategoria->puesto->id.'/'.$productos->id.'/'.$imagen->imagen) }}"  width="180px" height="220px" alt="" style="border: 5px solid #fff">
-                                        </div>
-                                        <div class="features__content">
-                                            <span style="font-size: 20px; color:#bf0000">   
-                                                <strong>S/. {{$productos->precio}}</strong>
-                                            </span>
-                                            <div class="content__overlay" style="margin-top: -20px; margin-bottom: 0px">
-                                            <p style="color: #000">{{$productos->name }}</p>
+                                    <div class="features__item col-lg-3 col-sm-4 col-6 shad" style="margin:auto; margin-bottom: 10px; border-radius: 10%">
+                                        <div class="features__image">
+                                            <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank">
+                                            <img class="imgh" src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="100%" alt="" style="border: 5px solid #fff; border-radius: 10%">
+                                            </a>
+                                            <div class="image__tools">
+                                                <i class="far fa-heart"></i>
+                                                <i class="fas fa-cart-plus"></i>
+                                                <i class="fas fa-search"></i>
                                             </div>
                                         </div>
-                                    </li>
+                                        <div class="features__content">
+                                            <span class="bold15" style="color:#ff1a00">S/. {{$producto->precio}}</span>
+                                            <p class="fontn medium11" style="color: #000">{{$producto->name }}</p>
+                                            <div class="content__overlay" style="margin-top: -20px; margin-bottom: 0px">
+                                            <p class="fontn medium11" style="color: #000">{{$producto->name }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </a>
                                 @endif
                             @endforeach
@@ -196,7 +231,7 @@
 </div>
 
 <!-- Mostrar Productos -->
-<div class="shopProduct" style="background-color: #f3f3f3">
+<div class="shopProduct" style="background-color: #f9f9f9">
     <div class="shopProduct__wrap dflex container">
         <div class="product__item col-lg-12 col-12">
 
@@ -208,7 +243,7 @@
 </div>
 
 <!-- No se Encontraron Productos -->
-<div class="shopProduct" id="resultado" style="background-color: #f3f3f3">
+<div class="shopProduct" id="resultado" style="background-color: #f9f9f9">
     <div class="shopProduct__wrap dflex container">
         <div class="product__item col-lg-12 col-12">
             <div class="conatiner" style="background:#FF1643;text-align: center;padding:5px">
@@ -219,7 +254,7 @@
 </div>
 
 <!-- Mostrar Productos -->
-<div class="shopProduct" style="background-color: #f3f3f3">
+<div class="shopProduct" style="background-color: #f9f9f9">
     <div class="shopProduct__wrap dflex container">
         <div class="product__item col-lg-12 col-12">
             <ul class="filterProduct gridRow" id="mostrar">     
@@ -241,7 +276,6 @@
       logged_out_greeting="¡Hola!, ¿Tienes una consulta?">
   </div>
 @endif
-@include('layouts.components.footer')
 @endsection
 @if($usuario_puestos->puesto->wsp)
   <a style="position: fixed; right: 25px; bottom: 90px; width: 60px; z-index: 1000" href="{{ url('https://api.whatsapp.com/send?phone=51'.$usuario_puestos->puesto->wsp.'&text=Hola!%20Me%20interesa%20este%20producto:%20'.$producto->producto_url.'%20¿Está disponible?') }}" target="_blank">

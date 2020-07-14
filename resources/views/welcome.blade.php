@@ -124,7 +124,7 @@
                                                     </div>
                                                     <div class="features__content">
                                                         <p class="fontn medium11" style="color: #000; text-align:left">{{$producto->name }}</p>
-                                                        <span class="medium13" style="color:#ff1a00"><strong>S/. {{$producto->precio}}</strong></span>
+                                                        <span class="bold15" style="color:#ff1a00"><strong>S/. {{$producto->precio}}</strong></span>
                                                         
                                                         <div class="content__overlay" style="margin-top: -20px; margin-bottom: 0px">
                                                             <span class="medium13" style="color:#ff1a00"><strong>S/. {{$producto->precio}}</strong></span>
@@ -204,8 +204,6 @@
     </div>
 </div>
 
-
-@include('layouts.components.footer')
 
 @endsection
 

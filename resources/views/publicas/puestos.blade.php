@@ -25,8 +25,7 @@
                     position: 0;
                     bottom: 0;
                     left: 0;
-                    right: 0;
-                    margin: 10px 50px;">
+                    right: 0;">
             </div>
             <div class="col-lg-7 col-sm-8 col-8" style="position: relative">
                 <div class="divnombre" style="position: absolute">
@@ -57,7 +56,7 @@
     </div>
 </div>
 <div class="singleProduct container" id="ocultar1" style="background-color: #f9f9f9; padding:0px; margin-bottom:0px; margin-top:-100px">
-    <div class="singleProduct__wrap container">
+    <div class="singleProduct__wrap">
         <div class="signleProduct__content">
             <div class="product dflex">
                 <div class="col-lg-4 col-12 infotienda" style="z-index:100 ;left:0;margin-top: 20px ">
@@ -129,7 +128,7 @@
                 <div class="col-lg-8 col-12 shad3" style="background-color: #fff; border-radius: 20px;margin-top: 120px">
                     <div id="prod" style="background: #fff; padding-top: 20px; border-radius: 20px">
                         <div class="singleProduct ajaxProduct featureProduct section6" style="background: #fff; border-radius: 20px; padding-top:0px">
-                            <div class="feature__filter container">
+                            <div class="feature__filter">
                                 <div class="tab__control dflex" style="margin-top: 0px;margin-bottom: 3px">
                                     <?php $gaux=1; ?>
                                     @foreach($puesto->puestosubcategorias as $puestosubcategorias)
@@ -295,7 +294,7 @@
     </div>
 </div>-->
 
-<!--Start Footer-->
+<!--Start Footer
 <div class="footer" style="background:#505050;color:#000; border: 1px solid #ccc; padding: 20px;margin: 0px;" >
     <div class="footer__wrap dflex">
             <div class="col-lg-3"></div>
@@ -321,7 +320,7 @@
 
     </div>
 </div>
-<!--End Footer-->
+End Footer-->
 
 @endsection
 
