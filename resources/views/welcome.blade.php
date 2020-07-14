@@ -90,7 +90,7 @@
                             $cantidad=4;
                             $intentos=0;
                         @endphp
-                        @for ($i=0; $i<$cantidad and $intentos<10;$i)
+                        @for ($i=0; $i<$cantidad and $intentos<20;$i)
                             @php
                                 $subcategoria = $categoria->subcategorias->random(1)->first();
                             @endphp
