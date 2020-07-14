@@ -54,8 +54,8 @@
         </div>
     @endif    
 </div>
-<div class="singleProduct container ontop" style="background-color: #f9f9f9 ;padding:0px">
-    <div class="singleProduct__wrap">
+<div class="singleProduct ontop" style="background-color: #f9f9f9 ;padding:0px">
+    <div class="singleProduct__wrap container">
         <div class="signleProduct__content">
             <div class="product dflex">
                 <div class="col-lg-8 col-12 colw">
@@ -95,7 +95,7 @@
                         <div class="fb-comments" data-href="{{ $producto->producto_url}}" data-numposts="5" data-width="100%" style="margin: 7px"></div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-12 tiendainfo colw">
+                <div class="col-lg-4 col-12 colw">
                     <div class="shad3" style="background-color: #fff; border-radius: 20px">
                         <div class="col-lg-12">
                             <div class="row">
