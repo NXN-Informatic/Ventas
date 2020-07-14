@@ -103,7 +103,7 @@
                         <div class="col-12">
                             <h1 class="bold12" style=" color: #000; margin: 10px; text-align:left"><i class="fas fa-truck" style="color: #ff1a00"></i>  Formas de entrega</h1>
                             @foreach($puesto->entrega_puestos as $entrega_puestos)
-                                <button href="#" target="_blank" class="btn" style="background-color: #fff; border-radius: 10%; border-color: #ff1a00; border 1px solid; padding:5px"><span class="xlight11" style="color: #000; margin: auto">{{ $entrega_puestos->entrega->name }}</span></button>
+                                <button href="#" target="_blank" class="btn" style="background-color: #fff; border-radius: 10%; border-color: #ff1a00; border 1px solid; padding:5px;margin-bottom:3px"><span class="xlight11" style="color: #000; margin: auto">{{ $entrega_puestos->entrega->name }}</span></button>
                             @endforeach
                         </div>
                         <hr style="margin-top: 15px; color: #f2f2f2">
@@ -251,7 +251,7 @@
                         <div class="col-12">
                             <h1 class="bold12" style=" color: #000; margin: 10px; text-align:left"><i class="fas fa-truck" style="color: #ff1a00"></i>  Formas de entrega</h1>
                             @foreach($puesto->entrega_puestos as $entrega_puestos)
-                                <button href="#" target="_blank" class="btn" style="background-color: #fff; border-radius: 10%; border-color: #ff1a00; border 1px solid; padding:5px"><span class="xlight11" style="color: #000; margin: auto">{{ $entrega_puestos->entrega->name }}</span></button>
+                                <button href="#" target="_blank" class="btn" style="background-color: #fff; border-radius: 10%; border-color: #ff1a00; border 1px solid; padding:5px;margin-bottom:3px"><span class="xlight11" style="color: #000; margin: auto">{{ $entrega_puestos->entrega->name }}</span></button>
                             @endforeach
                         </div>
                         <hr style="margin-top: 15px; color: #f2f2f2">
