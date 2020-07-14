@@ -79,14 +79,18 @@
     </defs>
     </svg>
 
-    @if(auth()->user())
+@if(auth()->user())
     <div class="moblie-navBottom dflex" style="position: relative">
         <a class="link" href="{{ url('/home') }}"><i class="fas fa-home" style="font-size: 20px"></i><p>Inicio</p></a>
         <a class="link" href="{{ url('#') }}"><i class="fas fa-heart" style="font-size: 20px"></i><p>Favoritos</p></a>
         <a class="link sidebar-toggle">
             <i class="fas fa-bars" style="font-size: 20px"></i><p>Menú</p>
         </a>
-        <a class="link" href="{{ url('/puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}"><i class="fas fa-store" style="font-size: 20px"></i><p>Mi Tienda</p></a>
+        @if(auth()->user()->usuario_puestos->first())
+            <a class="link" href="{{ url('/puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}"><i class="fas fa-store" style="font-size: 20px"></i><p>Mi Tienda</p></a>
+        @else
+            <a class="link" href="#"><i class="fas fa-store" style="font-size: 20px"></i><p>Mi Tienda</p></a>
+        @endif
     </div>
 @else
     <div class="moblie-navBottom dflex" style="position: relative">
