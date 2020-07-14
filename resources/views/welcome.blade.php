@@ -16,9 +16,9 @@
 
 <!--Start Feature Product-->
 
-<div class="blog" style="background: #F9F9F9; margin-top: 30px; padding-top: 20px" id="ocultar89">
-    <span class="bold20" style="color: #000; text-align:left">Nuestras tiendas <a class="xlight12" style="color: #999999" href="{{ url('puestos/all') }}"> Ver tiendas</a></span>
-    <div class="feature__wrap container" style="margin-top: -20px" >
+<div class="blog container colw" style="background: #F9F9F9; margin-top: 30px; padding-top: 20px" id="ocultar89">
+    <span class="bold16" style="color: #444; text-align:left">Nuestras tiendas <a class="xlight12" style="color: #444444" href="{{ url('puestos/all') }}"> Ver tiendas</a></span>
+    <div class="feature__wrap " style="margin-top: -20px" >
         <div class="blog__wrap dflex" style="padding: 0px">
                 <?php $paux = 0;?>
                 @foreach($pst as $ps)
@@ -42,7 +42,7 @@
                                                 </a>
                                             </div>
                                             <div class="blog__content" style="margin-top: -60px">
-                                                <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank"><span class="regular13" style="color: #000; display: inline-block"><strong>{{ $ps->name}}</strong></span><br><br></a>
+                                                <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank"><span class="regular13" style="color: #444; display: inline-block"><strong>{{ $ps->name}}</strong></span><br><br></a>
                                                 <div class="row">
                                                     @foreach ($puestosubcategorias->grupos as $grupos)
                                                         @if (count($grupos->productos) > 0)
@@ -78,8 +78,8 @@
 
 @foreach ($categorias as $categoria)
     <div class="singleProduct ajaxProduct featureProduct section6" style="background: #f9f9f9; border-radius: 20px; margin-top: 20px; padding-top: 20px">
-        <div class="feature__filter container">
-            <span class="bold20" style="color: #000; text-align:left">{{$categoria->name}}<a class="xlight12" style="color: #999999" href="{{ url('puestos/all') }}"> Ver productos</a></span>
+        <div class="feature__filter container colw">
+            <span class="bold16" style="color: #444; text-align:left">{{$categoria->name}}<a class="xlight12" style="color: #444444" href="{{ url('puestos/all') }}"> Ver productos</a></span>
             <br>
             <br>
             <br>
@@ -123,7 +123,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="features__content">
-                                                        <p class="fontn medium11" style="color: #000; text-align:left">{{$producto->name }}</p>
+                                                        <p class="fontn medium11" style="color: #444; text-align:left">{{$producto->name }}</p>
                                                         <span class="bold15" style="color:#ff1a00"><strong>S/. {{$producto->precio}}</strong></span>
                                                         
                                                         <div class="content__overlay" style="margin-top: -20px; margin-bottom: 0px">
@@ -153,15 +153,15 @@
 @endforeach
 
 
-<div class="feature container" style="background: #F9F9F9;padding:10px" id="ella">
-    <span class="bold20" style="color: #000; text-align:left">Centros Comerciales<a class="xlight12" style="color: #999999" href="{{ url('centroscomerciales/all') }}">Ver todos</a></span>
+<div class="feature container colw" style="background: #F9F9F9;padding:10px" id="ella">
+    <span class="bold16" style="color: #444; text-align:left">Centros Comerciales<a class="xlight12" style="color: #444444" href="{{ url('centroscomerciales/all') }}"> Ver todos</a></span>
     <div class="feature__wrap" style="border-radius: 15px">
         @foreach($cccc as $cc)
             <div class="feature__item" style="border-radius: 15px"><a href="{{ url('/centrocomercial/'.$cc->id) }}">
                 <img src="{{ asset('storage/cc/'.$cc->id.'/'.$cc->logo) }}" style="width: 98%; height: 160px; border: 5px solid #fff;border-radius: 15px" class="shad"> 
                 </a>
                 <div class="feature__content">
-                <a href="{{ url('/centrocomercial/'.$cc->id) }}"><h3 style="color: #fff; text-shadow: 0px 0px 15px #000; font-size: 12px">{{ $cc->nombre }}</h3></a><span class="light11" style="color: #fff; text-shadow: 0px 0px 30px #000">{{$cc->cantidad}} Tiendas</span>
+                <a href="{{ url('/centrocomercial/'.$cc->id) }}"><h3 style="color: #fff; text-shadow: 0px 0px 15px #444; font-size: 12px">{{ $cc->nombre }}</h3></a><span class="light11" style="color: #fff; text-shadow: 0px 0px 30px #444">{{$cc->cantidad}} Tiendas</span>
                 </div>
             </div>
         @endforeach    
@@ -321,7 +321,7 @@
                     `</div>`+
                     `<div class="product__content" style="width:100%"><a class="link-title" href="#" style="font-size:30px">${productos.name}</a><a class="sub-link" href="#">Accessories, Clocks</a>`+
                         `<p class="price" style="font-size:25px">S./${productos.precio}</p>`+
-                        `<div class="color"><span style="background: #f0deba" data-image="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"></span><span style="background: #000" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
+                        `<div class="color"><span style="background: #f0deba" data-image="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"></span><span style="background: #444" data-image="./images/shop/product/watch-black.jpg"></span></div>`+
                         `<p style="font-size:15px">${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black">Ver Producto</a>`+
                     `</div>`+
                 `</li>`;

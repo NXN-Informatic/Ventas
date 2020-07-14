@@ -1,5 +1,5 @@
 <!--Start Footer-->
-<div class="footer" style="background:#3b3b3b;color:#000; border: 5px; padding: 0px;margin: 0px" >
+<div class="footer" style="background:#3b3b3b;color:#444444; border: 5px; padding: 0px;margin: 0px" >
     <div class="footer__wrap dflex">
 
         <div class="footer__item col-lg-1 col-sm-6 col-12"></div>
