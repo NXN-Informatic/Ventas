@@ -42,6 +42,9 @@
       .ocultar1{
           display: block;
       }
+      .ocultar10{
+          display: none;
+      }
       .ocultarimg{
         display: block;
       }
@@ -57,6 +60,9 @@
       }
       .ocultar1{
           display: none;
+      }
+      .ocultar10{
+          display: block;
       }
       .ocultarimg2{
         display: block;
@@ -104,12 +110,12 @@
 
   <!--Start Header-->
   <header style="background: #fff"><br>
-    <div class="header__wrap container dflex" style="height: 40px">
+    <div class="header__wrap dflex" style="height: 40px">
         <ul class="header__item dflex left">
           <div class="ocultar">
             <a href="/">
               <img src="{{ asset('img/logo.png') }}" class="ocultarimg" style="width: 120px; margin-right: 10px">    
-              <img src="{{ asset('img/logoenJPG.jpg') }}" class="ocultarimg2" style="width: 40px;">  
+              <img src="{{ asset('img/logoenJPG.jpg') }}" class="ocultarimg2" style="width: 40px;margin-left:5px">  
             </a>
           </div>
             <li class="header__list"><span class="regular11" style="color: #000">CATEGORIAS</span><i class="fas fa-angle-down"></i>
@@ -121,18 +127,24 @@
                 </ul>
             </li>
         </ul>
-        <div class="nav__search dflex" style="border-radius:10px">
+        <div class="nav__search dflex" style="border-radius:10px; margin:0px 5px">
             <input type="text" id="buscar" name="buscar" class="xlight12" placeholder="Busque productos en Tacna" style="border: 1px; "/>
-            <a><i class="fas fa-search" style="margin-right:10px"></i></a>
-          </div>
+            <a><i class="fas fa-search" style="margin-right:3px"></i></a>
+        </div>
         <ul class="header__item dflex right">
-            <li class="header__list"><a href="{{ url('login') }}" style="color:#000"><span class="regular11" style="color: #000">Ingresar</span></a></li>
+              <li class="header__list"><a href="{{ url('login') }}" style="color:#000"><span class="regular11" style="color: #000">Ingresar</span></a></li>
         </ul>
         <div class="ocultar1" style="text-align: right;">    
           <a href="{{ url('register') }}">
               <button class="btn" style="background:#bf0000; border-radius:10px; font-weight: bold; border-color:#bf0000"><strong class="medium11">Crea tu tienda</strong></button>  
           </a>
         </div>
+        <div class="ocultar10" style="text-align: right;">    
+          <a href="{{ url('register') }}">
+              <button class="btn" style="background:#bf0000; border-radius:10px;margin-left:3px; font-weight: bold; border-color:#bf0000;padding: 1rem 1rem"><strong class="regular10">Crear<br>tienda</strong></button>  
+          </a>
+      </div>
+
     </div>
     <br>
   </header>

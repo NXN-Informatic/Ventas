@@ -5,6 +5,11 @@
     <div class="search dflex">
         <input type="text" class="xlight12" placeholder="Buscar productos en Tacna"><i class="fas fa-search"></i>
     </div>
+    <div style="text-align: right;">    
+        <a href="{{ url('register') }}">
+            <button class="btn" style="background:#bf0000; border-radius:10px; font-weight: bold; border-color:#bf0000"><strong class="medium11">Crear tienda</strong></button>  
+        </a>
+    </div>
     <div class="mobile__tab-control dflex">
         <div class="tab__item col-6 active"><span class="buttonTab">Menu</span></div>
         <div class="tab__item col-6"><span class="buttonTab">Categorias</span></div>
