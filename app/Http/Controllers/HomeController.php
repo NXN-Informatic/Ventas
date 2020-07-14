@@ -55,9 +55,12 @@ class HomeController extends Controller
         $productocompletado = 0;
         foreach ($prods as $prod) {
             $grupos = Grupo::where('puestosubcategoria_id',$prod->id)->get();
-            if($grupos->isNotEmpty()) {
-                $productocompletado = 1;
+            foreach($grupos as $grupo){
+                if($grupo->productos->isNotEmpty()) {
+                    $productocompletado = 1;
+                }
             }
+            
         }
         $usuarios_puestos = UsuarioPuesto::where('usuario_id', auth()->user()->id)->get();
         $fbconectado = \Storage::exists('public/'.$up->first()->puesto_id.'/fb_catalog.csv');

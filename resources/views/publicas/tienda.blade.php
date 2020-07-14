@@ -94,7 +94,7 @@
                                 </label>
                             </div>
                             <div class="text-center mt-3">
-                                <button type="submit" class="btn btn-lg btn-primary">{{ __('     Siguiente: Personalizar     ') }}</button>
+                                <button type="submit" class="btn btn-lg btn-primary">{{ __('     Siguiente: Pagos y Entregas     ') }}</button>
                             </div>
                         </form>
                     </div>

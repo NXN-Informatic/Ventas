@@ -7,6 +7,7 @@ use App\Producto;
 use App\Categoria;
 use App\Puesto;
 use App\Pago;
+use App\Grupo;
 use App\Entrega;
 use App\ImagenProducto;
 use App\UsuarioPuesto;
