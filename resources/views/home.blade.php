@@ -45,7 +45,7 @@
                     <i class="far fa-fw fa-bell"></i>
                 </div>
                 <div class="alert-message">
-                    <strong>{{ session('notification') }}</strong>
+                    <strong class="light10">{{ session('notification') }}</strong>
                 </div>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">×</span>

@@ -12,8 +12,8 @@ Route::get('/', function () {
     $pst = Puesto::where('completado',1)->where('personalizado',1)->get()->random(5);
     $tiendas = collect();
     $categorias = Categoria::all();
-    $subcategorias = Subcategoria::all();
-    $cccc = CentrosComerciale::all()->random(8);
+    $subcategorias = Subcategoria::select('subcategorias.*')->inRandomOrder()->get();
+    $cccc = CentrosComerciale::all()->random(4);
     return view('welcome', compact('puestos', 'categorias', 'tiendas','pst','subcategorias','cccc'));
 });
 
@@ -28,10 +28,12 @@ Route::get('login/{driver}/callback' , 'Auth\LoginController@handleProviderCallb
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/puesto/{puesto}/detail', 'Cliente\PuestoController@compartir');
+Route::get('/tiendas', 'PublicController@tiendas');
 Route::get('/all/productos', 'PublicController@productos');
 Route::get('/producto/{producto}/detailProd', 'PublicController@detailProducto');
 Route::get('/puestos/all', 'PublicController@puestoAll');
-Route::get('/produc/{puesto}/all', 'PublicController@apiproductos');
+Route::get('/puestos/all', 'PublicController@puestoAll');
+Route::get('/tiendas/{nombre}', 'Cliente\PuestoController@tiendascat');
 Route::post('/tienda/create', 'PublicController@create');
 
 Route::get('/centrocomercial/{centrocomercial}', 'PublicController@centrocomercial');

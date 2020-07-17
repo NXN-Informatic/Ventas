@@ -1,7 +1,7 @@
 .shad {
-    -moz-box-shadow: 0 2px 5px rgb(139, 139, 139);
-    -webkit-box-shadow: 0 0 5px rgb(139, 139, 139);
-    box-shadow: 0 2 5px rgb(139, 139, 139);
+    -webkit-box-shadow: 0px 1px 14px -7px rgba(0,0,0,1);
+-moz-box-shadow: 0px 1px 14px -7px rgba(0,0,0,1);
+box-shadow: 0px 1px 14px -7px rgba(0,0,0,1);
     }
     .swiper-button-prev,
     .swiper-button-next {
@@ -25,6 +25,10 @@
     }
     .imgh{
         height: 250px;
+    }
+    .subcategoria {
+        color: #8f33ac;
+        white-space: nowrap ;
     }
     @media (max-width: 800px) {
     .imgh {
@@ -233,7 +237,24 @@
         margin-top: 5px;
     }
     }
+    .precio1{
+        display:none;
+    }
+    .contenido{
+        height: 70px;
+        padding-top: 7px;
+    }
     @media (max-width: 600px) {
+    .contenido{
+        height: 50px;
+        padding-top: 0px;
+    }
+    .precio {
+        display: none;
+    }
+    .precio1{
+        display:block;
+    }
     .icono1 {
         font-size: 1.7rem;
         margin-left: 0px;
@@ -287,9 +308,14 @@
         font-weight: 500;
         font-size: 13px;
     }
-      .bold12{
+    .bold12{
         font-size: 12px;
         font-weight: 700;
+      }
+      .bold10{
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: none;
       }
       .bold15{
         font-weight: 700;

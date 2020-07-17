@@ -302,6 +302,7 @@ class PuestoController extends Controller
         }
 
         if($file != null) {
+            $puesto->completado = 1;
             $name = $file->getClientOriginalName();
             $fileName = 'public/'.$puesto->id.'/logo/'.$name;
             \Storage::disk('local')->put($fileName,  \File::get($file));
@@ -398,6 +399,13 @@ class PuestoController extends Controller
             $puestos = Puesto::where('name', 'like', '%'.$name.'%')->get();
         }
         return $puestos;
+    }
+    public function tiendascat($name) {
+        $tiendas = Puesto::join('puesto_subcategorias','puestos.id','puesto_subcategorias.puesto_id')
+                    ->join('subcategorias','subcategorias.id','puesto_subcategorias.subcategoria_id')
+                    ->join('categorias','categorias.id','subcategorias.categoria_id')
+                    ->select('puestos.*')->where('categorias.name',$name)->paginate(15);
+        return view("publicas.prevtiendas",compact('tiendas'));
     }
     public function storeExcel($puestito){ 
         $filepathh = 'storage/'.$puestito.'/fb_catalog.csv';

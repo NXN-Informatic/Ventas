@@ -91,9 +91,6 @@
                         </div>
                     </div>
                     <br>
-                    <div class="shad2 ocultarFacebook" style="background-color: #fff; border-radius: 20px" >
-                        <div class="fb-comments" data-href="{{ $producto->producto_url}}" data-numposts="5" data-width="100%" style="margin: 7px"></div>
-                    </div>
                 </div>
                 <div class="col-lg-4 col-12 colw">
                     <div class="shad3" style="background-color: #fff; border-radius: 20px">

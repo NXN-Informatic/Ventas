@@ -40,10 +40,6 @@
                         <div class="card-header">
                             <h4>{{ __('Información de Contacto de tu Tienda') }}</h4>
                         </div>
-                        
-                        <div class="col text-right">
-                            <a href="{{ url('home') }}" class="btn btn-secondary">Regresar</a>
-                        </div>
                         <div class="card-body">
                             @if($errors->any())
                             <div class="alert alert-danger alert-dismissible" role="alert">
@@ -126,7 +122,7 @@
                     </div>
                     <div class="card">
                         <div class="card-body text-center">
-                            <button type="submit" class="btn btn-primary btn-lg"><span style="margin-left: 83px; margin-right: 83px">Guardar datos</span></button>
+                            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%"><span class="light12">Guardar datos</span></button>
                         </div>
                     </div>
                 </div>

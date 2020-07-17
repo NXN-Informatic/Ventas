@@ -134,4 +134,24 @@ class PublicController extends Controller
        
         return view('publicas.centro', compact('centrocomercial','puestos', 'categorias'));
     }
+
+    
+    public function tiendas() {
+        $categorias = Categoria::all();
+        $destacados = collect();
+        $categs = collect();
+        foreach ($categorias as $categoria) {
+            $aux = Puesto::join('puesto_subcategorias','puestos.id','puesto_subcategorias.puesto_id')
+                    ->join('subcategorias','subcategorias.id','puesto_subcategorias.subcategoria_id')
+                    ->join('categorias','categorias.id','subcategorias.categoria_id')
+                    ->select('puestos.*')->where('categorias.id',$categoria->id)->where('completado','1')->orderBy('created_at','desc')->limit(4)->get();
+            $destacados->push($aux);
+            $aux1 = Puesto::join('puesto_subcategorias','puestos.id','puesto_subcategorias.puesto_id')
+                    ->join('subcategorias','subcategorias.id','puesto_subcategorias.subcategoria_id')
+                    ->join('categorias','categorias.id','subcategorias.categoria_id')
+                    ->select('puestos.*')->where('categorias.id',$categoria->id)->where('completado','1')->paginate(9);
+            $categs->push($aux1);
+        }
+        return view('publicas.tiendas', compact('destacados','categorias','categs'));
+    }
 }

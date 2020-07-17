@@ -80,7 +80,7 @@
     </svg>
 
 @if(auth()->user())
-    <div class="moblie-navBottom dflex" style="position: relative">
+    <div class="moblie-navBottom dflex" style="position: fixed">
         <a class="link" href="{{ url('/home') }}"><i class="fas fa-home" style="font-size: 20px"></i><p>Inicio</p></a>
         <a class="link" href="{{ url('#') }}"><i class="fas fa-heart" style="font-size: 20px"></i><p>Favoritos</p></a>
         <a class="link sidebar-toggle">
@@ -93,7 +93,7 @@
         @endif
     </div>
 @else
-    <div class="moblie-navBottom dflex" style="position: relative">
+    <div class="moblie-navBottom dflex" style="position: fixed">
         <a class="link" href="{{ url('/') }}"><i class="fas fa-home" style="font-size: 20px"></i><p>Inicio</p></a>
         <a class="link" href="{{ url('#') }}"><i class="fas fa-heart" style="font-size: 20px"></i><p>Favoritos</p></a>
         <a class="link nav">

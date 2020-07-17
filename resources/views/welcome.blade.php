@@ -11,13 +11,102 @@
 @section('content')
 @section('title','Feria Tacna')
 @include('layouts.components.navbar')
+
+<div class="clients shad" style="background: #fff; position:relative">
+    <div class="clients__wrap dflex" id="wrap">
+        <div class="client__item" style="margin-left: 10px"><span class="bold15 subcategoria">Tiendas</span></div>
+        @foreach ($subcategorias as $subcat)
+            <div class="client__item" style="margin-left: 10px"><span class="bold12 subcategoria">{{$subcat->name}}</span></div>
+        @endforeach
+    </div>
+  </div>
+  <br>
+  <br>
 @include('layouts.components.banner')
 
+@foreach ($categorias as $categoria)
+    <div class="singleProduct ajaxProduct featureProduct section6" style="background: #fff; border-radius: 20px; margin-top: 10px; padding-top: 10px">
+        <div class="feature__filter container colw">
+            <span class="bold16" style="color: #444; text-align:left">Productos destacados<a class="xlight12" style="color: #444444" href="{{ url('puestos/all') }}"> Ver productos</a></span>
+            <br>
+            <br>
+            <br>
+            <div class="tabs">
+                <ul class="featureSlider">
+                    <li class="features__grid active">
+                        @php
+                            $cantidad=4;
+                            $intentos=0;
+                        @endphp
+                        @for ($i=0; $i<$cantidad and $intentos<20;$i)
+                            @php
+                                $subcategoria = $categoria->subcategorias->random(1)->first();
+                            @endphp
+                            @if($subcategoria->puestosubcategorias->first())
+                                @php
+                                    $ps = $subcategoria->puestosubcategorias->random(1)->first();
+                                @endphp
+                                @if($ps->grupos->first())
+                                    @php
+                                        $grupo = $ps->grupos->random(1)->first();
+                                    @endphp
+                                    @if($grupo->productos->first())
+                                        @php
+                                            $producto = $grupo->productos->random(1)->first();
+                                        @endphp
+                                        @if ($producto->activo)
+                                            <?php $imagen = null; ?>
+                                            <?php $imagen = $producto->imagen_productos->first(); //solo una imagen x producto?>
+                                            @if($imagen != null)
+                                                <?php $i = $i+1; ?>
+                                                <div class="features__item col-lg-3 col-sm-4 col-6 shad" style="margin:auto; margin-bottom: 10px; border-radius: 15px">
+                                                    <div class="features__image" style="border-radius: 15px">
+                                                        <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank">
+                                                        <img class="imgh" src="{{ asset('storage/'.$ps->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="100%" alt="" style="border: 5px solid #fff; border-radius: 15px">
+                                                        </a>
+                                                        <div class="precio1" style="padding:5px;position: absolute; bottom:0;right:0px;background-color:#fff">
+                                                            <span class="bold15" style="color:#ff1a00"><strong>S/. {{$producto->precio}}</strong></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="features__content contenido">
+                                                        <div class="row">
+                                                            <div class="col-lg-9 col-sm-9 col-12">
+                                                                <p class="fontn medium12" style="color: #444; text-align:left">{{$producto->name }}</p>
+                                                            </div>
+                                                            <div class="col-lg-3 col-sm-3 col-12 precio" style="padding:5px;">
+                                                                <span class="bold15" style="color:#ff1a00"><strong>S/. {{$producto->precio}}</strong></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="control dflex" style="position:absolute;bottom: 3%; left: 0; right: 0">
+                                                            <a href="#"><i class="far fa-heart"></i></a>
+                                                            <a class="btn active" style="padding: 5px" href="{{ url('/puesto/'.$ps->puesto_id.'/detail') }}"><span class="bold10">Visitar Tienda</span></a>
+                                                            <a href="#"><i class="fas fa-cart-plus"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        @else
+                                            <?php $intentos = $intentos+1; ?>
+                                        @endif
+                                    @else
+                                        <?php $intentos = $intentos+1; ?>
+                                    @endif
+                                @else
+                                    <?php $intentos = $intentos+1; ?>
+                                @endif
+                            @else
+                                <?php $intentos = $intentos+1; ?>
+                            @endif
+                        @endfor
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+@endforeach
 
-<!--Start Feature Product-->
-
-<div class="blog container colw" style="background: #F9F9F9; margin-top: 30px; padding-top: 20px" id="ocultar89">
-    <span class="bold16" style="color: #444; text-align:left">Nuestras tiendas <a class="xlight12" style="color: #444444" href="{{ url('puestos/all') }}"> Ver tiendas</a></span>
+<div class="blog container colw" style="background: #FFF; margin-top: 30px; padding-top: 20px" id="ocultar89">
+    <span class="bold16" style="color: #444; text-align:left">Tiendas Destacadas<a class="xlight12" style="color: #444444" href="{{ url('/tiendas') }}"> Ver tiendas</a></span>
     <div class="feature__wrap " style="margin-top: -20px" >
         <div class="blog__wrap dflex" style="padding: 0px">
                 <?php $paux = 0;?>
@@ -74,86 +163,8 @@
         </div>
     </div>
 </div>
-<!--End Feature Product-->
 
-@foreach ($categorias as $categoria)
-    <div class="singleProduct ajaxProduct featureProduct section6" style="background: #f9f9f9; border-radius: 20px; margin-top: 20px; padding-top: 10px">
-        <div class="feature__filter container colw">
-            <span class="bold16" style="color: #444; text-align:left">{{$categoria->name}}<a class="xlight12" style="color: #444444" href="{{ url('puestos/all') }}"> Ver productos</a></span>
-            <br>
-            <br>
-            <br>
-            <div class="tabs">
-                <ul class="featureSlider">
-                    <li class="features__grid active">
-                        @php
-                            $cantidad=4;
-                            $intentos=0;
-                        @endphp
-                        @for ($i=0; $i<$cantidad and $intentos<20;$i)
-                            @php
-                                $subcategoria = $categoria->subcategorias->random(1)->first();
-                            @endphp
-                            @if($subcategoria->puestosubcategorias->first())
-                                @php
-                                    $ps = $subcategoria->puestosubcategorias->random(1)->first();
-                                @endphp
-                                @if($ps->grupos->first())
-                                    @php
-                                        $grupo = $ps->grupos->random(1)->first();
-                                    @endphp
-                                    @if($grupo->productos->first())
-                                        @php
-                                            $producto = $grupo->productos->random(1)->first();
-                                        @endphp
-                                        @if ($producto->activo)
-                                            <?php $imagen = null; ?>
-                                            <?php $imagen = $producto->imagen_productos->first(); //solo una imagen x producto?>
-                                            @if($imagen != null)
-                                                <?php $i = $i+1; ?>
-                                                <div class="features__item col-lg-3 col-sm-4 col-6 shad" style="margin:auto; margin-bottom: 10px; border-radius: 15px">
-                                                    <div class="features__image" style="border-radius: 15px">
-                                                        <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank">
-                                                        <img class="imgh" src="{{ asset('storage/'.$ps->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="100%" alt="" style="border: 5px solid #fff; border-radius: 15px">
-                                                        </a>
-                                                        <div class="image__tools">
-                                                            <i class="far fa-heart"></i>
-                                                            <i class="fas fa-cart-plus"></i>
-                                                            <i class="fas fa-search"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="features__content">
-                                                        <p class="fontn medium11" style="color: #444; text-align:left">{{$producto->name }}</p>
-                                                        <span class="bold15" style="color:#ff1a00"><strong>S/. {{$producto->precio}}</strong></span>
-                                                        
-                                                        <div class="content__overlay" style="margin-top: -20px; margin-bottom: 0px">
-                                                            <span class="medium13" style="color:#ff1a00"><strong>S/. {{$producto->precio}}</strong></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @endif
-                                        @else
-                                            <?php $intentos = $intentos+1; ?>
-                                        @endif
-                                    @else
-                                        <?php $intentos = $intentos+1; ?>
-                                    @endif
-                                @else
-                                    <?php $intentos = $intentos+1; ?>
-                                @endif
-                            @else
-                                <?php $intentos = $intentos+1; ?>
-                            @endif
-                        @endfor
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-@endforeach
-
-
-<div class="feature container colw" style="background: #F9F9F9;padding:10px" id="ella">
+<div class="feature container colw" style="background: #FFF;padding:10px" id="ella">
     <span class="bold16" style="color: #444; text-align:left">Centros Comerciales<a class="xlight12" style="color: #444444" href="{{ url('centroscomerciales/all') }}"> Ver todos</a></span>
     <div class="feature__wrap" style="border-radius: 15px">
         @foreach($cccc as $cc)
@@ -170,7 +181,7 @@
 <!-- start centros comerciales OJO "cccc=centros comerciales"-->
 <!-- end centros comerciales -->
 <!--Start Product-->
-<div class="shopProduct" style="background: #F9F9F9;z-index: -1">
+<div class="shopProduct" style="background: #FFF;z-index: -1">
     <div class="shopProduct__wrap dflex container" >
         <div class="product__item col-lg-12 col-12">
 
@@ -193,7 +204,7 @@
 </div>
 
 <!--Start Categorias-->
-<div class="shopProduct" style="background: #F9F9F9;z-index: -1">
+<div class="shopProduct" style="background: #FFF;z-index: -1">
     <div class="shopProduct__wrap dflex container">
         <div class="product__item col-lg-12 col-12">
 

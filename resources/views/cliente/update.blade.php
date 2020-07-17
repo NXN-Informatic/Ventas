@@ -103,7 +103,7 @@
                                 <input type="file" accept="image/jpeg,image/png" capture="gallery" class="form-control-file" name="imagen">
                             </div>
                             <div class="col-12 text-center">
-                                <button type="submit" class="btn btn-primary btn-lg"><span style="margin-left: 83px; margin-right: 83px">Guardar datos</span></button>
+                                <button type="submit" class="btn btn-primary btn-lg" style="width: 100%"><span class="light12">Guardar datos</span></button>
                             </div>
                         </form>
                     </div>

@@ -32,7 +32,7 @@
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <style type="text/css">
-    .nav__search{flex:2;margin:0 20px;border:2px solid rgba(129,129,129,.2)}@media (max-width:991px){.nav .nav__wrap .nav__search{display:none}}.nav .nav__wrap .nav__search input,.nav .nav__wrap .nav__search select{color:#777;border:0}.nav .nav__wrap .nav__search input{border-right:1px solid rgba(129,129,129,.2)}.nav .nav__wrap .nav__search a{width:50px;color:#777;text-align:center;padding:10px 15px;font-size:18px;border-left:1px solid rgba(129,129,129,.2)}
+    .nav__search{flex:2;margin:0 20px;border:1px solid rgba(95, 95, 95, 0.2)}@media (max-width:991px){.nav .nav__wrap .nav__search{display:none}}.nav .nav__wrap .nav__search input,.nav .nav__wrap .nav__search select{color:#777;border:0}.nav .nav__wrap .nav__search input{border-right:1px solid rgba(129,129,129,.2)}.nav .nav__wrap .nav__search a{width:50px;color:#777;text-align:center;padding:10px 15px;font-size:18px;border-left:1px solid rgba(129,129,129,.2)}
     </style>
 
       <style>
@@ -98,7 +98,7 @@
 
 </head>
     
-<body style="background-color:#f9f9f9">
+<body style="background-color:#fff">
   <div id="onTop"></div>
 
   @yield('load')
@@ -109,12 +109,12 @@
   --><!--End Elements Page-->
 
   <!--Start Header-->
-  <header style="background: #fff"><br>
-    <div class="header__wrap dflex" style="height: 40px">
+  <header style="padding-left: 5px; background-color:#fff "><br>
+    <div class="header__wrap dflex" style="height:40px; background-color:#fff; margin-left:10px;">
         <ul class="header__item dflex left">
           <div class="ocultar">
             <a href="/">
-              <img src="{{ asset('img/logo.png') }}" class="ocultarimg" style="width: 120px; margin-right: 10px">    
+              <img src="{{ asset('img/logo.png') }}" class="ocultarimg" style="width: 120px; margin-right: 5px">    
               <img src="{{ asset('img/logoenJPG.jpg') }}" class="ocultarimg2" style="width: 40px;margin-left:5px">  
             </a>
           </div>
@@ -136,12 +136,12 @@
         </ul>
         <div class="ocultar1" style="text-align: right;">    
           <a href="{{ url('register') }}">
-              <button class="btn" style="background:#bf0000; border-radius:10px; font-weight: bold; border-color:#bf0000"><strong class="medium11">Crea tu tienda</strong></button>  
+              <button class="btn" style="background:#ff1a00; border-radius:10px; font-weight: bold; border-color:#bf0000"><strong class="medium11">Crea tu tienda</strong></button>  
           </a>
         </div>
         <div class="ocultar10" style="text-align: right;">    
           <a href="{{ url('register') }}">
-              <button class="btn" style="background:#bf0000; border-radius:10px;margin-left:3px; font-weight: bold; border-color:#bf0000;padding: 1rem 1rem"><strong class="regular10">Crear<br>tienda</strong></button>  
+              <button class="btn" style="background:#ff1a00; border-radius:10px;margin-left:3px; font-weight: bold; border-color:#bf0000;padding: 1rem 1rem"><strong class="regular10">Crear<br>tienda</strong></button>  
           </a>
       </div>
 
