@@ -136,7 +136,7 @@
         </ul>
         <div class="ocultar1" style="text-align: right;">    
           <a href="{{ url('register') }}">
-              <button class="btn" style="background:#ff1a00; border-radius:10px; font-weight: bold; border-color:#bf0000"><strong class="medium11">Crea tu tienda</strong></button>  
+              <button class="btn" style="background:#ff1a00; border-radius:10px; font-weight: bold; border-color:#ff1a00"><strong class="medium11">Crea tu tienda</strong></button>  
           </a>
         </div>
         <div class="ocultar10" style="text-align: right;">    

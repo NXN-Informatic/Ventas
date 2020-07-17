@@ -1,4 +1,4 @@
-<div class="swiper-container" id="ocultarBanner2">
+<div class="swiper-container" id="ocultarBanner2" style="z-index: -1">
     <div class="swiper-wrapper">
         <!-- Imagen Productos -->
         <div class="swiper-slide">
