@@ -402,7 +402,7 @@
     });
 </script>
 <script>
-    let pageProductos=1;
+    let pageProductos=2;
     function masProductos(){
         fetch(`/productos/mas?page=${pageProductos}`,{
                 method:'get'
@@ -416,7 +416,7 @@
     }
 </script>
 <script>
-    let pageTiendas=1;
+    let pageTiendas=2;
     function masTiendas(){
         fetch(`/tiendas/mas?page=${pageTiendas}`,{
                 method:'get'
