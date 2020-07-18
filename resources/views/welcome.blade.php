@@ -17,7 +17,7 @@
     <div class="clients__wrap dflex" id="wrap">
         <div class="client__item" style="margin-left: 10px"><span class="bold15 subcategoria">Tiendas</span></div>
         @foreach ($subcategorias as $subcat)
-            <div class="client__item" style="margin-left: 10px"><span class="bold12 subcategoria">{{$subcat->name}}</span></div>
+    <div class="client__item" style="margin-left: 10px"><a href="{{ url('/categoria/'.$subcat->name) }}"><span class="bold12 subcategoria">{{$subcat->name}}</span></a></div>
         @endforeach
     </div>
   </div>
@@ -35,7 +35,7 @@
         <br>
         <div class="tabs">
             <ul class="featureSlider">
-                <li class="features__grid active">
+                <li id="productos" class="features__grid active">
                     @foreach ($productos as $producto)
                         <?php $imagen = null; ?>
                         <?php $imagen = $producto->imagen_productos->first(); //solo una imagen x producto?>
@@ -74,9 +74,7 @@
             </ul>
         </div>
         <div style="position:absolute; left:0; right:0">    
-            <a href="{{ url('register') }}">
-                <button class="btn" style="background:#fff; border-radius:10px; font-weight: bold; border-color:#8f33ac"><strong class="medium11" style="color: #8f33ac">Ver más productos</strong></button>  
-            </a>
+            <button id="masProductos" class="btn btn-primary" onclick="masProductos()" style="background:#fff; border-radius:10px; font-weight: bold; border-color:#8f33ac"><strong class="medium11" style="color: #8f33ac">Ver más productos</strong></button>  
         </div>
     </div>
 </div>
@@ -86,7 +84,7 @@
         <span class="bold20" style="color: #FFF; text-align:left">Tiendas Destacadas<a class="xlight12" style="color: #FFF" href="{{ url('/tiendas') }}"> Ver tiendas</a></span>
     </div>
     <div class="feature__wrap" style="margin-bottom: 30px" >
-        <div class="blog__wrap dflex" style="padding: 0px">
+        <div id="tiendas" class="blog__wrap dflex" style="padding: 0px">
                 <?php $paux = 0;?>
                 @foreach($pst as $ps)
                     @if ($paux < 4)
@@ -141,9 +139,7 @@
         </div>
     </div>
     <div style="position:absolute; left:0; right:0">    
-        <a href="{{ url('register') }}">
-            <button class="btn" style="background:#fff; border-radius:10px; font-weight: bold; border-color:#8f33ac"><strong class="medium11" style="color: #8f33ac">Ver más tiendas</strong></button>  
-        </a>
+        <button class="btn btn-primary" onclick="masTiendas()" style="background:#fff; border-radius:10px; font-weight: bold; border-color:#8f33ac"><strong class="medium11" style="color: #8f33ac">Ver más tiendas</strong></button>  
     </div>
 </div>
 
@@ -151,7 +147,7 @@
     <div class="col-12" style="height:50px; background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%);padding: 15px; border-radius:7px">
         <span class="bold20" style="color: #FFF; text-align:left">Centros Comerciales<a class="xlight12" style="color: #FFF" href="{{ url('centroscomerciales/all') }}"> Ver todos</a></span>
     </div>
-    <div class="feature__wrap" style="border-radius: 15px; margin-bottom: 30px">
+    <div id="centros" class="feature__wrap" style="border-radius: 15px; margin-bottom: 30px">
         @foreach($cccc as $cc)
             <div class="feature__item" style="border-radius: 15px"><a href="{{ url('/centrocomercial/'.$cc->id) }}">
                 <img src="{{ asset('storage/cc/'.$cc->id.'/'.$cc->logo) }}" style="width: 98%; height: 160px; border: 5px solid #fff;border-radius: 15px" class="shad"> 
@@ -162,10 +158,8 @@
             </div>
         @endforeach    
     </div>
-    <div style="position:absolute; left:0; right:0">    
-        <a href="{{ url('register') }}">
-            <button class="btn" style="background:#fff; border-radius:10px; font-weight: bold; border-color:#8f33ac"><strong class="medium11" style="color: #8f33ac">Ver más centros comerciales</strong></button>  
-        </a>
+    <div style="position:absolute; left:0; right:0">
+        <button class="btn" onclick="masCentros()" style="background:#fff; border-radius:10px; font-weight: bold; border-color:#8f33ac"><strong class="medium11" style="color: #8f33ac">Ver más centros comerciales</strong></button>  
     </div>
   </div>
 <!-- start centros comerciales OJO "cccc=centros comerciales"-->
@@ -402,8 +396,52 @@
             });
             $mostrar.html(htmlOptions);
         }
+        
+       
             
     });
+</script>
+<script>
+    let pageProductos=2;
+    function masProductos(){
+        fetch(`/productos/mas?page=${pageProductos}`,{
+                method:'get'
+        })
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('productos').innerHTML += html
+        })
+        .catch(error => console.log(error))
+        pageProductos++
+    }
+</script>
+<script>
+    let pageTiendas=1;
+    function masTiendas(){
+        fetch(`/tiendas/mas?page=${pageTiendas}`,{
+                method:'get'
+        })
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('tiendas').innerHTML += html
+        })
+        .catch(error => console.log(error))
+        pageTiendas++
+    }
+</script>
+<script>
+    let pageCentros=2;
+function masCentros(){
+        fetch(`/centros/mas?page=${pageCentros}`,{
+                method:'get'
+        })
+        .then(response => response.text())
+        .then(html => {
+           document.getElementById('centros').innerHTML += html
+        })
+        .catch(error => console.log(error))
+        pageCentros++
+    }
 </script>
 @endsection
 

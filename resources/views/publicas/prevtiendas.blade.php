@@ -9,7 +9,7 @@
                 @if(count($puestosubcategorias->grupos) > 0)
                     <?php $aux=0; ?>
                     <?php $paux = $paux + 1; ?>
-                    <div class="blog__item col-lg-4 col-sm-4 col-6 tiendah shad" style="background:#fff; padding: 3px;border-radius:15px; margin-bottom:5px;margin-top:5px">
+                    <div class="blog__item col-lg-3 col-sm-4 col-6 tiendah shad" style="background:#fff; padding: 3px;border-radius:15px; margin-bottom:5px;margin-top:5px">
                         <div class="blog__image" style="margin-left: 0px;">
                             <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank">
                                 <div style="background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%); width:100%; height:80px;border-radius:15px 15px 0px 0px"></div>   

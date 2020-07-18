@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Cliente;
 use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 use Intervention\Image\Facades\Image;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Grupo;
 use App\UsuarioPuesto;
 use App\Producto;
+use App\Subcategoria;
 use App\PuestoSubcategoria;
 use App\ImagenProducto;
 use App\Categoria;
@@ -312,5 +314,34 @@ class ProductoController extends Controller
             }
         }
         return $data;
+    }
+    public function productosPaginate() {
+        $productos = Producto::where('activo','1')->paginate(12);
+        return view('publicas.prevproductos', compact('productos'));  
+    }
+
+    public function productosCategoria($name) {
+        $subcategorias = Subcategoria::select('subcategorias.*')->inRandomOrder()->get();
+        $hora= Carbon::parse(now())->format('H');
+        $categorias = Categoria::all();
+        $cantidad = \DB::table('productos')->join('grupos','productos.grupo_id','grupos.id')
+        ->join('puesto_subcategorias','puesto_subcategorias.id','grupos.puestosubcategoria_id')
+        ->join('subcategorias','puesto_subcategorias.subcategoria_id','subcategorias.id')
+        ->where('subcategorias.name',$name)->count();
+
+        $productos = Producto::join('grupos','productos.grupo_id','grupos.id')
+                                ->join('puesto_subcategorias','puesto_subcategorias.id','grupos.puestosubcategoria_id')
+                                ->join('subcategorias','puesto_subcategorias.subcategoria_id','subcategorias.id')
+                                ->select('productos.*')->where('subcategorias.name',$name)->inRandomOrder($hora)->paginate(16);
+        return view("publicas.productoCategoria",compact('productos','name','subcategorias','cantidad','categorias'));
+    }
+
+    public function productosCategoriaPaginate($name) {
+        $hora= Carbon::parse(now())->format('H');
+        $productos = Producto::join('grupos','productos.grupo_id','grupos.id')
+                                ->join('puesto_subcategorias','puesto_subcategorias.id','grupos.puestosubcategoria_id')
+                                ->join('subcategorias','puesto_subcategorias.subcategoria_id','subcategorias.id')
+                                ->select('productos.*')->where('subcategorias.name',$name)->inRandomOrder($hora)->paginate(16);
+        return view("publicas.prevproductos",compact('productos'));
     }
 }

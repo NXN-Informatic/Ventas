@@ -400,11 +400,15 @@ class PuestoController extends Controller
         }
         return $puestos;
     }
-    public function tiendascat($name) {
+   /* public function tiendascat($name) {
         $tiendas = Puesto::join('puesto_subcategorias','puestos.id','puesto_subcategorias.puesto_id')
                     ->join('subcategorias','subcategorias.id','puesto_subcategorias.subcategoria_id')
                     ->join('categorias','categorias.id','subcategorias.categoria_id')
                     ->select('puestos.*')->where('categorias.name',$name)->paginate(15);
+        return view("publicas.prevtiendas",compact('tiendas'));
+    }*/
+    public function tiendasPaginate() {
+        $tiendas = Puesto::where('completado',1)->paginate(4);
         return view("publicas.prevtiendas",compact('tiendas'));
     }
     public function storeExcel($puestito){ 

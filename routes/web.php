@@ -9,7 +9,7 @@ use App\Puesto;
 
 Route::get('/', function () {
     $puestos = collect();
-    $productos = Producto::where('activo','1')->inRandomOrder()->limit(12)->get();
+    $productos = Producto::where('activo','1')->limit(8)->get();
     $pst = Puesto::where('completado',1)->where('personalizado',1)->get()->random(5);
     $tiendas = collect();
     $categorias = Categoria::all();
@@ -34,15 +34,22 @@ Route::get('/all/productos', 'PublicController@productos');
 Route::get('/producto/{producto}/detailProd', 'PublicController@detailProducto');
 Route::get('/puestos/all', 'PublicController@puestoAll');
 Route::get('/puestos/all', 'PublicController@puestoAll');
-Route::get('/tiendas/{nombre}', 'Cliente\PuestoController@tiendascat');
+//Route::get('/tiendas/{nombre}', 'Cliente\PuestoController@tiendascat');
 Route::post('/tienda/create', 'PublicController@create');
 
 Route::get('/centrocomercial/{centrocomercial}', 'PublicController@centrocomercial');
+Route::get('/categoria/{name}','Cliente\ProductoController@productosCategoria');
+Route::get('/categoria/{name}/mas','Cliente\ProductoController@productosCategoriaPaginate');
 
+// Rutas para llamar mas productos/tiendas/centroscomerciales. parecido a ajax
+Route::get('/productos/mas', 'Cliente\ProductoController@productosPaginate');
+Route::get('/tiendas/mas', 'Cliente\PuestoController@tiendasPaginate');
+Route::get('/centros/mas', 'CentrosComercialeController@centrosPaginate');
 /**
  * api rest Publicas
  */ 
 Route::get('/productos/{name}/all', 'Cliente\ProductoController@apiProductos');
+
 Route::get('/categoria/{cateogiraId}/apiProductosCategoria', 'Cliente\ProductoController@apiProductosCategoria');
 Route::get('/tiendas/{name}/apiTiendas', 'Cliente\PuestoController@apiTiendas');
 
@@ -50,6 +57,8 @@ Route::group(['middleware' => 'auth'], function () {
     /** 
      * CLIENTE
      */
+
+    
 
     // Rutas de Cliente => Perfil de Usuario
     Route::get('/user', 'Cliente\UserController@edit');
