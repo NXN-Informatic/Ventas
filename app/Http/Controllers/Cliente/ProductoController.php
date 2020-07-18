@@ -316,7 +316,8 @@ class ProductoController extends Controller
         return $data;
     }
     public function productosPaginate() {
-        $productos = Producto::where('activo','1')->paginate(12);
+        $hora= Carbon::parse(now())->format('H');
+        $productos = Producto::where('activo','1')->inRandomOrder($hora)->paginate(12);
         return view('publicas.prevproductos', compact('productos'));  
     }
 
@@ -332,8 +333,8 @@ class ProductoController extends Controller
         $productos = Producto::join('grupos','productos.grupo_id','grupos.id')
                                 ->join('puesto_subcategorias','puesto_subcategorias.id','grupos.puestosubcategoria_id')
                                 ->join('subcategorias','puesto_subcategorias.subcategoria_id','subcategorias.id')
-                                ->select('productos.*')->where('subcategorias.name',$name)->inRandomOrder($hora)->paginate(16);
-        return view("publicas.productoCategoria",compact('productos','name','subcategorias','cantidad','categorias'));
+                                ->select('productos.*')->where('subcategorias.name',$name)->where('activo','1')->inRandomOrder($hora)->paginate(16);
+        return view("publicas.productoCategoria",compact('productos','name','subcategorias','cantidad',));
     }
 
     public function productosCategoriaPaginate($name) {
@@ -341,7 +342,7 @@ class ProductoController extends Controller
         $productos = Producto::join('grupos','productos.grupo_id','grupos.id')
                                 ->join('puesto_subcategorias','puesto_subcategorias.id','grupos.puestosubcategoria_id')
                                 ->join('subcategorias','puesto_subcategorias.subcategoria_id','subcategorias.id')
-                                ->select('productos.*')->where('subcategorias.name',$name)->inRandomOrder($hora)->paginate(16);
+                                ->select('productos.*')->where('subcategorias.name',$name)->where('activo','1')->inRandomOrder($hora)->paginate(16);
         return view("publicas.prevproductos",compact('productos'));
     }
 }

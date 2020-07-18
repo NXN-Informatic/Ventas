@@ -84,7 +84,7 @@ class CentrosComercialeController extends Controller
     }
 
     public function centrosPaginate(){
-        $centros = CentrosComerciale::select('*')->paginate(8);
+        $centros = \DB::table('centroscomerciales')->inRandomOrder()->paginate(8);
         return view("publicas.prevcentros",compact('centros'));
     }
 }
