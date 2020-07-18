@@ -10,7 +10,7 @@ use App\Puesto;
 Route::get('/', function () {
     $puestos = collect();
     $productos = Producto::where('activo','1')->limit(8)->get();
-    $pst = Puesto::where('completado',1)->where('personalizado',1)->get()->random(5);
+    $pst = Puesto::where('completado',1)->get()->random(5);
     $tiendas = collect();
     $categorias = Categoria::all();
     $subcategorias = Subcategoria::select('subcategorias.*')->inRandomOrder()->get();

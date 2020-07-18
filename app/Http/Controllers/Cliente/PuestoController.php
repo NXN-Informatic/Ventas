@@ -408,7 +408,8 @@ class PuestoController extends Controller
         return view("publicas.prevtiendas",compact('tiendas'));
     }*/
     public function tiendasPaginate() {
-        $tiendas = Puesto::where('completado',1)->paginate(4);
+        $hora= Carbon::parse(now())->format('H');
+        $tiendas = Puesto::where('completado',1)->inRandomOrder($hora)->paginate(8);
         return view("publicas.prevtiendas",compact('tiendas'));
     }
     public function storeExcel($puestito){ 
