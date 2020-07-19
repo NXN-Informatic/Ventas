@@ -15,7 +15,7 @@
 
 <div class="clients shad" style="background: #fff; position:relative">
     <div class="clients__wrap dflex" id="wrap">
-        <div class="client__item" style="margin-left: 10px"><span class="bold15 subcategoria">Tiendas</span></div>
+        <div class="client__item" style="margin-left: 10px"><a href="{{ url('/tiendas/destacadas') }}"><span class="bold15 subcategoria">Tiendas</span></a></div>
         @foreach ($subcategorias as $subcat)
     <div class="client__item" style="margin-left: 10px"><a href="{{ url('/categoria/'.$subcat->name) }}"><span class="bold12 subcategoria">{{$subcat->name}}</span></a></div>
         @endforeach
@@ -57,7 +57,7 @@
                                         <div class="col-lg-9 col-sm-9 col-12">
                                             <p class="fontn medium12" style="color: #333333; text-align:left">{{$producto->name }}</p>
                                         </div>
-                                        <div class="col-lg-3 col-sm-3 col-12 precio" style="padding:5px;">
+                                        <div class="col-lg-3 col-sm-3 col-12 precio" style="padding-left:0px;padding-right:0px;">
                                             <span class="bold15" style="color:#ff1a00"><strong>S/. {{$producto->precio}}</strong></span>
                                         </div>
                                     </div>
@@ -81,7 +81,7 @@
 
 <div class="blog container colw" style="background: #FFF; margin-top: 60px; padding:10px" id="ocultar89">
     <div class="col-12" style="height:50px; background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%);padding: 15px; border-radius:7px">
-        <span class="bold20" style="color: #FFF; text-align:left">Tiendas Destacadas<a class="xlight12" style="color: #FFF" href="{{ url('/tiendas') }}"> Ver tiendas</a></span>
+        <span class="bold20" style="color: #FFF; text-align:left">Tiendas Destacadas<a class="xlight12" style="color: #FFF" href="{{ url('/tiendas/destacadas') }}"> Ver tiendas</a></span>
     </div>
     <div class="feature__wrap" style="margin-bottom: 30px" >
         <div id="tiendas" class="blog__wrap dflex" style="padding: 0px">

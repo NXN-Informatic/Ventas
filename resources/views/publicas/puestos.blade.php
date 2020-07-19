@@ -14,7 +14,7 @@
 @section('content')
 @include('layouts.components.navbar')
 
-<div id="ocultar9" style="background: #F9F9F9" style="position: relative;">
+<div id="ocultar9" style="background: #FFF" style="position: relative;">
     @if($puesto->banner != null)
         <div class="bannerBlog headermax shad imgb row" style="position: relative;background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%); padding:0px " >
             <div class="col-lg-5 col-sm-4 col-4">
@@ -54,7 +54,7 @@
         </div>
     </div>
 </div>
-<div class="singleProduct container ontop2" id="ocultar1" style="background-color: #f9f9f9; padding:0px; margin-bottom:0px; ">
+<div class="singleProduct container ontop2" id="ocultar1" style="background-color: #fff; padding:0px; margin-bottom:0px; ">
     <div class="singleProduct__wrap">
         <div class="signleProduct__content">
             <div class="product dflex">
@@ -153,25 +153,29 @@
                                                                 <?php $imagen = null; ?>
                                                                 <?php $imagen = $producto->imagen_productos->first(); //solo una imagen x producto?>
                                                                 @if($imagen != null)
-                                                                        <div class="features__item col-lg-4 col-sm-4 col-6 shad" style="margin:auto; margin-bottom: 10px; border-radius: 15px">
-                                                                            <div class="features__image" style="border-radius: 15px">
-                                                                                <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank">
-                                                                                <img class="imgh shad" src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="100%" alt="" style="border: 5px solid #fff; border-radius: 15px">
-                                                                                </a>
-                                                                                <div class="image__tools">
-                                                                                    <i class="far fa-heart"></i>
-                                                                                    <i class="fas fa-cart-plus"></i>
-                                                                                    <i class="fas fa-search"></i>
+                                                                    <div class="features__item col-lg-4 col-sm-4 col-6 shad" style="margin:auto; margin-bottom: 10px; border-radius: 15px">
+                                                                        <div class="features__image" style="border-radius: 15px">
+                                                                            <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank">
+                                                                            <img class="imgh shad" src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="100%" alt="" style="border: 5px solid #fff; border-radius: 15px">
+                                                                            </a>
+                                                                            <div class="precio1" style="padding:5px;position: absolute; bottom:0;right:0px;background-color:#fff">
+                                                                                <span class="bold15" style="color:#ff1a00"><strong>S/. {{$producto->precio}}</strong></span>
+                                                                            </div>
+                                                                        </div> 
+                                                                        <div class="features__content contenido1">
+                                                                            <div class="row">
+                                                                                <div class="col-lg-9 col-sm-9 col-12" style="padding-right:0px;">
+                                                                                    <p class="fontn medium12" style="color: #333333; text-align:left">{{$producto->name }}</p>
+                                                                                </div>
+                                                                                <div class="col-lg-3 col-sm-3 col-12 precio" style="padding-left:0px;padding-right:0px;">
+                                                                                    <span class="bold15" style="color:#ff1a00; margin-left:-15px"><strong>S/. {{$producto->precio}}</strong></span>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="features__content">
-                                                                                <span class="medium13" style="color:#ff1a00">S/. {{$producto->precio}}</span>
-                                                                                <p class="fontn medium11" style="color: #000">{{$producto->name }}</p>
-                                                                                <div class="content__overlay" style="margin-top: -20px; margin-bottom: 0px">
-                                                                                <p class="fontn medium11" style="color: #000">{{$producto->name }}</p>
-                                                                                </div>
+                                                                            <div class="control dflex" style="position:absolute;bottom: 3%; left: 0; right: 0">
+                                                                                <a href="#"><i class="far fa-heart"></i></a><br><a href="#"><i class="fas fa-cart-plus" style="margin-left: 15px"></i></a>
                                                                             </div>
                                                                         </div>
+                                                                    </div>
                                                                 @endif
                                                             @endif
                                                         @endforeach
@@ -188,18 +192,21 @@
                                                                             <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank">
                                                                             <img class="imgh" src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="100%" alt="" style="border: 5px solid #fff;border-radius: 15px">
                                                                             </a>
-                                                                            <div class="image__tools">
-                                                                                <i class="far fa-heart"></i>
-                                                                                <i class="fas fa-cart-plus"></i>
-                                                                                <i class="fas fa-search"></i>
+                                                                            <div class="precio1" style="padding:5px;position: absolute; bottom:0;right:0px;background-color:#fff">
+                                                                                <span class="bold15" style="color:#ff1a00"><strong>S/. {{$producto->precio}}</strong></span>
                                                                             </div>
-                                                                        </div>
-                                                                        <div class="features__content">
-                                                                            <p class="fontn medium11" style="color: #000; text-align:left">{{$producto->name }}</p>
-                                                                            <span class="medium13" style="color:#ff1a00"><strong>S/. {{$producto->precio}}</strong></span>
-                                                                            
-                                                                            <div class="content__overlay" style="margin-top: -20px; margin-bottom: 0px">
-                                                                                <span class="medium13" style="color:#ff1a00"><strong>S/. {{$producto->precio}}</strong></span>
+                                                                        </div> 
+                                                                        <div class="features__content contenido1">
+                                                                            <div class="row">
+                                                                                <div class="col-lg-9 col-sm-9 col-12" style="padding-right:0px;">
+                                                                                    <p class="fontn medium12" style="color: #333333; text-align:left">{{$producto->name }}</p>
+                                                                                </div>
+                                                                                <div class="col-lg-3 col-sm-3 col-12 precio" style="padding-left:0px;padding-right:0px;">
+                                                                                    <span class="bold15" style="color:#ff1a00; margin-left:-15px"><strong>S/. {{$producto->precio}}</strong></span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="control dflex" style="position:absolute;bottom: 3%; left: 0; right: 0">
+                                                                                <a href="#"><i class="far fa-heart"></i></a><br><a href="#"><i class="fas fa-cart-plus" style="margin-left: 15px"></i></a>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -278,7 +285,7 @@
 </div>
 
 <!-- Mostrar Productos -->
-<div class="shopProduct" style="background: #f9f9f9">
+<div class="shopProduct" style="background: #fff">
     <div class="shopProduct__wrap dflex container">
         <div class="product__item col-lg-12 col-12">
 
@@ -290,7 +297,7 @@
 </div>
 
 <!-- No se Encontraron Productos -->
-<div class="shopProduct" id="resultado" style="background: #f9f9f9">
+<div class="shopProduct" id="resultado" style="background: #fff">
     <div class="shopProduct__wrap dflex container">
         <div class="product__item col-lg-12 col-12">
             <div class="conatiner" style="background:#FF1643;text-align: center;padding:5px">
@@ -301,7 +308,7 @@
 </div>
 
 <!-- Mostrar Productos -->
-<div class="shopProduct" style="background: #f9f9f9">
+<div class="shopProduct" style="background: #fff">
     <div class="shopProduct__wrap dflex container">
         <div class="product__item col-lg-12 col-12">
             <ul class="filterProduct gridRow" id="mostrar">     

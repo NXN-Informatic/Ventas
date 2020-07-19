@@ -15,7 +15,7 @@
 
 <div class="clients shad" style="background: #fff; position:relative">
     <div class="clients__wrap dflex" id="wrap">
-        <div class="client__item" style="margin-left: 10px"><span class="bold12 subcategoria">Tiendas</span></div>
+        <div class="client__item" style="margin-left: 10px"><a href="{{ url('/tiendas/destacadas') }}"><span class="bold12 subcategoria">Tiendas</span></a></div>
         @foreach ($subcategorias as $subcat)
             @if ($subcat->name == $name)
                 <div class="client__item" style="margin-left: 10px"><a href="{{ url('/categoria/'.$subcat->name) }}"><span class="bold15 subcategoria">{{$subcat->name}}</span></a></div>
@@ -31,7 +31,7 @@
 <div class="singleProduct ajaxProduct featureProduct section6" style="background: #fff; border-radius: 20px; margin-top: 40px; padding-top: 10px">
     <div class="feature__filter container colw">
         <div class="col-12" style="height:50px; background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%);padding: 15px; border-radius:7px">
-        <span class="bold20" style="color: #fff; text-align:left">{{$name.' ('.$cantidad.')'}}</span>
+            <span class="bold20" style="color: #fff; text-align:left">{{$name.' ('.$cantidad.')'}}</span>
         </div>
         <br>
         <br>

@@ -36,6 +36,8 @@ Route::get('/puestos/all', 'PublicController@puestoAll');
 Route::get('/puestos/all', 'PublicController@puestoAll');
 //Route::get('/tiendas/{nombre}', 'Cliente\PuestoController@tiendascat');
 Route::post('/tienda/create', 'PublicController@create');
+Route::get('/tiendas/destacadas', 'Cliente\PuestoController@tiendasDestacadas');
+Route::get('/tiendas/seccion/{name}', 'Cliente\PuestoController@tiendasSeccion');
 
 Route::get('/centrocomercial/{centrocomercial}', 'PublicController@centrocomercial');
 Route::get('/categoria/{name}','Cliente\ProductoController@productosCategoria');
@@ -45,6 +47,10 @@ Route::get('/categoria/{name}/mas','Cliente\ProductoController@productosCategori
 Route::get('/productos/mas', 'Cliente\ProductoController@productosPaginate');
 Route::get('/tiendas/mas', 'Cliente\PuestoController@tiendasPaginate');
 Route::get('/centros/mas', 'CentrosComercialeController@centrosPaginate');
+Route::get('/tiendas/destacadas/mas', 'Cliente\PuestoController@tiendasDestacadasPaginate');
+Route::get('/tiendas/{name}/mas', 'Cliente\PuestoController@tiendasSeccionPaginate');
+    
+
 /**
  * api rest Publicas
  */ 

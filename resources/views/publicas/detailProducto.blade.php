@@ -40,7 +40,7 @@
 @section('title','Bienvenido')
 <div id="fb-root"></div>
 <!--Start Single Product-->
-<div id="ocultar9" style="background: #F9F9F9" style="position: relative;z-index:1000">
+<div id="ocultar9" style="background: #FFF" style="position: relative;z-index:1000">
     @if($puesto->banner != null)
         <div class="bannerBlog headermax shad imgb row" style="position: relative;background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%); padding:0px " >
             <div class="container">
@@ -54,7 +54,7 @@
         </div>
     @endif    
 </div>
-<div class="singleProduct ontop1" style="background-color: #f9f9f9 ;padding:0px">
+<div class="singleProduct ontop1" style="background-color: #fff ;padding:0px">
     <div class="singleProduct__wrap container colw">
         <div class="signleProduct__content">
             <div class="product dflex">
@@ -107,7 +107,7 @@
                                 </div>
                             </div>
                         </div>
-                        <hr style="color: #f9f9f9">
+                        <hr style="color: #fff">
                         <div class="col-lg-12" style="padding-left: 10px"><br>
                             <h1 class="bold12" style=" color: #444;text-align:left; margin: 10px"><i class="fas fa-store" style="color: #ff1a00"></i> Tienda</h1>
                             <div class="row" style="padding-left:5px">
@@ -133,7 +133,7 @@
                                 </div>
                             </div>
                         </div>
-                        <hr style="color: #f9f9f9"> 
+                        <hr style="color: #fff"> 
                         <div class="col-lg-12" style="padding-left: 10px">
                             <h1 class="bold12" style=" color: #444;text-align:left; margin: 10px"><i class="fas fa-phone" style="color: #ff1a00"></i>  Contacto</h1>
                             <div class="row" style="align-items: center">
@@ -151,21 +151,21 @@
                                 <span class="regular13" style="color: #444;"><i class="fas icofont-smart-phone" style="font-size: 16px; padding: 10px; color: #ff1a00"></i> {{ $puesto->phone2 }}</span>
                             @endif
                         </div>
-                        <hr style="color: #f9f9f9"> 
+                        <hr style="color: #fff"> 
                         <div class="col-12">
                             <h1 class="bold12" style=" color: #444; margin: 10px; text-align:left"><i class="fas fa-truck" style="color: #ff1a00"></i>  Formas de entrega</h1>
                             @foreach($puesto->entrega_puestos as $entrega_puestos)
                                 <button href="#" target="_blank" class="btn" style="background-color: #fff; border-radius: 10%; border-color: #ff1a00; border 1px solid; padding:5px;margin-bottom:3px"><span class="xlight11" style="color: #444; margin: auto">{{ $entrega_puestos->entrega->name }}</span></button>
                             @endforeach
                         </div>
-                        <hr style="margin-top: 15px; color: #f9f9f9">
+                        <hr style="margin-top: 15px; color: #fff">
                         <div class="col-12">
                           <h1 class="text-left bold12" style="color: #444; margin:10px; text-align:left"><i class="fas fa-dollar-sign" style="color: #ff1a00"></i>  Métodos de pago</h1>
                           @foreach($puesto->pago_puestos as $pago_puestos)
                               <button href="#" target="_blank" class="btn" style="background-color: #fff; border-radius: 10%; border-color: #ff1a00; border 1px solid; padding:5px;margin-bottom:3px"><span class="xlight11" style="color: #444; margin: auto">{{ $pago_puestos->pago->name }}</span></button>
                           @endforeach
                         </div>
-                        <hr style="margin-top: 15px; color: #f9f9f9">
+                        <hr style="margin-top: 15px; color: #fff">
                         <div class="col-12">
                             <h1 class="bold12" style=" color: #444;text-align:left; margin: 10px"><i class="fas fa-map-marker-alt" style="color: #ff1a00"></i>  Ubicación</h1>
                             <span class="text-left regular12" style=" color: #444; margin:10px">{{$puesto->direccion}}</span><br><br>
@@ -182,7 +182,7 @@
 </div>
 
 <!--Start Featured Products-->
-<div class="featureProduct singleProduct container" id="ocultarProd" style="background-color: #f9f9f9; padding: 10px">
+<div class="featureProduct singleProduct container" id="ocultarProd" style="background-color: #fff; padding: 10px">
     <div class="feature__wrap ">
         <span class="bold15" style="color: #444">Otros Productos de esta tienda<a class="xlight11" href="{{url('/puesto/'.$usuario_puestos->puesto->id.'/detail')}}" style="margin-left:10px">Ver más</a></span>
         <div class="feature__filter">
@@ -202,17 +202,21 @@
                                             <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank">
                                             <img class="imgh" src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="100%" alt="" style="border: 5px solid #fff; border-radius: 10%">
                                             </a>
-                                            <div class="image__tools">
-                                                <i class="far fa-heart"></i>
-                                                <i class="fas fa-cart-plus"></i>
-                                                <i class="fas fa-search"></i>
+                                            <div class="precio1" style="padding:5px;position: absolute; bottom:0;right:0px;background-color:#fff">
+                                                <span class="bold15" style="color:#ff1a00"><strong>S/. {{$producto->precio}}</strong></span>
                                             </div>
-                                        </div>
-                                        <div class="features__content">
-                                            <span class="bold15" style="color:#ff1a00">S/. {{$producto->precio}}</span>
-                                            <p class="fontn medium11" style="color: #444">{{$producto->name }}</p>
-                                            <div class="content__overlay" style="margin-top: -20px; margin-bottom: 0px">
-                                            <p class="fontn medium11" style="color: #444">{{$producto->name }}</p>
+                                        </div> 
+                                        <div class="features__content contenido1">
+                                            <div class="row">
+                                                <div class="col-lg-8 col-sm-8 col-12" style="padding-right:0px;">
+                                                    <p class="fontn medium12" style="color: #333333; text-align:left">{{$producto->name }}</p>
+                                                </div>
+                                                <div class="col-lg-4 col-sm-4 col-12 precio" style="padding-left:0px;padding-right:10px; text-align:right">
+                                                    <span class="bold15" style="color:#ff1a00; margin-left: 0px"><strong>S/.{{$producto->precio}}</strong></span>
+                                                </div>
+                                            </div>
+                                            <div class="control dflex" style="position:absolute;bottom: 3%; left: 0; right: 0">
+                                                <a href="#"><i class="far fa-heart"></i></a><br><a href="#"><i class="fas fa-cart-plus" style="margin-left: 15px"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -228,7 +232,7 @@
 </div>
 
 <!-- Mostrar Productos -->
-<div class="shopProduct" style="background-color: #f9f9f9">
+<div class="shopProduct" style="background-color: #fff">
     <div class="shopProduct__wrap dflex container">
         <div class="product__item col-lg-12 col-12">
 
@@ -240,7 +244,7 @@
 </div>
 
 <!-- No se Encontraron Productos -->
-<div class="shopProduct" id="resultado" style="background-color: #f9f9f9">
+<div class="shopProduct" id="resultado" style="background-color: #fff">
     <div class="shopProduct__wrap dflex container">
         <div class="product__item col-lg-12 col-12">
             <div class="conatiner" style="background:#FF1643;text-align: center;padding:5px">
@@ -251,7 +255,7 @@
 </div>
 
 <!-- Mostrar Productos -->
-<div class="shopProduct" style="background-color: #f9f9f9">
+<div class="shopProduct" style="background-color: #fff">
     <div class="shopProduct__wrap dflex container">
         <div class="product__item col-lg-12 col-12">
             <ul class="filterProduct gridRow" id="mostrar">     

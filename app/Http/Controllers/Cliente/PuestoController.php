@@ -401,13 +401,39 @@ class PuestoController extends Controller
         }
         return $puestos;
     }
-   /* public function tiendascat($name) {
+    public function tiendasSeccion($name) {
+        $categorias = Categoria::all();
+        $cantidad = Puesto::join('puesto_subcategorias','puestos.id','puesto_subcategorias.puesto_id')
+                    ->join('subcategorias','subcategorias.id','puesto_subcategorias.subcategoria_id')
+                    ->join('categorias','categorias.id','subcategorias.categoria_id')
+                    ->select('puestos.*')->where('categorias.name',$name)->where('completado','1')->count();
+
         $tiendas = Puesto::join('puesto_subcategorias','puestos.id','puesto_subcategorias.puesto_id')
                     ->join('subcategorias','subcategorias.id','puesto_subcategorias.subcategoria_id')
                     ->join('categorias','categorias.id','subcategorias.categoria_id')
-                    ->select('puestos.*')->where('categorias.name',$name)->paginate(15);
+                    ->select('puestos.*')->where('categorias.name',$name)->where('completado','1')->orderBy('created_at','desc')->paginate(12);
+        return view("publicas.tiendasSeccion",compact('tiendas','categorias','cantidad','name'));
+    }
+
+    public function tiendasSeccionPaginate($name) {
+        $tiendas = Puesto::join('puesto_subcategorias','puestos.id','puesto_subcategorias.puesto_id')
+                    ->join('subcategorias','subcategorias.id','puesto_subcategorias.subcategoria_id')
+                    ->join('categorias','categorias.id','subcategorias.categoria_id')
+                    ->select('puestos.*')->where('categorias.name',$name)->where('completado','1')->orderBy('created_at','desc')->paginate(12);
         return view("publicas.prevtiendas",compact('tiendas'));
-    }*/
+    }
+
+    public function tiendasDestacadas() {
+        $categorias = Categoria::all();
+        $cantidad = Puesto::where('completado','1')->count();
+        $destacados = Puesto::where('completado','1')->orderBy('created_at','desc')->paginate(12);
+        return view('publicas.tiendasDestacadas', compact('destacados','categorias','cantidad'));
+    }
+    public function tiendasDestacadasPaginate() {
+        $tiendas = Puesto::where('completado','1')->orderBy('created_at','desc')->paginate(12);
+        return view('publicas.prevtiendas', compact('tiendas'));
+    }
+
     public function tiendasPaginate() {
         $hora= Carbon::parse(now())->format('H');
         $tiendas = Puesto::where('completado',1)->inRandomOrder($hora)->paginate(8);
