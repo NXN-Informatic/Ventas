@@ -42,12 +42,14 @@ Route::get('/tiendas/seccion/{name}', 'Cliente\PuestoController@tiendasSeccion')
 Route::get('/centrocomercial/{centrocomercial}', 'PublicController@centrocomercial');
 Route::get('/categoria/{name}','Cliente\ProductoController@productosCategoria');
 Route::get('/categoria/{name}/mas','Cliente\ProductoController@productosCategoriaPaginate');
+Route::get('/productos', 'Cliente\ProductoController@productos');
 
 // Rutas para llamar mas productos/tiendas/centroscomerciales. parecido a ajax
 Route::get('/productos/mas', 'Cliente\ProductoController@productosPaginate');
 Route::get('/tiendas/mas', 'Cliente\PuestoController@tiendasPaginate');
 Route::get('/centros/mas', 'CentrosComercialeController@centrosPaginate');
 Route::get('/tiendas/destacadas/mas', 'Cliente\PuestoController@tiendasDestacadasPaginate');
+Route::get('/productos/destacados/mas', 'Cliente\ProductoController@productosDestacadosPaginate');
 Route::get('/tiendas/{name}/mas', 'Cliente\PuestoController@tiendasSeccionPaginate');
     
 

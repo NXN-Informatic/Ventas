@@ -28,7 +28,7 @@
 <div class="singleProduct ajaxProduct featureProduct section6" style="background: #fff; border-radius: 20px; margin-top: 40px; padding-top: 10px">
     <div class="feature__filter container colw">
         <div class="col-12" style="height:50px; background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%);padding: 15px; border-radius:7px">
-            <span class="bold20" style="color: rgb(255, 255, 255)187, 187, 187); text-align:left">Productos destacados<a class="xlight12" style="color: #ffffff" href="{{ url('puestos/all') }}"> Ver productos</a></span>
+            <span class="bold20" style="color: rgb(255, 255, 255)187, 187, 187); text-align:left">Productos destacados<a class="xlight12" style="color: #ffffff" href="{{ url('productos') }}"> Ver productos</a></span>
         </div>
         <br>
         <br>

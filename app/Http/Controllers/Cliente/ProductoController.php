@@ -24,11 +24,6 @@ class ProductoController extends Controller
         return view('cliente.producto.index', compact('puestoSubcategorias', 'usuarioPuesto'));  
     }
 
-    public function productos(Grupo $grupo, usuarioPuesto $usuarioPuesto) {
-        $productos = Producto::where('grupo_id', $grupo->id)->paginate(10);
-        return view('cliente.producto.productos', compact('productos', 'usuarioPuesto'));
-    }
-
     public function puestos() {
         $usuarios_puestos = UsuarioPuesto::where('usuario_id', auth()->user()->id)->get();
         return view('cliente.producto.puestos', compact('usuarios_puestos'));
@@ -315,11 +310,26 @@ class ProductoController extends Controller
         }
         return $data;
     }
+
+    public function productos() {
+        $subcategorias = Subcategoria::select('subcategorias.*')->inRandomOrder()->get();
+        $categorias = Categoria::all();
+        $cantidad = \DB::table('productos')->where('activo',1)->count();
+        $productos = Producto::where('activo',1)->orderBy('id','asc')->paginate(16);
+        return view("publicas.productosDestacados",compact('productos','subcategorias','cantidad','categorias'));
+    }
+    public function productosDestacadosPaginate() {
+        $productos = Producto::where('activo',1)->orderBy('id','asc')->paginate(16);
+        return view("publicas.prevproductos",compact('productos'));
+    }
+
+    
     public function productosPaginate() {
         $hora = Carbon::parse(now())->format('H');
         $productos = Producto::where('activo','1')->inRandomOrder($hora)->paginate(12);
         return view('publicas.prevproductos', compact('productos'));  
     }
+    
 
     public function productosCategoria($name) {
         $subcategorias = Subcategoria::select('subcategorias.*')->inRandomOrder()->get();
