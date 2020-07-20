@@ -248,6 +248,7 @@ class PuestoController extends Controller
         }
         if($request->input('phone')){
             $puesto->phone = $request->input('phone');
+            $puesto->wsp = $request->input('phone');
         }
         if($request->input('phone2')){
             $puesto->phone2 = $request->input('phone2');

@@ -23,7 +23,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="img/logo2.jpg">
     <link rel="manifest" href="img/site.webmanifest">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;700&display=swap" rel="stylesheet">
     @yield('styles')
     <!--Font Awesome-->
     <link rel="stylesheet" href="{{ asset('css/fonts/fontawesome/css/all.min.css') }}">
