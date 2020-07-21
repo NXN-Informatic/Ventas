@@ -142,7 +142,21 @@ box-shadow: 0px 1px 14px -7px rgba(0,0,0,1);
         font-weight: bold
     }
     }
+    .top100{
+        margin-top: 100px;
+    }
+
+    .top50{
+        margin-top: 50px;
+
+    }
     @media (max-width: 600px) {
+    .top100{
+        margin-top: 0;;
+    }
+    .top50{
+        margin-top: 0px
+    }
     .nombre {
         font-size: 16px;
         font-weight: bold;

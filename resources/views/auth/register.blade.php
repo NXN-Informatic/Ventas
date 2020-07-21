@@ -28,18 +28,20 @@
             <div class="row h-200">
                 <div class="col-lg-7">
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-4">
                         </div>
-                        <div class="col-lg-6">
-                            <div class="card shad" style="border-radius:10px; margin-top: 50px">
-                                <img class="card-img-top" src="img/photos/unsplash-1.jpg" alt="Unsplash">
+                        <div class="col-lg-5">
+                            <div class="card top100 ">
+                                <img class="card-img-top" src="{{ asset('img/logo.png') }}" alt="Unsplash">
                                 <div class="card-header">
-                                    <h5 class="card-title mb-0">Card with image and links</h5>
+                                    <h5 class="card-title mb-0">Venda online con FeriaTacna</h5>
                                 </div>
                                 <div class="card-body">
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <p class="card-text">Crea tu tienda virtual gratuita en unos simples pasos. ¿Estás Listo?</p>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-lg-3">
                         </div>
                     </div>
                 </div>

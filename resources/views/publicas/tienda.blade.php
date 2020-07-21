@@ -8,22 +8,21 @@
 <main class="main h-200 w-100">
     <div class="container h-200">
         <div class="row h-200">
+            <div class="col-lg-1 col-sm-12 col-12"></div>
             <div class="col-lg-4 col-sm-12 col-12">
-                <div class="card" style="margin-top: 50px">
+                <div class="card top100" >
                     <img class="card-img-top" src="img/photos/unsplash-1.jpg" alt="Unsplash">
                     <div class="card-header">
-                        <h5 class="card-title mb-0">Card with image and links</h5>
+                        <h4 class="bold16">Complete el registro</h4><span style="color: #ff1a00" class="bold12">paso 1 de 2</span>
                     </div>
                     <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                        <p class="card-text medium12">Vamos a ultimar los detalles para preparar su tienda para un lanzamiento rápido.</p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-8 col-sm-12 col-12 mx-auto d-table h-200">
+            <div class="col-lg-7 col-sm-12 col-12 mx-auto d-table h-200">
                 <div class="d-table-cell align-middle">
-                    <div class="card shad" style="margin-top: 50px">
+                    <div class="card shad top50">
                         <div class="card-header">
                             <span class="bold16">Su tienda en linea ya casi esta lista</span>
                         </div>
