@@ -31,7 +31,7 @@
                         <div class="col-lg-4">
                         </div>
                         <div class="col-lg-5 col-sm-12 col-12">
-                            <div class="card top100 text-center" style="padding: 15px">
+                            <div class="card top101 text-center" style="padding: 15px">
                                 <img class="card-img-top logoregistro" src="{{ asset('img/logonuevotexto.png') }}" alt="Unsplash" style="margin:auto">
                                 <div class="card-header">
                                     <h5 class="card-title mb-0">Venda online con FeriaTacna</h5>
