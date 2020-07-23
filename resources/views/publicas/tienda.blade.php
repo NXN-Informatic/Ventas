@@ -11,7 +11,7 @@
             <div class="col-lg-1 col-sm-12 col-12"></div>
             <div class="col-lg-4 col-sm-12 col-12">
                 <div class="card top100" >
-                    <img class="card-img-top" src="img/photos/unsplash-1.jpg" alt="Unsplash">
+                    <img class="card-img-top logoreg" src="{{ asset('img/logonuevotexto.png') }}" alt="Unsplash" >
                     <div class="card-header">
                         <h4 class="bold16">Complete el registro</h4><span style="color: #ff1a00" class="bold12">paso 1 de 2</span>
                     </div>
@@ -22,7 +22,7 @@
             </div>
             <div class="col-lg-7 col-sm-12 col-12 mx-auto d-table h-200">
                 <div class="d-table-cell align-middle">
-                    <div class="card shad top50">
+                    <div class="card shad top50" style="border-radius:15px">
                         <div class="card-header">
                             <span class="bold16">Su tienda en linea ya casi esta lista</span>
                         </div>
@@ -77,6 +77,7 @@
                                         <button type="submit" class="btn btn-lg btn-primary" style="background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%)"><span class="bold12">Siguiente</span></button>
                                     </div>
                                 </form>
+                                <br>
                             </div>
                         </div>
                     </div>

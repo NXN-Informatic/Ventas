@@ -19,8 +19,9 @@
     <meta property="og:image" content="@yield('ogImage', 'https://feriatacna.com/img/banner45.png')"/>
     <meta property="fb:app_id" content="xxxxxxxxx"/>
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/logo2.jpg">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/logo2.jpg">
+    <link rel="android-chrome" sizes="192x192" href="img/android-chrome-192x192">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
     <link rel="manifest" href="img/site.webmanifest">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;700&display=swap" rel="stylesheet">
@@ -114,8 +115,8 @@
         <ul class="header__item dflex left">
           <div class="ocultar">
             <a href="/">
-              <img src="{{ asset('img/logo.png') }}" class="ocultarimg" style="width: 120px; margin-right: 5px">    
-              <img src="{{ asset('img/logoenJPG.jpg') }}" class="ocultarimg2" style="width: 40px;margin-left:5px">  
+              <img src="{{ asset('img/logonuevotexto.png') }}" class="ocultarimg" style="width: 120px; margin-right: 5px">    
+              <img src="{{ asset('img/logonuevo.png') }}" class="ocultarimg2" style="width: 40px;margin-left:5px">  
             </a>
           </div>
             <li class="header__list"><span class="regular11" style="color: #000">CATEGORIAS</span><i class="fas fa-angle-down"></i>

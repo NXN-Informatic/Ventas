@@ -10,7 +10,7 @@
         <div class="row h-200">
             <div class="col-lg-4 col-sm-12 col-12">
                 <div class="card top100" >
-                    <img class="card-img-top" src="img/photos/unsplash-1.jpg" alt="Unsplash">
+                    <img class="card-img-top logoreg" src="{{ asset('img/logonuevotexto.png') }}" alt="Unsplash" >
                     <div class="card-header">
                         <h4 class="bold16">Complete el registro</h4><span style="color: #ff1a00" class="bold12">paso 2 de 2</span>
                     </div>
@@ -21,7 +21,7 @@
             </div>
             <div class="col-lg-8 col-sm-12 col-12 mx-auto d-table h-200">
                 <div class="d-table-cell align-middle">
-                    <div class="card shad top50">
+                    <div class="card shad top50" style="border-radius: 15px">
                         <div class="card-header">
                             <span class="bold16">Añada información sobre su tienda</span>
                         </div>
@@ -64,7 +64,9 @@
                             </div>
                         </div>
                     </div>
+                    <br><br>
                 </div>
+                
             </div>
         </div>
     </div>
