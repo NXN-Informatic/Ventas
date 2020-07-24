@@ -69,6 +69,7 @@ class ProductoController extends Controller
         $files = $request->file('attachment');
         //dd($files);
         $puesto = $request->input('puesto');
+        
         $producto = $producto->id;
         foreach($files as $file){
             $name = $file->getClientOriginalName();
@@ -91,8 +92,9 @@ class ProductoController extends Controller
                 ]
             );
         }
-        
-        
+        $pst = Puesto::find($puesto);
+        $pst->completado = 1;
+        $pst->save();
         
         $notification = '¡Subida Exitosa! Añada más productos';
         return redirect('/producto/add')->with(compact('notification'));

@@ -288,7 +288,6 @@ class PuestoController extends Controller
         }
 
         if($request->input('cencom')){
-            $puesto->completado = 1;
             if($request->input('cencom') != $puesto->cencom_id){
                 if($puesto->cencom_id){
                     $ccantiguo = CentrosComerciale::find($puesto->cencom_id);
@@ -319,7 +318,6 @@ class PuestoController extends Controller
         }
 
         if($file != null) {
-            $puesto->completado = 1;
             $name = $file->getClientOriginalName();
             $fileName = 'public/'.$puesto->id.'/logo/'.$name;
             \Storage::disk('local')->put($fileName,  \File::get($file));
@@ -348,7 +346,6 @@ class PuestoController extends Controller
 
         $subcategorias = $request->input('subcategoria_id');
         if($subcategorias != null) {
-            $puesto->completado = 1;
             for($i=0 ; $i < count($subcategorias); ++$i) {
                 $subcategoria = PuestoSubcategoria::where('subcategoria_id', $subcategorias[$i])->where('puesto_id', $puesto->id)->first();
                 if($subcategoria == null){
@@ -361,7 +358,6 @@ class PuestoController extends Controller
         }
         $formapagos = $request->input('formapago_id');
         if($formapagos != null) {
-            $puesto->completado = 1;
             for($i=0 ; $i < count($formapagos); ++$i) {
                 $formapago = PagoPuesto::where('pago_id', $formapagos[$i])->where('puesto_id',$puesto->id)->first();
                 if($formapago == null){
@@ -374,7 +370,6 @@ class PuestoController extends Controller
         }
         $formaentregas = $request->input('formaentrega_id');
         if($formaentregas != null) {
-            $puesto->completado = 1;
             for($i=0 ; $i < count($formaentregas); ++$i) {
                 $formaentrega = EntregaPuesto::where('entrega_id', $formaentregas[$i])->where('puesto_id',$puesto->id)->first();
                 if($formaentrega == null){
