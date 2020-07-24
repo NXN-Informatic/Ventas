@@ -27,145 +27,98 @@
             <div class="row">
                 <div class="col-lg-2 col-sm-2 col-4">
                     @if(auth()->user()->usuario_puestos->first()->puesto->perfil)
-                        <img src="{{ asset('storage/'.auth()->user()->usuario_puestos->first()->puesto_id.'/logo/'.auth()->user()->usuario_puestos->first()->puesto->perfil)  }}" width="100" height="100" class="img-fluid rounded-circle mb-2" style="border: 6px solid #fff">
+                        <img src="{{ asset('storage/'.auth()->user()->usuario_puestos->first()->puesto_id.'/logo/'.auth()->user()->usuario_puestos->first()->puesto->perfil)  }}" width="100" height="100" class="img-fluid rounded-circle mb-2" style="background-color:#fff;border: 6px solid #fff">
                     @else
                         <img src="{{ asset('img/defecto/avatar-159236_1280.png') }}" width="100" height="100" class="rounded-circle mt-2" style="border: 6px solid #fff">
                     @endif
                 </div>
                 <div class="col-lg-10 col-sm-10 col-8">
                     <a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="black">
-                    <h1 style="font-size: 20px" class="header-title">
+                    <span class="header-title bold16">
                         {{ auth()->user()->usuario_puestos->first()->puesto->name }}
-                    </h1>
+                    </span>
                     </a>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><span style="color: #ffffff70">{{'Miembro desde '.auth()->user()->usuario_puestos->first()->puesto->created_at->format('M, Y')}}</span></li>
+                        <li class="breadcrumb-item"><span class="regular11" style="color: #ffffff70">{{'Miembro desde '.auth()->user()->usuario_puestos->first()->puesto->created_at->format('M, Y')}}</span></li>
                         </ol>
                     </nav>
                 </div>
             </div>
 		</div>
         <form action="{{ url('producto/store/') }}" method="post" enctype="multipart/form-data">
-        @csrf
-        <div class="row">
-            <div class="col-lg-4 col-12">
-                @if (session('notification'))
-            <div class="alert alert-success alert-dismissible" role="alert">
-                <div class="alert-icon">
-                    <i class="far fa-fw fa-heart"></i>
-                </div>
-                <div class="alert-message">
-                    <strong>{{ session('notification') }}</strong>
-                </div>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            @endif
-                <div class="card">
-                    <div class="card-header">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <h5 class="card-title mb-0">{{ __('Nuevo Producto') }}</h5>
+            @csrf
+            <div class="row">
+                <div class="col-lg-12 col-sm-12 col-12">
+                    @if (session('notification'))
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            <div class="alert-icon">
+                                <i class="far fa-fw fa-heart"></i>
                             </div>
-                            <div class="col text-right">
-                                <a href="{{ url('producto/lista') }}" class="btn btn-secondary">Regresar</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        @if($errors->any())
-                        <div class="alert alert-danger alert-dismissible" role="alert">
                             <div class="alert-message">
-                                <strong>{{ $errors->first() }}</strong>
+                                <strong>{{ session('notification') }}</strong>
                             </div>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                            </button>
                         </div>
-                        @endif
-                        
-                            <div class="form-group">
-                                <label class="form-label" for="name">Nombre de producto</label>
-                                <input type="text" class="form-control form-control-lg" name="name" value="{{ old('name') }}" required>
-                                <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" for="precio">Precio</label>
-                                <input type="number" class="form-control form-control-lg" name="precio" value="{{ old('precio') }}" required>
-                                <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
-                            </div>
-                        <!--<div class="form-group">
-                               <label class="form-label">Pertenece a</label>
-                               <div class="mb-3">
-								<select class="form-control select2" id="subcategoria" name="subcategoria" data-toggle="select2">
-                                    <optgroup label="Subcategorias Disponibles">
-                                    <option value=""></option>
-                                    foreach($puestoSubcategorias as $puestosub)
-                                        <option value=" $puestosub->id }}"> $puestosub->subcategoria->name </option>
-                                    //endforeach
-                                    </optgroup>
-                                </select>
-                                </div>
-                            </div>-->
-                            <div class="form-group">
-                               <label class="form-label">Añadir a la categoría</label>
-                               <div class="mb-3">
-								<select class="form-control form-control-lg select2" id="grupo" name="grupo" data-toggle="select2">
-                                    <optgroup label="Grupos Disponibles">
-                                    <option value=""></option>
-                                    @foreach ($puestoSubcategorias as $psub)
-                                        @foreach($psub->grupos as $grupo)
-                                        <option value="{{ $grupo->id }}">{{ $grupo->name }}</option>
-                                        @endforeach
-                                    @endforeach
-                                    </optgroup>
-                                </select>
-                                </div>
-                            </div>
-                            <input type="hidden" name="puesto_id" value={{ $usuarioPuesto->id }}>
-                            <br>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-8 col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <h5 class="card-title mb-0">{{ __('Fotos del producto') }}</h5>
-                            </div>
+                    @endif
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title mb-0 bold15">{{ __('Nuevo Producto') }}</span>
                         </div>
-                    </div>
-                    <div class="card-body">
-                            <input type="hidden" name="puesto" value="{{ $usuarioPuesto->puesto->id }}">
-                            <input type="file" id="attachment" accept="image/jpeg,image/png" capture="gallery" name="attachment[]" multiple>
-                            <hr>
+                        <div class="card-body">
+                            <label for="attachment" class="btn btn-primary btn-lg medium11">Seleccionar Fotos</label>
+                            <input type="file" id="attachment" style="visibility: hidden" accept="image/jpeg,image/png" capture="gallery" name="attachment[]" multiple>
                             <div class="row" id="preview_img">
-                                
                             </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <h5 class="card-title mb-0">{{ __('Descripción del producto') }}</h5>
+                            <input type="hidden" name="puesto" value="{{ $usuarioPuesto->puesto->id }}">
+                            <div class="row">
+                                <div class="col-lg-8 col-sm-8 col-12">
+                                    <div class="form-group" style="margin-top: 10px">
+                                        <span class="bold12">{{ __('Descripción del producto') }}</span>
+                                        <br><br>
+                                        <textarea name="description" rows="10" >{{ old('description') }}</textarea>
+                                    </div> 
+                                </div>
+                                <div class="col-lg-4 col-sm-4 col-12">
+                                    <div class="form-group">
+                                        <label class="form-label" for="name">Nombre de producto</label>
+                                        <input type="text" class="form-control form-control-lg" name="name" value="{{ old('name') }}" required>
+                                        <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="precio">Precio</label>
+                                        <input type="number" class="form-control form-control-lg" name="precio" value="{{ old('precio') }}" required>
+                                        <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Añadir a la categoría</label>
+                                        <div class="mb-3">
+                                        <select class="form-control form-control-lg select2" id="grupo" name="grupo" data-toggle="select2">
+                                            <optgroup label="Grupos Disponibles">
+                                            <option value=""></option>
+                                            @foreach ($puestoSubcategorias as $psub)
+                                                @foreach($psub->grupos as $grupo)
+                                                <option value="{{ $grupo->id }}">{{ $grupo->name }}</option>
+                                                @endforeach
+                                            @endforeach
+                                            </optgroup>
+                                        </select>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="puesto_id" value={{ $usuarioPuesto->id }}>
+                                    <br>
+                                </div>
+                                <div class="col-lg-12 col-sm-12 col-12 text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg" style="background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%)"><span class="medium12" style="text-align:center">Añadir producto</span></button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card-body">
-                        <div class="form-group">
-                            <!-- End Formulario de Usuario <label class="form-label" for="description">Descripción del Producto</label> -->
-                            <textarea name="description" rows="10" >{{ old('description') }}</textarea>
-                        </div> 
-                    </div>
                 </div>
+                <br><br><br><br>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12 text-center">
-                <button type="submit" class="btn btn-primary botonBtn btn-lg"><span style="text-align:center">Añadir producto</span></button>
-            </div>
-        </div>
         </form>
     </div>
 </main>
@@ -254,7 +207,7 @@
                         var fRead = new FileReader(); //new filereader
                         fRead.onload = (function(file){ //trigger function on successful read
                         return function(e) {
-                            var img = $('<img/>').addClass('thumb').attr('src', e.target.result).attr('height', '200px').attr('width', '200px'); //create image element 
+                            var img = $('<img/>').addClass('thumb').attr('src', e.target.result).attr('height', '100px').attr('width', '80px'); //create image element 
                             $('#preview_img').append(img); //append image to output element
                         };
                         })(file);

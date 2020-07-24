@@ -106,21 +106,16 @@ class PublicController extends Controller
                 ]);
             }
             $pago= Pago::find('1');
-            $entrega= Entrega::find('1');
             PagoPuesto::create([
                 "puesto_id"         =>  $puesto->id,
                 "pago_id"   =>  $pago->id
             ]);
-            EntregaPuesto::create([
-                "entrega_id"   =>  $entrega->id,
-                "puesto_id"         =>  $puesto->id
-            ]);
+            
 
-            $contents = file_get_contents('./img/logost.jpg');
-            $fileName = 'public/'.$puesto->id.'/logo/logoxdefecto.jpg';
+            $contents = file_get_contents('./img/logonuevo.png');
+            $fileName = 'public/'.$puesto->id.'/logo/logoxdefecto.png';
             \Storage::disk('local')->put($fileName,  $contents);
-            $puesto->perfil = 'logoxdefecto.jpg';
-        
+            $puesto->perfil = 'logoxdefecto.png';
             $contents = file_get_contents('./img/defecto/bannerdefecto.jpg');
             $fileName = 'public/'.$puesto->id.'/banner/bannerxdefecto.jpg';
             \Storage::disk('local')->put($fileName, $contents);

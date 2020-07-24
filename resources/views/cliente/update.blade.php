@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-lg-2 col-sm-2 col-4">
                     @if(auth()->user()->usuario_puestos->first()->puesto->perfil)
-                        <img src="{{ asset('storage/'.auth()->user()->usuario_puestos->first()->puesto_id.'/logo/'.auth()->user()->usuario_puestos->first()->puesto->perfil)  }}" width="100" height="100" class="img-fluid rounded-circle mb-2" style="border: 6px solid #fff">
+                        <img src="{{ asset('storage/'.auth()->user()->usuario_puestos->first()->puesto_id.'/logo/'.auth()->user()->usuario_puestos->first()->puesto->perfil)  }}" width="100" height="100" class="img-fluid rounded-circle mb-2" style="border: 6px solid #fff; background-color:#fff">
                     @else
                         <img src="{{ asset('img/defecto/avatar-159236_1280.png') }}" width="100" height="100" class="rounded-circle mt-2" style="border: 6px solid #fff">
                     @endif
@@ -103,8 +103,9 @@
                                 <input type="file" accept="image/jpeg,image/png" capture="gallery" class="form-control-file" name="imagen">
                             </div>
                             <div class="col-12 text-center">
-                                <button type="submit" class="btn btn-primary btn-lg" style="width: 100%"><span class="light12">Guardar datos</span></button>
+                                <button type="submit" class="btn btn-primary btn-lg" style="background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%);"><span>Guardar cambios</span></button>
                             </div>
+                            <br>
                         </form>
                     </div>
                 </div>
@@ -112,54 +113,6 @@
             <!-- End Formulario de Usuario -->
             
             <!-- Vista de Usuario -->
-            <div class="col-xxl-4">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row no-gutters">
-                            <div class="col-sm-12 col-xl-12 col-xxl-12 text-center">
-                            @if(auth()->user()->imagen)
-                                <img src="{{ asset('storage/usuarios/'.auth()->user()->id.'/'.auth()->user()->imagen) }}" width="140" height="140" class="rounded-circle mt-2" alt="Angelica Ramos">
-                            @else
-                                <img src="{{ asset('img/logost.jpg') }}" width="140" height="140" class="rounded-circle mt-2" alt="Angelica Ramos">
-                            @endif
-                            </div>
-                        </div>
-                        <br>
-                        <table class="table table-sm my-2">
-                            <tbody>
-                                <tr>
-                                    <th>Nombre</th>
-                                    <td>{{ auth()->user()->name }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Apellido</th>
-                                    <td>{{ auth()->user()->sur_name }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Número de Documento</th>
-                                    <td>{{ auth()->user()->ndocumento }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Email</th>
-                                    <td>{{ auth()->user()->email }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Rol</th>
-                                    <td>Propietario</td>
-                                </tr>
-                                <tr>
-                                    <th>Estado</th>
-                                    @if(auth()->user()->status == 'activo')
-                                        <td><span class="badge badge-success">Activado</span></td>
-                                    @else
-                                        <td><span class="badge badge-danger">Desactivado</span></td>
-                                    @endif
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
             <!-- End Vista de Usuario -->
         </div>
     </div>

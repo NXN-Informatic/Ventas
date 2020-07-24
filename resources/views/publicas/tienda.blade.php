@@ -16,7 +16,7 @@
                         <h4 class="bold16">Complete el registro</h4><span style="color: #ff1a00" class="bold12">paso 1 de 2</span>
                     </div>
                     <div class="card-body">
-                        <p class="card-text medium12">Vamos a ultimar los detalles para preparar su tienda para un lanzamiento rápido.</p>
+                        <p class="card-text medium12">Ultimemos los detalles de su tienda para un lanzamiento rápido.</p>
                     </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                                     <div class="form-group">
                                     <strong><label>{{ __('¿Cuál es el nombre de su Tienda?') }}</label></strong>
                                         <small class="form-text text-muted">{{ __('Puede cambiar el nombre de su tienda en cualquier momento.') }}</small>
-                                        <input style="margin-top:7px" class="form-control form-control-lg" type="text" name="name" value="{{ old('name') }}" required />
+                                        <input style="margin-top:7px medium13" class="form-control form-control-lg" type="text" name="name" value="{{ old('name') }}" required />
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-6 col-sm-12 col-12">

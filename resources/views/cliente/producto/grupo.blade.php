@@ -12,20 +12,20 @@
             <div class="row">
                 <div class="col-lg-2 col-sm-2 col-4">
                     @if(auth()->user()->usuario_puestos->first()->puesto->perfil)
-                        <img src="{{ asset('storage/'.auth()->user()->usuario_puestos->first()->puesto_id.'/logo/'.auth()->user()->usuario_puestos->first()->puesto->perfil)  }}" width="100" height="100" class="img-fluid rounded-circle mb-2" style="border: 6px solid #fff">
+                        <img src="{{ asset('storage/'.auth()->user()->usuario_puestos->first()->puesto_id.'/logo/'.auth()->user()->usuario_puestos->first()->puesto->perfil)  }}" width="100" height="100" class="img-fluid rounded-circle mb-2" style="background-color:#fff;border: 6px solid #fff">
                     @else
                         <img src="{{ asset('img/defecto/avatar-159236_1280.png') }}" width="100" height="100" class="rounded-circle mt-2" style="border: 6px solid #fff">
                     @endif
                 </div>
                 <div class="col-lg-10 col-sm-10 col-8">
                     <a href="{{ url('puesto/'.auth()->user()->usuario_puestos->first()->puesto_id.'/detail')}}" target="black">
-                    <h1 style="font-size: 20px" class="header-title">
+                    <span class="header-title bold16">
                         {{ auth()->user()->usuario_puestos->first()->puesto->name }}
-                    </h1>
+                    </span>
                     </a>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><span style="color: #ffffff70">{{'Miembro desde '.auth()->user()->usuario_puestos->first()->puesto->created_at->format('M, Y')}}</span></li>
+                        <li class="breadcrumb-item"><span class="regular11" style="color: #ffffff70">{{'Miembro desde '.auth()->user()->usuario_puestos->first()->puesto->created_at->format('M, Y')}}</span></li>
                         </ol>
                     </nav>
                 </div>
@@ -49,14 +49,13 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="row align-items-center">
-                            <div class="col">
-                                <h4>{{ __('Crear categoría') }}</h4>
+                            <div class="col-lg-8 col-sm-9 col-8">
+                                <span class="bold15">{{ __('Crear categoría') }}</span>
                             </div>
-                            <div class="col text-right">
-                                <a href="{{ url('categoria/editar') }}" class="btn btn-info btn-lg mt-2">
-                                    <i class="fa fa-edit"></i>  <span>{{ __('    Editar') }}</span>
+                            <div class="col-lg-4 col-sm-3 col-4 text-right">
+                                <a href="{{ url('categoria/editar') }}" class="btn btn-info btn-lg" style="border: 1px solid #ff1a00; text-align:center">
+                                    <i class="fa fa-edit" style="color: #ff1a00"></i>  <span class="medium11" style="color: #ff1a00;">Editar Categorias</span>
                                 </a>
-                                <a href="{{ url('producto/lista') }}" class="btn btn-secondary btn-lg mt-2"><i class="fa fa-reply"></i> Regresar</a>
                             </div>
                         </div>
                         

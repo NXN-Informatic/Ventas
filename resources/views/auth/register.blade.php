@@ -66,16 +66,16 @@
                                         <form role="form" method="POST" action="{{ route('register') }}">
                                         @csrf
                                             <div class="form-group">
-                                                <input class="form-control form-control-lg" type="name" name="name" value="{{ old('name') }}" placeholder="Nombre completo" required />
+                                                <input class="form-control form-control-lg medium12" type="name" name="name" value="{{ old('name') }}" placeholder="Nombre completo" required />
                                             </div>
                                             <div class="form-group">
-                                                <input class="form-control form-control-lg" type="email" name="email" value="{{ old('email') }}" placeholder="Email" required />
+                                                <input class="form-control form-control-lg medium12" type="email" name="email" value="{{ old('email') }}" placeholder="Email" required />
                                             </div>
                                             <div class="form-group">
-                                                <input class="form-control form-control-lg" type="password" name="password" placeholder="Contraseña" />
+                                                <input class="form-control form-control-lg medium12" type="password" name="password" placeholder="Contraseña" />
                                             </div>
                                             <div class="text-center mt-3">
-                                                <button type="submit" class="btn btn-lg btn-primary regular12" style="margin-top:10px;background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%)">{{ __('Siguiente: Configura tu Tienda') }}</button>
+                                                <button type="submit" class="btn btn-lg btn-primary medium13" style="margin-top:10px;padding:10px;background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%)">{{ __('Siguiente: Configura tu Tienda') }}</button>
                                             </div>
                                         </form>
                                         <br>

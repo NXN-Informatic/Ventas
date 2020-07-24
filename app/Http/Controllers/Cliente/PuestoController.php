@@ -271,6 +271,21 @@ class PuestoController extends Controller
         if($request->input('wsp')){
             $puesto->wsp = $request->input('wsp');
         }
+        if($request->input('fisicaovirtual')){            
+            if($request->input('direccion')){
+                $entrega = Entrega::find('1');
+                EntregaPuesto::create([
+                    "entrega_id"   =>  $entrega->id,
+                    "puesto_id"         =>  $puesto->id
+                ]);
+            }else{
+                $entrega = Entrega::find('5');
+                EntregaPuesto::create([
+                    "entrega_id"   =>  $entrega->id,
+                    "puesto_id"         =>  $puesto->id
+                ]);
+            }
+        }
 
         if($request->input('cencom')){
             $puesto->completado = 1;

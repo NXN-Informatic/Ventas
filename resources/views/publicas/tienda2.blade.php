@@ -15,7 +15,7 @@
                         <h4 class="bold16">Complete el registro</h4><span style="color: #ff1a00" class="bold12">paso 2 de 2</span>
                     </div>
                     <div class="card-body">
-                        <p class="card-text medium12">Vamos a ultimar los detalles para preparar su tienda para un lanzamiento rápido.</p>
+                        <p class="card-text medium12">Vamos a ultimar los detalles de su tienda para un lanzamiento rápido.</p>
                     </div>
                 </div>
             </div>
@@ -40,16 +40,16 @@
                                     <div class="form-group">
                                         <strong><label class="form-label" for="contacto">¿A qué número contactarán tus clientes?</label></strong>
                                         <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Puede cambiarlo en cualquier momento.') }}</small>
-                                        <input type="text" class="form-control form-control-lg" name="phone" value="" placeholder="Celular">
+                                        <input type="text" class="form-control form-control-lg medium13" name="phone" value="" placeholder="Celular">
                                     </div>
                                     <div class="form-group">
                                         <strong><label class="form-label" for="direccion">¿Su tienda es sólo virtual o tambien física?</label></strong><br>
                                         <label class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inline-radios-example" value="option1" checked onclick="$('#dir').disabled=false">
+                                            <input class="form-check-input" id="fisica" type="radio" name="fisicaovirtual" checked >
                                             <span class="form-check-label">Virtual y física</span>
                                         </label>
                                         <label class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inline-radios-example" value="option2" onclick="$('#dir').disabled=true">
+                                            <input class="form-check-input" id="virtual" type="radio" name="fisicaovirtual">
                                             <span class="form-check-label">Sólo virtual</span>
                                         </label>
                                     </div>
@@ -71,4 +71,17 @@
         </div>
     </div>
 </main>
+@endsection
+@section('scripts')
+<script type="text/javascript">
+    $(function () {
+        $("input[name='fisicaovirtual']").click(function () {
+            if ($("#fisica").is(":checked")) {
+                $("#dir").removeAttr("disabled");
+            } else {
+                $("#dir").attr("disabled", "disabled");
+            }
+        });
+    });
+</script>
 @endsection
