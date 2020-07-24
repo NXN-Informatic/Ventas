@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Grupo;
 use App\UsuarioPuesto;
 use App\Producto;
+use App\Puesto;
 use App\Subcategoria;
 use App\PuestoSubcategoria;
 use App\ImagenProducto;
