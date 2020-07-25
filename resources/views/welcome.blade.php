@@ -25,7 +25,7 @@
   <br>
 @include('layouts.components.banner')
 
-<div class="singleProduct ajaxProduct featureProduct section6" style="background: #fff; border-radius: 20px; margin-top: 40px; padding-top: 10px">
+<div class="singleProduct ajaxProduct featureProduct section6" style="background: #fff; border-radius: 20px; margin-top: 40px; padding-top: 10px" id="ocultar100">
     <div class="feature__filter container colw">
         <div class="col-12" style="height:50px; background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%);padding: 15px; border-radius:7px">
             <span class="bold20" style="color: rgb(255, 255, 255)187, 187, 187); text-align:left">Productos destacados<a class="xlight12" style="color: #ffffff" href="{{ url('productos') }}"> Ver productos</a></span>
@@ -261,6 +261,7 @@
                 $('#ocultarBanner3').show();
                 $('#ocultar89').show();
                 $('#ocultarBanner4').show();
+                $('#ocultar100').show();
                 $tiendas.show();
                 $ella.show();
                 $tiendas2.show();
@@ -272,6 +273,7 @@
                 $tiendas.hide();
                 $tiendas2.hide();
                 $('#ocultarBanner').hide();
+                $('#ocultar100').hide();
                 $('#ocultarBanner2').hide();
                 $('#ocultar89').hide();
                 $('#ocultarBanner3').hide();
