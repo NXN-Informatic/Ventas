@@ -66,6 +66,9 @@
                             </a>
                         </div>
                         <br>
+                        @php
+                            $aux=1;
+                        @endphp
                         @foreach($puestoSubcategorias as $puestoSubcategoria)
                             <ul class="nav nav-pills card-header-pills pull-right" role="tablist">
                                 @foreach($puestoSubcategoria->grupos as $grupos)
@@ -79,9 +82,6 @@
                                         </li>
                                     @endif
                                 @endforeach
-                                @php
-                                    $aux=1;
-                                @endphp
                                 @if ($aux>0)
                                     <a class="btn btn btn-outline-primary" style="margin-left:3px;border:0px" href="{{ url('categorias/editar') }}"><i class="fa fa-edit"></i></a>
                                 @endif
