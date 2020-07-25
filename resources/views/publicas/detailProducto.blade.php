@@ -134,22 +134,10 @@
                             </div>
                         </div>
                         <hr style="color: #fff"> 
-                        <div class="col-lg-12" style="padding-left: 10px">
+                        <div id="contacto" class="col-lg-12" style="padding-left: 10px">
                             <h1 class="bold12" style=" color: #444;text-align:left; margin: 10px"><i class="fas fa-phone" style="color: #ff1a00"></i>  Contacto</h1>
-                            <div class="row" style="align-items: center">
-                                <div class="col text-center">
-                                    <a href="{{ url('https://api.whatsapp.com/send?phone=51'.$puesto->wsp.'&text=Hola!%20Pasé%20por%20tu%20tienda%20y%20tengo%20una%20consulta:%20') }}" target="_blank" class="btn btnb" style="background-color: #25d366; border-color: #25d366;margin:5px;width:60px; height:35px; padding:5px;"><i class="fas icofont-brand-whatsapp icono1" style="color: #fff"></i></a>
-                                    <a href="{{ url('#') }}" target="_blank" class="btn btnb" style="background-color: #0084ff; border-color: #0084ff; margin:5px;width:60px; height:35px; padding:5px"><i class="fas icofont-facebook-messenger icono1" style="color: #fff"></i></a>
-                                    <a href="{{ $puesto->fbpage ? $puesto->fbpage:'#'}}" target="_blank" class="btn btnb" style="background-color: #3b5998; border-color: #3b5998; margin: 5px;width:60px; height:35px; padding:5px"><i class="fas icofont-facebook icono1" style="color: #fff"></i></a>
-                                </div>
-                            </div>
-                            @if($puesto->phone)
-                                <span class="regular13" style="color: #444;"><i class="fas icofont-smart-phone" style="font-size: 16px; padding: 10px; color: #ff1a00"></i> {{ $puesto->phone }}</span>
-                            @endif
-                            <br>
-                            @if($puesto->phone2)
-                                <span class="regular13" style="color: #444;"><i class="fas icofont-smart-phone" style="font-size: 16px; padding: 10px; color: #ff1a00"></i> {{ $puesto->phone2 }}</span>
-                            @endif
+                            <button id="contactar" class="btn btn-primary" style="background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%); border-radius: 5%; margin-bottom: 10px"><i class="fas icofont-brand-whatsapp" style="font-size: 2rem; color: #fff"></i><span style="color: #fff; margin-left: 10px">Contactar</span></button>
+                            
                         </div>
                         <hr style="color: #fff"> 
                         <div class="col-12">
@@ -285,7 +273,43 @@
 @endif
 
 @section('scripts')
-  
+<script>
+ 
+    $(document).ready(function(){
+     $('#contactar').on('click', function(){ //on file input change
+        if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
+        {
+            $('#contacto').empty();
+            var img =  `<h1 class="bold12" style=" color: #444;text-align:left; margin: 10px"><i class="fas fa-phone" style="color: #ff1a00"></i>  Contacto</h1>`+
+                            `<button id="contactar" class="btn btn-primary" style="background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%); border-radius: 5%; margin-bottom: 10px"><i class="fas icofont-brand-whatsapp" style="font-size: 2rem; color: #fff"></i><span style="color: #fff; margin-left: 10px">Contactar</span></button>`+
+                            `<div class="row" style="align-items: center;">`+
+                                `<div class="col text-center">`+
+                                    `@if($puesto->wsp)`+
+                                        `<a href="{{ url('https://api.whatsapp.com/send?phone=51'.$usuario_puestos->puesto->wsp.'&text=Hola!%20Me%20interesa%20este%20producto:%20'.$producto->producto_url.'%20¿Está disponible?') }}" target="_blank" class="btn btnb" style="background-color: #25d366; border-color: #25d366;margin:5px;width:60px; height:35px; padding:5px;"><i class="fas icofont-brand-whatsapp icono1" style="color: #fff"></i></a>`+
+                                    `@endif`+
+                                    `@if($puesto->fbpageid)`+
+                                        `<a href="{{ url('#') }}" target="_blank" class="btn btnb" style="background-color: #0084ff; border-color: #0084ff; margin:5px;width:60px; height:35px; padding:5px"><i class="fas icofont-facebook-messenger icono1" style="color: #fff"></i></a>`+
+                                    `@endif`+
+                                    `@if($puesto->fbpage)`+
+                                        `<a href="{{ $puesto->fbpage ? $puesto->fbpage:'#'}}" target="_blank" class="btn btnb" style="background-color: #3b5998; border-color: #3b5998; margin: 5px;width:60px; height:35px; padding:5px"><i class="fas icofont-facebook icono1" style="color: #fff"></i></a>`+
+                                    `@endif`+
+                                `</div>`+
+                            `</div>`+
+                            `@if($puesto->phone)`+
+                                `<span class="regular13" style="color: #444;"><i class="fas icofont-smart-phone" style="font-size: 16px; padding: 10px; color: #ff1a00"></i> {{ $puesto->phone }}</span>`+
+                            `@endif`+
+                            `<br>`+
+                            `@if($puesto->phone2)`+
+                                `<span class="regular13" style="color: #444;"><i class="fas icofont-smart-phone" style="font-size: 16px; padding: 10px; color: #ff1a00"></i> {{ $puesto->phone2 }}</span>`+
+                            `@endif`;
+                    $('#contacto').append(img); //append image to output element
+        }else{
+            alert("Your browser doesn't support File API!"); //if File API is absent
+        }
+     });
+    });
+     
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js"></script>
   <script src="{{ asset('js/publicas/detailProduc.js') }}"></script>
   <script>
