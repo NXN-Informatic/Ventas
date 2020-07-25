@@ -79,7 +79,15 @@
                                         </li>
                                     @endif
                                 @endforeach
-                                <a class="btn btn btn-outline-primary" style="margin-left:3px;border:0px" href="{{ url('categorias/editar') }}"><i class="fa fa-edit"></i></a>
+                                @php
+                                    $aux=1;
+                                @endphp
+                                @if ($aux>0)
+                                    <a class="btn btn btn-outline-primary" style="margin-left:3px;border:0px" href="{{ url('categorias/editar') }}"><i class="fa fa-edit"></i></a>
+                                @endif
+                                @php
+                                    $aux=0;
+                                @endphp
                             </ul>
                             <br>
                             <div class="tab-content">
