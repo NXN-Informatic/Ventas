@@ -79,6 +79,7 @@
                                         </li>
                                     @endif
                                 @endforeach
+                                <a class="btn btn btn-outline-primary" style="margin-left:3px;border:0px" href="{{ url('categorias/editar') }}"><i class="fa fa-edit"></i></a>
                             </ul>
                             <br>
                             <div class="tab-content">

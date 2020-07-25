@@ -28,7 +28,7 @@
 <div class="singleProduct ajaxProduct featureProduct section6" style="background: #fff; border-radius: 20px; margin-top: 40px; padding-top: 10px" id="ocultar100">
     <div class="feature__filter container colw">
         <div class="col-12" style="height:50px; background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%);padding: 15px; border-radius:7px">
-            <span class="bold20" style="color: rgb(255, 255, 255)187, 187, 187); text-align:left">Productos destacados<a class="xlight12" style="color: #ffffff" href="{{ url('productos') }}"> Ver productos</a></span>
+            <span class="bold16" style="color: rgb(255, 255, 255)187, 187, 187); text-align:left">Productos destacados<a class="xlight12" style="color: #ffffff" href="{{ url('productos') }}"> Ver productos</a></span>
         </div>
         <br>
         <br>
@@ -81,7 +81,7 @@
 
 <div class="blog container colw" style="background: #FFF; margin-top: 60px; padding:10px" id="ocultar89">
     <div class="col-12" style="height:50px; background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%);padding: 15px; border-radius:7px">
-        <span class="bold20" style="color: #FFF; text-align:left">Tiendas Destacadas<a class="xlight12" style="color: #FFF" href="{{ url('/tiendas/destacadas') }}"> Ver tiendas</a></span>
+        <span class="bold16" style="color: #FFF; text-align:left">Tiendas Destacadas<a class="xlight12" style="color: #FFF" href="{{ url('/tiendas/destacadas') }}"> Ver tiendas</a></span>
     </div>
     <div class="feature__wrap" style="margin-bottom: 30px" >
         <div id="tiendas" class="blog__wrap dflex" style="padding: 0px">
@@ -131,7 +131,7 @@
 
 <div class="feature container colw" style="background: #FFF;padding:10px; margin-top: 60px" id="ella">
     <div class="col-12" style="height:50px; background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%);padding: 15px; border-radius:7px">
-        <span class="bold20" style="color: #FFF; text-align:left">Centros Comerciales<a class="xlight12" style="color: #FFF" href="{{ url('centroscomerciales/all') }}"> Ver todos</a></span>
+        <span class="bold16" style="color: #FFF; text-align:left">Centros Comerciales<a class="xlight12" style="color: #FFF" href="{{ url('centroscomerciales/all') }}"> Ver todos</a></span>
     </div>
     <div id="centros" class="feature__wrap" style="border-radius: 15px; margin-bottom: 30px">
         @foreach($cccc as $cc)
@@ -155,7 +155,7 @@
 <div class="singleProduct ajaxProduct featureProduct section6" style="background: #fff; border-radius: 20px; margin-top: 20px; padding-top: 10px;z-index: -1" id="ocultar101">
     <div class="feature__filter container colw">
         <div class="col-12" style="height:50px; background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%);padding: 15px; border-radius:7px" id="ocultar102">
-            <span class="bold20" style="color: rgb(255, 255, 255)187, 187, 187); text-align:left">Resultados<a class="xlight12" style="color: #ffffff" href="{{ url('productos') }}"> Ver productos</a></span>
+            <span class="bold16" style="color: rgb(255, 255, 255)187, 187, 187); text-align:left">Resultados<a class="xlight12" style="color: #ffffff" href="{{ url('productos') }}"> Ver productos</a></span>
         </div>
         <br>
         <br>

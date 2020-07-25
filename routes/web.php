@@ -108,8 +108,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/producto/switch/{producto}', 'Cliente\ProductoController@switch');
     
     // categorias
-    Route::get('/categoria/editar', 'Cliente\ProductoController@editargrupo');
-    Route::post('/categoria/update', 'Cliente\ProductoController@updategrupo');
+    Route::get('/categorias/editar', 'Cliente\ProductoController@editargrupo');
+    Route::post('/categorias/update', 'Cliente\ProductoController@updategrupo');
 
     // Subida de Imagenesgitpu
     Route::post('/imagen/{ip}/delete', 'Cliente\ProductoController@deleteimagen');

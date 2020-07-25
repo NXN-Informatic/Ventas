@@ -53,7 +53,7 @@
                                 <span class="bold15">{{ __('Crear categoría') }}</span>
                             </div>
                             <div class="col-lg-4 col-sm-3 col-4 text-right">
-                                <a href="{{ url('categoria/editar') }}" class="btn btn-info btn-lg" style="border: 1px solid #ff1a00; text-align:center">
+                                <a href="{{ url('categorias/editar') }}" class="btn btn-info btn-lg" style="border: 1px solid #ff1a00; text-align:center">
                                     <i class="fa fa-edit" style="color: #ff1a00"></i>  <span class="medium11" style="color: #ff1a00;">Editar Categorias</span>
                                 </a>
                             </div>
