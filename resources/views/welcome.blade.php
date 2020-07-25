@@ -79,7 +79,7 @@
     </div>
 </div>
 
-<div class="blog container colw" style="background: #FFF; margin-top: 60px; padding:10px" id="ocultar89">
+<div class="blog container colw" style="background: #FFF; margin-top: 60px;" id="ocultar89">
     <div class="col-12" style="height:50px; background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%);padding: 15px; border-radius:7px">
         <span class="bold16" style="color: #FFF; text-align:left">Tiendas Destacadas<a class="xlight12" style="color: #FFF" href="{{ url('/tiendas/destacadas') }}"> Ver tiendas</a></span>
     </div>
@@ -90,7 +90,7 @@
                 @if ($paux < 4)
                     <?php $ps = $pst[$i]; ?>
                     <?php $paux = $paux + 1; ?>
-                    <div class="blog__item col-lg-3 col-sm-4 col-6 tiendah shad" style="background:#fff; padding: 3px;border-radius:15px; margin-bottom:5px;margin-top:5px">
+                    <div class="blog__item col-lg-3 col-sm-4 col-6 tiendah shad" style="background:#fff; padding: 0px;border-radius:15px; margin-bottom:5px;margin-top:5px">
                         <div class="blog__image" style="margin-left: 0px;">
                             <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank">
                                 <div style="background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%); width:100%; height:80px;border-radius:15px 15px 0px 0px"></div>   
@@ -129,7 +129,7 @@
     </div>
 </div>
 
-<div class="feature container colw" style="background: #FFF;padding:10px; margin-top: 60px" id="ella">
+<div class="feature container colw" style="background: #FFF; margin-top: 60px" id="ella">
     <div class="col-12" style="height:50px; background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%);padding: 15px; border-radius:7px">
         <span class="bold16" style="color: #FFF; text-align:left">Centros Comerciales<a class="xlight12" style="color: #FFF" href="{{ url('centroscomerciales/all') }}"> Ver todos</a></span>
     </div>
