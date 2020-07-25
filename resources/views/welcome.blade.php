@@ -17,7 +17,7 @@
     <div class="clients__wrap dflex" id="wrap">
         <div class="client__item" style="margin-left: 10px"><a href="{{ url('/tiendas/destacadas') }}"><span class="bold15 subcategoria">Tiendas</span></a></div>
         @foreach ($subcategorias as $subcat)
-    <div class="client__item" style="margin-left: 10px"><a href="{{ url('/categoria/'.$subcat->name) }}"><span class="bold12 subcategoria">{{$subcat->name}}</span></a></div>
+    <div class="client__item" style="margin-left: 15px"><a href="{{ url('/categoria/'.$subcat->name) }}"><span class="bold12 subcategoria">{{$subcat->name}}</span></a></div>
         @endforeach
     </div>
   </div>
@@ -150,17 +150,25 @@
   </div>
 <!-- start centros comerciales OJO "cccc=centros comerciales"-->
 <!-- end centros comerciales -->
-<!--Start Product-->
-<div class="shopProduct" style="background: #FFF;z-index: -1">
-    <div class="shopProduct__wrap dflex container" >
-        <div class="product__item col-lg-12 col-12">
 
-            <ul class="filterProduct gridRow" id="mostrar">
-                
+<!--Start Product-->
+<div class="singleProduct ajaxProduct featureProduct section6" style="background: #fff; border-radius: 20px; margin-top: 20px; padding-top: 10px;z-index: -1" id="ocultar101">
+    <div class="feature__filter container colw">
+        <div class="col-12" style="height:50px; background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%);padding: 15px; border-radius:7px" id="ocultar102">
+            <span class="bold20" style="color: rgb(255, 255, 255)187, 187, 187); text-align:left">Resultados<a class="xlight12" style="color: #ffffff" href="{{ url('productos') }}"> Ver productos</a></span>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="tabs">
+            <ul class="featureSlider">
+                <li id="mostrar" class="features__grid active">
+                </li>
             </ul>
         </div>
     </div>
 </div>
+
 
 <!-- Sin Resultados -->
 <div class="shopProduct" id="resultado" style="z-index: -1">
@@ -218,6 +226,8 @@
         
         $mostrarcategoria = $('#categoria');
         $resultado.hide();
+        $('#ocultar101').hide();
+        $('#ocultar102').hide();
         //onloadPuesto('feriaTacna');
         $('#mostrar').hide();
         $('ul#tags li').click( function() {
@@ -262,6 +272,8 @@
                 $('#ocultar89').show();
                 $('#ocultarBanner4').show();
                 $('#ocultar100').show();
+                $('#ocultar101').hide();
+                $('#ocultar102').hide();
                 $tiendas.show();
                 $ella.show();
                 $tiendas2.show();
@@ -282,6 +294,8 @@
                 $('#categoria').hide();
                 $('#prod').hide();
                 $ella.hide();
+                $('#ocultar101').show();
+                $('#ocultar102').show();
                 $('#mostrar').show();
             }
         });
@@ -368,19 +382,31 @@
             }
             data.forEach(productos => {
                 htmlOptions += 
-                `<li class="product__item">`+
-                    `<div class="product__image"><a href="{{ url('/producto/${productos.id}/detailProd') }}" target="black"><img src="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}" alt=""></a>`+
-                        `<div class="image__tools"><i class="fas fa-search"></i>`+
-                            `<i class="fas fa-random"></i>`+
-                            `<i class="far fa-heart"></i>`+
+                `<div class="features__item col-lg-3 col-sm-4 col-6 shad" style="margin:auto; margin-bottom: 10px; border-radius: 15px">`+
+                    `<div class="features__image" style="border-radius: 15px">`+
+                        `<a href="{{ url('/producto/${productos.id}/detailProd') }}" target="_blank">`+
+                        `<img class="imgh" src="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"  width="100%" alt="" style="border: 5px solid #fff; border-radius: 15px">`+
+                        `</a>`+
+                        `<div class="precio1" style="padding:5px;position: absolute; bottom:0;right:0px;background-color:#fff">`+
+                            `<span class="bold15" style="color:#ff1a00"><strong>S/.${productos.precio}</strong></span>`+
                         `</div>`+
                     `</div>`+
-                    `<div class="product__content" style="width:100%"><a class="link-title" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black" style="font-size:30px">${productos.name}</a>`+
-                        `<p class="price" style="font-size:25px">S./${productos.precio}</p>`+
-                        `<div class="color"></div>`+
-                        `<p style="font-size:15px">${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black">Ver Producto</a>`+
+                    `<div class="features__content contenido">`+
+                        `<div class="row">`+
+                            `<div class="col-lg-9 col-sm-9 col-12">`+
+                                `<p class="fontn medium12" style="color: #333333; text-align:left">${productos.name}</p>`+
+                            `</div>`+
+                            `<div class="col-lg-3 col-sm-3 col-12 precio" style="padding-left:0px;padding-right:0px;">`+
+                                `<span class="bold15" style="color:#ff1a00"><strong>S/.${productos.precio}</strong></span>`+
+                            `</div>`+
+                        `</div>`+
+                        `<div class="control dflex" style="position:absolute;bottom: 3%; left: 0; right: 0">`+
+                            `<a href="#"><i class="far fa-heart"></i></a>`+
+                            `<a class="btn active" style="border-radius:3px; padding: 5px" href="{{ url('/puesto/${productos.puesto}/detail') }}"><span class="bold10">Visitar Tienda</span></a>`+
+                            `<a href="#"><i class="fas fa-cart-plus"></i></a>`+
+                        `</div>`+
                     `</div>`+
-                `</li>`;
+                `</div>`;
             });
             $mostrar.html(htmlOptions);
         }

@@ -179,7 +179,7 @@ box-shadow: 0px 1px 14px -7px rgba(0,0,0,1);
     .divnombre{
         top: 25%;
         bottom: 0;
-        margin-left: -120px
+        margin-left: -110px
     }
     @media (max-width: 800px) {
     .divnombre {
@@ -271,7 +271,7 @@ box-shadow: 0px 1px 14px -7px rgba(0,0,0,1);
         padding-top: 7px;
     }
     .contenido1{
-        height: 60px;
+        height: 70px;
         padding-top: 7px;
     }
     @media (max-width: 600px) {
@@ -280,7 +280,7 @@ box-shadow: 0px 1px 14px -7px rgba(0,0,0,1);
             padding-top: 0px;
         }
         .contenido1{
-            height: 40px;
+            height: 55px;
             padding-top: 0px;
         }
     .precio {

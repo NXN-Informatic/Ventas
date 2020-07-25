@@ -268,7 +268,7 @@ class ProductoController extends Controller
                 );
             }
         }else{
-            $productos = Producto::where('name', 'like', '%'.$name.'%')->get();
+            $productos = Producto::where('name', 'like', '%'.$name.'%')->where('activo','1')->get();
             foreach($productos as $producto) {
                 $image = ImagenProducto::where('producto_id', $producto->id)->first();
                 $data[] = array(

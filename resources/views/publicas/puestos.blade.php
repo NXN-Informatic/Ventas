@@ -28,7 +28,7 @@
             </div>
             <div class="col-lg-7 col-sm-8 col-8" style="position: relative">
                 <div class="divnombre" style="position: absolute">
-                    <span class="nombre" style="color: {{$puesto->colornombre}}">{{ $puesto->name}}</span>
+                    <span class="nombre" style="color: #fff">{{ $puesto->name}}</span>
                 </div>
                 <div class="row" style="bottom: 0; right:15%; position: absolute">
                     @if($puesto->wsp)
@@ -91,7 +91,7 @@
                         </div>
                         <div class="col-12">
                             <h1 class="bold12" style="color: #000;text-align:left; margin: 10px"><i class="fas fa-store" style="color: #ff1a00"></i>  Descripción</h1>
-                            <p class="text-left xlight11" style="color: #000; margin:10px">{{$puesto->description}}</p>
+                            <p class="text-left light12" style="color: #000; margin:10px">{{$puesto->description}}</p>
                             <br>
                         </div>
                         <hr style="color: #f2f2f2"> 
@@ -135,95 +135,51 @@
                         <div class="singleProduct ajaxProduct featureProduct section6" style="background: #fff; border-radius: 20px; padding-top:0px">
                             <div class="feature__filter">
                                 <div class="tab__control dflex" style="margin-top: 0px;margin-bottom: 3px">
-                                    <?php $gaux=1; ?>
-                                    @foreach($puesto->puestosubcategorias as $puestosubcategorias)
-                                        @foreach($puestosubcategorias->grupos as $grupos)
-                                            @if ($gaux != 1)
-                                                <div class="tab__item bold12">{{$grupos->name}}</div>
-                                            @else
-                                                <div class="tab__item active bold12">{{$grupos->name}}</div>
-                                                <?php $gaux=0; ?>
-                                            @endif
-                                        @endforeach
-                                    @endforeach
+                                    <div class="tab__item active bold12">Nuestros Productos</div>
                                 </div>
                                 <div class="tabs">
                                     <ul class="featureSlider">
                                         <?php $gaux=1; ?>
-                                        @foreach($puesto->puestosubcategorias as $puestosubcategorias)
-                                            @foreach($puestosubcategorias->grupos as $grupos)
-                                                @if ($gaux != 1)
-                                                    <li class="features__grid">
-                                                        @foreach($grupos->productos as $producto)
-                                                            @if ($producto->activo)
-                                                                <?php $imagen = null; ?>
-                                                                <?php $imagen = $producto->imagen_productos->first(); //solo una imagen x producto?>
-                                                                @if($imagen != null)
-                                                                    <div class="features__item col-lg-4 col-sm-4 col-6 shad" style="margin:auto; margin-bottom: 10px; border-radius: 15px">
-                                                                        <div class="features__image" style="border-radius: 15px">
-                                                                            <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank">
-                                                                            <img class="imgh shad" src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="100%" alt="" style="border: 5px solid #fff; border-radius: 15px">
-                                                                            </a>
-                                                                            <div class="precio1" style="padding:5px;position: absolute; bottom:0;right:0px;background-color:#fff">
-                                                                                <span class="bold15" style="color:#ff1a00"><strong>S/. {{$producto->precio}}</strong></span>
+                                        <li class="features__grid active">
+                                            @foreach($puesto->puestosubcategorias as $puestosubcategorias)
+                                                @foreach($puestosubcategorias->grupos as $grupos)
+                                                    @foreach($grupos->productos as $producto)
+                                                        @if ($producto->activo)
+                                                            <?php $imagen = null; ?>
+                                                            <?php $imagen = $producto->imagen_productos->first(); //solo una imagen x producto?>
+                                                            @if($imagen != null)
+                                                                <div class="features__item col-lg-4 col-sm-4 col-6 shad" style="margin:auto; margin-bottom: 10px;border-radius: 15px">
+                                                                    <div class="features__image" style="border-radius: 15px">
+                                                                        <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank">
+                                                                        <img class="imgh" src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="100%" alt="" style="border: 5px solid #fff;border-radius: 15px">
+                                                                        </a>
+                                                                        <div class="precio1" style="padding:5px;position: absolute; bottom:0;right:0px;background-color:#fff">
+                                                                            <span class="bold15" style="color:#ff1a00"><strong>S/. {{$producto->precio}}</strong></span>
+                                                                        </div>
+                                                                    </div> 
+                                                                    <div class="features__content contenido1">
+                                                                        <div class="row">
+                                                                            <span class="light11" style="color: #000; text-align:left;margin-left:15px">{{$producto->grupo->name}}</span>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-lg-9 col-sm-9 col-12" style="padding-right:0px;">
+                                                                                <p class="fontn medium12" style="color: #333333; text-align:left">{{$producto->name }}</p>
                                                                             </div>
-                                                                        </div> 
-                                                                        <div class="features__content contenido1">
-                                                                            <div class="row">
-                                                                                <div class="col-lg-9 col-sm-9 col-12" style="padding-right:0px;">
-                                                                                    <p class="fontn medium12" style="color: #333333; text-align:left">{{$producto->name }}</p>
-                                                                                </div>
-                                                                                <div class="col-lg-3 col-sm-3 col-12 precio" style="padding-left:0px;padding-right:0px;">
-                                                                                    <span class="bold15" style="color:#ff1a00; margin-left:-15px"><strong>S/. {{$producto->precio}}</strong></span>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="control dflex" style="position:absolute;bottom: 3%; left: 0; right: 0">
-                                                                                <a href="#"><i class="far fa-heart"></i></a><br><a href="#"><i class="fas fa-cart-plus" style="margin-left: 15px"></i></a>
+                                                                            <div class="col-lg-3 col-sm-3 col-12 precio" style="padding-left:0px;padding-right:0px;">
+                                                                                <span class="bold15" style="color:#ff1a00; margin-left:-15px"><strong>S/. {{$producto->precio}}</strong></span>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                @endif
-                                                            @endif
-                                                        @endforeach
-                                                    </li>
-                                                @else
-                                                    <li class="features__grid active">
-                                                        @foreach($grupos->productos as $producto)
-                                                            @if ($producto->activo)
-                                                                <?php $imagen = null; ?>
-                                                                <?php $imagen = $producto->imagen_productos->first(); //solo una imagen x producto?>
-                                                                @if($imagen != null)
-                                                                    <div class="features__item col-lg-4 col-sm-4 col-6 shad" style="margin:auto; margin-bottom: 10px;border-radius: 15px">
-                                                                        <div class="features__image" style="border-radius: 15px">
-                                                                            <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank">
-                                                                            <img class="imgh" src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="100%" alt="" style="border: 5px solid #fff;border-radius: 15px">
-                                                                            </a>
-                                                                            <div class="precio1" style="padding:5px;position: absolute; bottom:0;right:0px;background-color:#fff">
-                                                                                <span class="bold15" style="color:#ff1a00"><strong>S/. {{$producto->precio}}</strong></span>
-                                                                            </div>
-                                                                        </div> 
-                                                                        <div class="features__content contenido1">
-                                                                            <div class="row">
-                                                                                <div class="col-lg-9 col-sm-9 col-12" style="padding-right:0px;">
-                                                                                    <p class="fontn medium12" style="color: #333333; text-align:left">{{$producto->name }}</p>
-                                                                                </div>
-                                                                                <div class="col-lg-3 col-sm-3 col-12 precio" style="padding-left:0px;padding-right:0px;">
-                                                                                    <span class="bold15" style="color:#ff1a00; margin-left:-15px"><strong>S/. {{$producto->precio}}</strong></span>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="control dflex" style="position:absolute;bottom: 3%; left: 0; right: 0">
-                                                                                <a href="#"><i class="far fa-heart"></i></a><br><a href="#"><i class="fas fa-cart-plus" style="margin-left: 15px"></i></a>
-                                                                            </div>
+                                                                        <div class="control dflex" style="position:absolute;bottom: 3%; left: 0; right: 0">
+                                                                            <a href="#"><i class="far fa-heart"></i></a><br><a href="#"><i class="fas fa-cart-plus" style="margin-left: 15px"></i></a>
                                                                         </div>
                                                                     </div>
-                                                                @endif
+                                                                </div>
                                                             @endif
-                                                        @endforeach
-                                                    </li>
-                                                    <?php $gaux=0; ?>
-                                                @endif
+                                                        @endif
+                                                    @endforeach
+                                                @endforeach
                                             @endforeach
-                                        @endforeach
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
