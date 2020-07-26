@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('welcome', compact('puestos','categorias', 'productos', 'tiendas','pst','subcategorias','cccc'));
 });
 
+Route::get('/negocio','Corporativa@index');
+
 Auth::routes();
 /**
  * Rutas Publicas
