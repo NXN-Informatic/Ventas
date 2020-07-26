@@ -24,7 +24,10 @@ Route::get('/', function () {
     return view('welcome', compact('categorias', 'productos', 'tiendas','pst','subcategorias','cccc','prodsxtienda'));
 });
 
-Route::get('/negocio','Corporativa@index');
+Route::get('/negocio','Corporativa@index')->name('negocio');
+Route::get('/quienes_somos','Corporativa@quienes')->name('somos');
+Route::get('/precios','Corporativa@precios')->name('precios');
+Route::get('/contacto','Corporativa@contacto')->name('contacto');
 
 Auth::routes();
 /**
