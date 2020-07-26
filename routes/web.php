@@ -8,14 +8,20 @@ use App\Producto;
 use App\Puesto;
 
 Route::get('/', function () {
-    $puestos = collect();
-    $productos = Producto::where('activo','1')->limit(8)->get();
-    $pst = Puesto::where('completado',1)->inRandomOrder()->limit(4)->get();
+    $productos = Producto::where('activo','1')->inRandomOrder()->limit(8)->get();
+    $prodsxtienda = collect();
+    $pst = Puesto::where('completado',1)->inRandomOrder()->limit(5)->get();
+    foreach ($pst as $puesto) {
+        $prods = Producto::join('grupos','productos.grupo_id','grupos.id')
+        ->join('puesto_subcategorias','puesto_subcategorias.id','grupos.puestosubcategoria_id')
+        ->select('productos.*')->where('puesto_subcategorias.puesto_id',$puesto->id)->where('productos.activo',1)->inRandomOrder()->limit(3)->get();
+        $prodsxtienda->push($prods);
+    }
     $tiendas = collect();
     $categorias = Categoria::all();
     $subcategorias = Subcategoria::select('subcategorias.*')->inRandomOrder()->get();
     $cccc = CentrosComerciale::all()->random(4);
-    return view('welcome', compact('puestos','categorias', 'productos', 'tiendas','pst','subcategorias','cccc'));
+    return view('welcome', compact('categorias', 'productos', 'tiendas','pst','subcategorias','cccc','prodsxtienda'));
 });
 
 Route::get('/negocio','Corporativa@index');
@@ -104,8 +110,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/producto/switch/{producto}', 'Cliente\ProductoController@switch');
     
     // categorias
-    Route::get('/categoria/editar', 'Cliente\ProductoController@editargrupo');
-    Route::post('/categoria/update', 'Cliente\ProductoController@updategrupo');
+    Route::get('/categorias/editar', 'Cliente\ProductoController@editargrupo');
+    Route::post('/categorias/update', 'Cliente\ProductoController@updategrupo');
 
     // Subida de Imagenesgitpu
     Route::post('/imagen/{ip}/delete', 'Cliente\ProductoController@deleteimagen');

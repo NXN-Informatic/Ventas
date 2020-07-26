@@ -84,6 +84,9 @@ box-shadow: 0px 1px 14px -7px rgba(0,0,0,1);
     .fontn {
         font-size: 9px;
     }
+    .logoreg{
+        padding: 30px;
+    }
     }
     .logo{
         height: 180px;
@@ -91,6 +94,9 @@ box-shadow: 0px 1px 14px -7px rgba(0,0,0,1);
         border-radius:50%;
         display:none;
         margin: 10px 50px;
+    }
+    .logoreg{
+        padding: 50px;
     }
     @media (max-width: 800px) {
     .logo {
@@ -142,7 +148,27 @@ box-shadow: 0px 1px 14px -7px rgba(0,0,0,1);
         font-weight: bold
     }
     }
+    .top100{
+        margin-top: 20px;
+    }
+    .top101{
+        margin-top: 100px;
+    }
+
+    .top50{
+        margin-top: 50px;
+
+    }
     @media (max-width: 600px) {
+    .top100{
+        margin-top: 0;;
+    }
+    .top101{
+        margin-top: 0px;
+    }
+    .top50{
+        margin-top: 0px
+    }
     .nombre {
         font-size: 16px;
         font-weight: bold;
@@ -153,7 +179,7 @@ box-shadow: 0px 1px 14px -7px rgba(0,0,0,1);
     .divnombre{
         top: 25%;
         bottom: 0;
-        margin-left: -120px
+        margin-left: -110px
     }
     @media (max-width: 800px) {
     .divnombre {
@@ -245,7 +271,7 @@ box-shadow: 0px 1px 14px -7px rgba(0,0,0,1);
         padding-top: 7px;
     }
     .contenido1{
-        height: 60px;
+        height: 70px;
         padding-top: 7px;
     }
     @media (max-width: 600px) {
@@ -254,7 +280,7 @@ box-shadow: 0px 1px 14px -7px rgba(0,0,0,1);
             padding-top: 0px;
         }
         .contenido1{
-            height: 40px;
+            height: 55px;
             padding-top: 0px;
         }
     .precio {
@@ -498,7 +524,7 @@ box-shadow: 0px 1px 14px -7px rgba(0,0,0,1);
         margin-top:10px;
     }
     }
-
+    
     .ontop3{
         margin-top:120px
     }
@@ -508,8 +534,13 @@ box-shadow: 0px 1px 14px -7px rgba(0,0,0,1);
     }
     }
     @media (max-width: 600px) {
+        .logoregistro {
+            width: 80%;
+        }
     .ontop3 {
         margin-top:10px;
+        padding-left: 0px;
+        padding-right: 0px;
     }
     }
 
@@ -536,6 +567,9 @@ box-shadow: 0px 1px 14px -7px rgba(0,0,0,1);
         font-weight: 300;
         font-size: 13px;
         color: rgb(65, 65, 65);
+    }
+    .formregistro{
+        margin-top: 50px;
     }
     @media (max-width: 800px) {
     .desc p {
@@ -566,5 +600,30 @@ box-shadow: 0px 1px 14px -7px rgba(0,0,0,1);
     .btnbannerprod {
         right:10%;
         bottom:60%;
+    
+    }
+    .formregistro{
+        margin-top: 10px;
     }
     }
+
+    input[type="text"] {
+        font-size: 12px;
+        color: rgb(124, 124, 124);
+      }
+    ::-webkit-input-placeholder {
+        color: #a0a0a0;
+        font-size: 12px;
+      }
+      ::-moz-placeholder {
+        color: #a0a0a0;
+        font-size: 12px;
+      }
+      :-ms-input-placeholder {
+        color: #a0a0a0;
+        font-size: 12px;
+      }
+      ::placeholder {
+        color: #a0a0a0;
+        font-size: 12px;
+      }

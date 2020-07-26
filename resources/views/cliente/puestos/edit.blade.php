@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-lg-2 col-sm-2 col-4">
                     @if(auth()->user()->usuario_puestos->first()->puesto->perfil)
-                        <img src="{{ asset('storage/'.auth()->user()->usuario_puestos->first()->puesto_id.'/logo/'.auth()->user()->usuario_puestos->first()->puesto->perfil)  }}" width="100" height="100" class="img-fluid rounded-circle mb-2" style="border: 6px solid #fff">
+                        <img src="{{ asset('storage/'.auth()->user()->usuario_puestos->first()->puesto_id.'/logo/'.auth()->user()->usuario_puestos->first()->puesto->perfil)  }}" width="100" height="100" class="img-fluid rounded-circle mb-2" style="background-color: #fff;border: 6px solid #fff">
                     @else
                         <img src="{{ asset('img/defecto/avatar-159236_1280.png') }}" width="100" height="100" class="rounded-circle mt-2" style="border: 6px solid #fff">
                     @endif
@@ -40,10 +40,6 @@
                         <div class="card-header">
                             <h4>{{ __('Información de la Tienda') }}</h4>
                         </div>
-                        
-                        <div class="col text-right">
-                            <a href="{{ url('home') }}" class="btn btn-secondary">Regresar</a>
-                        </div>
                         <div class="card-body">
                             @if($errors->any())
                             <div class="alert alert-danger alert-dismissible" role="alert">
@@ -68,7 +64,7 @@
                             @endif
                             <div class="form-group">
                             <strong><label class="form-label" for="name">Nombre de su Tienda</label></strong>
-                                <small class="form-text text-muted">{{ __('Indique el nombre de la Tienda como quiera que aparezca para sus clientes. Puede cambiar el nombre de su tienda en cualquier momento.') }}</small>
+                                <small class="form-text text-muted">{{ __('Indique el nombre de la Tienda. Puede cambiarlo en cualquier momento.') }}</small>
                                 <input style="margin-top:7px" type="text" class="form-control form-control-lg" name="name" value="{{ old('name', $puesto->name) }}" required>
                                 <small class="form-text text-muted">{{ __('Campo Requerido.') }}</small>
                             </div>
@@ -119,12 +115,6 @@
                                 </select>
                                 </div>
                             </div>
-                            <div class="form-group">
-                            <strong><label class="form-label" for="description">Resumen de tu Tienda</label></strong>
-                                <small class="form-text text-muted" style="margin-bottom: 7px" >{{ __('Describe brevemente qué encontrarán tus clientes dentro de tu Tienda. (Máx 2 líneas o 40 palabras)') }}</small>
-                                <textarea name="description" maxlength="250" data-provide="markdown" rows="6">{{ old('description', $puesto->description) }}</textarea>
-                            </div>
-                    
                         </div>
                     </div>
                 </div>
@@ -201,9 +191,10 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body text-center">
-                            <button type="submit" class="btn btn-primary btn-lg"><span style="margin-left: 83px; margin-right: 83px">Guardar datos</span></button>
+                            <button type="submit" class="btn btn-primary btn-lg" style="background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%);"><span>Guardar cambios</span></button>
                         </div>
                     </div>
+                    <br>
                 </div>
             </div>
         </form>

@@ -134,22 +134,10 @@
                             </div>
                         </div>
                         <hr style="color: #fff"> 
-                        <div class="col-lg-12" style="padding-left: 10px">
+                        <div id="contacto" class="col-lg-12" style="padding-left: 10px">
                             <h1 class="bold12" style=" color: #444;text-align:left; margin: 10px"><i class="fas fa-phone" style="color: #ff1a00"></i>  Contacto</h1>
-                            <div class="row" style="align-items: center">
-                                <div class="col text-center">
-                                    <a href="{{ url('https://api.whatsapp.com/send?phone=51'.$puesto->wsp.'&text=Hola!%20Pasé%20por%20tu%20tienda%20y%20tengo%20una%20consulta:%20') }}" target="_blank" class="btn btnb" style="background-color: #25d366; border-color: #25d366;margin:5px;width:60px; height:35px; padding:5px;"><i class="fas icofont-brand-whatsapp icono1" style="color: #fff"></i></a>
-                                    <a href="{{ url('#') }}" target="_blank" class="btn btnb" style="background-color: #0084ff; border-color: #0084ff; margin:5px;width:60px; height:35px; padding:5px"><i class="fas icofont-facebook-messenger icono1" style="color: #fff"></i></a>
-                                    <a href="{{ $puesto->fbpage ? $puesto->fbpage:'#'}}" target="_blank" class="btn btnb" style="background-color: #3b5998; border-color: #3b5998; margin: 5px;width:60px; height:35px; padding:5px"><i class="fas icofont-facebook icono1" style="color: #fff"></i></a>
-                                </div>
-                            </div>
-                            @if($puesto->phone)
-                                <span class="regular13" style="color: #444;"><i class="fas icofont-smart-phone" style="font-size: 16px; padding: 10px; color: #ff1a00"></i> {{ $puesto->phone }}</span>
-                            @endif
-                            <br>
-                            @if($puesto->phone2)
-                                <span class="regular13" style="color: #444;"><i class="fas icofont-smart-phone" style="font-size: 16px; padding: 10px; color: #ff1a00"></i> {{ $puesto->phone2 }}</span>
-                            @endif
+                            <button id="contactar" class="btn btn-primary" style="background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%); border-radius: 5%; margin-bottom: 10px"><i class="fas icofont-brand-whatsapp" style="font-size: 2rem; color: #fff"></i><span style="color: #fff; margin-left: 10px">Contactar</span></button>
+                            
                         </div>
                         <hr style="color: #fff"> 
                         <div class="col-12">
@@ -193,34 +181,35 @@
                     @foreach($producto->grupo->puestosubcategoria->puesto->puestosubcategorias as $puestosubcategoria)
                         @foreach($puestosubcategoria->grupos as $grupo)
                             @foreach($grupo->productos as $productos)
-                                <?php $imagen = null; ?>
-                                @foreach($productos->imagen_productos as $imagen) @endforeach
+                                <?php $imagen = null; 
+                                    $imagen = $productos->imagen_productos->first();
+                                ?>
                                 @if($imagen)
-                                <a href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="_blank">
-                                    <div class="features__item col-lg-3 col-sm-4 col-6 shad" style="margin:auto; margin-bottom: 10px; border-radius: 10%">
-                                        <div class="features__image">
-                                            <a href="{{ url('/producto/'.$producto->id.'/detailProd') }}" target="_blank">
-                                            <img class="imgh" src="{{ asset('storage/'.$producto->grupo->puestosubcategoria->puesto->id.'/'.$producto->id.'/'.$imagen->imagen) }}"  width="100%" alt="" style="border: 5px solid #fff; border-radius: 10%">
-                                            </a>
-                                            <div class="precio1" style="padding:5px;position: absolute; bottom:0;right:0px;background-color:#fff">
-                                                <span class="bold15" style="color:#ff1a00"><strong>S/. {{$producto->precio}}</strong></span>
-                                            </div>
-                                        </div> 
-                                        <div class="features__content contenido1">
-                                            <div class="row">
-                                                <div class="col-lg-8 col-sm-8 col-12" style="padding-right:0px;">
-                                                    <p class="fontn medium12" style="color: #333333; text-align:left">{{$producto->name }}</p>
+                                    <a href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="_blank">
+                                        <div class="features__item col-lg-3 col-sm-4 col-6 shad" style="margin:auto; margin-bottom: 10px; border-radius: 10%">
+                                            <div class="features__image">
+                                                <a href="{{ url('/producto/'.$productos->id.'/detailProd') }}" target="_blank">
+                                                <img class="imgh" src="{{ asset('storage/'.$productos->grupo->puestosubcategoria->puesto->id.'/'.$productos->id.'/'.$imagen->imagen) }}"  width="100%" alt="" style="border: 5px solid #fff; border-radius: 10%">
+                                                </a>
+                                                <div class="precio1" style="padding:5px;position: absolute; bottom:0;right:0px;background-color:#fff">
+                                                    <span class="bold15" style="color:#ff1a00"><strong>S/. {{$productos->precio}}</strong></span>
                                                 </div>
-                                                <div class="col-lg-4 col-sm-4 col-12 precio" style="padding-left:0px;padding-right:10px; text-align:right">
-                                                    <span class="bold15" style="color:#ff1a00; margin-left: 0px"><strong>S/.{{$producto->precio}}</strong></span>
+                                            </div> 
+                                            <div class="features__content contenido1">
+                                                <div class="row">
+                                                    <div class="col-lg-8 col-sm-8 col-12" style="padding-right:0px;">
+                                                        <p class="fontn medium12" style="color: #333333; text-align:left">{{$productos->name }}</p>
+                                                    </div>
+                                                    <div class="col-lg-4 col-sm-4 col-12 precio" style="padding-left:0px;padding-right:10px; text-align:right">
+                                                        <span class="bold15" style="color:#ff1a00; margin-left: 0px"><strong>S/.{{$productos->precio}}</strong></span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="control dflex" style="position:absolute;bottom: 3%; left: 0; right: 0">
-                                                <a href="#"><i class="far fa-heart"></i></a><br><a href="#"><i class="fas fa-cart-plus" style="margin-left: 15px"></i></a>
+                                                <div class="control dflex" style="position:absolute;bottom: 3%; left: 0; right: 0">
+                                                    <a href="#"><i class="far fa-heart"></i></a><br><a href="#"><i class="fas fa-cart-plus" style="margin-left: 15px"></i></a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </a>
+                                    </a>
                                 @endif
                             @endforeach
                         @endforeach
@@ -285,7 +274,43 @@
 @endif
 
 @section('scripts')
-  
+<script>
+ 
+    $(document).ready(function(){
+     $('#contactar').on('click', function(){ //on file input change
+        if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
+        {
+            $('#contacto').empty();
+            var img =  `<h1 class="bold12" style=" color: #444;text-align:left; margin: 10px"><i class="fas fa-phone" style="color: #ff1a00"></i>  Contacto</h1>`+
+                            `<button id="contactar" class="btn btn-primary" style="background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%); border-radius: 5%; margin-bottom: 10px"><i class="fas icofont-brand-whatsapp" style="font-size: 2rem; color: #fff"></i><span style="color: #fff; margin-left: 10px">Contactar</span></button>`+
+                            `<div class="row" style="align-items: center;">`+
+                                `<div class="col text-center">`+
+                                    `@if($puesto->wsp)`+
+                                        `<a href="{{ url('https://api.whatsapp.com/send?phone=51'.$usuario_puestos->puesto->wsp.'&text=Hola!%20Me%20interesa%20este%20producto:%20'.$producto->producto_url.'%20¿Está disponible?') }}" target="_blank" class="btn btnb" style="background-color: #25d366; border-color: #25d366;margin:5px;width:60px; height:35px; padding:5px;"><i class="fas icofont-brand-whatsapp icono1" style="color: #fff"></i></a>`+
+                                    `@endif`+
+                                    `@if($puesto->fbpageid)`+
+                                        `<a href="{{ url('#') }}" target="_blank" class="btn btnb" style="background-color: #0084ff; border-color: #0084ff; margin:5px;width:60px; height:35px; padding:5px"><i class="fas icofont-facebook-messenger icono1" style="color: #fff"></i></a>`+
+                                    `@endif`+
+                                    `@if($puesto->fbpage)`+
+                                        `<a href="{{ $puesto->fbpage ? $puesto->fbpage:'#'}}" target="_blank" class="btn btnb" style="background-color: #3b5998; border-color: #3b5998; margin: 5px;width:60px; height:35px; padding:5px"><i class="fas icofont-facebook icono1" style="color: #fff"></i></a>`+
+                                    `@endif`+
+                                `</div>`+
+                            `</div>`+
+                            `@if($puesto->phone)`+
+                                `<span class="regular13" style="color: #444;"><i class="fas icofont-smart-phone" style="font-size: 16px; padding: 10px; color: #ff1a00"></i> {{ $puesto->phone }}</span>`+
+                            `@endif`+
+                            `<br>`+
+                            `@if($puesto->phone2)`+
+                                `<span class="regular13" style="color: #444;"><i class="fas icofont-smart-phone" style="font-size: 16px; padding: 10px; color: #ff1a00"></i> {{ $puesto->phone2 }}</span>`+
+                            `@endif`;
+                    $('#contacto').append(img); //append image to output element
+        }else{
+            alert("Your browser doesn't support File API!"); //if File API is absent
+        }
+     });
+    });
+     
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js"></script>
   <script src="{{ asset('js/publicas/detailProduc.js') }}"></script>
   <script>

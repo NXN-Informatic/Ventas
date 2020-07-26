@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Producto;
 use App\Categoria;
+use App\Subcategoria;
 use App\Puesto;
 use App\Pago;
 use App\Grupo;
 use App\Entrega;
+use App\EntregaPuesto;
+use App\PagoPuesto;
 use App\ImagenProducto;
 use App\UsuarioPuesto;
 use App\PuestoSubcategoria;
@@ -62,7 +65,6 @@ class PublicController extends Controller
         // dd($request->only('name','categoria_id', 'phone'));
         $rules = [
             'name'          =>  'required|min:3|max:28|unique:puestos',
-            'phone'         =>  'min:9|max:12|required',
             'subcategoria_id' => 'required'
         ];
         $this->validate($request, $rules);
@@ -70,45 +72,46 @@ class PublicController extends Controller
         if(auth()->user()->maxpuestos > 0) {
             $puesto = Puesto::create([
                 'name' => $request->input('name'),
-                'phone' => $request->input('phone'),
-                'phone2' => $request->input('phone2'),
                 'maxsubcategorias' => 10,
                 'plan_id' => 1,
+                'cencom_id' => 1,
             ]);
             $subcategorias = $request->input('subcategoria_id');
-            if($request->input('wsp')) {
+            /*if($request->input('wsp')) {
                 $puesto->wsp=$request->input('phone');
-            }
-            $puesto->cencom_id = $request->input('cencom');
+            }*/
+            /*$puesto->cencom_id = $request->input('cencom');*/
+            
             if($subcategorias != null) {
-                             
                 foreach($subcategorias as $subcategoria) {
                     $ps = PuestoSubcategoria::create([
                         "puesto_id"         =>  $puesto->id,
                         "subcategoria_id"   =>  $subcategoria
                     ]);
-                    $aux = 1;
-                    if($aux>0){
-                        Grupo::create([
-                            "name" => "Nuestros productos",
-                            'descripcion' => "Categoria por defecto",
-                            'puestosubcategoria_id' => $ps->id,
-                            'activo' => 1
-                        ]);
-                        $aux=$aux-1;
-                    }
+                    $subcat=Subcategoria::find($subcategoria);
+                    Grupo::create([
+                        "name" => $subcat->name,
+                        'descripcion' => "Categoria por defecto",
+                        'puestosubcategoria_id' => $ps->id,
+                        'activo' => 1
+                    ]);
                 }
                 UsuarioPuesto::create([
                     'usuario_id' => auth()->user()->id,
                     'puesto_id'  => $puesto->id
                 ]);
             }
+            $pago= Pago::find('1');
+            PagoPuesto::create([
+                "puesto_id"         =>  $puesto->id,
+                "pago_id"   =>  $pago->id
+            ]);
             
-            $contents = file_get_contents('./img/logost.jpg');
-            $fileName = 'public/'.$puesto->id.'/logo/logoxdefecto.jpg';
+
+            $contents = file_get_contents('./img/logonuevo.png');
+            $fileName = 'public/'.$puesto->id.'/logo/logoxdefecto.png';
             \Storage::disk('local')->put($fileName,  $contents);
-            $puesto->perfil = 'logoxdefecto.jpg';
-        
+            $puesto->perfil = 'logoxdefecto.png';
             $contents = file_get_contents('./img/defecto/bannerdefecto.jpg');
             $fileName = 'public/'.$puesto->id.'/banner/bannerxdefecto.jpg';
             \Storage::disk('local')->put($fileName, $contents);
@@ -122,11 +125,7 @@ class PublicController extends Controller
     public function completar(){
         $up = UsuarioPuesto::where('usuario_id', auth()->user()->id)->first();
         $puesto=$up->puesto_id;
-        $formapagos = Pago::all();
-        //$pago_id = old('pago_id');
-        $formaentregas = Entrega::all();
-
-        return view('publicas.tienda2', compact('formaentregas','formapagos','puesto'));
+        return view('publicas.tienda2', compact('puesto'));
     }
     public function centrocomercial(Centroscomerciale $centrocomercial){
         $categorias = Categoria::all();

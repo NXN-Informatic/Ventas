@@ -17,7 +17,7 @@
     <div class="clients__wrap dflex" id="wrap">
         <div class="client__item" style="margin-left: 10px"><a href="{{ url('/tiendas/destacadas') }}"><span class="bold15 subcategoria">Tiendas</span></a></div>
         @foreach ($subcategorias as $subcat)
-    <div class="client__item" style="margin-left: 10px"><a href="{{ url('/categoria/'.$subcat->name) }}"><span class="bold12 subcategoria">{{$subcat->name}}</span></a></div>
+    <div class="client__item" style="margin-left: 15px"><a href="{{ url('/categoria/'.$subcat->name) }}"><span class="bold12 subcategoria">{{$subcat->name}}</span></a></div>
         @endforeach
     </div>
   </div>
@@ -25,10 +25,10 @@
   <br>
 @include('layouts.components.banner')
 
-<div class="singleProduct ajaxProduct featureProduct section6" style="background: #fff; border-radius: 20px; margin-top: 40px; padding-top: 10px">
+<div class="singleProduct ajaxProduct featureProduct section6" style="background: #fff; border-radius: 20px; margin-top: 40px; padding-top: 10px" id="ocultar100">
     <div class="feature__filter container colw">
         <div class="col-12" style="height:50px; background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%);padding: 15px; border-radius:7px">
-            <span class="bold20" style="color: rgb(255, 255, 255)187, 187, 187); text-align:left">Productos destacados<a class="xlight12" style="color: #ffffff" href="{{ url('productos') }}"> Ver productos</a></span>
+            <span class="bold16" style="color: rgb(255, 255, 255)187, 187, 187); text-align:left">Productos destacados<a class="xlight12" style="color: #ffffff" href="{{ url('productos') }}"> Ver productos</a></span>
         </div>
         <br>
         <br>
@@ -79,63 +79,49 @@
     </div>
 </div>
 
-<div class="blog container colw" style="background: #FFF; margin-top: 60px; padding:10px" id="ocultar89">
+<div class="blog container colw" style="background: #FFF; margin-top: 60px;" id="ocultar89">
     <div class="col-12" style="height:50px; background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%);padding: 15px; border-radius:7px">
-        <span class="bold20" style="color: #FFF; text-align:left">Tiendas Destacadas<a class="xlight12" style="color: #FFF" href="{{ url('/tiendas/destacadas') }}"> Ver tiendas</a></span>
+        <span class="bold16" style="color: #FFF; text-align:left">Tiendas Destacadas<a class="xlight12" style="color: #FFF" href="{{ url('/tiendas/destacadas') }}"> Ver tiendas</a></span>
     </div>
     <div class="feature__wrap" style="margin-bottom: 30px" >
         <div id="tiendas" class="blog__wrap dflex" style="padding: 0px">
-                <?php $paux = 0;?>
-                @foreach($pst as $ps)
-                    @if ($paux < 4)
-                        @if($ps->perfil != null)
-                            <?php $puestosubcategorias = $ps->puestosubcategorias->random(1)->first(); ?>
-                                @if($puestosubcategorias != null)
-                                    @if(count($puestosubcategorias->grupos) > 0)
-                                        <?php $aux=0; ?>
-                                        <?php $paux = $paux + 1; ?>
-                                        <div class="blog__item col-lg-3 col-sm-4 col-6 tiendah shad" style="background:#fff; padding: 3px;border-radius:15px; margin-bottom:5px;margin-top:5px">
-                                            <div class="blog__image" style="margin-left: 0px;">
-                                                <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank">
-                                                    <div style="background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%); width:100%; height:80px;border-radius:15px 15px 0px 0px"></div>   
-                                                    <!-- <img src="{ url('storage/'.$ps->id.'/banner/'.$ps->banner) }}" width="100%" alt="" height="100px" style="position: relative; z-index: 5; top: 0px; border: 3px solid #fff" class="shad"> -->
-                                                </a>
-                                            </div>
-                                            <div>
-                                                <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank">
-                                                    <img src="{{ url('storage/'.$ps->id.'/logo/'.$ps->perfil) }}" alt="" height="90px" width="90px" class="shad" style="position: relative; z-index: 6; top: -50px; border: 3px solid #fff; background: #fff; border-radius: 50%">
-                                                </a>
-                                            </div>
-                                            <div class="blog__content" style="margin-top: -60px">
-                                                <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank"><span class="regular13" style="color: #333333; display: inline-block"><strong>{{ $ps->name}}</strong></span><br><br></a>
-                                                <div class="row">
-                                                    @foreach ($puestosubcategorias->grupos as $grupos)
-                                                        @if (count($grupos->productos) > 0)
-                                                            @if($aux < 3)  
-                                                                <?php $imagen = null; 
-                                                                $gp = $grupos->productos->random(1)->first();?>
-                                                                @if ($gp->activo)
-                                                                    <?php $imagen = $gp->imagen_productos->first(); //solo una imagen x producto?>
-                                                                    @if($imagen != null)
-                                                                            <a href="{{ url('producto/'.$gp->id.'/detailProd')}}" style="margin:auto">                                       
-                                                                                <img src="{{ asset('storage/'.$ps->id.'/'.$gp->id.'/'.$imagen->imagen) }}" alt="" style="border: 2px solid #fff; margin: auto; border-radius: 10%" class="imgp shad">
-                                                                            </a>
-                                                                        <?php $aux = $aux+1; ?>
-                                                                    @endif
-                                                                @endif
-                                                            @endif
-                                                        @endif
-                                                    @endforeach
-                                                </div>
-                                                <br>
-                                                <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank"><span class="regular13" style="color: #ff1a00;">Ver tienda</span></a>
-                                            </div>
-                                        </div>
+            <?php $paux = 0;?>
+            @for ($i = 0; $i < count($pst); $i++)
+                @if ($paux < 4)
+                    <?php $ps = $pst[$i]; ?>
+                    <?php $paux = $paux + 1; ?>
+                    <div class="blog__item col-lg-3 col-sm-4 col-6 tiendah shad" style="background:#fff; padding: 0px;border-radius:15px; margin-bottom:5px;margin-top:5px">
+                        <div class="blog__image" style="margin-left: 0px;">
+                            <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank">
+                                <div style="background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%); width:100%; height:80px;border-radius:15px 15px 0px 0px"></div>   
+                                <!-- <img src="{ url('storage/'.$ps->id.'/banner/'.$ps->banner) }}" width="100%" alt="" height="100px" style="position: relative; z-index: 5; top: 0px; border: 3px solid #fff" class="shad"> -->
+                            </a>
+                        </div>
+                        <div>
+                            <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank">
+                                <img src="{{ url('storage/'.$ps->id.'/logo/'.$ps->perfil) }}" alt="" height="90px" width="90px" class="shad" style="position: relative; z-index: 6; top: -50px; border: 3px solid #fff; background: #fff; border-radius: 50%">
+                            </a>
+                        </div>
+                        <div class="blog__content" style="margin-top: -60px">
+                            <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank"><span class="regular13" style="color: #333333; display: inline-block"><strong>{{ $ps->name}}</strong></span><br><br></a>
+                            <div class="row"> 
+                                <?php $prods = $prodsxtienda[$i]; ?>
+                                @foreach ($prods as $prod)
+                                    <?php $imagen = null;?>
+                                    <?php $imagen = $prod->imagen_productos->first(); //solo una imagen x producto?>
+                                    @if($imagen != null)
+                                        <a href="{{ url('producto/'.$prod->id.'/detailProd')}}" style="margin:auto">                                       
+                                            <img src="{{ asset('storage/'.$ps->id.'/'.$prod->id.'/'.$imagen->imagen) }}" alt="" style="border: 2px solid #fff; margin: auto; border-radius: 10%" class="imgp shad">
+                                        </a>
                                     @endif
-                                @endif
-                        @endif
-                    @endif
-                @endforeach
+                                @endforeach
+                            </div>
+                            <br>
+                            <a href="{{ url('/puesto/'.$ps->id.'/detail') }}" target="_blank"><span class="regular13" style="color: #ff1a00;">Ver tienda</span></a>
+                        </div>
+                    </div>
+                @endif
+            @endfor
         </div>
     </div>
     <div style="position:absolute; left:0; right:0">    
@@ -143,9 +129,9 @@
     </div>
 </div>
 
-<div class="feature container colw" style="background: #FFF;padding:10px; margin-top: 60px" id="ella">
+<div class="feature container colw" style="background: #FFF; margin-top: 60px" id="ella">
     <div class="col-12" style="height:50px; background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%);padding: 15px; border-radius:7px">
-        <span class="bold20" style="color: #FFF; text-align:left">Centros Comerciales<a class="xlight12" style="color: #FFF" href="{{ url('centroscomerciales/all') }}"> Ver todos</a></span>
+        <span class="bold16" style="color: #FFF; text-align:left">Centros Comerciales<a class="xlight12" style="color: #FFF" href="{{ url('centroscomerciales/all') }}"> Ver todos</a></span>
     </div>
     <div id="centros" class="feature__wrap" style="border-radius: 15px; margin-bottom: 30px">
         @foreach($cccc as $cc)
@@ -164,17 +150,25 @@
   </div>
 <!-- start centros comerciales OJO "cccc=centros comerciales"-->
 <!-- end centros comerciales -->
-<!--Start Product-->
-<div class="shopProduct" style="background: #FFF;z-index: -1">
-    <div class="shopProduct__wrap dflex container" >
-        <div class="product__item col-lg-12 col-12">
 
-            <ul class="filterProduct gridRow" id="mostrar">
-                
+<!--Start Product-->
+<div class="singleProduct ajaxProduct featureProduct section6" style="background: #fff; border-radius: 20px; margin-top: 20px; padding-top: 10px;z-index: -1" id="ocultar101">
+    <div class="feature__filter container colw">
+        <div class="col-12" style="height:50px; background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%);padding: 15px; border-radius:7px" id="ocultar102">
+            <span class="bold16" style="color: rgb(255, 255, 255)187, 187, 187); text-align:left">Resultados<a class="xlight12" style="color: #ffffff" href="{{ url('productos') }}"> Ver productos</a></span>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="tabs">
+            <ul class="featureSlider">
+                <li id="mostrar" class="features__grid active">
+                </li>
             </ul>
         </div>
     </div>
 </div>
+
 
 <!-- Sin Resultados -->
 <div class="shopProduct" id="resultado" style="z-index: -1">
@@ -232,6 +226,8 @@
         
         $mostrarcategoria = $('#categoria');
         $resultado.hide();
+        $('#ocultar101').hide();
+        $('#ocultar102').hide();
         //onloadPuesto('feriaTacna');
         $('#mostrar').hide();
         $('ul#tags li').click( function() {
@@ -275,6 +271,9 @@
                 $('#ocultarBanner3').show();
                 $('#ocultar89').show();
                 $('#ocultarBanner4').show();
+                $('#ocultar100').show();
+                $('#ocultar101').hide();
+                $('#ocultar102').hide();
                 $tiendas.show();
                 $ella.show();
                 $tiendas2.show();
@@ -286,6 +285,7 @@
                 $tiendas.hide();
                 $tiendas2.hide();
                 $('#ocultarBanner').hide();
+                $('#ocultar100').hide();
                 $('#ocultarBanner2').hide();
                 $('#ocultar89').hide();
                 $('#ocultarBanner3').hide();
@@ -294,6 +294,8 @@
                 $('#categoria').hide();
                 $('#prod').hide();
                 $ella.hide();
+                $('#ocultar101').show();
+                $('#ocultar102').show();
                 $('#mostrar').show();
             }
         });
@@ -380,19 +382,31 @@
             }
             data.forEach(productos => {
                 htmlOptions += 
-                `<li class="product__item">`+
-                    `<div class="product__image"><a href="{{ url('/producto/${productos.id}/detailProd') }}" target="black"><img src="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}" alt=""></a>`+
-                        `<div class="image__tools"><i class="fas fa-search"></i>`+
-                            `<i class="fas fa-random"></i>`+
-                            `<i class="far fa-heart"></i>`+
+                `<div class="features__item col-lg-3 col-sm-4 col-6 shad" style="margin:auto; margin-bottom: 10px; border-radius: 15px">`+
+                    `<div class="features__image" style="border-radius: 15px">`+
+                        `<a href="{{ url('/producto/${productos.id}/detailProd') }}" target="_blank">`+
+                        `<img class="imgh" src="{{ asset('storage/${productos.puesto}/${productos.id}/${productos.image}') }}"  width="100%" alt="" style="border: 5px solid #fff; border-radius: 15px">`+
+                        `</a>`+
+                        `<div class="precio1" style="padding:5px;position: absolute; bottom:0;right:0px;background-color:#fff">`+
+                            `<span class="bold15" style="color:#ff1a00"><strong>S/.${productos.precio}</strong></span>`+
                         `</div>`+
                     `</div>`+
-                    `<div class="product__content" style="width:100%"><a class="link-title" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black" style="font-size:30px">${productos.name}</a>`+
-                        `<p class="price" style="font-size:25px">S./${productos.precio}</p>`+
-                        `<div class="color"></div>`+
-                        `<p style="font-size:15px">${ productos.description }</p><a class="btn active" href="{{ url('/producto/${productos.id}/detailProd') }}" target="black">Ver Producto</a>`+
+                    `<div class="features__content contenido">`+
+                        `<div class="row">`+
+                            `<div class="col-lg-9 col-sm-9 col-12">`+
+                                `<p class="fontn medium12" style="color: #333333; text-align:left">${productos.name}</p>`+
+                            `</div>`+
+                            `<div class="col-lg-3 col-sm-3 col-12 precio" style="padding-left:0px;padding-right:0px;">`+
+                                `<span class="bold15" style="color:#ff1a00"><strong>S/.${productos.precio}</strong></span>`+
+                            `</div>`+
+                        `</div>`+
+                        `<div class="control dflex" style="position:absolute;bottom: 3%; left: 0; right: 0">`+
+                            `<a href="#"><i class="far fa-heart"></i></a>`+
+                            `<a class="btn active" style="border-radius:3px; padding: 5px" href="{{ url('/puesto/${productos.puesto}/detail') }}"><span class="bold10">Visitar Tienda</span></a>`+
+                            `<a href="#"><i class="fas fa-cart-plus"></i></a>`+
+                        `</div>`+
                     `</div>`+
-                `</li>`;
+                `</div>`;
             });
             $mostrar.html(htmlOptions);
         }

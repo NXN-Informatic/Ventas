@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Grupo;
 use App\UsuarioPuesto;
 use App\Producto;
+use App\Puesto;
 use App\Subcategoria;
 use App\PuestoSubcategoria;
 use App\ImagenProducto;
@@ -69,6 +70,7 @@ class ProductoController extends Controller
         $files = $request->file('attachment');
         //dd($files);
         $puesto = $request->input('puesto');
+        
         $producto = $producto->id;
         foreach($files as $file){
             $name = $file->getClientOriginalName();
@@ -91,8 +93,9 @@ class ProductoController extends Controller
                 ]
             );
         }
-        
-        
+        $pst = Puesto::find($puesto);
+        $pst->completado = 1;
+        $pst->save();
         
         $notification = '¡Subida Exitosa! Añada más productos';
         return redirect('/producto/add')->with(compact('notification'));
@@ -265,7 +268,7 @@ class ProductoController extends Controller
                 );
             }
         }else{
-            $productos = Producto::where('name', 'like', '%'.$name.'%')->get();
+            $productos = Producto::where('name', 'like', '%'.$name.'%')->where('activo','1')->get();
             foreach($productos as $producto) {
                 $image = ImagenProducto::where('producto_id', $producto->id)->first();
                 $data[] = array(
