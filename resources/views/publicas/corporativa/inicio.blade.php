@@ -25,7 +25,9 @@
     <meta property="og:type" content="article" />
 
     <!-- Website Title -->
-    <title>Feria Tacna - negocios</title>
+    <title>Feria Tacna Negocios</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
 
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,600,700,700i&amp;subset=latin-ext" rel="stylesheet">

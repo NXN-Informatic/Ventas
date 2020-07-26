@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title') - FeriaTacna</title>
+    <title>@yield('title')</title>
 
     <meta property="og:title" content="@yield('ogTitle', 'FERIA TACNA.')"/>
     <meta property="og:site_name" content="FERIA TACNA"/>
