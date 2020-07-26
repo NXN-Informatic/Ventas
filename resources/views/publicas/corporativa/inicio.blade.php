@@ -73,13 +73,13 @@
                     <a class="nav-link page-scroll" href="javascript:void(0)">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="precios.html">Precios</a>
+                    <a class="nav-link page-scroll" href="javascript:void(0)">Precios</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link page-scroll" href="javascript:void(0)">Quienes Somos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="contacto.html">Contacto</a>
+                    <a class="nav-link page-scroll" href="javascript:void(0)">Contacto</a>
                 </li>
             </ul>
             <span class="nav-item social-icons">
