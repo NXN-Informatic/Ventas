@@ -123,7 +123,7 @@
                 <ul class="sub" id="tags">
                     <li value="0"><span class="regular10">TODOS</span></li>
                     @foreach($categorias as $categoria)
-                    <li value="{{ $categoria->id }}"><span class="regular10">{{ $categoria->name }}</span></li>
+                      <li value="{{ $categoria->id }}"><span class="regular10">{{ $categoria->name }}</span></li>
                     @endforeach
                 </ul>
             </li>
@@ -136,12 +136,12 @@
               <li class="header__list"><a href="{{ url('login') }}" style="color:#000"><span class="regular11" style="color: #000">Ingresar</span></a></li>
         </ul>
         <div class="ocultar1" style="text-align: right;">    
-          <a href="{{ url('register') }}">
+          <a href="{{ url('negocio') }}">
               <button class="btn" style="background:#ff1a00; border-radius:10px; font-weight: bold; border-color:#ff1a00"><strong class="medium11">Crea tu tienda</strong></button>  
           </a>
         </div>
         <div class="ocultar10" style="text-align: right;">    
-          <a href="{{ url('register') }}">
+          <a href="{{ url('negocio') }}">
               <button class="btn" style="background:#ff1a00; border-radius:10px;margin-left:3px; font-weight: bold; border-color:#ff1a00;padding: 1rem 1rem"><strong class="regular10">Crear<br>tienda</strong></button>  
           </a>
       </div>

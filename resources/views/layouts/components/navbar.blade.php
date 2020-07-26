@@ -6,7 +6,7 @@
         <input type="text" class="xlight12" placeholder="Buscar productos en Tacna"><i class="fas fa-search"></i>
     </div>
     <div style="text-align: right;">    
-        <a href="{{ url('register') }}">
+        <a href="{{ url('negocio') }}">
             <button class="btn" style="background:#bf0000; border-radius:10px; font-weight: bold; border-color:#bf0000"><strong class="medium11">Crear tienda</strong></button>  
         </a>
     </div>
@@ -18,7 +18,7 @@
         <ul class="tab__list active">
  
             <li class="tab__item"><a class="link" href="{{ url('/login') }}">Ingresar</a></li>
-            <li class="tab__item"><a class="link" href="{{ url('/register') }}">Registro</a></li>
+            <li class="tab__item"><a class="link" href="{{ url('/negocio') }}">Registro</a></li>
             
         </ul>
         <ul class="tab__list category" id="tags">

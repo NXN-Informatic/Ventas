@@ -49,9 +49,9 @@
                         </form>
                         <br>
                         <label>
-                            <a href="{{ route('register') }}">
+                            <a href="{{ route('negocio') }}">
                             <u><h5 style="text-align:right">
-                                {{ __('Crea una nueva cuenta en FeriaTacna?') }}
+                                {{ __('Crea una nueva cuenta en FeriaTacna!') }}
                             </h5>
                             </u>
                             </a>

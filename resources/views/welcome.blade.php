@@ -79,7 +79,7 @@
     </div>
 </div>
 
-<div class="blog container colw" style="background: #FFF; margin-top: 60px;" id="ocultar89">
+<div class="blog container colw" style="background: #FFF; margin-top: 30px;" id="ocultar89">
     <div class="col-12" style="height:50px; background: linear-gradient(85deg, #8f33ac 0%, #ff1a00 100%);padding: 15px; border-radius:7px">
         <span class="bold16" style="color: #FFF; text-align:left">Tiendas Destacadas<a class="xlight12" style="color: #FFF" href="{{ url('/tiendas/destacadas') }}"> Ver tiendas</a></span>
     </div>
