@@ -66,11 +66,8 @@
                             </a>
                         </div>
                         <br>
-                        @php
-                            $aux=1;
-                        @endphp
-                        @foreach($puestoSubcategorias as $puestoSubcategoria)
-                            <ul class="nav nav-pills card-header-pills pull-right" role="tablist">
+                        <ul class="nav nav-pills card-header-pills pull-right" role="tablist">
+                            @foreach($puestoSubcategorias as $puestoSubcategoria)
                                 @foreach($puestoSubcategoria->grupos as $grupos)
                                     @if($puestoSubcategoria->grupos->first()->id == $grupos->id)
                                         <li class="nav-itemr">
@@ -82,23 +79,20 @@
                                         </li>
                                     @endif
                                 @endforeach
-                                @if ($aux>0)
-                                    <a class="btn btn btn-outline-primary" style="margin-left:3px;border:0px" href="{{ url('categorias/editar') }}"><i class="fa fa-edit"></i></a>
-                                @endif
-                                @php
-                                    $aux=0;
-                                @endphp
-                            </ul>
-                            <br>
-                            <div class="tab-content">
+                            @endforeach
+                            <a class="btn btn btn-outline-primary" style="margin-left:3px;border:0px" href="{{ url('categorias/editar') }}"><i class="fa fa-edit"></i></a>
+                        </ul>
+                        <br>
+                        <div class="tab-content">
+                            @foreach($puestoSubcategorias as $puestoSubcategoria)
                                 @foreach($puestoSubcategoria->grupos as $grupos)
                                     @if($puestoSubcategoria->grupos->first()->id == $grupos->id)
                                         <div class="tab-pane fade show active" id="{{'tab-'.$grupos->id}}" role="tabpanel">
                                             <div class="row">
                                                 @foreach($grupos->productos as $producto)
-                                                    <div class="col-lg-6 col-sm-12 col-12 shad" style="background: #fff">
-                                                        <div class="row">
-                                                            <div class="col-lg-5 col-sm-12 col-12">
+                                                    <div class="col-lg-4 col-sm-6 col-12" style="background: #fff;padding:20px;">
+                                                        <div class="row shad" style="border-radius:10px">
+                                                            <div class="col-lg-5 col-sm-12 col-12" style="padding-left: 5px;padding-right:5px">
                                                                 @if(count($producto->imagen_productos) > 0)
                                                                     <div class="swiper-container">
                                                                         <div class="swiper-wrapper" >
@@ -159,56 +153,59 @@
                                     <div class="tab-pane fade" id="{{'tab-'.$grupos->id}}" role="tabpanel">
                                         <div class="row">
                                             @foreach($grupos->productos as $producto)
-                                                <div class="col-lg-6 col-sm-12" style="background: #fff">
-                                                    <div class="row">
-                                                        <div class="col-lg-5 col-sm-6">
+                                                <div class="col-lg-4 col-sm-6 col-12 " style="background: #fff;padding:20px;">
+                                                    <div class="row shad" style="border-radius:10px">
+                                                        <div class="col-lg-5 col-sm-12 col-12" style="padding-left: 5px;padding-right:5px">
                                                             @if(count($producto->imagen_productos) > 0)
                                                                 <div class="swiper-container">
-                                                                    <div class="swiper-wrapper">
+                                                                    <div class="swiper-wrapper" >
                                                                         @foreach($producto->imagen_productos as $imagenes)
-                                                                            <div class="swiper-slide text-center">
+                                                                            <div class="swiper-slide text-center" style="width: 100%; height: 240px;">
                                                                                 <a href="#">
-                                                                                    <img src="{{ asset('storage/'.$usuarioPuesto->puesto_id.'/'.$producto->id.'/'.$imagenes->imagen) }}" class="card-img-top mt-2" alt="Feria Tacna" style="width: 130px; height: 130px">
+                                                                                    <img src="{{ asset('storage/'.$usuarioPuesto->puesto_id.'/'.$producto->id.'/'.$imagenes->imagen) }}" alt="Feria Tacna" width="auto" height="auto" style="border: 5px solid #fff;max-height: 100%;
+                                                                                    max-width: 100%;
+                                                                                    height: auto;
+                                                                                    position: absolute;
+                                                                                    top: 0;
+                                                                                    bottom: 0;
+                                                                                    left: 0;
+                                                                                    right: 0;
+                                                                                    margin: auto;">
                                                                                 </a>
                                                                             </div>
                                                                         @endforeach
                                                                     </div>
-                                                                    <div class="swiper-pagination"></div>
+                                                                    <div class="custom-control custom-switch" style="position: absolute;
+                                                                    top: 5%;
+                                                                    right: 1%;
+                                                                    border: none;
+                                                                    cursor: pointer;
+                                                                    text-align: center;z-index:12">
+                                                                        <input id= "{{'prod'.$producto->id}}" data-id="{{$producto->id}}" onchange="myFunction({{$producto->id}})" value = {{$producto->activo}} class="custom-control-input" type="checkbox" {{ $producto->activo ? 'checked' : '' }}>
+                                                                        <label class="custom-control-label" for="{{'prod'.$producto->id}}" style="margin-left: 10px"></label>
+                                                                    </div>
                                                                 </div>
                                                             @endif
                                                         </div>
-                                                        <div class="col-lg-7 col-sm-6">
-                                                            <div class="col-12 text-right">
-                                                                <div class="custom-control custom-switch">
-                                                                    <input id= "{{'prod'.$producto->id}}" data-id="{{$producto->id}}" onchange="myFunction({{$producto->id}})" value = {{$producto->activo}} class="custom-control-input" type="checkbox" {{ $producto->activo ? 'checked' : '' }}>
-                                                                    <label class="custom-control-label" for="{{'prod'.$producto->id}}">Publicar</label>
-                                                                </div>
-                                                                <a href="{{ url('producto/'.$usuarioPuesto->id.'/editar/'.$producto->id) }}"><button type="button" class="btn mb-1 btn-secondary" style="margin-top: 7px">
-                                                                    <i class="fas fa-edit" title="Editar"></i><span style="margin-left: 7px; margin-right: 2px">Editar</span>
+                                                        <div class="col-lg-7 col-sm-12 col-12" style="margin: auto">
+                                                            <div class="col-lg-12 text-center">
+                                                                <p class="text-primary" style="font-size: 14px; margin-top:0px">{{$producto->name}}</p>
+                                                                <p class="text-primary" style="font-size: 18px; margin-top:-15px">S/. {{$producto->precio}}</p>
+                                                            </div>
+                                                            <div class="col-lg-12 text-center" style="margin-top:-15px;">
+                                                                <a href="{{ url('producto/'.$usuarioPuesto->id.'/editar/'.$producto->id) }}"><button type="button" class="btn btn-secondary btn-pill" style="margin-top: 0px; margin-left: 2px">
+                                                                    <i class="fas fa-pen" title="Editar"></i>
                                                                 </button></a>
-                                                                <a  href="javascript:void" onclick="$('{{'#delete-form'.$producto->id}}').submit();"><button type="button" class="btn btn-danger" style="margin-top: 7px">
+                                                                <a  href="javascript:void" onclick="$('{{'#delete-form'.$producto->id}}').submit();"><button type="button" class="btn btn-danger btn-pill" style="margin-top: 0px; margin-left: 4px">
                                                                     <i class="fas fa-times" title="Eliminar"></i>
                                                                 </button></a>
-                                                            </div>
-                                                            <div class="row">
-                                                                <table class="table table-sm my-2">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <th>Nombre</th>
-                                                                            <td>{{ $producto->name }}</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <th>Precio</th>
-                                                                            <td>{{ $producto->precio }}</td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
                                                             </div>
                                                             <form id="{{'delete-form'.$producto->id}}" action="{{ url('/producto/'.$producto->id.'/delete') }}" method="POST" style="display: none;">
                                                                 @csrf
                                                                 @method('PUT')
                                                                 <input type="hidden" name="puesto_id" value="{{ $usuarioPuesto->puesto_id }}">
                                                             </form>
+                                                            <br>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -217,8 +214,8 @@
                                     </div>
                                     @endif
                                 @endforeach
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>

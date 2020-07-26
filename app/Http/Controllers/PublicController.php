@@ -83,22 +83,18 @@ class PublicController extends Controller
             /*$puesto->cencom_id = $request->input('cencom');*/
             
             if($subcategorias != null) {
-                $aux = 1;
                 foreach($subcategorias as $subcategoria) {
                     $ps = PuestoSubcategoria::create([
                         "puesto_id"         =>  $puesto->id,
                         "subcategoria_id"   =>  $subcategoria
                     ]);
                     $subcat=Subcategoria::find($subcategoria);
-                    if($aux>0){
-                        Grupo::create([
-                            "name" => $subcat->name,
-                            'descripcion' => "Categoria por defecto",
-                            'puestosubcategoria_id' => $ps->id,
-                            'activo' => 1
-                        ]);
-                        $aux=$aux-1;
-                    }
+                    Grupo::create([
+                        "name" => $subcat->name,
+                        'descripcion' => "Categoria por defecto",
+                        'puestosubcategoria_id' => $ps->id,
+                        'activo' => 1
+                    ]);
                 }
                 UsuarioPuesto::create([
                     'usuario_id' => auth()->user()->id,

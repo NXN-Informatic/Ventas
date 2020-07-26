@@ -72,14 +72,9 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-12">
                                     <a href="{{ route('social_auth' , ['driver' => 'google']) }}" class="btn btn-google btn-lg mt-2 btn-block">
                                         {{ __("Google") }} <i class="fa fa-google"></i>
-                                    </a>
-                                </div>
-                                <div class="col-6">
-                                    <a href="{{ route('social_auth' , ['driver' => 'twitter']) }}" class="btn btn-twitter btn-lg mt-2 btn-block">
-                                        {{ __("Twitter") }} <i class="fa fa-twitter"></i>
                                     </a>
                                 </div>
                             </div>
