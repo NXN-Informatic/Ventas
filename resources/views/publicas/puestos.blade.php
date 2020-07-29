@@ -1,6 +1,6 @@
 @extends('layouts.panel')
 
-@section('title','Puestos')
+@section('title'){{ $puesto->name }}@endsection
 @section('ogTitle'){{ $puesto->name }}@endsection
 @section('ogUrl'){{ 'http://feriatacna.com/puesto/'.$puesto->id.'/detail' }}@endsection
 @section('ogDesc'){{ $puesto->description }}@endsection
@@ -32,13 +32,13 @@
                 </div>
                 <div class="row" style="bottom: 0; right:15%; position: absolute">
                     @if($puesto->wsp)
-                        <a href="{{ url('https://api.whatsapp.com/send?phone=51'.$puesto->wsp.'&text=Hola!%20Pasé%20por%20tu%20tienda%20y%20tengo%20una%20consulta:%20') }}" target="_blank" class="btn btnb" style="background-color: #25d366; border-color: #25d366; "><i class="fas icofont-brand-whatsapp icono" style="color: #fff"></i></a>
+                        <a href="{{ url('https://api.whatsapp.com/send?phone=51'.$puesto->wsp.'&text=Hola!%20Pasé%20por%20tu%20tienda%20y%20tengo%20una%20consulta:%20') }}" target="_blank" class="btn btnb" style="background-color: #25d366; border-color: #25d366;z-index:100 "><i class="fas icofont-brand-whatsapp icono" style="color: #fff"></i></a>
                     @endif
                     @if($puesto->fbpageid)
-                        <a href="{{ url('#') }}" target="_blank" class="btn btnb" style="background-color: #0084ff; border-color: #0084ff;"><i class="fas icofont-facebook-messenger icono" style="color: #fff"></i></a>
+                        <a href="{{ url('#') }}" target="_blank" class="btn btnb" style="background-color: #0084ff; border-color: #0084ff;z-index:100"><i class="fas icofont-facebook-messenger icono" style="color: #fff"></i></a>
                     @endif
                     @if($puesto->fbpage)
-                        <a href="{{ $puesto->fbpage ? $puesto->fbpage:'#'}}" target="_blank" class="btn btnb" style="background-color: #3b5998; border-color: #3b5998;"><i class="fas icofont-facebook icono" style="color: #fff"></i></a>
+                        <a href="{{ $puesto->fbpage ? $puesto->fbpage:'#'}}" target="_blank" class="btn btnb" style="background-color: #3b5998; border-color: #3b5998;z-index:100"><i class="fas icofont-facebook icono" style="color: #fff"></i></a>
                     @endif
                 </div>
             </div>
