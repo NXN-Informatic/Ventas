@@ -71,23 +71,24 @@ class ProductoController extends Controller
         //dd($files);
         $puesto = $request->input('puesto');
         
-        $producto = $producto->id;
         foreach($files as $file){
             $name = $file->getClientOriginalName();
             if(strlen($name)> 49){
                 $name = substr($name,40);
             }
-            $fileName = 'public/'.$puesto.'/'.$producto.'/'.$name;
-            $fname = 'storage/'.$puesto.'/'.$producto.'/'.$name;
-            $imagenurl = 'https://feriatacna.com/storage/'.$puesto.'/'.$producto.'/'.$name;
+            $fileName = 'public/'.$puesto.'/'.$producto->id.'/'.$name;
+            $fname = 'storage/'.$puesto.'/'.$producto->id.'/'.$name;
+            $imagenurl = 'https://feriatacna.com/storage/'.$puesto.'/'.$producto->id.'/'.$name;
             //indicamos que queremos guardar un nuevo archivo en el disco local
+            $producto->imagen_url = $imagenurl;
+            $producto->save();
             \Storage::disk('local')->put($fileName,  \File::get($file));
             Image::make($fname)->resize(1200, 1200, function ($constraint) {$constraint->aspectRatio(); $constraint->upsize();
             })->save($fname);
            
             ImagenProducto::create(
                 [
-                    'producto_id'    => $producto,
+                    'producto_id'    => $producto->id,
                     'imagen'   => $name,
                     'imagen_url'    => $imagenurl
                 ]
