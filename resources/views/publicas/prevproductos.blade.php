@@ -19,6 +19,9 @@
             </div>
             <div class="features__content contenido">
                 <div class="row">
+                    <span class="light11" style="color: #000; text-align:left;margin-left:15px">{{$producto->grupo->name}}</span>
+                </div>
+                <div class="row">
                     <div class="col-lg-9 col-sm-9 col-12">
                         <p class="fontn bold12" style="color: #333333; text-align:left">{{$producto->name }}</p>
                     </div>
