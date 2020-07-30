@@ -62,22 +62,37 @@
                     <div class="swiper-container shad2" style="background-color: #fff;border-radius:20px;">
                         <div class="swiper-wrapper">
                             <!-- Imagen Productos -->
-                            @foreach($producto->imagen_productos as $imagenes)
-                              <div class="swiper-slide prodh" style="width: 100%;">
-                                  <a href="#">
-                                      <img src="{{ asset('storage/'.$puesto->id.'/'.$producto->id.'/'.$imagenes->imagen) }}" width="auto" height="auto" style="border: 5px solid #fff;max-height: 100%;
-                                      max-width: 100%;
-                                      height: auto;
-                                      position: absolute;
-                                      top: 0;
-                                      bottom: 0;
-                                      left: 0;
-                                      right: 0;
-                                      margin: auto;
-                                      border-radius:15px;">
-                                  </a>
-                              </div>
-                            @endforeach
+                            <?php $imgprods = $producto->imagen_productos; ?>
+                            @if (count($imgprods) > 0)
+                                @foreach($producto->imagen_productos as $imagenes)
+                                    <div class="swiper-slide prodh" style="width: 100%;">
+                                        <img src="{{ asset('storage/'.$puesto->id.'/'.$producto->id.'/'.$imagenes->imagen) }}" width="auto" height="auto" style="border: 5px solid #fff;max-height: 100%;
+                                        max-width: 100%;
+                                        height: auto;
+                                        position: absolute;
+                                        top: 0;
+                                        bottom: 0;
+                                        left: 0;
+                                        right: 0;
+                                        margin: auto;
+                                        border-radius:15px;">
+                                    </div>
+                                @endforeach
+                            @else
+                                <div class="swiper-slide prodh" style="width: 100%;">
+                                    <img src="{{ asset('img/nodisponible.png') }}" width="auto" height="auto" style="border: 5px solid #fff;max-height: 100%;
+                                    max-width: 100%;
+                                    height: auto;
+                                    position: absolute;
+                                    top: 0;
+                                    bottom: 0;
+                                    left: 0;
+                                    right: 0;
+                                    margin: auto;
+                                    border-radius:15px;">
+                                </div>
+                            @endif
+                            
                         </div>
                         <div class="swiper-pagination"></div>
                         <div class="swiper-button-prev"></div>
