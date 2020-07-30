@@ -267,16 +267,16 @@ box-shadow: 0px 1px 14px -7px rgba(0,0,0,1);
         display:none;
     }
     .contenido{
-        height: 70px;
-        padding-top: 7px;
+        height: 77px;
+        padding-top: 5px;
     }
     .contenido1{
-        height: 70px;
-        padding-top: 7px;
+        height: 72px;
+        padding-top: 5px;
     }
     @media (max-width: 600px) {
         .contenido{
-            height: 50px;
+            height: 53px;
             padding-top: 0px;
         }
         .contenido1{
