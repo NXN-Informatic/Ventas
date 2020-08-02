@@ -77,7 +77,7 @@ Route::group(['middleware' => 'auth'], function () {
      * CLIENTE
      */
 
-    
+    Route::get('/postear', 'GraphController@publishToPage');
 
     // Rutas de Cliente => Perfil de Usuario
     Route::get('/user', 'Cliente\UserController@edit');

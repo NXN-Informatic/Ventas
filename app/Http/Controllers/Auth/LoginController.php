@@ -44,7 +44,12 @@ class LoginController extends Controller
     }
 
     public function redirectToProvider (string $driver) {
-        return Socialite::driver($driver)->redirect();
+        if($driver == 'facebook'){
+            return Socialite::driver('facebook')->scopes([
+                "publish_actions, manage_pages", "publish_pages"])->redirect();
+        }else{
+            return Socialite::driver($driver)->redirect();
+        }
     }
 
     public function handleProviderCallback (string $driver){
@@ -68,7 +73,8 @@ class LoginController extends Controller
                 $user = User::create([
                     "name" => ($socialUser->name != null)? $socialUser->name : 'user',
                     "email" => ($email != null)? $email : '',
-                    "role" => 'Propietario'
+                    "role" => 'Propietario',
+                    "token" => $socialUser->token
                 ]);
                 UserSocialAccount::create([
                     "user_id" => $user->id,
